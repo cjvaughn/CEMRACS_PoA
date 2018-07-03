@@ -265,7 +265,28 @@ Note that $c^{MFG}(t)=a^{MFG}(t)+b^{MFG}(t)$. The solution of the mean field gam
 \end{equation}
 with initial condition $X_0=\xi$, a random variable with finite mean and variance, and terminal condition $Y_T=(q_T+\bar{q}_T)X_T-\bar{q}_Ts_T\mathbb{E}X_T$.
 
-This is a linear FBSDE of McKean-Vlasov type, which can be solved explicitly under mild assumptions (or at least in the case of time-independent coefficients which we will consider later. See Appendix \ref{appendix_solving_fbsdes}). Let $\bar{\eta}_t^{MFG}$, $\eta_t^{MFG}$, $\bar{x}_t^{MFG}$, and $v^{MFG}_t$  denote the solutions for this problem as described in the appendix so that $Y_t=\eta_t^{MFG}X_t+(\bar{\eta}_t^{MFG}-\eta_t^{MFG})\bar{x}_t^{MFG}$, $\mathbb{E}(Y_t)=\bar{\eta}_t^{MFG}\bar{x}_t^{MFG}$, $\mathbb{E}(X_t)=\bar{x}_t^{MFG}$, and $Var(X_t)=v^{MFG}_t$ provide a solution to the LQEMFG problem. Let $SC^{MFG}:=SC(\phi)$ for the feedback function specified by this solution, i.e.
+This is a linear FBSDE of McKean-Vlasov type, which can be solved explicitly under mild assumptions (or at least in the case of time-independent coefficients which we will consider later. See Appendix \ref{appendix_solving_fbsdes}). Let $\bar{\eta}_t^{MFG}$, $\eta_t^{MFG}$, $\bar{x}_t^{MFG}$, and $v^{MFG}_t$ denote the solutions for this problem as described in the appendix so that $Y_t=\eta_t^{MFG}X_t+(\bar{\eta}_t^{MFG}-\eta_t^{MFG})\bar{x}_t^{MFG}$, $\mathbb{E}(Y_t)=\bar{\eta}_t^{MFG}\bar{x}_t^{MFG}$, $\mathbb{E}(X_t)=\bar{x}_t^{MFG}$, and $Var(X_t)=v^{MFG}_t$ provide a solution to the LQEMFG problem. Then from the appendix, we have:
+
+ToDo
+\begin{equation*}
+\begin{split}
+\dot{\bar{\eta}}^{MFG}_t+(a^y_t+a^{\bar{y}}_t) (\bar{\eta}^{MFG}_t)^2+(a^x_t+a^{\bar{x}}_t-b^y_t-b^{\bar{y}}_t) \bar{\eta}^{MFG}_t -b^x_t-b^{\bar{x}}_t&=0,\\
+\bar{\eta}^{MFG}_T-c^x-c^{\bar{x}}&=0,
+\end{split}
+\end{equation*}
+\begin{equation*}
+\begin{split}
+\dot{\eta}^{MFG}_t+a^y_t(\eta^{MFG}_t)^2+(a^x_t-b^y_t)\eta^{MFG}_t-b^x_t&=0, \\
+\eta^{MFG}_T&=c^x,
+\end{split}
+\end{equation*}
+\begin{equation*}
+\bar{x}^{MFG}_t=\mathbb{E}(\xi) e^{\int_0^t(a^x_u+a^{\bar{x}}_u+(a^y_u+a^{\bar{y}}_u)\bar{\eta}^{MFG}_u)du},
+\end{equation*}
+\begin{equation*}
+v_t=Var(\xi)e^{\int_0^t 2(a^x_s+a^y_s\eta^{MFG}_s)ds}+\sigma^2 \int_0^t e^{2 \int_s^t (a^x_u+a^y_u\eta^{MFG}_u) du}ds.
+\end{equation*}
+Let $SC^{MFG}:=SC(\phi)$ for the feedback function specified by this solution, i.e.
 \begin{equation*}
     \phi(t,x)=a^{MFG}(t)\eta_t^{MFG}x+\left(a^{MFG}(t)(\bar{\eta}_t^{MFG}-\eta_t^{MFG})+b^{MFG}(t)\bar{\eta}_t^{MFG} \right)\bar{x}_t^{MFG}.
 \end{equation*}
@@ -287,7 +308,7 @@ and:
 \end{equation*}
 
 \subsection{\textbf{Linear Quadratic Control of McKean-Vlasov Type Involving the Law of the Control}}\label{sec:EMKV}
-To solve the linear quadratic optimal control problem of McKean Vlasov type involving the law of the control (LQEMKV), we begin with the reduced Hamiltonian, which is the same as in the LQEMFG problem:
+To solve the linear quadratic optimal control problem of McKean-Vlasov type involving the law of the control (LQEMKV), we begin with the reduced Hamiltonian, which is the same as in the LQEMFG problem:
 \begin{equation*}
 \begin{split}
     H(t,x,\bar{\mu},\alpha,\bar{\nu},y)=&(b_1(t)x+\bar{b}_1(t)\bar{\mu}+b_2(t) \alpha+\bar{b}_2(t)\bar{\nu})y\\
@@ -335,7 +356,28 @@ So the solution of the optimal control problem of McKean-Vlasov type is given by
 \end{equation}
 with initial condition $X_0=\xi$, and terminal condition $Y_T=(q_T+\bar{q}_T)X_T+s_T\bar{q}_T(s_T-2)\mathbb{E}X_T$.
 
-As in the previous section, this is a linear FBSDE of McKean-Vlasov type, which can be solved explicitly under mild assumptions (or at least in the case of time-independent coefficients which we will consider later. See Appendix \ref{appendix_solving_fbsdes}). Let $\bar{\eta}_t^{MKV}$, $\eta_t^{MKV}$, $\bar{x}_t^{MKV}$, and $v^{MKV}_t$  denote the solutions for this problem as described in the appendix so that $Y_t=\eta_t^{MKV}X_t+(\bar{\eta}_t^{MKV}-\eta_t^{MKV})\bar{x}_t^{MKV}$, $\mathbb{E}(Y_t)=\bar{\eta}_t^{MKV}\bar{x}_t^{MKV}$, $\mathbb{E}(X_t)=\bar{x}_t^{MKV}$, and $Var(X_t)=v^{MKV}_t$ provide a solution to the LQEMKV problem. Then $SC^{MKV}=SC(\phi)$ where $\phi$ is the feedback function specified by this solution, i.e.
+As in the previous section, this is a linear FBSDE of McKean-Vlasov type, which can be solved explicitly under mild assumptions (or at least in the case of time-independent coefficients which we will consider later. See Appendix \ref{appendix_solving_fbsdes}). Let $\bar{\eta}_t^{MKV}$, $\eta_t^{MKV}$, $\bar{x}_t^{MKV}$, and $v^{MKV}_t$ so that $Y_t=\eta_t^{MKV}X_t+(\bar{\eta}_t^{MKV}-\eta_t^{MKV})\bar{x}_t^{MKV}$, $\mathbb{E}(Y_t)=\bar{\eta}_t^{MKV}\bar{x}_t^{MKV}$, $\mathbb{E}(X_t)=\bar{x}_t^{MKV}$, and $Var(X_t)=v^{MKV}_t$ provide a solution to the LQEMKV problem. Then from the appendix, we have:
+
+ToDo
+\begin{equation*}
+\begin{split}
+\dot{\bar{\eta}}^{MKV}_t+(a^y_t+a^{\bar{y}}_t) (\bar{\eta}^{MKV}_t)^2+(a^x_t+a^{\bar{x}}_t-b^y_t-b^{\bar{y}}_t) \bar{\eta}^{MKV}_t -b^x_t-b^{\bar{x}}_t&=0,\\
+\bar{\eta}^{MKV}_T-c^x-c^{\bar{x}}&=0,
+\end{split}
+\end{equation*}
+\begin{equation*}
+\begin{split}
+\dot{\eta}^{MKV}_t+a^y_t(\eta^{MKV}_t)^2+(a^x_t-b^y_t)\eta^{MKV}_t-b^x_t&=0, \\
+\eta^{MKV}_T&=c^x,
+\end{split}
+\end{equation*}
+\begin{equation*}
+\bar{x}^{MKV}_t=\mathbb{E}(\xi) e^{\int_0^t(a^x_u+a^{\bar{x}}_u+(a^y_u+a^{\bar{y}}_u)\bar{\eta}^{MKV}_u)du},
+\end{equation*}
+\begin{equation*}
+v_t=Var(\xi)e^{\int_0^t 2(a^x_s+a^y_s\eta^{MKV}_s)ds}+\sigma^2 \int_0^t e^{2 \int_s^t (a^x_u+a^y_u\eta^{MKV}_u) du}ds.
+\end{equation*}
+Then $SC^{MKV}=SC(\phi)$ where $\phi$ is the feedback function specified by this solution, i.e.
 \begin{equation*}
     \phi(t,x)=a^{MKV}(t)\eta_t^{MKV}x+\left(a^{MKV}(t)(\bar{\eta}_t^{MKV}-\eta_t^{MKV})+b^{MKV}(t)\bar{\eta}_t^{MKV} \right)\bar{x}_t^{MKV}.
 \end{equation*}
@@ -559,14 +601,6 @@ If $B^u\neq 0$, $B^u D^u \geq 0$ and $B^uC^u >0$, we have (see equation (\ref{eq
 	\label{eq:riccati_ut_sol}
 \end{equation}
 where $\delta^\pm_u = -A^u \pm \sqrt{(A^u)^2 + B^u C^u}$. We have analogous expressions for $w_t$ and $\eta_t$ in terms of $\delta^\pm_w$ and $\delta^\pm_{\eta}$, respectively. Note that $B^u=B^w=:B$.
-
-\begin{corollary}
-    Assuming (\ref{eq:assumptions}), if $\bar{b}_1=0$ and $\lambda=1$, then $PoA=1$.
-\end{corollary}
-\begin{proof}
-    Under these assumptions, $(A^u,C^u,D^u)=(A^w,C^w,D^w)$, and thus $(u_t)_{0\leq t\leq T}=(w_t)_{0\leq t\leq T}$. Thus, $\Delta \bar{\eta}_t=0,\ \forall t \in [0,T]$. By Proposition \ref{prop:diff_SC}, $\Delta SC=0$. It can be shown that $w_0\geq0$. Since $v_t>0$ for $t>0$, clearly $SC^{MKV}>0$. Therefore, $PoA=1$.
-\end{proof}
-
 
 \begin{proposition}
 	Assuming (\ref{eq:assumptions}),
@@ -1080,7 +1114,7 @@ The first equation is a Riccati equation. Note that $\bar{\chi}_t$ solves a firs
 \end{equation*}
 and thus,
 \begin{equation*}
-    \bar{x}_t=\bar{x}_0 e^{\int_0^t(a^x_u+a^{\bar{x}}_u+(a^y_u+a^{\bar{y}}_u)\bar{\eta}_u)du}.
+    \bar{x}_t=\mathbb{E}(\xi) e^{\int_0^t(a^x_u+a^{\bar{x}}_u+(a^y_u+a^{\bar{y}}_u)\bar{\eta}_u)du}.
 \end{equation*}
 
 Once we have computed $(\bar{x}_t)_{0\leq t\leq T}$, we can rewrite the original FBSDE system:
