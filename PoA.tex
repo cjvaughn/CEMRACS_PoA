@@ -96,10 +96,10 @@ We also assume that if and when interactions between these states and controls a
 \begin{equation*}
     dX^i_t=b(t,X^i_t,\mu^N_t,\alpha^i_t,\nu^N_t)dt+\sigma dW_t.
 \end{equation*}
-We work over the interval $[0,T]$ limited by a finite time horizon $T \in \mathbb{R}^+$. We assume the drift function $b(t,x,\mu,\alpha,\nu): [0,T] \times \mathbb{R} \times \cP(\mathbb{R}) \times \mathbb{A} \times \cP(\mathbb{A})  \rightarrow \mathbb{R}$ is Lipschitz in each of it's inputs. For the sake of simplicity, we assume that the volatility, $\sigma$, is a positive constant.
+We work over the interval $[0,T]$ limited by a finite time horizon $T \in \mathbb{R}^+$. We assume the drift function $b:[0,T] \times \mathbb{R} \times \cP(\mathbb{R}) \times \mathbb{A} \times \cP(\mathbb{A}) \ni (t,x,\mu,\alpha,\nu)  \rightarrow \mathbb{R}$ is Lipschitz in each of it's inputs. For the sake of simplicity, we assume that the volatility, $\sigma$, is a positive constant.
 
 \subsubsection*{\textbf{Cost Functionals}}
-We assume that we are given two functions $f(t,x,\mu,\alpha, \nu): [0,T] \times \mathbb{R} \times \cP(\mathbb{R}) \times \mathbb{A} \times \cP(\mathbb{A}) \rightarrow \mathbb{R}$ and $g(x,\mu):\mathbb{R}\times \cP(\mathbb{R}) \rightarrow \mathbb{R}$ which we call running and terminal cost functions, respectively. We assume $f$ and $g$ are Lipschitz in each of it's arguments. The goal of player $i$ is to minimize its expected cost as given by:
+We assume that we are given two functions $f:[0,T] \times \mathbb{R} \times \cP(\mathbb{R}) \times \mathbb{A} \times \cP(\mathbb{A}) \ni (t,x,\mu,\alpha, \nu) \rightarrow \mathbb{R}$ and $g:\mathbb{R}\times \cP(\mathbb{R}) \ni (x,\mu) \rightarrow \mathbb{R}$ which we call running and terminal cost functions, respectively. We assume $f$ and $g$ are Lipschitz in each of their arguments. The goal of player $i$ is to minimize its expected cost as given by:
 \begin{equation*}
 J^i(\balpha^1,\cdots,\balpha^N)=\EE\bigg[\int_0^Tf(t,X^i_t,\mu^N_{t},\alpha^i_t,\nu^N_{t})\,dt +g(X^i_T,\mu^{N}_{T})\bigg].
 \end{equation*}
@@ -145,30 +145,30 @@ The two problems are detailed more precisely in Sections \ref{sub:MFG_formulatio
 
 \subsection{\textbf{Nash Equilibrium: Mean Field Game Formulation}}
 \label{sub:MFG_formulation}
-The goal of this subsection is to articulate what is meant by a feedback function providing a mean field game equilibrium. To begin, we define what we call the \textit{mean field environment}. By symmetry of the players, we suppose all of the players in the mean field use the same feedback function, $\phi$. Then the \textit{mean field environment} specified by $\phi$ is characterized by $\cL(X^{\phi}_t)_{0\le t\le T}$ and $\cL(\phi(t,X^{\phi}_t))_{0\le t\le T}$ where the dynamics of $(X^{\phi}_t)_{0\le t\le T}$ are given by equation (\ref{eq:X}). Since we search for a Nash equilibrium, we consider a representative agent who wishes to find their best response, $\phi'$, to the mean field environment specified by $\phi$, in which case their state is given by $\boldsymbol{X^{\phi',\phi}}=(X^{\phi',\phi}_t)_{0\le t\le T}$ solving the standard stochastic differential equation:
+The goal of this subsection is to articulate what is meant by a feedback function providing a mean field game equilibrium. To begin, we define what we call the \textit{mean field environment}. By symmetry of the players, we suppose all of the players in the mean field game use the same feedback function, $\phi$. Then the \textit{mean field environment} specified by $\phi$ is characterized by $\cL(X^{\phi}_t)_{0\le t\le T}$ and $\cL(\phi(t,X^{\phi}_t))_{0\le t\le T}$ where the dynamics of $(X^{\phi}_t)_{0\le t\le T}$ are given by equation (\ref{eq:X}). Since we search for a Nash equilibrium, we consider a representative agent who wishes to find their best response, $\phi'$, to the mean field environment specified by $\phi$, in which case their state is given by $\boldsymbol{X^{\phi',\phi}}=(X^{\phi',\phi}_t)_{0\le t\le T}$ solving the standard stochastic differential equation:
 \begin{equation*}
-    dX^{\phi',\phi}_t=b(t,X^{\phi',\phi}_t,\cL(X^{\phi}_t),\phi'(t,X^{\phi',\phi}_t),\cL(\phi(t,X^{\phi}_t))dt+\sigma dW_t.
+    dX^{\phi',\phi}_t=b(t,X^{\phi',\phi}_t,\cL(X^{\phi}_t),\phi'(t,X^{\phi',\phi}_t),\cL(\phi(t,X^{\phi}_t)))dt+\sigma dW_t.
 \end{equation*}
 Consider the function:
 \begin{equation*}
-    \cS(\phi',\phi)=\biggl[\int_0^T<f(t,\cdot,\cL(X^{\phi}_t),\phi'(t,\cdot),\cL(\phi(t,X^{\phi}_t)),\cL(X^{\phi',\phi}_t)> dt +<g(\cdot,\cL(X^{\phi}_T)),\cL(X^{\phi',\phi}_t)>\biggr].
+    \cS(\phi',\phi)=\biggl[\int_0^T<f(t,\cdot,\cL(X^{\phi}_t),\phi'(t,\cdot),\cL(\phi(t,X^{\phi}_t)),\cL(X^{\phi',\phi}_t))> dt +<g(\cdot,\cL(X^{\phi}_T)),\cL(X^{\phi',\phi}_t)>\biggr].
 \end{equation*}
 The best response for the representative agent in the mean field environment specified by $\phi$ is the feedback function minimizing this cost, namely $\phi^*=\arg\inf_{\phi'}\cS(\phi',\phi)$. Assuming the minimizer is unique (which will be the case for the models we consider), this defines a mapping $\Phi:\phi \rightarrow \phi^*$. If there is a $\hat{\phi}$ such that $\Phi(\hat{\phi})=\hat{\phi}$, then the players are in a mean field game equilibrium.
 
 
 Thus, the search for a feedback function providing a mean field game equilibrium can be summarized as the following set of two successive steps:
 \begin{enumerate}
-\item For each feedback function $\phi:[0,T] \times \mathbb{R} \rightarrow \mathbb{R}$, solve the optimal control problem
+\item For each feedback function $\phi:[0,T] \times \mathbb{R} \ni (t,x) \rightarrow \mathbb{R}$, solve the optimal control problem
 \begin{equation*}
     \phi^*=\arg \inf_{\phi'}\cS(\phi',\phi).
 \end{equation*}
-Define the mapping $\Phi:\phi \rightarrow \phi^*$.
+Define the mapping $\Phi(\phi):=\phi^*$.
 \item Find a fixed point $\hat{\phi}$ of $\Phi$ such that $\Phi(\hat{\phi})=\hat{\phi}$.
 \end{enumerate}
 
 When these two steps can be taken successfully, we say that $\hat{\phi}$ provides a mean field game equilibrium. Note that $\boldsymbol{X^{\hat{\phi},\hat{\phi}}}=\boldsymbol{X^{\hat{\phi}}}$ and therefore $\cS(\hat{\phi},\hat{\phi})=SC(\hat{\phi})$ gives the social cost for the mean field game equilibrium provided by $\hat{\phi}$. Notice that there could possibly be many feedback functions providing a mean field game equilibrium. Let $\mathcal{N}$ denote the set of all such feedback functions providing mean field game equilibria, as detailed above, i.e.
 \begin{equation*}
-    \mathcal{N}=\{\phi:[0,T] \times \mathbb{R} \rightarrow \mathbb{R}: \Phi(\phi)=\phi \}.
+    \mathcal{N}=\{\phi:[0,T] \times \mathbb{R} \ni (t,x) \rightarrow \mathbb{R}\ |\ \Phi(\phi)=\phi \}.
 \end{equation*}
 
 \subsection{\textbf{Centralized Control: Optimal Control of McKean-Vlasov Type}}\label{sub:MKV_formulation}
@@ -231,11 +231,11 @@ and whenever the flows $\bmubar=(\bar{\mu}_t)_{0\leq t\leq T}$ and $\bnubar=(\ba
     Y_T&=\partial_xg(X_T, \cL(X_T)).
 \end{split}
 \end{equation*}
-A sufficient condition for optimality is $\partial_{\alpha}H(t,X_t,\bar{\mu}_t,\hat{\alpha}_t,\bar{\nu}_t,y)=0$. According to the Pontryagin stochastic maximum principle, we introduce the function:
+According to the Pontryagin stochastic maximum principle, a sufficient condition for optimality is $\partial_{\alpha}H(t,X_t,\bar{\mu}_t,\hat{\alpha}_t,\bar{\nu}_t,y)=0$. We introduce the function:
 \begin{equation*}
     \hat{\alpha}(t,x,\bar{\mu},\bar{\nu},y)=\frac{\bar{r}(t)\bar{s}(t)\bar{\nu}-b_2(t)y}{r(t)+\bar{r}(t)},
 \end{equation*}
-and use the control $\hat{\alpha}_t=\hat{\alpha}(t,x,\bar{\mu},\bar{\nu},Y_t)$. When solving the fixed point step, we identify $\bar{\nu}_t=\mathbb{E}(\hat{\alpha}_t)$. By taking the expectation, we find:
+and use the control $\hat{\alpha}_t=\hat{\alpha}(t,X_t,\bar{\mu},\bar{\nu},Y_t)$. When solving the fixed point step, we identify $\bar{\nu}_t=\mathbb{E}(\hat{\alpha}_t)$. By taking the expectation, we find:
 \begin{equation*}
     \mathbb{E}(\hat{\alpha}_t)=c^{MFG}(t)\mathbb{E}(Y_t)
 \end{equation*}
@@ -255,7 +255,7 @@ and:
 \begin{equation*}
     b^{MFG}(t)=-\frac{\bar{r}(t)\bar{s}(t)b_2(t)}{(r(t)+\bar{r}(t))(r(t)+\bar{r}(t)(1-\bar{s}(t)))}.
 \end{equation*}
-So the solution of the mean field game equilibrium problem is given by the solution to the FBSDE system:
+Note that $c^{MFG}(t)=a^{MFG}(t)+b^{MFG}(t)$. The solution of the mean field game equilibrium problem is given by the solution to the FBSDE system:
 \begin{equation}
 \begin{split}
         dX_t&=\left(b_1(t)X_t+\bar{b}_1(t) \mathbb{E}X_t+a^{MFG}(t)b_2(t)Y_t+(b^{MFG}(t)b_2(t)+c^{MFG}(t)\bar{b}_2(t))\mathbb{E}Y_t\right)dt+\sigma dW_t \\
@@ -499,7 +499,7 @@ Let's denote the (weighted) difference between the solutions of the Riccati equa
 			=& \frac{1}{2} \left[ \Delta\bar{\eta}_0 \bar{x}_0^2 - \Delta\bar{\eta}_T (\bar{x}_T^{MFG})^2 + \int_0^T \beta_t (\bar{x}_t^{MFG})^2 dt \right] \\
 			=& \frac{1}{2} \int_0^T \left[ - \frac{d (\Delta\bar{\eta}_t (\bar{x}_t^{MFG})^2) }{dt}  + \left( 	\frac{d( \Delta{\bar{\eta}}_t)}{dt} - \gamma_t \Delta\bar{\eta}_t  \right)(\bar{x}_t^{MFG})^2 \right] dt\\
 			=& \frac{1}{2}\int_0^T \left[- 2\Delta{\bar{\eta}}_t \bar{x}_t^{MFG} \dot{\bar{x}}_t^{MFG} - \gamma_t \Delta{\bar{\eta}}_t (\bar{x}_t^{MFG})^2 \right]dt \\
-			=& \frac{1}{2} \int_0^T \Delta{\bar{\eta}}_t (\bar{x}_t^{MFG})^2 \left[-2(b_1 + \bar{b}_1 - \frac{(b_2+\bar{b}_2)^2}{r + \bar{r}(1-\bar{s})^2} \lambda \bar{\eta}_t^{MFG}) - \gamma_t)\right] dt\\
+			=& \frac{1}{2} \int_0^T \Delta{\bar{\eta}}_t (\bar{x}_t^{MFG})^2 \left[-2(b_1 + \bar{b}_1 - \frac{(b_2+\bar{b}_2)^2}{r + \bar{r}(1-\bar{s})^2} \lambda \bar{\eta}_t^{MFG}) - \gamma_t\right] dt\\
 			=& \frac{1}{2} \frac{(b_2 + \bar{b}_2)^2}{r + \bar{r}(1-\bar{s})^2} \int_0^T (\Delta \bar{\eta}_t \cdot \bar{x}_t^{MFG})^2 dt
 		\end{split}
 	\end{equation*}
@@ -525,7 +525,7 @@ PoA =1+ \frac{\Delta SC}{SC^{MKV}}= 1 +  \frac{ \displaystyle   \frac{(b_2 + \ba
 \end{proof}
 
 
-We study in the following the variation of $PoA$ by letting one of the coefficients tends to $0$ or to $\infty$. It will be useful for us to note here the scalar Riccati equations associated with $u_t := \lambda \bar{\eta}_t^{MFG}$, $w_t := \bar{\eta}_t^{MKV}$ and $\eta_t$:
+We study in the following the variation of $PoA$ by letting one of the coefficients tend to $0$ or to $\infty$. It will be useful for us to note here the scalar Riccati equations associated with $u_t := \lambda \bar{\eta}_t^{MFG}$, $w_t := \bar{\eta}_t^{MKV}$ and $\eta_t$:
     \begin{equation}
 		\dot{u}_t - 2A^u u_t - B u_t^2 + C^u =0 \qquad u_T = D^u
 		\label{eq:riccati_ut}
@@ -606,7 +606,7 @@ where $\delta^\pm_u = -A^u \pm \sqrt{(A^u)^2 + B^u C^u}$. We have analogous expr
 	\begin{equation*}
 		\lim_{r \to \infty} \int_0^T (\Delta \bar{\eta}_t \cdot \bar{x}_t^{MFG})^2 dt = \int_0^T (u^{\infty,r}_t- w^{\infty,r}_t)^2 (\bar{x}_t^{\infty,r,MFG})^2 dt \  < \infty.
 	\end{equation*}
-	By their explicit formulas, it can be shown that $w^{\infty,r}_0\geq0$ and $\lim_{r \to \infty}v_t >0$ for $t>0$ and therefore,
+	By their explicit formulas, it can be shown that $w^{\infty,r}_0\geq0$ and $v^{\infty,r}_0 >0$ for $t>0$ and therefore,
 	\begin{equation*}
 		\lim_{r \to \infty} SC^{MKV} = \int_0^T (q+\bar{q}) v^{\infty,r}_t dt + (q_T + \bar{q}_T) v^{\infty,r}_T + w^{\infty,r}_0 \bar{x}_0^2 \  >0.
 	\end{equation*}
@@ -639,7 +639,7 @@ where $\delta^\pm_u = -A^u \pm \sqrt{(A^u)^2 + B^u C^u}$. We have analogous expr
     For $\bar{b}_2 \neq 0$, we have $\lambda \to 0 $ and
 	$$ B \to \frac{\bar{b}_2^2}{r + \bar{r}(1-\bar{s})^2}=:B^{0,b_2} >0,\ B^{\eta} \to 0,\ C^u \to 0,\ D^u \to 0.$$
 	
-	By taking the limit $b_2 \to 0$, we have $\delta^\pm_u = -A^u \pm \vert A^u \vert $ and $\delta^{+}_u - \delta^{-}_u = 2 \vert A^u \vert $. Thus, from equation (\ref{eq:riccati_ut_sol}) we deduce
+	By taking the limit $b_2 \to 0$, we have $\delta^\pm_u \to -A^u \pm \vert A^u \vert $ and $\delta^{+}_u - \delta^{-}_u \to 2 \vert A^u \vert $. Thus, from equation (\ref{eq:riccati_ut_sol}) we deduce
 	$$u_t \xrightarrow[b_2 \to 0 ]{} 0, \quad \forall t \in [0,T].$$
 	This implies that $\bar{x}_t^{MFG} \to \bar{x}_0 \exp((b_1+\bar{b}_1)t) =: \bar{x}_t^{0,b_2,MFG}$, which is bounded over $[0,T]$.
 	
