@@ -1,0 +1,1216 @@
+\documentclass[11pt]{article}
+\usepackage{fullpage}
+\usepackage[utf8]{inputenc}
+\usepackage{amssymb}
+\usepackage{amsmath}
+\usepackage{amsthm}
+\usepackage{amsfonts}
+\usepackage{graphicx}
+\usepackage{subcaption}
+\usepackage[toc,page]{appendix}
+
+\usepackage{epstopdf}
+\usepackage{comment}
+\usepackage[retainorgcmds]{IEEEtrantools}
+
+\newtheorem{remark}{Remark}
+\newtheorem{theorem}{Theorem}
+\newtheorem{proposition}{Proposition}
+\newtheorem{corollary}{Corollary}
+\newtheorem{lemma}{Lemma}
+
+\def\balpha{\boldsymbol{\alpha}}
+\def\bbeta{\boldsymbol{\beta}}
+\def\bgamma{\boldsymbol{\gamma}}
+\def\bmu{\boldsymbol{\mu}}
+\def\bnu{\boldsymbol{\nu}}
+\def\bmubar{\boldsymbol{\bar{\mu}}}
+\def\bnubar{\boldsymbol{\bar{\nu}}}
+\def\btheta{\boldsymbol{\theta}}
+
+\newcommand\cA{\mathcal A}
+\newcommand\cB{\mathcal B}
+\newcommand\cC{\mathcal C}
+\newcommand\cD{\mathcal D}
+\newcommand\cE{\mathcal E}
+\newcommand\cF{\mathcal F}
+\newcommand\cG{\mathcal G}
+\newcommand\cI{\mathcal I}
+\newcommand\cL{\mathcal L}
+\newcommand\cM{\mathcal M}
+\newcommand\cP{\mathcal P}
+\newcommand\cS{\mathcal S}
+\newcommand\cU{\mathcal U}
+\newcommand\cX{\mathcal X}
+\newcommand\cY{\mathcal Y}
+
+\newcommand\bF{\mathbf F}
+\newcommand\bN{\mathbf N}
+\newcommand\bX{\mathbf X}
+\newcommand\bY{\mathbf Y}
+
+\newcommand\bp{\mathbf p}
+
+\newcommand\EE{\mathbb E}
+\newcommand\FF{\mathbb F}
+\newcommand\PP{\mathbb P}
+\newcommand\NN{\mathbb N}
+\newcommand\RR{\mathbb R}
+\newcommand\TT{\mathbb T}
+\newcommand\ZZ{\mathbb Z}
+
+
+\title{Price of Anarchy for Mean Field Games}
+\author{
+Ren\'{e} Carmona\thanks{Operations Research and Financial Engineering, Princeton University, Partially supported by NSF \#DMS-1716673 and ARO \#W911NF-17-1-0578} 
+\and 
+Christy V. Graves\thanks{Program in Applied and Computational Mathematics, Princeton University, Partially supported by NSF \#DMS-1515753 and NSF GRFP}
+\and
+Zongjun Tan \thanks{Operations Research and Financial Engineering, Princeton University, Partially supported by NSF \#DMS-1515753} 
+}
+
+
+\begin{document}
+
+\maketitle
+
+\begin{abstract}
+    The price of anarchy, originally introduced to quantify the inefficiency of selfish behavior in routing games, is extended to mean field games. The price of anarchy is defined as the ratio of a worst case social cost computed for a mean field game equilibrium to the optimal social cost as computed by a central planner. We illustrate properties of such a price of anarchy on linear quadratic extended mean field games, for which explicit computations are possible. Various asymptotic behaviors of the price of anarchy are proved for limiting behaviors of the coefficients in the model and numerics are presented.
+\end{abstract}
+
+
+\section{\textbf{Introduction}} \label{se:introduction}
+The concept of the `price of anarchy' was introduced to quantify the inefficiency of selfish behavior in finite player games \cite{christodoulou2005price2}\cite{christodoulou2005price}\cite{koutsoupias1999worst}\cite{Roughgarden}\cite{roughgarden2002bad}\cite{zhu2010price}. In this report, we extend the notion of price of anarchy to mean field games (MFG). Mean field games were introduced by Lasry and Lions \cite{Lasry_Lions} and Caines and his collaborators \cite{Huang} to describe the limiting regime of large symmetric games when the number of players, $N$, tends to infinity. A mean field game equilibrium characterizes the analogue of a Nash equilibrium in the $N=\infty$ regime. Thus, as in the finite player case, it is possible that the mean field game equilibrium is inefficient. In fact, in the paper of Balandat and Tomlin \cite{balandat2013efficiency}, they present a numerical example that shows that mean field game equilibria are not efficient, in general. The suboptimality of a mean field game equilibrium is also illustrated numerically for a congestion model in a paper of Achdou and Lauri\`{e}re \cite{achdou2015system}. More recently Cardaliaguet and Rainer gave in \cite{pierre_poa} a partial differential equation based thorough analysis of the \emph{(in)efficiency} of the mean field game equilibria.
+
+In this report, the goal is to define the price of anarchy in the context of mean field games, and to compute it for a class of linear quadratic mean field game models, which can be solved explicitly. In fact, we consider an even more general class of games by allowing for interaction between the players through their controls, in addition to interaction through their states. This is often referred in the literature as extended mean field game, or mean field game of control. We compare the social cost of a mean field game equilibrium to the cost incurred when the players execute a strategy computed centrally.
+
+We consider a system of $N$ players whose private states are denoted at time $t$ by $X^1_t$, $X^2_t$, $\cdots$, $X^N_t$. To keep the presentations simple, we assume the state space is $\mathbb{R}$. We denote by $\mu^N_t$ the empirical distribution of the states, namely
+\begin{equation*}
+\mu^N_t=\frac1N\sum_{i=1}^N\delta_{X^i_t}.
+\end{equation*}
+We assume that these states evolve in continuous time under the influences of controls  $\alpha^1_t$, $\alpha^2_t$, $\cdots$ , $\alpha^N_t$ $\in \mathbb{A}$, where the set of admissible controls, $\mathbb{A}$, will be defined later. Let $\nu^N_{t}$ denote the empirical measure of the controls:
+\begin{equation*}
+\nu^N_t=\frac1N\sum_{i=1}^N\delta_{\alpha^i_t}.
+\end{equation*}
+We also assume that if and when interactions between these states and controls are present, they are of a mean field type, i.e. through $\mu^N_t$ and $\nu^N_t$. The time evolution of the state for player $i$ is given by the It\^{o} dynamics:
+\begin{equation*}
+    dX^i_t=b(t,X^i_t,\mu^N_t,\alpha^i_t,\nu^N_t)dt+\sigma dW_t.
+\end{equation*}
+We work over the interval $[0,T]$ limited by a finite time horizon $T \in \mathbb{R}^+$. We assume the drift function $b(t,x,\mu,\alpha,\nu): [0,T] \times \mathbb{R} \times \cP(\mathbb{R}) \times \mathbb{A} \times \cP(\mathbb{A})  \rightarrow \mathbb{R}$ is Lipschitz in each of it's inputs. For the sake of simplicity, we assume that the volatility, $\sigma$, is a positive constant.
+
+\subsubsection*{\textbf{Cost Functionals}}
+We assume that we are given two functions $f(t,x,\mu,\alpha, \nu): [0,T] \times \mathbb{R} \times \cP(\mathbb{R}) \times \mathbb{A} \times \cP(\mathbb{A}) \rightarrow \mathbb{R}$ and $g(x,\mu):\mathbb{R}\times \cP(\mathbb{R}) \rightarrow \mathbb{R}$ which we call running and terminal cost functions, respectively. We assume $f$ and $g$ are Lipschitz in each of it's arguments. The goal of player $i$ is to minimize its expected cost as given by:
+\begin{equation*}
+J^i(\balpha^1,\cdots,\balpha^N)=\EE\bigg[\int_0^Tf(t,X^i_t,\mu^N_{t},\alpha^i_t,\nu^N_{t})\,dt +g(X^i_T,\mu^{N}_{T})\bigg].
+\end{equation*}
+
+\subsubsection*{\textbf{Social Cost}}
+We restrict ourselves to Markovian control strategies $\balpha=(\alpha_t)_{0\le t\le T}$ given by feedback functions in the form $\alpha_t=\phi(t,X_{t})$ and we let $\mathbb{A}$ denote the set of such controls. If the $N$ players use distributed Markovian control strategies of the form $\alpha^i_t=\phi(t,X^i_t)$, we define the cost (per player) to the system as the quantity $J^{(N)}_\phi$:
+\begin{equation*}
+J^{(N)}_\phi=\frac1N\sum_{i=1}^NJ^i(\balpha^1,\cdots,\balpha^N).
+\end{equation*}
+We shall compute this social cost in the limit $N\to\infty$ when all the players use the distributed control strategies given by the same feedback function $\phi$ identified by solving an optimization problem in the limit $N\to\infty$. We take the social cost to be the limit as $N\to\infty$ of $J^{(N)}_\phi$, namely
+\begin{equation*}
+\begin{split}
+\lim_{N\to\infty}J^{(N)}_\phi
+&=\lim_{N\to\infty}\frac1N\sum_{i=1}^NJ^i(\balpha^1,\cdots,\balpha^N)\\
+&=\lim_{N\to\infty}\frac1N\sum_{i=1}^N\EE\bigg[\int_0^Tf(t,X^i_t,\mu^{N}_{t},\phi(t,X^i_t),\nu^{N}_{t})\,dt +g(X^i_T,\mu^{N}_{T})
+\bigg],\\
+&=\lim_{N\to\infty}\EE\bigg[\int_0^T<f(t,\,\cdot\,,\mu^{N}_{X_t},\phi(t,\,\cdot\,),\nu^{N}_{t}),\mu^N_{t}>\,dt +<g(\,\cdot\,,\mu^{N}_{X_T}),\mu^{N}_{T}>
+\bigg],
+\end{split}
+\end{equation*}
+if we use the notation $<\varphi,\rho>$ for the integral $\int \varphi(z)\rho(dz)$ of the function $\varphi$ with respect to the measure $\rho$. Now if we assume that in the limit $N\to\infty$ the empirical distributions $\mu^N_{t}$ converge toward a measure $\mu_t$, and thus $\nu^N_{t}=\frac1N\sum_{i=1}^N\delta_{\phi(t,X^i_t)}$ also converges toward a measure $\nu_t$, then the social cost of the feedback function $\phi$ becomes:
+\begin{equation*}
+SC(\phi)=\int_0^T<f(t,\,\cdot\,,\mu_t,\phi(t,\,\cdot\,),\nu_t),\mu_t>\,dt \;+\; <g(\,\cdot\,,\mu_T),\mu_T>
+\end{equation*}
+with the expectation, $\EE$, disappearing when the limiting flows $\bmu=(\mu_t)_{0\le t\le T}$ and $\bnu=(\nu_t)_{0\le t\le T}$ are deterministic.
+
+We would like to evaluate $SC(\phi)$ in the $N=\infty$ regime directly, without having to construct the deterministic measure flows $\bmu$ and $\bnu$ as limits of the finite player empirical measures. To do this, we assume that propagation of chaos holds and that the states of the $N$ players become asymptotically independent in the limit as $N \rightarrow \infty$. We consider a representative agent whose state is given by $\boldsymbol{X^{\phi}}=(X^{\phi}_t)_{0 \leq t \leq T}$, the continuous time solution of the stochastic differential equation of McKean-Vlasov type:
+\begin{equation}
+    dX^{\phi}_t=b(t,X^{\phi}_t,\cL(X^{\phi}_t),\phi(t,X^{\phi}_t),\cL(\phi(t,X^{\phi}_t))dt+\sigma dW_t
+\label{eq:X}
+\end{equation}
+controlled by $\phi$. Then we can identify $\bmu$ as the law of a representative agent using the feedback function $\phi$, i.e. $\mu_t=\cL(X^{\phi}_t)$, and similarly, we can identify $\bnu$ as the law of the control, such that $\nu_t=\cL(\phi(t,X^{\phi}_t))$. Thus, in the $N=\infty$ regime, we rewrite the social cost as
+\begin{equation*}
+SC(\phi)=\int_0^T<f(t,\,\cdot\,,\cL(X^{\phi}_t),\phi(t,\,\cdot\,),\cL(\phi(t,X^{\phi}_t))),\cL(X^{\phi}_t)>\,dt+<g(\,\cdot\,,\cL(X^{\phi}_T)),\cL(X^{\phi}_T)>
+\end{equation*}
+where $\boldsymbol{X^{\phi}}$ satisfies equation (\ref{eq:X}). For the remainder of the paper, we work in the $N=\infty$ regime. As mentioned earlier, $\phi$ should be identified by solving an optimal control problem. We consider two distinct problems:
+\begin{itemize}\itemsep=-2pt
+\item $\phi$ is a feedback function providing a mean field game equilibrium. We detail more precisely what is meant by $\phi$ providing a mean field game equilibrium in Section \ref{sub:MFG_formulation}.
+\item $\phi$ is the feedback function minimizing the social cost $SC(\phi)$, without having to be a mean field game equilibrium, in which case we use the notation $SC^{MKV}$ for $SC(\phi)$. This is a control problem of McKean-Vlasov type, which is detailed more precisely in Section \ref{sub:MKV_formulation}.
+\end{itemize}
+The two problems are detailed more precisely in Sections \ref{sub:MFG_formulation} and \ref{sub:MKV_formulation}. In Section \ref{Price_Of_Anarchy}, we define the price of anarchy based on these two problem formulations. The class of linear quadratic models is explored in Section \ref{sec:PoA_LQ}, where we provide some theoretical results on the price of anarchy for this class of games, show numerical results, and detail a particular example of flocking. We conclude in Section \ref{sec:conclusion}.
+
+
+\subsection{\textbf{Nash Equilibrium: Mean Field Game Formulation}}
+\label{sub:MFG_formulation}
+The goal of this subsection is to articulate what is meant by a feedback function providing a mean field game equilibrium. To begin, we define what we call the \textit{mean field environment}. By symmetry of the players, we suppose all of the players in the mean field use the same feedback function, $\phi$. Then the \textit{mean field environment} specified by $\phi$ is characterized by $\cL(X^{\phi}_t)_{0\le t\le T}$ and $\cL(\phi(t,X^{\phi}_t))_{0\le t\le T}$ where the dynamics of $(X^{\phi}_t)_{0\le t\le T}$ are given by equation (\ref{eq:X}). Since we search for a Nash equilibrium, we consider a representative agent who wishes to find their best response, $\phi'$, to the mean field environment specified by $\phi$, in which case their state is given by $\boldsymbol{X^{\phi',\phi}}=(X^{\phi',\phi}_t)_{0\le t\le T}$ solving the standard stochastic differential equation:
+\begin{equation*}
+    dX^{\phi',\phi}_t=b(t,X^{\phi',\phi}_t,\cL(X^{\phi}_t),\phi'(t,X^{\phi',\phi}_t),\cL(\phi(t,X^{\phi}_t))dt+\sigma dW_t.
+\end{equation*}
+Consider the function:
+\begin{equation*}
+    \cS(\phi',\phi)=\biggl[\int_0^T<f(t,\cdot,\cL(X^{\phi}_t),\phi'(t,\cdot),\cL(\phi(t,X^{\phi}_t)),\cL(X^{\phi',\phi}_t)> dt +<g(\cdot,\cL(X^{\phi}_T)),\cL(X^{\phi',\phi}_t)>\biggr].
+\end{equation*}
+The best response for the representative agent in the mean field environment specified by $\phi$ is the feedback function minimizing this cost, namely $\phi^*=\arg\inf_{\phi'}\cS(\phi',\phi)$. Assuming the minimizer is unique (which will be the case for the models we consider), this defines a mapping $\Phi:\phi \rightarrow \phi^*$. If there is a $\hat{\phi}$ such that $\Phi(\hat{\phi})=\hat{\phi}$, then the players are in a mean field game equilibrium.
+
+
+Thus, the search for a feedback function providing a mean field game equilibrium can be summarized as the following set of two successive steps:
+\begin{enumerate}
+\item For each feedback function $\phi:[0,T] \times \mathbb{R} \rightarrow \mathbb{R}$, solve the optimal control problem
+\begin{equation*}
+    \phi^*=\arg \inf_{\phi'}\cS(\phi',\phi).
+\end{equation*}
+Define the mapping $\Phi:\phi \rightarrow \phi^*$.
+\item Find a fixed point $\hat{\phi}$ of $\Phi$ such that $\Phi(\hat{\phi})=\hat{\phi}$.
+\end{enumerate}
+
+When these two steps can be taken successfully, we say that $\hat{\phi}$ provides a mean field game equilibrium. Note that $\boldsymbol{X^{\hat{\phi},\hat{\phi}}}=\boldsymbol{X^{\hat{\phi}}}$ and therefore $\cS(\hat{\phi},\hat{\phi})=SC(\hat{\phi})$ gives the social cost for the mean field game equilibrium provided by $\hat{\phi}$. Notice that there could possibly be many feedback functions providing a mean field game equilibrium. Let $\mathcal{N}$ denote the set of all such feedback functions providing mean field game equilibria, as detailed above, i.e.
+\begin{equation*}
+    \mathcal{N}=\{\phi:[0,T] \times \mathbb{R} \rightarrow \mathbb{R}: \Phi(\phi)=\phi \}.
+\end{equation*}
+
+\subsection{\textbf{Centralized Control: Optimal Control of McKean-Vlasov Type}}\label{sub:MKV_formulation}
+The goal of this subsection is to articulate how to compute the cost associated with the control problem of McKean-Vlasov type, $SC^{MKV}$. The central planner considers the following control problem:
+\begin{equation*}
+\begin{split}
+   \hat{\phi}&=\arg \inf_{\phi}SC(\phi) \\
+   &=\arg \inf_{\phi}\left[\int_0^T<f(t,\,\cdot\,,\cL(X^{\phi}_t),\phi(t,\,\cdot\,),\cL(\phi(t,X^{\phi}_t))),\cL(X^{\phi}_t)>\,dt \;+\; <g(\,\cdot\,,\cL(X^{\phi}_T)),\cL(X^{\phi}_T)>\right].
+\end{split}
+\end{equation*}
+Thus, the cost of the solution to the optimal control problem of McKean-Vlasov is given by
+\begin{equation*}
+    SC^{MKV}=SC(\hat{\phi}).
+\end{equation*}
+\begin{remark}
+We are not concerned with uniqueness for the control of McKean-Vlasov type problem, because $SC^{MKV}=SC(\phi_1)=SC(\phi_2)$ is still well defined even if there are two different optimal feedback functions $\phi_1$ and $\phi_2$ minimizing $SC(\phi)$.
+\end{remark}
+
+\subsection{\textbf{Price of Anarchy}}\label{Price_Of_Anarchy}
+We have described two approaches to compute the optimal feedback function $\phi$. In the mean field game formulation, we require $\phi \in \mathcal{N}$, where $\mathcal{N}$ denotes the set of feedback functions providing mean field game equilibria. In the optimal control of McKean-Vlasov type formulation, the optimal control to be adopted by all players is computed by a central planner, who optimizes the social cost function $SC(\phi)$ directly. Thus, we necessarily have:
+\begin{equation*}
+    SC^{MKV} \leq SC(\phi),\ \forall \phi \in \mathcal{N}.
+\end{equation*}
+In other words, there is a `price of anarchy' associated with allowing players to choose their controls selfishly. We thus define the price of anarchy (denoted $PoA$) as the ratio between the worst case cost for a mean field game equilibrium and the optimal cost computed by a central planner:
+\begin{equation*}
+    PoA=\frac{\sup_{\phi \in \mathcal{N}}SC(\phi)}{SC^{MKV}}.
+\end{equation*}
+
+\section{\textbf{Price of Anarchy for Linear Quadratic Extended Mean Field Games}}\label{sec:PoA_LQ}
+The class of linear quadratic extended mean field games is a class of problems for which explicit solutions can be computed analytically, and thus, we can compute the price of anarchy explicitly. To the best of our knowledge, the case of linear quadratic extended mean field games has not been explored in the literature, as well as computing the price of anarchy for this class of games.
+
+To begin, we need to describe in more detail the two problems that will be used to compute the price of anarchy: the linear quadratic extended mean field game, and the linear quadratic control problem of McKean-Vlasov type with dependence on the law of the control. To specify the problems, we only need to specify the drift and cost functions, $b$, $f$, and $g$ introduced in Section \ref{se:introduction}. For the linear quadratic models, we take the drift to be linear:
+\begin{equation*}
+    b(t,x,\mu,\alpha,\nu)=b_1(t)x+\bar{b}_1(t) \bar{\mu}+b_2(t) \alpha+\bar{b}_2(t) \bar{\nu},
+\end{equation*}
+where $\bar{\mu}$ denotes the mean of the measure $\mu$, namely, $\bar{\mu}=\int_{\mathbb{R}}xd\mu(x)$, and similarly for $\bar{\nu}$. We take the running and terminal costs to be quadratic:
+\begin{equation*}
+\begin{split}
+    f(t,x,\mu,\alpha,\nu)&=\frac{1}{2}\left(q(t)x^2+\bar{q}(t)(x-s(t)\bar{\mu})^2 +r(t)\alpha^2+\bar{r}(t)(\alpha-\bar{s}\bar{\nu})^2\right), \\
+    g(x,\mu)&=\frac{1}{2}\left(q_T x^2+\bar{q}_T (x-s_T \bar{\mu})^2\right).
+\end{split}
+\end{equation*}
+\begin{remark}
+If $\bar{b}_2(t)\equiv0$ and $\bar{r}(t)\equiv0$, then we have the standard mean field game or control problem of McKean-Vlasov type. (See Theorem \ref{th:exist_uniq} for assumptions that provide existence and uniqueness.)
+\end{remark}
+
+\subsection{\textbf{Linear Quadratic Extended Mean Field Games}}\label{sec:EMFG}
+To solve the linear quadratic extended mean field game (LQEMFG), we begin by considering the reduced Hamiltonian for this problem:
+\begin{equation*}
+\begin{split}
+    H(t,x,\bar{\mu},\alpha,\bar{\nu},y)=&(b_1(t)x+\bar{b}_1(t)\bar{\mu}+b_2(t) \alpha+\bar{b}_2(t)\bar{\nu})y \\
+    &+\frac{1}{2}\left(q(t)x^2+\bar{q}(t)(x-s(t)\bar{\mu})^2 +r(t)\alpha^2+\bar{r}(t)(\alpha-\bar{s}\bar{\nu})^2\right),
+\end{split}
+\end{equation*}
+and whenever the flows $\bmubar=(\bar{\mu}_t)_{0\leq t\leq T}$ and $\bnubar=(\bar{\nu}_t)_{0\leq t\leq T}$ are fixed, we consider for each control process $\balpha=(\alpha_t)_{0\leq t\leq T}$ the adjoint equation:
+
+\begin{equation*}
+\begin{split}
+    dY_t&=- \partial_x H(t,X_t,\bar{\mu}_t,\alpha_t,\bar{\nu}_t,Y_t)dt+Z_tdW_t \\
+    Y_T&=\partial_xg(X_T, \cL(X_T)).
+\end{split}
+\end{equation*}
+A sufficient condition for optimality is $\partial_{\alpha}H(t,X_t,\bar{\mu}_t,\hat{\alpha}_t,\bar{\nu}_t,y)=0$. According to the Pontryagin stochastic maximum principle, we introduce the function:
+\begin{equation*}
+    \hat{\alpha}(t,x,\bar{\mu},\bar{\nu},y)=\frac{\bar{r}(t)\bar{s}(t)\bar{\nu}-b_2(t)y}{r(t)+\bar{r}(t)},
+\end{equation*}
+and use the control $\hat{\alpha}_t=\hat{\alpha}(t,x,\bar{\mu},\bar{\nu},Y_t)$. When solving the fixed point step, we identify $\bar{\nu}_t=\mathbb{E}(\hat{\alpha}_t)$. By taking the expectation, we find:
+\begin{equation*}
+    \mathbb{E}(\hat{\alpha}_t)=c^{MFG}(t)\mathbb{E}(Y_t)
+\end{equation*}
+with:
+\begin{equation*}
+    c^{MFG}(t)=-\frac{b_2(t)}{r(t)+\bar{r}(t)(1-\bar{s}(t))}.
+\end{equation*}
+Thus, necessarily we must have:
+\begin{equation*}
+    \hat{\alpha}_t=a^{MFG}(t) Y_t+b^{MFG}(t)\mathbb{E}(Y_t)
+\end{equation*}
+with:
+\begin{equation*}
+    a^{MFG}(t)=-\frac{b_2(t)}{r(t)+\bar{r}(t)},
+\end{equation*}
+and:
+\begin{equation*}
+    b^{MFG}(t)=-\frac{\bar{r}(t)\bar{s}(t)b_2(t)}{(r(t)+\bar{r}(t))(r(t)+\bar{r}(t)(1-\bar{s}(t)))}.
+\end{equation*}
+So the solution of the mean field game equilibrium problem is given by the solution to the FBSDE system:
+\begin{equation}
+\begin{split}
+        dX_t&=\left(b_1(t)X_t+\bar{b}_1(t) \mathbb{E}X_t+a^{MFG}(t)b_2(t)Y_t+(b^{MFG}(t)b_2(t)+c^{MFG}(t)\bar{b}_2(t))\mathbb{E}Y_t\right)dt+\sigma dW_t \\
+        dY_t&=-\left((q(t)+\bar{q}(t))X_t-\bar{q}(t)s(t)\mathbb{E}X_t+b_1(t)Y_t \right)dt +Z_t dW_t
+\end{split}
+\label{eq:FBSDE_EMFG}
+\end{equation}
+with initial condition $X_0=\xi$, a random variable with finite mean and variance, and terminal condition $Y_T=(q_T+\bar{q}_T)X_T-\bar{q}_Ts_T\mathbb{E}X_T$.
+
+This is a linear FBSDE of McKean-Vlasov type, which can be solved explicitly under mild assumptions (or at least in the case of time-independent coefficients which we will consider later. See Appendix \ref{appendix_solving_fbsdes}). Let $\bar{\eta}_t^{MFG}$, $\eta_t^{MFG}$, $\bar{x}_t^{MFG}$, and $v^{MFG}_t$  denote the solutions for this problem as described in the appendix so that $Y_t=\eta_t^{MFG}X_t+(\bar{\eta}_t^{MFG}-\eta_t^{MFG})\bar{x}_t^{MFG}$, $\mathbb{E}(Y_t)=\bar{\eta}_t^{MFG}\bar{x}_t^{MFG}$, $\mathbb{E}(X_t)=\bar{x}_t^{MFG}$, and $Var(X_t)=v^{MFG}_t$ provide a solution to the LQEMFG problem. Let $SC^{MFG}:=SC(\phi)$ for the feedback function specified by this solution, i.e.
+\begin{equation*}
+    \phi(t,x)=a^{MFG}(t)\eta_t^{MFG}x+\left(a^{MFG}(t)(\bar{\eta}_t^{MFG}-\eta_t^{MFG})+b^{MFG}(t)\bar{\eta}_t^{MFG} \right)\bar{x}_t^{MFG}.
+\end{equation*}
+Then we can compute the social cost as described in Section \ref{sub:MFG_formulation}:
+\begin{equation*}
+\begin{split}
+    SC^{MFG}=&\frac{1}{2}[(q_T+\bar{q}_T)v_T^{MFG}+(q_T+\bar{q}_T(1-s_T)^2)(\bar{x}_T^{MFG})^2\\
+    &+\int_0^T (q_t+\bar{q}_t+(r_t+\bar{r}_t)(a^{MFG}(t)\eta_t^{MFG})^2)v_t^{MFG}\\
+    &+(q_t+\bar{q}_t(1-s_t)^2+(r_t+\bar{r}_t(1-\bar{s}_t)^2)(c^{MFG}(t)\bar{\eta}_t^{MFG})^2)(\bar{x}_t^{MFG})^2dt],
+\end{split}
+\end{equation*}
+where we have used the fact that:
+\begin{equation*}
+    \mathbb{E}(\phi(t,X_t))=c^{MFG}(t)\bar{\eta}_t^{MFG}\bar{x}_t^{MFG},
+\end{equation*}
+and:
+\begin{equation*}
+    Var(\phi(t,X_t))=(a^{MFG}(t)\eta_t^{MFG})^2v^{MFG}_t.
+\end{equation*}
+
+\subsection{\textbf{Linear Quadratic Control of McKean-Vlasov Type Involving the Law of the Control}}\label{sec:EMKV}
+To solve the linear quadratic optimal control problem of McKean Vlasov type involving the law of the control (LQEMKV), we begin with the reduced Hamiltonian, which is the same as in the LQEMFG problem:
+\begin{equation*}
+\begin{split}
+    H(t,x,\bar{\mu},\alpha,\bar{\nu},y)=&(b_1(t)x+\bar{b}_1(t)\bar{\mu}+b_2(t) \alpha+\bar{b}_2(t)\bar{\nu})y\\
+    &+\frac{1}{2}\left(q(t)x^2+\bar{q}(t)(x-s(t)\bar{\mu})^2 +r(t)\alpha^2+\bar{r}(t)(\alpha-\bar{s}\bar{\nu})^2\right).
+\end{split}
+\end{equation*}
+Since we require $\bar{\nu}_t$ to be equal to $\mathbb{E}(\alpha_t)$ throughout the optimization, it is not sufficient to minimize the Hamiltonian with respect to the $\alpha$ input alone in order to guarantee optimality. A sufficient condition for control problems of McKean-Vlasov type involving the law of the control is derived in \cite{cite_todo}. This sufficient condition is the following:
+$\hat{\alpha}(t,X_t,\bar{\mu},\bar{\nu},Y_t)$ should satisfy:
+\begin{equation*}
+    \partial_{\alpha}H(t,X_t,\mathbb{E}(X_t),\hat{\alpha}_t,\mathbb{E}(\hat{\alpha}_t),Y_t)+\tilde{\mathbb{E}} \left[\partial_{\bar{\nu}}H(t,\tilde{X}_t,\mathbb{E}(X_t),\hat{\alpha}_t,\mathbb{E}(\hat{\alpha}_t),\tilde{Y}_t)(X_t,\hat{\alpha}_t) \right]=0,
+\end{equation*}
+where the adjoint equation is given by:
+\begin{equation*}
+\begin{split}
+    dY_t&=-\left[\partial_x H(t,X_t,\bar{\mu}_t,\alpha_t,\bar{\nu}_t,Y_t)+\tilde{\mathbb{E}} \left[\partial_{\mu}H(t,\tilde{X}_t,\bar{\mu}_t,\tilde{\alpha}_t,\bar{\nu}_t,\tilde{Y}_t)(X_t,\alpha_t) \right] \right]dt+Z_tdW_t \\
+    Y_T&=\partial_xg(X_T, \cL(X_T))+\tilde{\mathbb{E}} \left[\partial_{\mu}g(\tilde{X}_T,\cL(X_T))(X_T) \right],
+\end{split}
+\end{equation*}
+where $(\boldsymbol{\tilde{X}},\boldsymbol{\tilde{Y}},\boldsymbol{\tilde{\alpha}})$ denotes an independent copy of $(\boldsymbol{X},\boldsymbol{Y},\boldsymbol{\alpha})$.
+
+
+In the present LQ case, the sufficient condition can be used to solve for:
+\begin{equation*}
+    \hat{\alpha}_t=a^{MKV}(t)Y_t+b^{MKV}(t)\mathbb{E}(Y_t),
+\end{equation*}
+and:
+\begin{equation*}
+    \mathbb{E}(\hat{\alpha}_t)=c^{MKV}(t)\mathbb{E}(Y_t),
+\end{equation*}
+with:
+\begin{equation*}
+\begin{split}
+    a^{MKV}(t)&=-\frac{b_2(t)}{r(t)+\bar{r}(t)} \\
+    b^{MKV}(t)&=-\frac{1}{r(t)+\bar{r}(t)}\left(\bar{b}_2(t)-\frac{\bar{r}(t)\bar{s}(t)(\bar{s}(t)-2)(b_2(t)+\bar{b}_2(t))}{r(t)+\bar{r}(t)(1-\bar{s}(t))^2} \right) \\
+    c^{MKV}(t)&=-\frac{b_2(t)+\bar{b}_2(t)}{r(t)+\bar{r}(t)(1-\bar{s}(t))^2}.
+\end{split}
+\end{equation*}
+So the solution of the optimal control problem of McKean-Vlasov type is given by the solution to the FBSDE system:
+\begin{equation}
+\begin{split}
+        dX_t=&\left(b_1(t)X_t+\bar{b}_1(t) \mathbb{E}X_t+a^{MKV}(t)b_2(t)Y_t+(b^{MKV}(t)b_2(t)+c^{MKV}(t)\bar{b}_2(t))\mathbb{E}Y_t\right)dt+\sigma dW_t \\
+        dY_t=&-\left((q(t)+\bar{q}(t))X_t+s(t)\bar{q}(t)(s(t)-2)\mathbb{E}X_t+b_1(t)Y_t+\bar{b}_1(t)\mathbb{E}Y_t\right)dt +Z_t dW_t
+\end{split}
+\label{eq:FBSDE_EMKV}
+\end{equation}
+with initial condition $X_0=\xi$, and terminal condition $Y_T=(q_T+\bar{q}_T)X_T+s_T\bar{q}_T(s_T-2)\mathbb{E}X_T$.
+
+As in the previous section, this is a linear FBSDE of McKean-Vlasov type, which can be solved explicitly under mild assumptions (or at least in the case of time-independent coefficients which we will consider later. See Appendix \ref{appendix_solving_fbsdes}). Let $\bar{\eta}_t^{MKV}$, $\eta_t^{MKV}$, $\bar{x}_t^{MKV}$, and $v^{MKV}_t$  denote the solutions for this problem as described in the appendix so that $Y_t=\eta_t^{MKV}X_t+(\bar{\eta}_t^{MKV}-\eta_t^{MKV})\bar{x}_t^{MKV}$, $\mathbb{E}(Y_t)=\bar{\eta}_t^{MKV}\bar{x}_t^{MKV}$, $\mathbb{E}(X_t)=\bar{x}_t^{MKV}$, and $Var(X_t)=v^{MKV}_t$ provide a solution to the LQEMKV problem. Then $SC^{MKV}=SC(\phi)$ where $\phi$ is the feedback function specified by this solution, i.e.
+\begin{equation*}
+    \phi(t,x)=a^{MKV}(t)\eta_t^{MKV}x+\left(a^{MKV}(t)(\bar{\eta}_t^{MKV}-\eta_t^{MKV})+b^{MKV}(t)\bar{\eta}_t^{MKV} \right)\bar{x}_t^{MKV}.
+\end{equation*}
+Then we can compute the social cost, denoted $SC^{MKV}$, as described in Section \ref{sub:MKV_formulation}:
+\begin{equation*}
+\begin{split}
+    SC^{MKV}=&\frac{1}{2}[(q_T+\bar{q}_T)v_T^{MKV}+(q_T+\bar{q}_T(1-s_T)^2)(\bar{x}_T^{MKV})^2\\
+    &+\int_0^T (q_t+\bar{q}_t+(r_t+\bar{r}_t)(a^{MKV}(t)\eta_t^{MKV})^2)v_t^{MKV}dt \\
+    &+\int_0^T(q_t+\bar{q}_t(1-s_t)^2+(r_t+\bar{r}_t(1-\bar{s}_t)^2)(c^{MKV}(t)\bar{\eta}_t^{MKV})^2)(\bar{x}_t^{MKV})^2dt],
+\end{split}
+\end{equation*}
+where we have used the fact that:
+\begin{equation*}
+    \mathbb{E}(\phi(t,X_t))=c^{MKV}(t)\bar{\eta}_t^{MKV}\bar{x}_t^{MKV},
+\end{equation*}
+and:
+\begin{equation*}
+    Var(\phi(t,X_t))=(a^{MKV}(t)\eta_t^{MKV})^2v^{MKV}_t.
+\end{equation*}
+
+\subsection{\textbf{Theoretical Results}}
+For the remainder of the paper, we assume the coefficients are independent of time and nonnegative:
+\begin{equation*}
+    (b_1(t), \bar{b}_1(t),b_2(t),\bar{b}_2(t),q(t),\bar{q}(t),r(t),\bar{r}(t),s(t),\bar{s}(t))=(b_1,\bar{b}_1,b_2,\bar{b}_2,q,\bar{q},r,\bar{r},s,\bar{s})\in (\mathbb{R}^+)^{10}
+\end{equation*}
+and therefore,
+\begin{equation*}
+\begin{split}
+    (a^{MFG}(t),b^{MFG}(t),c^{MFG}(t))&=(a^{MFG},b^{MFG},c^{MFG}) \\
+    (a^{MKV}(t) b^{MKV}(t),c^{MKV}(t))&=(a^{MKV},b^{MKV},c^{MKV}).
+\end{split}
+\end{equation*}
+
+\begin{theorem} \label{th:exist_uniq}
+Assume the following:
+\begin{equation}
+\begin{array}{rclcrclcrcl}
+    b_2 &>& 0 & & b_2 + \bar{b}_2 &>& 0 & & \\
+    r+\bar{r} &>&0 &&  r+\bar{r}(1-\bar{s}) &>&0 & & r+\bar{r}(1-\bar{s})^2 &>& 0 \\
+    q+\bar{q} &>& 0 && q + \bar{q}(1-s) &>& 0 & & q+ \bar{q}(1-s)^2 &>& 0 \\
+    q_T + \bar{q}_T &\geq& 0 & \quad & q_T + \bar{q}_T(1-s_T) &\geq& 0 & \quad & q_T + \bar{q}_T(1-s_T)^2 &\geq& 0
+\end{array}
+\label{eq:assumptions}
+\end{equation}
+then there exists a unique solution to the LQEMFG problem, and there exists a unique solution to the LQEMKV problem. And therefore, $PoA=\frac{SC^{MFG}}{SC^{MKV}}$ where $SC^{MFG}:=SC(\phi)$ for $\phi$ given by the explicit solution constructed in Appendix \ref{appendix_solving_fbsdes}.
+\end{theorem}
+
+\begin{remark}
+    Note that existence in Theorem \ref{th:exist_uniq} follows from the explicit construction in Appendix \ref{appendix_solving_fbsdes}, because the above conditions provide existence to the solutions of the Riccati equations. Uniqueness comes from the connection between LQEMFG or LQEMKV and deterministic LQ optimal control. (See Section 3.5.1 in \cite{Carmona_book}).
+\end{remark}
+
+To compute the price of anarchy, it is useful to make the following observations:
+\begin{equation*}
+\begin{split}
+    a^{MFG}&=a^{MKV}=:a \\
+    \eta_t^{MFG}&=\eta_t^{MKV}=:\eta_t \\
+    v_t^{MFG}&=v_t^{MKV}=:v_t
+\end{split}
+\end{equation*}
+
+\begin{proposition}
+Assuming (\ref{eq:assumptions}), if furthermore,
+\begin{equation*}
+\begin{split}
+    \left(s\bar{q}(s-1)+\bar{b}_1\bar{\eta}_t^{MKV}\right)\bar{x}_t^{MKV}&=0,\ \forall t \in [0,T] \\
+    \bar{\eta}_t^{MKV}\bar{x}_t^{MKV}\left[(b^{MFG}-b^{MKV})b_2+(c^{MFG}-c^{MKV})\bar{b}_2\right]&=0,\ \forall t \in [0,T] \\
+    s_T\bar{q}_T(s_T-1)\bar{x}_T^{MKV}&=0
+\end{split}
+\end{equation*}
+then $PoA=1$.
+\label{eq:lq_prop}
+\end{proposition}
+
+\begin{proof}
+    Comparing the FBSDE systems (\ref{eq:FBSDE_EMFG}) and (\ref{eq:FBSDE_EMKV}), the result is clear.
+\end{proof}
+
+\begin{corollary}
+Assuming (\ref{eq:assumptions}), if furthermore, $\bar{b}_1=0$, $s\bar{q}(s-1)=0$, and $s_T\bar{q}_T(s_T-1)=0$ and at least one of the following holds: $b_2=\bar{b}_2=0$ or $\frac{b_2(r+\bar{r}(1-\bar{s})^2)}{(b_2+\bar{b}_2)(r+\bar{r}(1-\bar{s}))}=1$
+then $PoA=1$.
+\label{corollary_1}
+\end{corollary}
+
+\begin{remark}
+The only result similar to Proposition \ref{eq:lq_prop} that we are aware of is Remark 6.1 in \cite{nourian2013nash}.
+\end{remark}
+
+Using the above observations, we can rewrite:
+\begin{equation}
+\begin{split}
+    SC^{MFG}=&\frac{1}{2}(q_T+\bar{q}_T)v_T+\frac{1}{2}\left(q_T+\bar{q}_T(1-s_T)^2\right)(\bar{x}_T^{MFG})^2+\frac{1}{2}\int_0^T (q+\bar{q}+(r+\bar{r})(a\eta_t)^2)v_tdt\\
+    &+\frac{1}{2}\int_0^T\left[q+\bar{q}(1-s)^2+(r+\bar{r}(1-\bar{s})^2)(c^{MFG}\bar{\eta}_t^{MFG})^2\right](\bar{x}_t^{MFG})^2dt,
+\end{split}
+\label{eq:SC_MFG_1}
+\end{equation}
+and:
+\begin{equation}
+\begin{split}
+    SC^{MKV}=&\frac{1}{2}(q_T+\bar{q}_T)v_T+\frac{1}{2}\left(q_T+\bar{q}_T(1-s_T)^2\right)(\bar{x}_T^{MKV})^2+ \frac{1}{2}\int_0^T (q+\bar{q}+(r+\bar{r})(a\eta_t)^2)v_tdt \\
+    &+\frac{1}{2}\int_0^T\left[q+\bar{q}(1-s)^2+(r+\bar{r}(1-\bar{s})^2)(c^{MKV}\bar{\eta}_t^{MKV})^2\right)](\bar{x}_t^{MKV})^2dt.
+\end{split}
+\label{eq:SC_MKV_1}
+\end{equation}
+
+In the following, we intend to simplify the explicit solutions (\ref{eq:SC_MFG_1}) and (\ref{eq:SC_MKV_1}) for the social costs in the LQEMFG and LQEMKV problems. First, we consider the last integral, where we drop the superscripts ${MFG}$ and ${MKV}$ to address both problems simultaneously. By using the Riccati equation associated with $\bar{\eta}_t$ and the equation $\dot{\bar{x}}_t = (a^x+a^{\bar{x}}+(a^y+a^{\bar{y}})\bar{\eta}_t)\bar{x}_t$ (see Appendix \ref{appendix_solving_fbsdes}), we notice that
+\begin{equation*}
+\begin{split}
+	&\int_0^T \bar{\eta}_t^2 \bar{x}_t^2 dt\\
+	=& - \frac{1}{c(b_2 + \bar{b}_2)} \left[ \int_0^T \dot{\bar{\eta}}_t \bar{x}_t^2 dt -  \int_0^T ( (b_1 + \bar{b}_1 - b^y - b^{\bar{y}}) \bar{\eta}_t - (b^x + b^{\bar{x}}) ) \bar{x}_t^2 dt \right]\\
+	= & - \frac{1}{c(b_2 + \bar{b}_2)} \left[ \bar{\eta}_T\bar{x}_T^2-\bar{\eta}_0\bar{x}_0^2-2\int_0^T\bar{\eta}_t\bar{x}_t\dot{\bar{x}}_t dt -  \int_0^T ( (b_1 + \bar{b}_1 - b^y - b^{\bar{y}}) \bar{\eta}_t - (b^x + b^{\bar{x}}) ) \bar{x}_t^2 dt \right] \\
+	= & 2 \int_0^T \bar{\eta}_t^2 \bar{x}_t^2  - \frac{1}{c(b_2 + \bar{b}_2)} \left[ \bar{\eta}_T \bar{x}_T^2 - \bar{\eta}_0 \bar{x}_0^2 - \int_0^T  ((b_1 + \bar{b}_1 + b^y + b^{\bar{y}} ) \bar{\eta}_t + (b^x + b^{\bar{x}}) ) \bar{x}_t^2 dt \right],
+\end{split}
+\end{equation*}
+where we applied integration by parts for the second equality. Thus, if we denote
+\begin{equation*}
+	\lambda := \frac{c^{MFG}}{c^{MKV}} = \frac{b_2}{b_2 + \bar{b}_2}\cdot \frac{ r + \bar{r}(1-\bar{s})^2 }{r + \bar{r}(1-\bar{s})}
+\end{equation*}
+the equations (\ref{eq:SC_MFG_1}) and (\ref{eq:SC_MKV_1}) can be rewritten as
+\begin{equation}
+\begin{split}
+	SC^{MFG} = & h_{var}(t) +  \frac{1}{2} \int_0^T \left[ \bar{b}_1 \lambda \bar{\eta}_t^{MFG} + (q+ \bar{q}(1-s)^2) - \lambda (q + \bar{q}(1-s)) \right] (\bar{x}_t^{MFG})^2 dt, \\
+	& + \frac{1}{2} \lambda \left( \bar{\eta}^{MFG}_0 \bar{x}_0^2 - \bar{\eta}^{MFG}_T (\bar{x}_T^{MFG})^2 \right) + \frac{1}{2} (q_T+\bar{q}_T(1-s_T)^2)(\bar{x}_T^{MFG})^2\\
+	SC^{MKV} = & h_{var}(t) + \frac{1}{2} \bar{\eta}^{MKV}_0 \bar{x}_0^2,
+\end{split}
+\label{eq:SC_MFG_MKV_2}
+\end{equation}
+where $ h_{var}(t): = \frac{1}{2}\int_0^T (q+\bar{q}+(r+\bar{r})(a\eta_t)^2)v_tdt + \frac{1}{2}(q_T+\bar{q}_T)v_T  $.
+
+Let's denote the (weighted) difference between the solutions of the Riccati equations associated with $\bar{\eta}_t^{MFG}$ and $\bar{\eta}_t^{MKV}$ by:
+\begin{equation}
+	\Delta \bar{\eta}_t = \lambda \bar{\eta}_t^{MFG} - \bar{\eta}_t^{MKV} .
+\label{eq:delta_eta}
+\end{equation} 
+
+\begin{proposition}
+	Under assumption (\ref{eq:assumptions}), the difference in the social costs in the LQEMFG and LQEMKV problems can be represented by
+	\begin{equation*}
+		\Delta SC := SC^{MFG} - SC^{MKV} =  \frac{1}{2} \frac{(b_2 + \bar{b}_2)^2}{r + \bar{r}(1-\bar{s})^2} \int_0^T (\Delta \bar{\eta}_t \cdot \bar{x}_t^{MFG})^2 dt.
+	\end{equation*}
+\label{prop:diff_SC}
+\end{proposition}
+\begin{proof}
+	The solutions $\bar{\eta}^{MFG}_t$ and $\bar{\eta}^{MKV}_t$ for the associated Riccati equations are well defined under assumption (\ref{eq:assumptions}). We notice that $\Delta\bar{\eta}_t$ defined in (\ref{eq:delta_eta}) satisfies the following first-order differential equation:
+	\begin{equation*}
+		\frac{d( \Delta{\bar{\eta}}_t)}{dt} = \gamma_t \Delta\bar{\eta}_t + \beta_t
+		\qquad \Delta{\bar{\eta}}_T = \lambda \bar{\eta}_T^{MFG} - \bar{\eta}_T^{MKV}
+	\end{equation*}
+	with coefficients 
+	\begin{equation*}
+	\left\{
+		\begin{array}{rcl}
+			\gamma_t &=& \displaystyle -2 b_1 - 2\bar{b}_1 + \frac{(b_2 + \bar{b}_2)^2}{r + \bar{r}(1-\bar{s})^2} \left(\lambda \bar{\eta}_t^{MFG} + \bar{\eta}_t^{MKV} \right),\\
+			\beta_t &=& \bar{b}_1 \lambda \bar{\eta}_t^{MFG} + (q + \bar{q}(1-s)^2) - \lambda (q + \bar{q}(1-s)).
+		\end{array}
+	\right.
+	\end{equation*} 
+	Since $q_T + \bar{q}_T(1-s_T)^2 = \bar{\eta}_T^{MKV}$ and $\lambda \bar{\eta}_0^{MFG} - \bar{\eta}_0^{MKV} = \Delta\bar{\eta}_0$, we deduce from the two equations in (\ref{eq:SC_MFG_MKV_2}) that:
+	\begin{equation*}
+		\begin{split}
+			& SC^{MFG} - SC^{MKV}\\
+			=& \frac{1}{2} \left[ \Delta\bar{\eta}_0 \bar{x}_0^2 - \Delta\bar{\eta}_T (\bar{x}_T^{MFG})^2 + \int_0^T \beta_t (\bar{x}_t^{MFG})^2 dt \right] \\
+			=& \frac{1}{2} \int_0^T \left[ - \frac{d (\Delta\bar{\eta}_t (\bar{x}_t^{MFG})^2) }{dt}  + \left( 	\frac{d( \Delta{\bar{\eta}}_t)}{dt} - \gamma_t \Delta\bar{\eta}_t  \right)(\bar{x}_t^{MFG})^2 \right] dt\\
+			=& \frac{1}{2}\int_0^T \left[- 2\Delta{\bar{\eta}}_t \bar{x}_t^{MFG} \dot{\bar{x}}_t^{MFG} - \gamma_t \Delta{\bar{\eta}}_t (\bar{x}_t^{MFG})^2 \right]dt \\
+			=& \frac{1}{2} \int_0^T \Delta{\bar{\eta}}_t (\bar{x}_t^{MFG})^2 \left[-2(b_1 + \bar{b}_1 - \frac{(b_2+\bar{b}_2)^2}{r + \bar{r}(1-\bar{s})^2} \lambda \bar{\eta}_t^{MFG}) - \gamma_t)\right] dt\\
+			=& \frac{1}{2} \frac{(b_2 + \bar{b}_2)^2}{r + \bar{r}(1-\bar{s})^2} \int_0^T (\Delta \bar{\eta}_t \cdot \bar{x}_t^{MFG})^2 dt
+		\end{split}
+	\end{equation*}
+	where we use the relationship $\dot{\bar{x}}_t = (a^x+a^{\bar{x}}+(a^y+a^{\bar{y}})\bar{\eta}_t)\bar{x}_t$ (see Appendix \ref{appendix_solving_fbsdes}) for the fourth equality.	
+	
+\end{proof}
+
+\begin{remark}
+	We can see directly from Proposition \ref{prop:diff_SC} that the social cost in the LQEMFG problem is larger than (or possibly equal to) the social cost in the LQEMKV problem. This result is consistent with the definition of the price of anarchy in Section \ref{Price_Of_Anarchy}.
+\end{remark}
+
+Therefore, under assumption (\ref{eq:assumptions}), the price of anarchy for the LQ model is given by 
+\begin{equation}
+PoA =1+ \frac{\Delta SC}{SC^{MKV}}= 1 +  \frac{ \displaystyle   \frac{(b_2 + \bar{b}_2)^2}{r + \bar{r}(1-\bar{s})^2}  \int_0^T (\Delta \bar{\eta}_t \cdot \bar{x}_t^{MFG})^2 dt }{\displaystyle \int_0^T \left[q+\bar{q} + \frac{b_2^2}{r+\bar{r}} \eta_t^2 \right] v_t dt + (q_T + \bar{q}_T) v_T + \bar{\eta}_0^{MKV} \bar{x}_0^2}.
+\label{eq:PoA_LQ}
+\end{equation}\\
+
+\begin{corollary}
+    Assuming (\ref{eq:assumptions}), if the initial condition $\xi$ is such that $\mathbb{E}(\xi)=0$, then $PoA=1$.
+\end{corollary}
+\begin{proof}
+    By the explicit equation for $\bar{x}_t$ (see Appendix \ref{appendix_solving_fbsdes}), $\bar{x}_0=0$ implies $\bar{x}_t=0,\ \forall t \in [0,T]$. Therefore by Proposition \ref{prop:diff_SC}, $\Delta SC=0$. From the explicit formula for the variance, $h_{var}(t)>0$ and therefore by equation (\ref{eq:SC_MFG_MKV_2}), $SC^{MKV}>0$. Therefore, $PoA=1$.
+\end{proof}
+
+
+We study in the following the variation of $PoA$ by letting one of the coefficients tends to $0$ or to $\infty$. It will be useful for us to note here the scalar Riccati equations associated with $u_t := \lambda \bar{\eta}_t^{MFG}$, $w_t := \bar{\eta}_t^{MKV}$ and $\eta_t$:
+    \begin{equation}
+		\dot{u}_t - 2A^u u_t - B u_t^2 + C^u =0 \qquad u_T = D^u
+		\label{eq:riccati_ut}
+	\end{equation}	
+	\begin{equation}
+	    \dot{w}_t - 2A^w w_t - B w_t^2 + C^w =0 \qquad w_T = D^w
+	\label{eq:riccati_wt}
+	\end{equation}
+	\begin{equation}
+	    \dot{\eta}_t - 2A^\eta \eta_t - B^\eta \eta_t^2 + C^\eta =0 \qquad \eta_T = D^\eta
+	\label{eq:riccati_etat}
+	\end{equation}
+	where
+	\begin{IEEEeqnarray*}{rClcrClcrCl}
+		A^u &=& - \left(b_1 + \frac{\bar{b}_1}{2}\right) & \qquad & 
+		A^w &=& - (b_1 + \bar{b}_1) & \qquad & 
+		A^\eta &=& - b_1 \nonumber \\
+		B^u &=& \frac{(b_2+\bar{b}_2)^2}{r + \bar{r}(1-\bar{s})^2} & \qquad &	
+		B^w &=& \frac{(b_2+\bar{b}_2)^2}{r + \bar{r}(1-\bar{s})^2} &\qquad & 
+		B^\eta &=& \frac{b_2^2}{r+ \bar{r}} \nonumber \\
+		C^u &=& \lambda (q + \bar{q}(1-s))& \qquad & 
+		C^w &=& q + \bar{q}(1-s)^2 & \qquad &
+		C^\eta &=& q + \bar{q} \nonumber \\
+		D^u &=& \lambda(q_T + \bar{q}_T(1-s_T)) & \qquad & 
+		D^w &=& q_T + \bar{q}_T(1-s_T)^2 & \qquad & 
+		D^\eta &=& q_T + \bar{q}_T 
+	\end{IEEEeqnarray*}
+If $B^u\neq 0$, $B^u D^u \geq 0$ and $B^uC^u >0$, we have (see equation (\ref{eq:riccati_ut_sol_app}) in Appendix A) the existence and uniqueness for $u_t$ which can be expressed by:
+\begin{equation}
+		u_t= \frac{-(C^u+D^u \delta^+_u) + (C^u+D^u \delta^-_u) e^{-(\delta_u^+ - \delta_u^-)(T-t)}}{(\delta^-_u - D^u B^u) - (\delta^+_u - D^u B^u) e^{-(\delta_u^+ - \delta_u^-)(T-t)}}
+	\label{eq:riccati_ut_sol}
+\end{equation}
+where $\delta^\pm_u = -A^u \pm \sqrt{(A^u)^2 + B^u C^u}$. We have analogous expressions for $w_t$ and $\eta_t$ in terms of $\delta^\pm_w$ and $\delta^\pm_{\eta}$, respectively. Note that $B^u=B^w=:B$.
+
+\begin{corollary}
+    Assuming (\ref{eq:assumptions}), if $\bar{b}_1=0$ and $\lambda=1$, then $PoA=1$.
+\end{corollary}
+\begin{proof}
+    Under these assumptions, $(A^u,C^u,D^u)=(A^w,C^w,D^w)$, and thus $(u_t)_{0\leq t\leq T}=(w_t)_{0\leq t\leq T}$. Thus, $\Delta \bar{\eta}_t=0,\ \forall t \in [0,T]$. By Proposition \ref{prop:diff_SC}, $\Delta SC=0$. It can be shown that $w_0\geq0$. Since $v_t>0$ for $t>0$, clearly $SC^{MKV}>0$. Therefore, $PoA=1$.
+\end{proof}
+
+
+\begin{proposition}
+	Assuming (\ref{eq:assumptions}),
+	\begin{equation*}
+			\lim_{r \to \infty} PoA = 1 \qquad and \qquad
+			\lim_{\bar{r} \to \infty} PoA = 1.
+	\end{equation*}
+	\label{prop:r_bar_r}
+\end{proposition}
+\begin{proof}
+	When assumption $(\ref{eq:assumptions})$ is satisfied, we have the existence and uniqueness of solutions for the scalar Riccati equations associated with $u_t$, $w_t$ and $\eta_t$.
+	
+	When $r \to \infty$ we have
+	\begin{equation*}
+		\lambda \to \lambda^{\infty,r} := \frac{b_2}{b_2 + \bar{b}_2}
+	\end{equation*}
+	and
+	\begin{equation*}
+		B \to 0,\ B^\eta \to 0,\ C^u \to C_u^{\infty,r} := \lambda^{\infty,r}(q + \bar{q}(1-s)),\ D^{u} \to D_u^{\infty,r} := \lambda^{\infty,r}(q_T+ \bar{q}_T(1-s_T)).
+	\end{equation*}
+	Since assumption (\ref{eq:assumptions}) holds for arbitrary large $r$, we can deduce that the solution $u_t$ of equation (\ref{eq:riccati_ut}) tends to a limiting function $u^{\infty,r}_t$ which is the solution of a first-order differential equation (see Appendix \ref{appendix_solving_fbsdes}). The limiting solution $u_t^{\infty,r}$ is given by:
+	\begin{equation*}
+	\begin{split}
+	    \text{when } A^u \neq 0,\qquad & u_t^{\infty,r} = \left(D^{\infty,r}_u - \frac{C^{\infty,r}_u}{2A^u} \right) e^{-2A^u (T-t)} +  \frac{C^{\infty,r}_u}{2A^u}\\
+	    \text{when } A^u = 0, \qquad & u_t^{\infty,r} = D^{\infty,r}_u + C^{\infty,r}_u (T-t)
+	\end{split}
+	\end{equation*}
+	which is bounded for $t \in [0,T]$.
+	Similarly, we have the bounded limiting solutions over $[0,T]$:
+	$$w_t \xrightarrow[r \to \infty]{} w_t^{\infty,r},\qquad \eta_t \xrightarrow[r \to \infty]{} \eta_t^{\infty,r}.$$
+	Moreover, since $\bar{x}_t^{MFG} = \bar{x}_0 \exp(\int_0^t (b_1 + \bar{b}_1 - B\cdot u_s)ds)$ and $v_t = Var(\xi)\exp(2\int_0^t (b_1 - B^\eta \eta_s) ds) + \sigma^2 \int_0^t \exp(2 \int_s^t (b_1 - B^\eta \eta_u) du) ds$, we have 
+	$$	\bar{x}_t^{MFG} \xrightarrow[r\to \infty]{} \bar{x}_0 e^{(b_1+ \bar{b}_1)t} =: \bar{x}_t^{\infty,r,MFG},\qquad
+	  v_t \xrightarrow[r\to \infty]{} Var(\xi)e^{2b_1t} + \sigma^2 \int_0^t e^{2 b_1 (t-s) } ds =: v^{\infty,r}_t
+	$$
+	which are also bounded over $t\in[0,T]$.
+	Hence, by the bounded convergence theorem we have
+	\begin{equation*}
+		\lim_{r \to \infty} \int_0^T (\Delta \bar{\eta}_t \cdot \bar{x}_t^{MFG})^2 dt = \int_0^T (u^{\infty,r}_t- w^{\infty,r}_t)^2 (\bar{x}_t^{\infty,r,MFG})^2 dt \  < \infty.
+	\end{equation*}
+	By their explicit formulas, it can be shown that $w^{\infty,r}_0\geq0$ and $\lim_{r \to \infty}v_t >0$ for $t>0$ and therefore,
+	\begin{equation*}
+		\lim_{r \to \infty} SC^{MKV} = \int_0^T (q+\bar{q}) v^{\infty,r}_t dt + (q_T + \bar{q}_T) v^{\infty,r}_T + w^{\infty,r}_0 \bar{x}_0^2 \  >0.
+	\end{equation*}
+	Thus, from Proposition \ref{prop:diff_SC} and equation (\ref{eq:PoA_LQ}), we deduce $\displaystyle \lim_{r \to \infty} PoA = 1$. 
+	
+	Idem, by replacing $\lambda^{\infty,r}$ with $\lambda^{\infty,\bar{r}} = \frac{b_2}{b_2 + \bar{b}_2} (1 - \bar{s})$, we can have $\displaystyle \lim_{\bar{r} \to \infty} PoA = 1$.
+	
+\end{proof}
+
+\begin{proposition}
+	Assuming (\ref{eq:assumptions}), if initial condition $\xi$ satisfies $\mathbb{E}(\xi)\neq 0$, and if furthermore, $\bar{b}_2= 0$, then:
+	\begin{equation*}
+	 \lim_{b_2 \to 0} PoA = 1,
+	\end{equation*}
+	whereas if $\bar{b}_2 \neq 0$, then:
+	\begin{equation*}
+	 \lim_{b_2 \to 0} PoA =: PoA^{0,b_2} > 1.
+	\end{equation*}
+	Moreover, if
+		$$ \frac{r + \bar{r}(1-\bar{s})^2}{r + \bar{r}(1-\bar{s})} \neq \frac{q + \bar{q}(1-s)^2}{q + \bar{q}(1-s)},$$
+	then
+	$$\lim_{b_2 \to \infty} PoA =: PoA^{\infty, b_2} > 1,$$
+	otherwise
+	$$ \lim_{b_2 \to \infty} PoA = 1.$$	
+	\label{prop:b2}
+\end{proposition}
+
+\begin{proof}
+    First, we consider $b_2 \to 0$. We assume here $\bar{b}_2 \neq 0$. Otherwise, if $\bar{b}_2 =0$, we can use the same technique in Proposition \ref{prop:r_bar_r} to show that $\lim_{b_2 \to 0} PoA = 1$. 
+    For $\bar{b}_2 \neq 0$, we have $\lambda \to 0 $ and
+	$$ B \to \frac{\bar{b}_2^2}{r + \bar{r}(1-\bar{s})^2}=:B^{0,b_2} >0,\ B^{\eta} \to 0,\ C^u \to 0,\ D^u \to 0.$$
+	
+	By taking the limit $b_2 \to 0$, we have $\delta^\pm_u = -A^u \pm \vert A^u \vert $ and $\delta^{+}_u - \delta^{-}_u = 2 \vert A^u \vert $. Thus, from equation (\ref{eq:riccati_ut_sol}) we deduce
+	$$u_t \xrightarrow[b_2 \to 0 ]{} 0, \quad \forall t \in [0,T].$$
+	This implies that $\bar{x}_t^{MFG} \to \bar{x}_0 \exp((b_1+\bar{b}_1)t) =: \bar{x}_t^{0,b_2,MFG}$, which is bounded over $[0,T]$.
+	
+	Since $B^{0,b_2} \neq0, B^{0,b_2}C^w >0, B^{0,b_2}D^w \geq 0$, we still have the unique solution for $w^{0,b_2}_t$ when $b_2 \to 0$. Since $B^{\eta} \to 0$, using the same argument shown in Proposition \ref{prop:r_bar_r}, we get
+	\begin{equation*}
+	\begin{split}
+	    \text{when } A^\eta \neq 0, \qquad & \eta_t \to \eta^{0,b_2}_t := \left(D^{\eta} - \frac{C^{\eta}}{2A^\eta}\right) e^{-2A^\eta(T-t)} + \frac{C^\eta}{2A^{\eta} }\\
+	    \text{when } A^{\eta} = 0, \qquad & \eta_t \to \eta^{0,b_2}_t := D^{\eta} - C^{\eta}(T-t)
+	\end{split}
+	\end{equation*}
+	which are bounded over $[0,T]$. Thus, the limiting variance function $ v_t \to  v^{0,b_2}_t := Var(\xi)e^{2b_1t}+ \sigma^2 \int_0^t e^{2b_1(t-s)}ds>0$ for $t>0$ and $v^{0,b_2}_t$ is bounded.
+	Hence, from Proposition \ref{prop:diff_SC}, the bounded convergence theorem, and the assumption on $\xi$, we deduce
+	\begin{equation*}
+	\begin{split}
+	    \lim_{b_2 \to 0} \Delta SC &= \frac{1}{2} B^{0,b_2} \int_0^T (w_t^{0,b_2} \cdot \bar{x}_t^{0,b_2,MFG})^2 dt,\\
+	    \lim_{b_2 \to 0} \Delta SC &>0, \\
+	    \lim_{b_2 \to 0} \Delta SC &< \infty ,
+	\end{split}
+	\end{equation*}
+	and using the fact that $w^{0,b_2}_t\not \equiv 0$  and using equation (\ref{eq:SC_MFG_MKV_2}), $ \lim_{b_2\to 0} SC^{MKV} >0 $.
+	Therefore, combined with equation (\ref{eq:PoA_LQ}), we obtain $$\lim_{b_2 \to 0} PoA = 1 + \frac{\displaystyle \lim_{b_2 \to 0}\Delta SC}{\displaystyle \lim_{b_2 \to 0} SC^{MKV} } =: PoA^{0,b_2} > 1.$$
+	
+	Now, we consider the case when $b_2 \to \infty$. We have $\displaystyle \lambda \to \lambda^{\infty,b_2}:= \frac{r + \bar{r}(1-\bar{s})^2}{r + \bar{r}(1-\bar{s})}$
+	and
+	$$ B \to \infty,\ B^{\eta} \to \infty,\ C^u \to C^{\infty,b_2}_u := \lambda^{\infty,b_2}(q+ \bar{q}(1-s)),\ D^u \to D^{\infty,b_2}_u := \lambda^{\infty,b_2}(q_T + \bar{q}_T(1-s_T)).$$
+	Since 
+	$ \frac{\delta^\pm_u}{b_2 + \bar{b}_2} \xrightarrow[b_2 \to \infty]{} \pm \sqrt{\frac{ C_u^{\infty,b_2}}{r + \bar{r}(1-\bar{s})^2}}$
+	and  $e^{- (\delta^+_u - \delta^-_u)(T-t)} \to 0$, for $t \in [0,T)$, with equation (\ref{eq:riccati_ut_sol}) we have for $t \in [0,T)$:
+	$$ (b_2 + \bar{b}_2) u_t = \frac{- \left(\frac{C^u}{b_2 + \bar{b}_2} + D^u . \frac{\delta^+_u}{b_2 + \bar{b}_2}\right) + \left(\frac{C^u}{b_2 + \bar{b}_2} + D^u . \frac{\delta^-_u}{b_2 + \bar{b}_2}\right)e^{- (\delta^+_u - \delta^-_u)(T-t)} }
+	{ \left(\frac{\delta^-_u}{(b_2 + \bar{b}_2)^2} - \frac{D^u}{r + \bar{r}(1-\bar{s})^2} \right) - \left(\frac{\delta^+_u}{(b_2 + \bar{b}_2)^2} - \frac{D^u}{r + \bar{r}(1-\bar{s})^2} \right)e^{- (\delta^+_u - \delta^-_u)(T-t)}  } \to \sqrt{(r + \bar{r}(1-\bar{s})^2) C_u^{\infty,b_2}}.
+	$$
+	Similarly, we have $(b_2+\bar{b}_2) w_t \to \sqrt{(r + \bar{r}(1-\bar{s})^2) C^w}$ and $b_2 \eta_t \to \sqrt{(r + \bar{r}) C^\eta}$ for $t \in [0,T)$.
+
+	
+	The next step is to look at the order of magnitude in terms of $b_2$ for the mean $\bar{x}_t^{MFG}$ and the variance $v_t$.
+	For large $b_2$ and $t \in [0,T)$, we have:
+	$$ B\cdot u_t = \frac{b_2 + \bar{b}_2}{r+\bar{r}(1-\bar{s})^2} (b_2 + \bar{b}_2)u_t \sim \sqrt{\frac{q+ \bar{q}(1-s)}{r+ \bar{r}(1-\bar{s})} } (b_2 +\bar{b}_2) = \kappa_u (b_2+ \bar{b}_2). $$ Thus, we have the approximation:
+	$$ \bar{x}_t^{MFG} = \bar{x}_0 e^{\int_0^t (b_1 + \bar{b}_1 - B\cdot u_s) ds}\sim \bar{x}_0 e^{ (b_1 + \bar{b}_1 - \kappa_u (b_2+ \bar{b}_2) ) t},\qquad b_2 \to \infty.$$
+	Similarly, we have for large $b_2$ and $t \in [0,T)$:
+	$$B^{\eta} \cdot \eta_t = \frac{b_2}{r+ \bar{r}} b_2 \eta_t \sim \sqrt{\frac{q + \bar{q}}{r + \bar{r}} } b_2 = \kappa_v b_2,$$
+	and:
+	\begin{equation*}
+		\begin{split}
+		v_t &= Var(\xi) e^{2\int_0^t (b_1 - B^{\eta} \eta_u) du} + \sigma^2 \int_0^t e^{2 \int_s^t (b_1 - B^{\eta} \eta_u) du} ds\\
+		& \sim Var(\xi) e^{(2b_1 - 2\kappa_v b_2)t} + \frac{\sigma^2}{2b_1 - 2\kappa_v b_2} \left(e^{(2b_1 - 2\kappa_v b_2)t} - 1\right).
+		\end{split}
+	\end{equation*}
+	Hence, using Proposition \ref{prop:diff_SC}, for large $b_2$, we deduce:
+	\begin{IEEEeqnarray*}{rCl}
+		\Delta SC &\sim & \frac{1}{2} (\sqrt{C^{\infty,b_2} }- \sqrt{C^w})^2 \int_0^T (\bar{x}_t^{MFG} )^2 dt \\
+			&=& \frac{(\sqrt{C^{\infty,b_2} }- \sqrt{C^w})^2 \cdot \bar{x}_0^2 }{2 (2b_1 +2\bar{b}_1 - 2 \kappa_u (b_2 + \bar{b}_2) )} \left(  e^{(2b_1 + 2\bar{b}_1 - 2\kappa_u (b_2+ \bar{b}_2) ) T} - 1\right)\\
+			&\sim & \frac{\zeta_1 }{b_2 } e^{- 2 \kappa_u T \cdot b_2 }  + \frac{\zeta_2}{ b_2},
+	\end{IEEEeqnarray*}
+	and using equation (\ref{eq:SC_MFG_MKV_2}), we deduce:
+	\begin{IEEEeqnarray*}{rCl}
+		SC^{MKV} &\sim & (q + \bar{q} )  \int_0^T v_t dt + \frac{1}{2}(q_T + \bar{q}_T)v_T + \frac{1}{2}w_0 \bar{x}_0^2\\
+		&\sim& (q + \bar{q}) \left[ \left(\frac{Var(\xi)}{2b_1 - 2\kappa_v b_2} + \frac{\sigma^2}{(2b_1 - 2\kappa_v b_2)^2} \right) e^{2b_1 T - 2 \kappa_v T b_2} - \left( \frac{Var(\xi) + \sigma^2 T}{2b_1 - 2\kappa_v b_2} + \frac{\sigma^2}{(2b_1 - 2 \kappa_v b_2)^2} \right) \right]\\
+		& & + \frac{(q_T + \bar{q}_T)}{2} \left[  Var(\xi) e^{2b_1T - 2\kappa_v T\cdot b_2} + \frac{\sigma^2}{2b_1 - 2\kappa_v b_2} \left(e^{2b_1 T - 2\kappa_v T\cdot b_2} - 1\right) \right] + \frac{\bar{x}_0^2 \sqrt{(r+ \bar{r}(1-\bar{s})^2) C^w} }{2(b_2 + \bar{b}_2)}\\
+		&\sim & \left( \frac{\zeta_3}{b_2^2} + \frac{\zeta_4}{b_2} + \zeta_5 \right) e^{-2\kappa_v T\cdot b_2}  + \left( \frac{\zeta_6}{b_2^2} + \frac{\zeta_7}{b_2}  \right)
+	\end{IEEEeqnarray*}
+	where $(\zeta_i)_{i=1..7}$ are constant w.r.t. $b_2$. In particular
+	$$ \zeta_2 =  \frac{ \left(\sqrt{ \frac{ (r + \bar{r}(1-\bar{s})^2 )( q + \bar{q}(1-s))}{r + \bar{r}(1-\bar{s})} } - \sqrt{ q + \bar{q}(1-s)^2 }\right)^2 \cdot \bar{x}_0^2 }{4 \kappa_u },$$
+	and $$\zeta_7 =  \frac{(q+\bar{q}) (Var(\xi) + \sigma^2 T)+ \frac{\sigma^2}{2} (q_T + \bar{q}_T) ) }{2 \kappa_v} + \frac{1}{2}\bar{x}_0^2 \sqrt{(r+ \bar{r}(1-\bar{s})^2)(q + \bar{q}(1-s)^2)}. $$ 
+	Hence, for large $b_2$ we have:
+	\begin{equation*}
+		\frac{\Delta SC}{SC^{MKV}} \sim \zeta_2 \zeta_7  .
+	\end{equation*}
+	Therefore, if $\zeta_2 \neq 0$, namely:
+	$$ \frac{r + \bar{r}(1-\bar{s})^2}{r + \bar{r}(1-\bar{s})} \neq \frac{q + \bar{q}(1-s)^2}{q + \bar{q}(1-s)},$$
+	then we deduce:
+	$$ \lim_{b_2 \to \infty} PoA =: PoA^{\infty,b_2} > 1;$$
+	otherwise $$ \lim_{b_2 \to \infty} PoA = 1.$$ 
+\end{proof}
+
+
+\begin{proposition}
+	Assuming (\ref{eq:assumptions}), the initial condition $\xi$ satisfies $\mathbb{E}(\xi)\neq 0$, and assuming $\bar{b}_1\neq 0$, then 
+	\begin{equation*}
+	\lim_{\bar{b}_2 \to 0} PoA =: PoA^{0,\bar{b}_2} > 1\qquad and \qquad\lim_{\bar{b}_2 \to \infty} PoA = 1.
+	\end{equation*}
+	\label{prop:b2bar}
+\end{proposition}
+\begin{proof}
+	For the case $\bar{b}_2 \to 0$, we have $\displaystyle \lambda \to \lambda^{0,\bar{b}_2} := \frac{r + \bar{r}(1- \bar{s})^2}{r + \bar{r}(1-\bar{s})}$
+	and 
+	$$B \to B^{0,\bar{b}_2} := \frac{b_2^2}{r + \bar{r}(1-\bar{s})^2} \neq 0,\ C^u \to C^{0,\bar{b}_2}_u >0 ,\ D^u \to D^{0,\bar{b}_2}_u \geq 0.$$
+	Thus, the existence and uniqueness for solutions of the Riccati equations (\ref{eq:riccati_ut}) and (\ref{eq:riccati_wt}) associated with $u_t$ and $w_t$, respectively, in the limiting region $\bar{b}_2 \to 0$ still hold. Let's denote the limiting solutions by 
+	$u^{0,\bar{b}_2}_t, w^{0,\bar{b}_2}_t$. By the bounded convergence theorem, the mean function $\bar{x}_t^{MFG}$ has the limit:
+   	$$\lim_{\bar{b}_2 \to 0} \bar{x}_t^{MFG} = \bar{x}_0 e^{\int_0^t (b_1 + \bar{b}_1 - B^{0,\bar{b}_2}\cdot u^{0,\bar{b}_2}_t) dt} =: \bar{x}^{0,\bar{b}_2,MFG}_t.$$ 
+   	By our assumption on $\bar{b}_1$, we have $A^u \neq A^w$ and thus, $u^{0,\bar{b}_2}_t\neq w^{0,\bar{b}_2}_t$ on a set of positive Lebesgue measure.
+   	Thus, by the bounded convergence theorem and the assumption on $\xi$, we deduce
+	$$ \lim_{\bar{b}_2 \to 0} \Delta SC = \frac{1}{2} B^{0,\bar{b}_2} \int_0^T \left( (u_t^{0,\bar{b}_2} - w_t^{0,\bar{b}_2})\cdot \bar{x}_t^{0,\bar{b}_2,MFG} \right)^2 dt \  > 0. $$
+	Meanwhile, $\eta_t$ does not depend on $\bar{b}_2$, and therefore the variance $v_t$ also does not depend on $\bar{b}_2$. By the explicit formula, $0<v_t<\infty$ for $t>0$ and $0 \leq w^{0,\bar{b}_2}_0 < \infty$, and thus,
+	\begin{equation*}
+    \begin{split}
+	    \lim_{\bar{b}_2 \to 0}SC^{MKV} &= h_{var}(t) + w^{0,\bar{b}_2}_0 \bar{x}_0^2, \\
+	    \lim_{\bar{b}_2 \to 0}SC^{MKV}&<\infty, \\
+	    \lim_{\bar{b}_2 \to 0}SC^{MKV}&>0 .       
+    \end{split}
+	\end{equation*}
+	Hence, we deduce:
+	$$ \lim_{\bar{b}_2 \to 0} PoA =: PoA^{0,\bar{b}_2} > 1. $$
+	
+	Now, for the case when $\bar{b}_2 \to \infty$,  we have $\lambda \to 0$
+	and $B \to \infty,\ C^u \to 0,\ D^u \to 0$. Moreover, if we consider the magnitude w.r.t. $\bar{b}_2$, we have:
+	$$ \lambda = \mathcal{O}(\bar{b}^{-1}_2),\ C^u = \mathcal{O}(\bar{b}_2^{-1}),\ D^u = \mathcal{O}(\bar{b}_2^{-1}),\ B = \mathcal{O}(\bar{b}_2^2),$$
+	and 
+	$$ \frac{\delta^\pm_u}{\sqrt{b_2 + \bar{b}_2}} \xrightarrow[\bar{b}_2 \to \infty]{} \pm \sqrt{ \frac{b_2 (q + \bar{q}(1-s))}{r + \bar{r}(1-\bar{s})} } =: \pm \delta^{\infty,\bar{b}_2}.$$
+	Thus, from equation (\ref{eq:riccati_ut_sol}), for $t \in [0,T)$ we can deduce:
+	\begin{equation*}
+	\begin{split}
+	 	(b_2 + \bar{b}_2)^{\frac{3}{2}}\cdot u_t &= \frac{ - \left( C^u\sqrt{b_2 + \bar{b}_2} + \zeta \frac{\delta^+_u}{\sqrt{b_2 + \bar{b}_2}}  \right) + \left( C^u\sqrt{b_2 + \bar{b}_2} + \zeta \frac{\delta^-_u}{\sqrt{b_2 + \bar{b}_2}}  \right) e^{- (\delta^+_u - \delta^-_u)(T-t)}}{ \left( \frac{\delta^-_u}{b_2 + \bar{b}_2} - \frac{b_2 (q_T + \bar{q}_T (1-s_T) )}{r + \bar{r}(1-\bar{s})} \right) - \left( \frac{\delta^+_u}{b_2 + \bar{b}_2} - \frac{b_2 (q_T + \bar{q}_T (1-s_T) )}{r + \bar{r}(1-\bar{s})} \right)e^{- (\delta^+_u - \delta^-_u)(T-t)} }\\
+	 	& \xrightarrow[\bar{b}_2 \to \infty]{} \delta^{\infty, \bar{b}_2} (r + \bar{r}(1-\bar{s})^2) 
+	 \end{split} 
+	\end{equation*}
+	where $\zeta = \frac{b_2 (r + \bar{r}(1-\bar{s})^2) }{r+ \bar{r}(1-\bar{s})} (q_T + \bar{q}_T(1-s_T))$. 
+	Thus, we have $B \cdot u_t = \mathcal{O}\left({\bar{b}_2}^{1/2}\right)$ for $t \in [0,T)$ and 
+	$$ \bar{x}_t^{MFG} = \bar{x}_0 e^{\int_0^t (b_1 + \bar{b}_1 - B\cdot u_s) ds} \xrightarrow[\bar{b}_2 \to \infty]{} 0,\ \forall t \in (0,T]. $$	
+	As in the proof of Proposition \ref{prop:b2}, for $t \in [0,T)$:
+	$$ (b_2 + \bar{b}_2) w_t \to \sqrt{(r + \bar{r}(1-\bar{s})^2) C^w}$$
+	so that $w_t \to 0, \forall t \in [0,T)$ as $\bar{b}_2 \to \infty$. Hence, by the bounded convergence theorem, we deduce:
+	$$ \lim_{\bar{b}_2 \to \infty} \Delta SC =  \frac{1}{2(r+ \bar{r}(1-\bar{s})^2)} \int_0^T \lim_{\bar{b}_2 \to \infty} \left( \frac{ (b_2 + \bar{b}_2)^{\frac{3}{2}} u_t }{\sqrt{b_2 + \bar{b}_2}} - (b_2 + \bar{b}_2)w_t \right)^2 \cdot \left(\bar{x}_t^{MFG} \right)^2 dt \to 0.
+	$$	
+	Moreover, as shown in the case $\bar{b}_2 \to 0$, $\eta_t$ as well as the variance $v_t$ are invariant w.r.t. $\bar{b}_2$ and $v_t>0$ for $t>0$. Thus,
+	$$ \lim_{\bar{b}_2 \to \infty} SC^{MKV} = h_{var}(t)> 0.$$
+	Therefore, we conclude that:
+	$$ \lim_{\bar{b}_2 \to \infty} PoA = 1.$$
+\end{proof}
+
+\begin{proposition}\label{prop:b1_b1bar}
+	Assuming (\ref{eq:assumptions}), the initial condition $\xi$ satisfies $\mathbb{E}(\xi)\neq 0$, and $\lambda \neq 1$, then
+	\begin{equation*}
+	\begin{split}
+	    \lim_{b_1 \to 0} PoA =: PoA^{0,b_1} > 1\qquad &and \qquad \lim_{\bar{b}_1 \to 0} PoA =: PoA^{0,\bar{b}_1} > 1,\\
+	    \lim_{b_1 \to \infty} PoA = 1 \qquad &and \qquad\lim_{\bar{b}_1 \to \infty} PoA =\infty.
+	\end{split}
+	\end{equation*}
+\end{proposition}
+\begin{proof}
+    Clearly we have $\lim_{b_1 \to 0}u_t=:u^{0,b_1}_t$, $\lim_{b_1 \to 0}w_t=:w^{0,b_1}_t$, and $\lim_{b_1 \to 0}\eta_t=:\eta^{0,b_1}_t$, where all three limiting processes are bounded. By the assumption on $\lambda$, $u_t \neq w_t$ on a set of positive Lebesgue measure. By the assumption on $\xi$, we have $\lim_{b_1 \to 0} \bar{x}^{MFG}_t=:\bar{x}^{0,b_1,MFG}_t>0,\ \forall t \in [0,T]$ which is also bounded. Therefore, by Proposition \ref{prop:diff_SC}, and the bounded convergence theorem,
+    \begin{equation*}
+        \lim_{b_1 \to 0} \Delta SC=:\Delta SC^{0,b_1},\  \Delta SC^{0,b_1}<\infty,\ and\ \Delta SC^{0,b_1}>0.
+    \end{equation*}
+    Since $\eta^{0,b_1}_t$ is bounded, $\lim_{b_1 \to 0}v_t=:v_t^{0,b_1}>0,\ \forall t>0$ which is also bounded. Using equation (\ref{eq:SC_MFG_MKV_2}), the fact that $0 \leq \eta^{0,b_1}_0 < \infty$, and the bounded convergence theorem, $\lim_{b_1 \to 0} SC^{MKV}>0$ and $\lim_{b_1 \to 0} SC^{MKV}<\infty$. Therefore, $\lim_{b_1 \to 0} PoA =: PoA^{0,b_1} > 1$. The proof can be repeated to show $\lim_{\bar{b}_1 \to 0} PoA =: PoA^{0,\bar{b}_1} > 1$.
+    
+    Now we consider $b_1 \to \infty$. We see that:
+    \begin{equation*}
+        \delta^+_u \to 0,\ \frac{\delta^-_u}{b_1+\frac{\bar{b}_1}{2}} \to -2,\ \delta^+_w \to 0,\ \frac{\delta^-_w}{b_1+\bar{b}_1} \to -2,\ \delta^+_{\eta} \to 0,\ \frac{\delta^-_{\eta}}{b_1} \to -2.
+    \end{equation*}
+    and therefore we find for $t \in [0,T)$:
+    \begin{equation*}
+    \begin{split}
+        \left(b_1+\frac{\bar{b}_1}{2}\right)u_t&\to 2 C^u \\
+        \left(b_1+\bar{b}_1\right)w_t&\to 2 C^w \\
+        b_1 \eta_t&\to 2 C^{\eta}.
+    \end{split}
+    \end{equation*}
+    Thus, $\Delta \bar{\eta}_t=\mathcal{O}(b_1^{-1})$ for $t \in [0,T)$. We find $\bar{x}^{MFG}_t=\mathcal{O}(e^{b_1})$ for $t \in (0,T]$. Thus, using Proposition \ref{prop:diff_SC}, we have $\Delta SC=\mathcal{O}\left(\frac{e^{b_1}}{b_1}\right)$. We also find $v_t=\mathcal{O}(e^{2b_1})$. Therefore with equation (\ref{eq:SC_MFG_MKV_2}) we have:
+    \begin{equation*}
+        \frac{\Delta SC}{SC^{MKV}}=\mathcal{O}\left(\frac{e^{-b_1}}{b_1}\right)\to 0.
+    \end{equation*}
+    We conclude that $PoA \to 1$ as $b_1 \to \infty$.
+    
+    Similarly, for the case $\bar{b}_1 \to \infty$, we find that $\Delta SC=\mathcal{O}\left(\frac{e^{\bar{b}_1}}{\bar{b}_1}\right)$ and $SC^{MKV}=\mathcal{O}(1)$. We conclude that $PoA \to \infty$ as $\bar{b}_1 \to \infty$.
+\end{proof}
+
+
+\subsection{\textbf{Numerical Results}}
+
+Using the explicit formulas derived in Appendix \ref{appendix_solving_fbsdes}, we numerically compute the price of anarchy when the coefficients are time-independent, nonnegative, and satisfy assumption (\ref{eq:assumptions}). In particular, when we allow for full interaction (i.e. through the states and the controls), we choose the following default values:
+
+\begin{equation*}
+\begin{split}
+    &\xi\equiv 1,\ T=1 \\
+    &b_1=1,\  \bar{b}_1=1,\ b_2=1,\ \bar{b}_2=1,\ \sigma=1 \\
+    &q=1,\ \bar{q}=1,\ s=0.5,\ r=1,\ \bar{r}=1,\ \bar{s}=0.5 \\
+    &q_T=1,\  \bar{q}_T=1,\ s_T=0.5.
+\end{split}
+\end{equation*}
+
+Unless otherwise stated, the parameters stay at these default values. For results involving only interaction through the states, we set $\bar{b}_2=0$ and $\bar{r}=0$. For results involving only interaction through the controls, we set $\bar{b}_1=0$, $\bar{q}=0$, and $\bar{q}_T=0$. Figures \ref{fig:b1_b1bar}-\ref{fig:r_rbar} show the price of anarchy as we vary one parameter at a time for each of three cases: full interaction (i.e. through the states and the controls), interaction only through the states, and interaction only through the controls.
+
+\begin{figure}[!htb]
+    \centering
+    \begin{subfigure}{.45\textwidth}
+        \includegraphics[scale=0.5]{PoA_half_more_steps_b1_2.eps}
+    \end{subfigure}
+    \begin{subfigure}{.45\textwidth}
+        \includegraphics[scale=0.5]{PoA_half_more_steps_b1bar.eps}
+    \end{subfigure}
+    \caption{PoA as we vary $b_1$ (left) and $\bar{b}_1$ (right).}
+    \label{fig:b1_b1bar}
+\end{figure}
+\begin{figure}[!htb]
+    \centering
+    \begin{subfigure}{.45\textwidth}
+        \includegraphics[scale=0.5]{PoA_half_more_steps_b2.eps}
+    \end{subfigure}
+    \begin{subfigure}{.45\textwidth}
+        \includegraphics[scale=0.5]{PoA_half_even_more_steps_b2bar_2.eps}
+    \end{subfigure}
+    \caption{PoA as we vary $b_2$ (left) and $\bar{b}_2$ (right).}
+    \label{fig:b2_b2bar}
+\end{figure}
+\begin{figure}[!htb]
+    \centering
+    \begin{subfigure}{.45\textwidth}
+        \includegraphics[scale=0.5]{PoA_half_more_steps_q.eps}
+    \end{subfigure}
+    \begin{subfigure}{.45\textwidth}
+        \includegraphics[scale=0.5]{PoA_half_more_steps_qbar.eps}
+    \end{subfigure}
+    \caption{PoA as we vary $q$ (left) and $q_T$ (right).}
+    \label{fig:q_q_T}
+\end{figure}
+\begin{figure}[!htb]
+    \centering
+    \begin{subfigure}{.45\textwidth}
+        \includegraphics[scale=0.5]{PoA_half_more_steps_q_T.eps}
+    \end{subfigure}
+    \begin{subfigure}{.45\textwidth}
+        \includegraphics[scale=0.5]{PoA_half_more_steps_qbar_T.eps}
+    \end{subfigure}
+    \caption{PoA as we vary $\bar{q}$ (left) and $\bar{q}_T$ (right).}
+    \label{fig:qbar_qbar_T}
+\end{figure}
+\begin{figure}[!htb]
+    \centering
+    \begin{subfigure}{.45\textwidth}
+        \includegraphics[scale=0.5]{PoA_half_more_steps_r.eps}
+    \end{subfigure}
+    \begin{subfigure}{.45\textwidth}
+        \includegraphics[scale=0.5]{PoA_half_more_steps_rbar.eps}
+    \end{subfigure}
+    \caption{PoA as we vary $r$ (left) and $\bar{r}$ (right).}
+    \label{fig:r_rbar}
+\end{figure}
+
+The results show various limiting behaviors, such as some of the cases proved in the previous section. In Figure \ref{fig:b1_b1bar}, we note that Proposition \ref{prop:b1_b1bar} is confirmed. For all three cases, as $b_1 \to 0$, we see that $PoA \to PoA^{0,b_1}>1$ and as $\bar{b}_1 \to 0$, we see that $PoA \to PoA^{0,\bar{b}_1}>1$. We also see that $PoA\to 1$ as $b_1 \to \infty$ and $PoA \to \infty$ as $\bar{b}_1 \to \infty$. Proposition \ref{prop:b2} is confirmed in Figure \ref{fig:b2_b2bar}. When there is only interaction through the states, then $\bar{b}_2=0$ and we see that $PoA \to 1$ as $b_2 \to 0$. When there is full interaction or only interaction through the controls, then $\bar{b}_2\neq0$ and we see that $PoA \to PoA^{0,b_2}>1$ as $b_2 \to 0$. For all three cases, we note that the condition $\frac{r + \bar{r}(1-\bar{s})^2}{r + \bar{r}(1-\bar{s})}= \frac{q + \bar{q}(1-s)^2}{q + \bar{q}(1-s)}$ is satisfied, and thus, $PoA \to 1$ as $b_2 \to \infty$. For Proposition \ref{prop:b2bar}, Figure \ref{fig:b2_b2bar} confirms that $PoA \to PoA^{0,\bar{b}_2}>1$ as $\bar{b}_2 \to 0$ and $PoA \to 1$ as $\bar{b}_2 \to \infty$. Figure \ref{fig:r_rbar} confirms as in Proposition \ref{prop:r_bar_r} that $PoA \to 1$ as $r \to \infty$ or $\bar{r} \to \infty$.
+
+\subsection{\textbf{A Particular Example: Flocking}}
+Mean field game models of flocking have been proposed in the literature by Nourian et al \cite{nourian2010synthesis}\cite{nourian2011mean}. Here we consider a slightly different formulation as described in Section 3.6.1 of the book \cite{Carmona_book}. A representative bird in the flock controls their velocity, $X_t$, through the drift:
+\begin{equation*}
+    b(t,x,\mu,\alpha,\nu)=\alpha.
+\end{equation*}
+They choose the control with two goals in mind: to minimize their kinetic energy put into their control, and to align their velocity with the average velocity of the group. Thus, they consider the cost functions given by:
+\begin{equation*}
+\begin{split}
+    f(t,x,\mu,\alpha,\nu)&=\frac{1}{2}\left(\bar{q}|x-s\bar{\mu}|^2 +\alpha^2 \right), \\
+    g(x,\mu)&=0.
+\end{split}
+\end{equation*}
+
+In our general linear quadratic formulation, this is equivalent to taking $b_1=0$, $\bar{b}_1=0$, $b_2=1$, $\bar{b}_2=0$, $q=0$, $s=1$, $r=1$, $\bar{r}=0$, and $\bar{s}=0$. Note that for these values of the parameters, the assumptions of Theorem \ref{th:exist_uniq} and Corollary \ref{corollary_1} are satisfied. Therefore, $PoA=1$. In fact, if we took the state space to be $\mathbb{R}^d$ instead of $\mathbb{R}$, the result would still hold.
+
+
+\section{\textbf{Conclusion}} \label{sec:conclusion}
+We defined the price of anarchy ($PoA$) in the context of extended mean field games as the ratio of the worst case social cost when the players are in a mean field game equilibrium to the social cost as computed by a central planner. Since the central planner does not require that the players be in a mean field game equilibrium, the central planner will realize a social cost that is no worse than that of a mean field game equilibrium. Thus, $PoA \geq 1$.
+
+We computed the price of anarchy for linear quadratic extended mean field games, for which explicit computations are possible. We identify a large class of models for which $PoA=1$ (see Proposition \ref{eq:lq_prop} and Corollary \ref{corollary_1}), as well as some limiting cases where $PoA \rightarrow 1$ as certain parameters tend to zero or to infinity. The numerics support our theoretical results.
+
+\section{\textbf{Acknowledgments}}
+The authors would like to thank the organizers of CEMRACS 2017 for putting together such a successful summer school.
+
+
+\begin{thebibliography}{10}
+
+\bibitem{achdou2015system}
+Y.~Achdou and M.~Lauri\`{e}re.
+\newblock On the system of partial differential equations arising in mean field
+  type control.
+\newblock {\em arXiv preprint arXiv:1503.05044}, 2015.
+
+\bibitem{balandat2013efficiency}
+M.~Balandat and C.~J. Tomlin.
+\newblock On efficiency in mean field differential games.
+\newblock In {\em American Control Conference (ACC), 2013}, pages 2527--2532.
+  IEEE, 2013.
+
+\bibitem{bensoussan2013mean}
+A.~Bensoussan, J.~Frehse, and P.~Yam.
+\newblock {\em Mean field games and mean field type control theory}, volume
+  101.
+\newblock Springer, 2013.
+
+\bibitem{pierre_poa}
+P.~Cardaliaguet and C.~Rainer.
+\newblock On the (in)efficiency of {MFG} equilibria.
+\newblock Technical report, 2018.
+
+\bibitem{cite_todo}
+R.~Carmona, B.~Acciaio, and J.~Backhoff~Veraguas.
+\newblock Generalized {M}c{K}ean-{V}lasov ({M}ean {F}ield) {C}ontrol: a
+  stochastic maximum principle and a transport perspective.
+\newblock Technical report, 2018.
+
+\bibitem{carmona2013probabilistic}
+R.~Carmona and F.~Delarue.
+\newblock Probabilistic analysis of mean-field games.
+\newblock {\em SIAM Journal on Control and Optimization}, 51(4):2705--2734,
+  2013.
+
+\bibitem{Carmona_book}
+R.~Carmona and F.~Delarue.
+\newblock {\em Probabilistic Theory of Mean Field Games with Applications I}.
+\newblock Springer, 2018.
+
+\bibitem{christodoulou2005price2}
+G.~Christodoulou and E.~Koutsoupias.
+\newblock On the price of anarchy and stability of correlated equilibria of
+  linear congestion games.
+\newblock In {\em European Symposium on Algorithms}, pages 59--70. Springer,
+  2005.
+
+\bibitem{christodoulou2005price}
+G.~Christodoulou and E.~Koutsoupias.
+\newblock The price of anarchy of finite congestion games.
+\newblock In {\em Proceedings of the thirty-seventh annual ACM symposium on
+  Theory of computing}, pages 67--73. ACM, 2005.
+
+\bibitem{huang2012social}
+M.~Huang, P.~E. Caines, and R.~P. Malham{\'e}.
+\newblock Social optima in mean field {LQG} control: centralized and
+  decentralized strategies.
+\newblock {\em IEEE Transactions on Automatic Control}, 57(7):1736--1751, 2012.
+
+\bibitem{Huang}
+M.~Huang, R.~P. Malham{\'e}, and P.~E. Caines.
+\newblock Large population stochastic dynamic games: closed-loop
+  {M}c{K}ean-{V}lasov systems and the {N}ash certainty equivalence principle.
+\newblock {\em Communications in Information \& Systems}, 6(3):221--252, 2006.
+
+\bibitem{koutsoupias1999worst}
+E.~Koutsoupias and C.~Papadimitriou.
+\newblock Worst-case equilibria.
+\newblock In {\em Annual Symposium on Theoretical Aspects of Computer Science},
+  pages 404--413. Springer, 1999.
+
+\bibitem{Lasry_Lions}
+J.~M. Lasry and P.~L. Lions.
+\newblock Mean field games.
+\newblock {\em Japanese Journal of Mathematics}, 2(1):229--260, 2007.
+
+\bibitem{nourian2010synthesis}
+M.~Nourian, P.~E. Caines, and R.~P. Malham{\'e}.
+\newblock Synthesis of {C}ucker-{S}male type flocking via mean field stochastic
+  control theory: {N}ash equilibria.
+\newblock In {\em Communication, Control, and Computing (Allerton), 2010 48th
+  Annual Allerton Conference on}, pages 814--819. IEEE, 2010.
+
+\bibitem{nourian2011mean}
+M.~Nourian, P.~E. Caines, and R.~P. Malham{\'e}.
+\newblock Mean field analysis of controlled {C}ucker-{S}male type flocking:
+  Linear analysis and perturbation equations.
+\newblock {\em IFAC Proceedings Volumes}, 44(1):4471--4476, 2011.
+
+\bibitem{nourian2013nash}
+M.~Nourian, P.~E. Caines, R.~P. Malhame, and M.~Huang.
+\newblock {N}ash, social and centralized solutions to consensus problems via
+  mean field control theory.
+\newblock {\em IEEE Transactions on Automatic Control}, 58(3):639--653, 2013.
+
+\bibitem{Roughgarden}
+T.~Roughgarden.
+\newblock Intrinsic robustness of the price of anarchy.
+\newblock In {\em Proceedings of the forty-first annual ACM symposium on Theory
+  of computing}, pages 513--522. ACM, 2009.
+
+\bibitem{roughgarden2002bad}
+T.~Roughgarden and {\'E}.~Tardos.
+\newblock How bad is selfish routing?
+\newblock {\em Journal of the ACM (JACM)}, 49(2):236--259, 2002.
+
+\bibitem{zhu2010price}
+Q.~Zhu and T.~Ba{\c{s}}ar.
+\newblock Price of anarchy and price of information in {N}-person
+  linear-quadratic differential games.
+\newblock In {\em American Control Conference (ACC), 2010}, pages 762--767.
+  IEEE, 2010.
+
+\end{thebibliography}
+
+\begin{appendices}
+
+\section{\textbf{Solving Linear FBSDEs of McKean-Vlasov Type}} \label{appendix_solving_fbsdes}
+
+Consider a linear FBSDE system of McKean-Vlasov type:
+\begin{equation}
+\begin{split}
+        dX_t&=\left(a^x_tX_t+a^{\bar{x}}_t \mathbb{E}X_t+a^y_tY_t+a^{\bar{y}}_t \mathbb{E}Y_t\right)dt+\sigma dW_t \\
+        X_0&=\xi \\
+        dY_t&=\left(b^x_tX_t+b^{\bar{x}}_t \mathbb{E}X_t+b^y_tY_t+b^{\bar{y}}_t \mathbb{E}Y_t\right)dt +Z_t dW_t \\
+        Y_T&=c^xX_T+c^{\bar{x}}\mathbb{E}X_T.
+\end{split}
+\label{eq:FBSDE_general}
+\end{equation}
+For the LQEMFG model considered in Section \ref{sec:EMFG}, the FBSDE system in equation (\ref{eq:FBSDE_EMFG}) is of the form of equation (\ref{eq:FBSDE_general}) if we set:
+\begin{equation*}
+\begin{split}
+    &a^x_t=b_1(t),\ a^{\bar{x}}_t=\bar{b}_1(t),\ a^y_t=a^{MFG}(t)b_2(t),\ a^{\bar{y}}_t=b^{MFG}(t)b_2(t)+c^{MFG}(t)\bar{b}_2(t) \\
+    &b^x_t=-(q(t)+\bar{q}(t)),\ b^{\bar{x}}_t=\bar{q}(t)s(t),\ b^y_t=-b_1(t),\ b^{\bar{y}}_t=0 \\
+    &c^x_t=q_T+\bar{q}_T,\ c^{\bar{x}}_t=-\bar{q}_Ts_T.
+\end{split}
+\end{equation*}
+For the LQEMKV model considered in Section \ref{sec:EMKV}, the FBSDE system in equation (\ref{eq:FBSDE_EMKV}) is of the form of equation (\ref{eq:FBSDE_general}) if we set:
+\begin{equation*}
+\begin{split}
+    &a^x_t=b_1(t),\ a^{\bar{x}}_t=\bar{b}_1(t),\ a^y_t=a^{MKV}(t)b_2(t),\ a^{\bar{y}}_t=b^{MKV}(t)b_2(t)+c^{MKV}(t)\bar{b}_2(t) \\
+    &b^x_t=-(q(t)+\bar{q}(t)),\ b^{\bar{x}}_t=-s(t)\bar{q}(t)(s(t)-2),\ b^y_t=-b_1(t),\ b^{\bar{y}}_t=-\bar{b}_1 \\
+    &c^x_t=q_T+\bar{q}_T,\ c^{\bar{x}}_t=s_T\bar{q}_T(s_T-2).
+\end{split}
+\end{equation*}
+
+Now we return to the general FBSDE system (\ref{eq:FBSDE_general}). By taking expectations in equation (\ref{eq:FBSDE_general}), and letting $\bar{x}_t$ and $\bar{y}_t$ denote $\mathbb{E}X_t$ and $\mathbb{E}Y_t$, respectively, we get:
+\begin{equation}
+\begin{split}
+        \dot{\bar{x}}_t&=(a^x_t+a^{\bar{x}}_t)\bar{x}_t+(a^y_t+a^{\bar{y}}_t)\bar{y}_t\\
+        \bar{x}_0&=\mathbb{E}(\xi) \\
+        \dot{\bar{y}}_t&=(b^x_t+b^{\bar{x}}_t)\bar{x}_t+(b^y_t+b^{\bar{y}}_t)\bar{y}_t\\
+        \bar{y}_T&=(c^x+c^{\bar{x}})\bar{x}_T
+\end{split}
+\label{eq:FBSDE_general_means}
+\end{equation}
+where the dot is the standard ODE notation for a derivative. We then make the ansatz $\bar{y}_t=\bar{\eta}_t\bar{x}_t+\bar{\chi}_t$ for deterministic functions $[0,T] \ni t \mapsto \bar{\eta}_t \in \mathbb{R}$ and $[0,T] \ni t \mapsto \bar{\chi}_t \in \mathbb{R}$. By plugging in the ansatz, the system in equation (\ref{eq:FBSDE_general_means}) is equivalent to the ODE system:
+\begin{equation*}
+\begin{split}
+    \dot{\bar{\eta}}_t+(a^y_t+a^{\bar{y}}_t) \bar{\eta}_t^2+(a^x_t+a^{\bar{x}}_t-b^y_t-b^{\bar{y}}_t) \bar{\eta}_t -b^x_t-b^{\bar{x}}_t&=0\\
+    \bar{\eta}_T-c^x-c^{\bar{x}}&=0 \\
+    \dot{\bar{\chi}}_t+(\bar{\eta}_t(a^y_t+a^{\bar{y}}_t)-b^y_t-b^{\bar{y}}_t)\bar{\chi}_t &=0\\
+    \bar{\chi}_T&=0.
+\end{split}
+\end{equation*}
+The first equation is a Riccati equation. Note that $\bar{\chi}_t$ solves a first order homogeneous linear equation. Thus $\bar{\chi}_t=0$, $\forall t\in[0,T]$. Once the equation for $\bar{\eta}_t$ is solved, we can compute $\bar{x}_t$ by solving the linear ODE:
+\begin{equation*}
+\begin{split}
+    \dot{\bar{x}}_t&=(a^x_t+a^{\bar{x}}_t+(a^y_t+a^{\bar{y}}_t)\bar{\eta}_t)\bar{x}_t \\
+    \bar{x}_0&=\mathbb{E}(\xi)
+\end{split}
+\end{equation*}
+and thus,
+\begin{equation*}
+    \bar{x}_t=\bar{x}_0 e^{\int_0^t(a^x_u+a^{\bar{x}}_u+(a^y_u+a^{\bar{y}}_u)\bar{\eta}_u)du}.
+\end{equation*}
+
+Once we have computed $(\bar{x}_t)_{0\leq t\leq T}$, we can rewrite the original FBSDE system:
+\begin{equation*}
+\begin{split}
+        dX_t&=\left(a^x_tX_t+a^y_tY_t+a^0_t\right)dt+\sigma dW_t \\
+        X_0&=\xi \\
+        dY_t&=\left(b^x_tX_t+b^y_tY_t+b^0_t\right)dt +Z_t dW_t \\
+        Y_T&=c^xX_T+c^0
+\end{split}
+\end{equation*}
+with:
+\begin{equation*}
+\begin{split}
+    a^0_t&=(a^{\bar{x}}_t+a^{\bar{y}}_t \bar{\eta}_t)\bar{x}_t \\
+    b^0_t&=(b^{\bar{x}}_t+b^{\bar{y}}_t \bar{\eta}_t)\bar{x}_t\\
+    c^0&=c^{\bar{x}}\bar{x}_T.
+\end{split}
+\end{equation*}
+
+Now we make the ansatz: $Y_t=\eta_t X_t+\chi_t$, which reduces the problem to the ODE system:
+\begin{equation*}
+\begin{split}
+    \dot{\eta}_t+a^y_t\eta_t^2+(a^x_t-b^y_t)\eta_t-b^x_t&=0 \\
+    \eta_T&=c^x, \\
+    \dot{\chi}_t+(-b^y_t+a^y_t\eta_t)\chi_t+a^0_t\eta_t-b^0_t&=0, \\
+    \chi_T&=c^0, \\
+    Z_t&=\sigma \eta_t.
+\end{split}
+\end{equation*}
+Again, the first equation is a Riccati equation. Note that it is not necessary to solve for $\chi_t$ because of the relationship:
+\begin{equation*}
+    \bar{\eta}_t\bar{x}_t=\bar{y}_t=\mathbb{E}(Y_t)=\mathbb{E}(\eta_t X_t+\chi_t)=\eta_t \bar{x}_t+\chi_t.
+\end{equation*}
+Thus,
+\begin{equation*}
+    \chi_t=(\bar{\eta}_t-\eta_t)\bar{x}_t.
+\end{equation*}
+
+In summary, the solution to the linear FBSDE of McKean-Vlasov type is reduced to solving linear ODEs and Riccati equations. It will also be useful to compute $Var(X_t)$, which we denote by $v_t$. After we have solved the above equations, we have
+\begin{equation*}
+\begin{split}
+        dX_t&=\left((a^x_t+a^y_t \eta_t)X_t+a^y_t \chi_t+a^0_t\right)dt+\sigma dW_t \\
+        X_0&=\xi.
+\end{split}
+\end{equation*}
+Thus,
+\begin{equation*}
+    v_t=Var(X_t)=Var(\xi)e^{\int_0^t 2(a^x_s+a^y_s\eta_s)ds}+\sigma^2 \int_0^t e^{2 \int_s^t (a^x_u+a^y_u\eta_u) du}ds.
+\end{equation*}
+In the case where the coefficients are time-independent, the Riccati equations for $\bar{\eta}_t$ and $\eta_t$ can be solved explicitly.
+
+\subsection*{\textbf{Scalar Riccati Equation}} If the scalar Riccati equation 
+	\begin{equation*}
+		\dot{\rho}_t - B \rho_t^2 - 2A \rho_t  + C = 0 
+	\end{equation*}
+	with terminal condition $\rho_T = D$ satisfies:
+	\begin{equation}
+		B \neq 0, BD \geq 0, BC>0,
+	\label{eq:Riccati_assumptions}
+	\end{equation}
+	then it has a unique solution:
+\begin{equation}
+		\rho_t= \frac{-(C+D \delta^+) + (C+D \delta^-) e^{-(\delta^+ - \delta^-)(T-t)}}{(\delta^- - D B) - (\delta^+ - D B) e^{-(\delta^+ - \delta^-)(T-t)}}
+	\label{eq:riccati_ut_sol_app}
+\end{equation}
+	where $\delta^\pm = -A \pm \sqrt{(A)^2 + B C}$.
+	
+	Furthermore, if $B \to 0$ and $A\neq 0$, we can deduce that the limiting solution of the scalar Riccati equation coincides with the first-order differential equation:
+	\begin{equation*}
+		\dot{\rho}_t - 2A \rho_t +C = 0 
+	\end{equation*}
+	with terminal condition $\rho_T = D$, namely:
+	\begin{equation*}
+		\rho_t = \left(D - \frac{C}{2A} \right) e^{-2A (T-t)} + \frac{C}{2A}.
+	\end{equation*}
+	
+	If $B \to 0$ and $A = 0$, the limiting solution of the scalar Riccati equation coincides with the first-order differential equation:
+	\begin{equation*}
+	    \dot{\rho}_t +C = 0
+	\end{equation*}
+	with terminal condition $\rho_T = D$, namely:
+	\begin{equation*}
+	    \rho_t = D + C(T-t).
+	\end{equation*}\\
+Hence, returning to the linear FBSDE (\ref{eq:FBSDE_general}), for $\bar{\eta}_t$, we use:
+\begin{equation*}
+	\left\{
+	\begin{array}{rl}
+		A=&-\frac{1}{2}(a^x+a^{\bar{x}}-b^y-b^{\bar{y}}) \\
+		B=&-(a^y+a^{\bar{y}}) \\
+		C=&-(b^x+b^{\bar{x}}) \\
+		D=&\ c^x+c^{\bar{x}}
+	\end{array}
+	\right.
+\end{equation*}
+The conditions (\ref{eq:Riccati_assumptions}) are satisfied if:
+\begin{equation*}
+	\left\{
+	\begin{array}{rl}
+		-(a^y+a^{\bar{y}})&>0 \\
+		-(b^x+b^{\bar{x}})&>0 \\
+		c^x+c^{\bar{x}}& \geq 0
+	\end{array}
+	\right.
+\end{equation*}
+For $\eta_t$, we use:
+\begin{equation*}
+	\left\{
+	\begin{array}{rl}
+		A=&-\frac{1}{2}(a^x-b^y) \\
+		B=&-a^y \\
+		C=&-b^x \\
+		D=&\ c^x.
+	\end{array}
+	\right.
+\end{equation*}
+The conditions (\ref{eq:Riccati_assumptions}) are satisfied if:
+\begin{equation*}
+	\left\{
+	\begin{array}{rl}
+		-a^y&>0 \\
+		-b^x&>0 \\
+		c^x& \geq0.
+	\end{array}
+	\right.
+\end{equation*}
+Returning to the LGEMFG and LGEMKV problems, if we assume the coefficients are nonnegative, we see that these conditions are exactly assumption (\ref{eq:assumptions}).
+
+\end{appendices}
+
+\end{document}
