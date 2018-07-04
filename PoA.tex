@@ -292,7 +292,7 @@ And thus,
 \label{eq:x_bar_MFG_explicit}
 \end{equation}
 \begin{equation}
-v_t=Var(\xi)e^{\int_0^t 2(b_1(s)+a^{MFG}(s)b_2(s)\eta^{MFG}_s)ds}+\sigma^2 \int_0^t e^{2 \int_s^t (b_1(u)+a^{MFG}(u)b_2(u)\eta^{MFG}_u) du}ds.
+v^{MFG}_t=Var(\xi)e^{\int_0^t 2(b_1(s)+a^{MFG}(s)b_2(s)\eta^{MFG}_s)ds}+\sigma^2 \int_0^t e^{2 \int_s^t (b_1(u)+a^{MFG}(u)b_2(u)\eta^{MFG}_u) du}ds.
 \label{eq:v_t}
 \end{equation}
 Let $SC^{MFG}:=SC(\phi)$ for the feedback function specified by this solution, i.e.
@@ -388,7 +388,7 @@ And thus,
 \bar{x}^{MKV}_t=\mathbb{E}(\xi) e^{\int_0^t(b_1(u)+\bar{b}_1(u)+c^{MKV}(u)(b_2(u)+\bar{b}_2(u)\bar{\eta}^{MKV}_u)du},
 \end{equation*}
 \begin{equation*}
-v_t=Var(\xi)e^{\int_0^t 2(b_1(s)+a^{MKV}(s)b_2(s)\eta^{MKV}_s)ds}+\sigma^2 \int_0^t e^{2 \int_s^t (b_1(u)+a^{MKV}(u)b_2(u)\eta^{MKV}_u) du}ds.
+v^{MKV}_t=Var(\xi)e^{\int_0^t 2(b_1(s)+a^{MKV}(s)b_2(s)\eta^{MKV}_s)ds}+\sigma^2 \int_0^t e^{2 \int_s^t (b_1(u)+a^{MKV}(u)b_2(u)\eta^{MKV}_u) du}ds.
 \end{equation*}
 Then $SC^{MKV}=SC(\phi)$ where $\phi$ is the feedback function specified by this solution, i.e.
 \begin{equation*}
@@ -650,7 +650,7 @@ where $\delta^\pm_u = -A^u \pm \sqrt{(A^u)^2 + B^u C^u}$. We have analogous expr
 \begin{proposition}
 	Assuming (\ref{eq:assumptions}),
 	\begin{equation*}
-			\lim_{r \to \infty} PoA = 1 \qquad and \qquad
+			\lim_{r \to \infty} PoA = 1 \qquad \text{and} \qquad
 			\lim_{\bar{r} \to \infty} PoA = 1.
 	\end{equation*}
 	\label{prop:r_bar_r}
@@ -669,15 +669,15 @@ where $\delta^\pm_u = -A^u \pm \sqrt{(A^u)^2 + B^u C^u}$. We have analogous expr
 	Since assumption (\ref{eq:assumptions}) holds for arbitrary large $r$, we can deduce that the solution $u_t$ of equation (\ref{eq:riccati_ut}) tends to a limiting function $u^{\infty,r}_t$ which is the solution of a first-order differential equation (see Appendix \ref{appendix_solving_fbsdes}). The limiting solution $u_t^{\infty,r}$ is given by:
 	\begin{equation*}
 	\begin{split}
-	    \text{when } A^u \neq 0,\qquad & u_t^{\infty,r} = \left(D^{\infty,r}_u - \frac{C^{\infty,r}_u}{2A^u} \right) e^{-2A^u (T-t)} +  \frac{C^{\infty,r}_u}{2A^u}\\
-	    \text{when } A^u = 0, \qquad & u_t^{\infty,r} = D^{\infty,r}_u + C^{\infty,r}_u (T-t)
+	    \text{when } A^u \neq 0,\qquad & u_t^{\infty,r} = \left(D^{\infty,r}_u - \frac{C^{\infty,r}_u}{2A^u} \right) e^{-2A^u (T-t)} +  \frac{C^{\infty,r}_u}{2A^u},\\
+	    \text{when } A^u = 0, \qquad & u_t^{\infty,r} = D^{\infty,r}_u + C^{\infty,r}_u (T-t),
 	\end{split}
 	\end{equation*}
 	which is bounded for $t \in [0,T]$.
 	Similarly, we have the bounded limiting solutions over $[0,T]$:
 	$$w_t \xrightarrow[r \to \infty]{} w_t^{\infty,r},\qquad \eta_t \xrightarrow[r \to \infty]{} \eta_t^{\infty,r}.$$
 	Moreover, since $\bar{x}_t^{MFG} = \mathbb{E}(\xi) \exp(\int_0^t (b_1 + \bar{b}_1 - B\cdot u_s)ds)$ and $v_t = Var(\xi)\exp(2\int_0^t (b_1 - B^\eta \eta_s) ds) + \sigma^2 \int_0^t \exp(2 \int_s^t (b_1 - B^\eta \eta_u) du) ds$, we have 
-	$$	\bar{x}_t^{MFG} \xrightarrow[r\to \infty]{} \bar{x}_0 e^{(b_1+ \bar{b}_1)t} =: \bar{x}_t^{\infty,r,MFG},\qquad
+	$$	\bar{x}_t^{MFG} \xrightarrow[r\to \infty]{} \mathbb{E}(\xi) e^{(b_1+ \bar{b}_1)t} =: \bar{x}_t^{\infty,r,MFG},\qquad
 	  v_t \xrightarrow[r\to \infty]{} Var(\xi)e^{2b_1t} + \sigma^2 \int_0^t e^{2 b_1 (t-s) } ds =: v^{\infty,r}_t
 	$$
 	which are also bounded over $t\in[0,T]$.
@@ -685,7 +685,7 @@ where $\delta^\pm_u = -A^u \pm \sqrt{(A^u)^2 + B^u C^u}$. We have analogous expr
 	\begin{equation*}
 		\lim_{r \to \infty} \int_0^T (\Delta \bar{\eta}_t \cdot \bar{x}_t^{MFG})^2 dt = \int_0^T (u^{\infty,r}_t- w^{\infty,r}_t)^2 (\bar{x}_t^{\infty,r,MFG})^2 dt \  < \infty.
 	\end{equation*}
-	By their explicit formulas, it can be shown that $w^{\infty,r}_0\geq0$ and $v^{\infty,r}_0 >0$ for $t>0$ and therefore,
+	By their explicit formulas, it can be shown that $w^{\infty,r}_0\geq0$ and $v^{\infty,r}_t >0$ for $t>0$ and therefore,
 	\begin{equation*}
 		\lim_{r \to \infty} SC^{MKV} = \int_0^T (q+\bar{q}) v^{\infty,r}_t dt + (q_T + \bar{q}_T) v^{\infty,r}_T + w^{\infty,r}_0 \bar{x}_0^2 \  >0.
 	\end{equation*}
@@ -797,7 +797,7 @@ where $\delta^\pm_u = -A^u \pm \sqrt{(A^u)^2 + B^u C^u}$. We have analogous expr
 \begin{proposition}
 	Assuming (\ref{eq:assumptions}), the initial condition $\xi$ satisfies $\mathbb{E}(\xi)\neq 0$, and assuming $\bar{b}_1\neq 0$, then 
 	\begin{equation*}
-	\lim_{\bar{b}_2 \to 0} PoA =: PoA^{0,\bar{b}_2} > 1\qquad and \qquad\lim_{\bar{b}_2 \to \infty} PoA = 1.
+	\lim_{\bar{b}_2 \to 0} PoA =: PoA^{0,\bar{b}_2} > 1\qquad \text{and} \qquad\lim_{\bar{b}_2 \to \infty} PoA = 1.
 	\end{equation*}
 	\label{prop:b2bar}
 \end{proposition}
@@ -852,15 +852,15 @@ where $\delta^\pm_u = -A^u \pm \sqrt{(A^u)^2 + B^u C^u}$. We have analogous expr
 	Assuming (\ref{eq:assumptions}), the initial condition $\xi$ satisfies $\mathbb{E}(\xi)\neq 0$, and $\lambda \neq 1$, then
 	\begin{equation*}
 	\begin{split}
-	    \lim_{b_1 \to 0} PoA =: PoA^{0,b_1} > 1\qquad &and \qquad \lim_{\bar{b}_1 \to 0} PoA =: PoA^{0,\bar{b}_1} > 1,\\
-	    \lim_{b_1 \to \infty} PoA = 1 \qquad &and \qquad\lim_{\bar{b}_1 \to \infty} PoA =\infty.
+	    \lim_{b_1 \to 0} PoA =: PoA^{0,b_1} > 1\qquad &\text{and} \qquad \lim_{\bar{b}_1 \to 0} PoA =: PoA^{0,\bar{b}_1} > 1,\\
+	    \lim_{b_1 \to \infty} PoA = 1 \qquad &\text{and} \qquad\lim_{\bar{b}_1 \to \infty} PoA =\infty.
 	\end{split}
 	\end{equation*}
 \end{proposition}
 \begin{proof}
     Clearly we have $\lim_{b_1 \to 0}u_t=:u^{0,b_1}_t$, $\lim_{b_1 \to 0}w_t=:w^{0,b_1}_t$, and $\lim_{b_1 \to 0}\eta_t=:\eta^{0,b_1}_t$, where all three limiting processes are bounded. By the assumption on $\lambda$, $u_t \neq w_t$ on a set of positive Lebesgue measure. By the assumption on $\xi$, we have $\lim_{b_1 \to 0} \bar{x}^{MFG}_t=:\bar{x}^{0,b_1,MFG}_t>0,\ \forall t \in [0,T]$ which is also bounded. Therefore, by Proposition \ref{prop:diff_SC}, and the bounded convergence theorem,
     \begin{equation*}
-        \lim_{b_1 \to 0} \Delta SC=:\Delta SC^{0,b_1},\  \Delta SC^{0,b_1}<\infty,\ and\ \Delta SC^{0,b_1}>0.
+        \lim_{b_1 \to 0} \Delta SC=:\Delta SC^{0,b_1},\  \Delta SC^{0,b_1}<\infty,\ \text{and}\ \Delta SC^{0,b_1}>0.
     \end{equation*}
     Since $\eta^{0,b_1}_t$ is bounded, $\lim_{b_1 \to 0}v_t=:v_t^{0,b_1}>0,\ \forall t>0$ which is also bounded. Using equations (\ref{eq:SC_MFG_2}) and (\ref{eq:SC_MKV_2}), the fact that $0 \leq \eta^{0,b_1}_0 < \infty$, and the bounded convergence theorem, $\lim_{b_1 \to 0} SC^{MKV}>0$ and $\lim_{b_1 \to 0} SC^{MKV}<\infty$. Therefore, $\lim_{b_1 \to 0} PoA =: PoA^{0,b_1} > 1$. The proof can be repeated to show $\lim_{\bar{b}_1 \to 0} PoA =: PoA^{0,\bar{b}_1} > 1$.
     
