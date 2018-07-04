@@ -287,12 +287,14 @@ This is a linear FBSDE of McKean-Vlasov type, which can be solved explicitly und
 \label{eq:x_bar_MFG}
 \end{equation}
 And thus,
-\begin{equation*}
+\begin{equation}
 \bar{x}^{MFG}_t=\mathbb{E}(\xi) e^{\int_0^t(b_1(u)+\bar{b}_1(u)+c^{MFG}(u)(b_2(u)+\bar{b}_2(u))\bar{\eta}^{MFG}_u)du},
-\end{equation*}
-\begin{equation*}
+\label{eq:x_bar_MFG_explicit}
+\end{equation}
+\begin{equation}
 v_t=Var(\xi)e^{\int_0^t 2(b_1(s)+a^{MFG}(s)b_2(s)\eta^{MFG}_s)ds}+\sigma^2 \int_0^t e^{2 \int_s^t (b_1(u)+a^{MFG}(u)b_2(u)\eta^{MFG}_u) du}ds.
-\end{equation*}
+\label{eq:v_t}
+\end{equation}
 Let $SC^{MFG}:=SC(\phi)$ for the feedback function specified by this solution, i.e.
 \begin{equation*}
     \phi(t,x)=a^{MFG}(t)\eta_t^{MFG}x+\left(a^{MFG}(t)(\bar{\eta}_t^{MFG}-\eta_t^{MFG})+b^{MFG}(t)\bar{\eta}_t^{MFG} \right)\bar{x}_t^{MFG}.
@@ -455,7 +457,7 @@ Assuming (\ref{eq:assumptions}), if furthermore,
 \begin{split}
     \left(s\bar{q}(s-1)+\bar{b}_1\bar{\eta}_t^{MKV}\right)\bar{x}_t^{MKV}&=0,\ \forall t \in [0,T] \\
     \bar{\eta}_t^{MKV}\bar{x}_t^{MKV}\left[(b^{MFG}-b^{MKV})b_2+(c^{MFG}-c^{MKV})\bar{b}_2\right]&=0,\ \forall t \in [0,T] \\
-    s_T\bar{q}_T(s_T-1)\bar{x}_T^{MKV}&=0
+    s_T\bar{q}_T(s_T-1)\bar{x}_T^{MKV}&=0,
 \end{split}
 \end{equation*}
 then $PoA=1$.
@@ -563,12 +565,12 @@ Let's denote the (weighted) difference between the solutions of the Riccati equa
 \label{prop:diff_SC}
 \end{proposition}
 \begin{proof}
-	The solutions $\bar{\eta}^{MFG}_t$ and $\bar{\eta}^{MKV}_t$ for the associated Riccati equations are well defined under assumption (\ref{eq:assumptions}). We notice that $\Delta\bar{\eta}_t$ defined in (\ref{eq:delta_eta}) satisfies the following first-order differential equation:
+	The solutions $\bar{\eta}^{MFG}_t$ and $\bar{\eta}^{MKV}_t$ for the Riccati equations (\ref{eq:eta_bar_MFG}) and (\ref{eq:eta_bar_MKV}), respectively, are well defined under assumption (\ref{eq:assumptions}) (see Appendix \ref{appendix_solving_fbsdes}). We notice that $\Delta\bar{\eta}_t$ defined in (\ref{eq:delta_eta}) satisfies the following first-order differential equation:
 	\begin{equation*}
-		\frac{d( \Delta{\bar{\eta}}_t)}{dt} = \gamma_t \Delta\bar{\eta}_t + \beta_t
+		\frac{d( \Delta{\bar{\eta}}_t)}{dt} = \gamma_t \Delta\bar{\eta}_t + \beta_t,
 		\qquad \Delta{\bar{\eta}}_T = \lambda \bar{\eta}_T^{MFG} - \bar{\eta}_T^{MKV}
 	\end{equation*}
-	with coefficients 
+	with coefficients:
 	\begin{equation*}
 	\left\{
 		\begin{array}{rcl}
@@ -577,18 +579,18 @@ Let's denote the (weighted) difference between the solutions of the Riccati equa
 		\end{array}
 	\right.
 	\end{equation*} 
-	Since $q_T + \bar{q}_T(1-s_T)^2 = \bar{\eta}_T^{MKV}$ and $\lambda \bar{\eta}_0^{MFG} - \bar{\eta}_0^{MKV} = \Delta\bar{\eta}_0$, we deduce from equations (\ref{eq:SC_MFG_2}) and (\ref{eq:SC_MKV_2}) that:
+	Since $q_T + \bar{q}_T(1-s_T) = \bar{\eta}_T^{MFG}$, $q_T + \bar{q}_T(1-s_T)^2 = \bar{\eta}_T^{MKV}$ and $\lambda \bar{\eta}_0^{MFG} - \bar{\eta}_0^{MKV} = \Delta\bar{\eta}_0$, we deduce from equations (\ref{eq:SC_MFG_2}) and (\ref{eq:SC_MKV_2}) that:
 	\begin{equation*}
 		\begin{split}
 			& SC^{MFG} - SC^{MKV}\\
 			=& \frac{1}{2} \left[ \Delta\bar{\eta}_0 \bar{x}_0^2 - \Delta\bar{\eta}_T (\bar{x}_T^{MFG})^2 + \int_0^T \beta_t (\bar{x}_t^{MFG})^2 dt \right] \\
 			=& \frac{1}{2} \int_0^T \left[ - \frac{d (\Delta\bar{\eta}_t (\bar{x}_t^{MFG})^2) }{dt}  + \left( 	\frac{d( \Delta{\bar{\eta}}_t)}{dt} - \gamma_t \Delta\bar{\eta}_t  \right)(\bar{x}_t^{MFG})^2 \right] dt\\
 			=& \frac{1}{2}\int_0^T \left[- 2\Delta{\bar{\eta}}_t \bar{x}_t^{MFG} \dot{\bar{x}}_t^{MFG} - \gamma_t \Delta{\bar{\eta}}_t (\bar{x}_t^{MFG})^2 \right]dt \\
-			=& \frac{1}{2} \int_0^T \Delta{\bar{\eta}}_t (\bar{x}_t^{MFG})^2 \left[-2(b_1 + \bar{b}_1 - \frac{(b_2+\bar{b}_2)^2}{r + \bar{r}(1-\bar{s})^2} \lambda \bar{\eta}_t^{MFG}) - \gamma_t\right] dt\\
-			=& \frac{1}{2} \frac{(b_2 + \bar{b}_2)^2}{r + \bar{r}(1-\bar{s})^2} \int_0^T (\Delta \bar{\eta}_t \cdot \bar{x}_t^{MFG})^2 dt
+			=& \frac{1}{2} \int_0^T \Delta{\bar{\eta}}_t (\bar{x}_t^{MFG})^2 \left[-2\left(b_1 + \bar{b}_1 - \frac{(b_2+\bar{b}_2)^2}{r + \bar{r}(1-\bar{s})^2} \lambda \bar{\eta}_t^{MFG}\right) - \gamma_t\right] dt\\
+			=& \frac{1}{2} \frac{(b_2 + \bar{b}_2)^2}{r + \bar{r}(1-\bar{s})^2} \int_0^T (\Delta \bar{\eta}_t \cdot \bar{x}_t^{MFG})^2 dt,
 		\end{split}
 	\end{equation*}
-	where we use the relationship $\dot{\bar{x}}_t = (a^x+a^{\bar{x}}+(a^y+a^{\bar{y}})\bar{\eta}_t)\bar{x}_t$ (see Appendix \ref{appendix_solving_fbsdes}) for the fourth equality.	
+	where we use equation (\ref{eq:x_bar_MFG}) for the fourth equality.	
 	
 \end{proof}
 
@@ -606,7 +608,7 @@ PoA =1+ \frac{\Delta SC}{SC^{MKV}}= 1 +  \frac{ \displaystyle   \frac{(b_2 + \ba
     Assuming (\ref{eq:assumptions}), if the initial condition $\xi$ is such that $\mathbb{E}(\xi)=0$, then $PoA=1$.
 \end{corollary}
 \begin{proof}
-    By the explicit equation for $\bar{x}_t$ (see Appendix \ref{appendix_solving_fbsdes}), $\bar{x}_0=0$ implies $\bar{x}_t=0,\ \forall t \in [0,T]$. Therefore by Proposition \ref{prop:diff_SC}, $\Delta SC=0$. From the explicit formula for the variance, $h_{var}>0$ and therefore by equation (\ref{eq:SC_MKV_2}), $SC^{MKV}>0$. Therefore, $PoA=1$.
+    By equation (\ref{eq:x_bar_MFG_explicit}), $\mathbb{E}(\xi)=0$ implies $\bar{x}^{MFG}_t=0,\ \forall t \in [0,T]$. Therefore by Proposition \ref{prop:diff_SC}, $\Delta SC=0$. From equation (\ref{eq:v_t}), $v_t>0$ which implies $h_{var}>0$. Therefore by equation (\ref{eq:SC_MKV_2}), $SC^{MKV}>0$. We conclude that $PoA=1$.
 \end{proof}
 
 
