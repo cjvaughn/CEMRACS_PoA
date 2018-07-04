@@ -491,13 +491,13 @@ where we applied integration by parts for the second equality. Thus, if we denot
 the equations (\ref{eq:SC_MFG_1}) and (\ref{eq:SC_MKV_1}) can be rewritten as
 \begin{equation}
 \begin{split}
-	SC^{MFG} = & h_{var}(t) +  \frac{1}{2} \int_0^T \left[ \bar{b}_1 \lambda \bar{\eta}_t^{MFG} + (q+ \bar{q}(1-s)^2) - \lambda (q + \bar{q}(1-s)) \right] (\bar{x}_t^{MFG})^2 dt, \\
+	SC^{MFG} = & h_{var} +  \frac{1}{2} \int_0^T \left[ \bar{b}_1 \lambda \bar{\eta}_t^{MFG} + (q+ \bar{q}(1-s)^2) - \lambda (q + \bar{q}(1-s)) \right] (\bar{x}_t^{MFG})^2 dt, \\
 	& + \frac{1}{2} \lambda \left( \bar{\eta}^{MFG}_0 \bar{x}_0^2 - \bar{\eta}^{MFG}_T (\bar{x}_T^{MFG})^2 \right) + \frac{1}{2} (q_T+\bar{q}_T(1-s_T)^2)(\bar{x}_T^{MFG})^2\\
-	SC^{MKV} = & h_{var}(t) + \frac{1}{2} \bar{\eta}^{MKV}_0 \bar{x}_0^2,
+	SC^{MKV} = & h_{var} + \frac{1}{2} \bar{\eta}^{MKV}_0 \bar{x}_0^2,
 \end{split}
 \label{eq:SC_MFG_MKV_2}
 \end{equation}
-where $ h_{var}(t): = \frac{1}{2}\int_0^T (q+\bar{q}+(r+\bar{r})(a\eta_t)^2)v_tdt + \frac{1}{2}(q_T+\bar{q}_T)v_T  $.
+where $ h_{var}: = \frac{1}{2}\int_0^T (q+\bar{q}+(r+\bar{r})(a\eta_t)^2)v_tdt + \frac{1}{2}(q_T+\bar{q}_T)v_T  $.
 
 Let's denote the (weighted) difference between the solutions of the Riccati equations associated with $\bar{\eta}_t^{MFG}$ and $\bar{\eta}_t^{MKV}$ by:
 \begin{equation}
@@ -556,7 +556,7 @@ PoA =1+ \frac{\Delta SC}{SC^{MKV}}= 1 +  \frac{ \displaystyle   \frac{(b_2 + \ba
     Assuming (\ref{eq:assumptions}), if the initial condition $\xi$ is such that $\mathbb{E}(\xi)=0$, then $PoA=1$.
 \end{corollary}
 \begin{proof}
-    By the explicit equation for $\bar{x}_t$ (see Appendix \ref{appendix_solving_fbsdes}), $\bar{x}_0=0$ implies $\bar{x}_t=0,\ \forall t \in [0,T]$. Therefore by Proposition \ref{prop:diff_SC}, $\Delta SC=0$. From the explicit formula for the variance, $h_{var}(t)>0$ and therefore by equation (\ref{eq:SC_MFG_MKV_2}), $SC^{MKV}>0$. Therefore, $PoA=1$.
+    By the explicit equation for $\bar{x}_t$ (see Appendix \ref{appendix_solving_fbsdes}), $\bar{x}_0=0$ implies $\bar{x}_t=0,\ \forall t \in [0,T]$. Therefore by Proposition \ref{prop:diff_SC}, $\Delta SC=0$. From the explicit formula for the variance, $h_{var}>0$ and therefore by equation (\ref{eq:SC_MFG_MKV_2}), $SC^{MKV}>0$. Therefore, $PoA=1$.
 \end{proof}
 
 
@@ -762,7 +762,7 @@ where $\delta^\pm_u = -A^u \pm \sqrt{(A^u)^2 + B^u C^u}$. We have analogous expr
 	Meanwhile, $\eta_t$ does not depend on $\bar{b}_2$, and therefore the variance $v_t$ also does not depend on $\bar{b}_2$. By the explicit formula, $0<v_t<\infty$ for $t>0$ and $0 \leq w^{0,\bar{b}_2}_0 < \infty$, and thus,
 	\begin{equation*}
     \begin{split}
-	    \lim_{\bar{b}_2 \to 0}SC^{MKV} &= h_{var}(t) + w^{0,\bar{b}_2}_0 \bar{x}_0^2, \\
+	    \lim_{\bar{b}_2 \to 0}SC^{MKV} &= h_{var} + w^{0,\bar{b}_2}_0 \bar{x}_0^2, \\
 	    \lim_{\bar{b}_2 \to 0}SC^{MKV}&<\infty, \\
 	    \lim_{\bar{b}_2 \to 0}SC^{MKV}&>0 .       
     \end{split}
@@ -791,7 +791,7 @@ where $\delta^\pm_u = -A^u \pm \sqrt{(A^u)^2 + B^u C^u}$. We have analogous expr
 	$$ \lim_{\bar{b}_2 \to \infty} \Delta SC =  \frac{1}{2(r+ \bar{r}(1-\bar{s})^2)} \int_0^T \lim_{\bar{b}_2 \to \infty} \left( \frac{ (b_2 + \bar{b}_2)^{\frac{3}{2}} u_t }{\sqrt{b_2 + \bar{b}_2}} - (b_2 + \bar{b}_2)w_t \right)^2 \cdot \left(\bar{x}_t^{MFG} \right)^2 dt \to 0.
 	$$	
 	Moreover, as shown in the case $\bar{b}_2 \to 0$, $\eta_t$ as well as the variance $v_t$ are invariant w.r.t. $\bar{b}_2$ and $v_t>0$ for $t>0$. Thus,
-	$$ \lim_{\bar{b}_2 \to \infty} SC^{MKV} = h_{var}(t)> 0.$$
+	$$ \lim_{\bar{b}_2 \to \infty} SC^{MKV} = h_{var}> 0.$$
 	Therefore, we conclude that:
 	$$ \lim_{\bar{b}_2 \to \infty} PoA = 1.$$
 \end{proof}
