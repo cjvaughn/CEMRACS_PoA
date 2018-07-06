@@ -687,7 +687,9 @@ where $\delta^\pm_u = -A^u \pm \sqrt{(A^u)^2 + B^u C^u}$. We have analogous expr
 	    \text{when } A^u = 0, \qquad & u_t^{\infty,r} = D^{\infty,r}_u + C^{\infty,r}_u (T-t)
 	\end{split}.
 	\end{equation*}
-	We can deduce that $u^{\infty,r}$ over $[0,T]$.	Similarly, for any fixed time $t\in [0,T]$, the real solution $w_t$ and $\eta_t$ of the equations (\ref{eq:riccati_wt}) and (\ref{eq:riccati_etat}) at time $t$ converge towards the solution $w^{\infty,r}_t$ and $\eta_t^{\infty,r}$ of some first-order differential equations. Namely, for every $t\in [0,T]$,
+	It is also clear that $u^{\infty,r}$ is bonded over $[0,T]$.	
+	
+	Similarly, for any fixed time $t\in [0,T]$, the solution $w_t$ and $\eta_t$ to the equations (\ref{eq:riccati_wt}) and (\ref{eq:riccati_etat}) at time $t$ converge towards the solution $w^{\infty,r}_t$ and $\eta_t^{\infty,r}$ of some first-order differential equations. Namely, for every $t\in [0,T]$,
 	$$w_t \xrightarrow[r \to \infty]{} w_t^{\infty,r},\qquad \eta_t \xrightarrow[r \to \infty]{} \eta_t^{\infty,r}$$
 	and the function $w^{\infty,r}$ and $\eta^{\infty,r}$ are bounded over $[0,T]$.
 	
@@ -695,20 +697,17 @@ where $\delta^\pm_u = -A^u \pm \sqrt{(A^u)^2 + B^u C^u}$. We have analogous expr
 	$$	\bar{x}_t^{MFG} \xrightarrow[r\to \infty]{} \bar{x}_0 e^{(b_1+ \bar{b}_1)t} =: \bar{x}_t^{\infty,r,MFG},\qquad
 	  v_t \xrightarrow[r\to \infty]{} Var(\xi)e^{2b_1t} + \sigma^2 \int_0^t e^{2 b_1 (t-s) } ds =: v^{\infty,r}_t
 	$$
-	which are also bounded over $t\in[0,T]$.
-	Hence, by the bounded convergence theorem again we obtain
+	The limits $\bar{x}_t^{\infty,r,MFG}$ as well as $v_t^{\infty,r}$ are bounded over $[0,T]$, then by the bounded convergence theorem again we obtain
 	\begin{equation*}
 		\lim_{r \to \infty} \int_0^T (\Delta \bar{\eta}_t \cdot \bar{x}_t^{MFG})^2 dt = \int_0^T (u^{\infty,r}_t- w^{\infty,r}_t)^2 (\bar{x}_t^{\infty,r,MFG})^2 dt \  < \infty.
 	\end{equation*}
-	By their explicit formulas, it can be shown that $w^{\infty,r}_0\geq0$ and $v^{\infty,r}_0 >0$ for $t>0$ and therefore,
+	It can be shown that $w^{\infty,r}_0\geq0$ and $v^{\infty,r}_t >0$ for any $t>0$. Hence,
 	\begin{equation*}
 		\lim_{r \to \infty} SC^{MKV} = \int_0^T (q+\bar{q}) v^{\infty,r}_t dt + (q_T + \bar{q}_T) v^{\infty,r}_T + w^{\infty,r}_0 \bar{x}_0^2 \  >0.
 	\end{equation*}
-	Thus, from Proposition \ref{prop:diff_SC} and equation (\ref{eq:PoA_LQ}), we deduce
-	$$ \frac{(b_2 + \bar{b}_2)^2}{r + \bar{r}(1 - \bar{s})^2} \longrightarrow 0$$ 
-	and thus $\displaystyle \lim_{r \to \infty} PoA = 1$. 
+	Therefore, from Proposition \ref{prop:diff_SC} and equation (\ref{eq:PoA_LQ}), when $r$ tends towards infinity we have $ \frac{(b_2 + \bar{b}_2)^2}{r + \bar{r}(1 - \bar{s})^2} \rightarrow 0$	and then $\displaystyle \lim_{r \to \infty} PoA = 1$. 
 	
-	Idem, by replacing $\lambda^{\infty,r}$ with $\lambda^{\infty,\bar{r}} := \frac{b_2}{b_2 + \bar{b}_2} (1 - \bar{s})$, we can have $\displaystyle \lim_{\bar{r} \to \infty} PoA = 1$.
+	Idem, by replacing $\lambda^{\infty,r}$ with $\lambda^{\infty,\bar{r}} := \frac{b_2}{b_2 + \bar{b}_2} (1 - \bar{s})$, we obtain $\displaystyle \lim_{\bar{r} \to \infty} PoA = 1$.
 	
 \end{proof}
 
