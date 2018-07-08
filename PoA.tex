@@ -666,32 +666,40 @@ where $\delta^\pm_u = -A^u \pm \sqrt{(A^u)^2 + B^u C^u}$. We have analogous expr
 	\begin{equation*}
 		B \to 0,\ B^\eta \to 0,\ C^u \to C_u^{\infty,r} := \lambda^{\infty,r}(q + \bar{q}(1-s)),\ D^{u} \to D_u^{\infty,r} := \lambda^{\infty,r}(q_T+ \bar{q}_T(1-s_T)).
 	\end{equation*}
-	Since assumption (\ref{eq:assumptions}) holds for arbitrary large $r$, we can deduce that the solution $u_t$ of equation (\ref{eq:riccati_ut}) tends to a limiting function $u^{\infty,r}_t$ which is the solution of a first-order differential equation (see Appendix \ref{appendix_solving_fbsdes}). The limiting solution $u_t^{\infty,r}$ is given by:
+	% modification Main point 5 (nicolas)
+	If $A^u \neq 0$, let $u^{\infty,r}:[0,T] \to \mathbb{R}$ be the solution to the first-order differential equation:
+	\begin{equation}
+		\dot{u}^{\infty,r}_t - 2A^u u_t^{\infty,r} + C^{\infty,r}_u = 0, \qquad u_T^{\infty,r} = D^{\infty,r}_u,
+	\end{equation}
+	or if $A^u = 0$, let $u^{\infty,r}:[0,T] \to \mathbb{R}$ solve:
+	\begin{equation}
+		\dot{u}^{\infty,r}_t + C^{\infty,r}_u = 0, \qquad u_T^{\infty,r} = D^{\infty,r}_u.
+	\end{equation}	
+	Since assumption (\ref{eq:assumptions}) holds for arbitrarily large $r$, from the explicit formula of the solution to the scalar Riccati equation (see Appendix \ref{appendix_solving_fbsdes} equation (\ref{eq:riccati_ut_sol_app})), it is easy to show that the solution $u$ to equation (\ref{eq:riccati_ut}) converges pointwise for any $t\in[0,T]$ to the solution $u^{\infty,r}$, as $r \to \infty$. This limiting solution $u^{\infty,r}$ can be given by the following expressions: for every $t\in [0,T]$
 	\begin{equation*}
 	\begin{split}
 	    \text{when } A^u \neq 0,\qquad & u_t^{\infty,r} = \left(D^{\infty,r}_u - \frac{C^{\infty,r}_u}{2A^u} \right) e^{-2A^u (T-t)} +  \frac{C^{\infty,r}_u}{2A^u},\\
-	    \text{when } A^u = 0, \qquad & u_t^{\infty,r} = D^{\infty,r}_u + C^{\infty,r}_u (T-t),
+	    \text{when } A^u = 0, \qquad & u_t^{\infty,r} = D^{\infty,r}_u + C^{\infty,r}_u (T-t).
 	\end{split}
 	\end{equation*}
-	which is bounded for $t \in [0,T]$.
-	Similarly, we have the bounded limiting solutions over $[0,T]$:
-	$$w_t \xrightarrow[r \to \infty]{} w_t^{\infty,r},\qquad \eta_t \xrightarrow[r \to \infty]{} \eta_t^{\infty,r}.$$
-	Moreover, since $\bar{x}_t^{MFG} = \mathbb{E}(\xi) \exp(\int_0^t (b_1 + \bar{b}_1 - B\cdot u_s)ds)$ and $v_t = Var(\xi)\exp(2\int_0^t (b_1 - B^\eta \eta_s) ds) + \sigma^2 \int_0^t \exp(2 \int_s^t (b_1 - B^\eta \eta_u) du) ds$, we have 
+	
+	It is clear that $u^{\infty,r}$ is bounded over $[0,T]$.	Similarly, for any fixed time $t\in [0,T]$, the solutions $w_t$ and $\eta_t$ of equations (\ref{eq:riccati_wt}) and (\ref{eq:riccati_etat}) converge for each time $t\in [0,T]$ towards the solutions $w^{\infty,r}_t$ and $\eta_t^{\infty,r}$ of some first-order differential equations. Namely, for every $t\in [0,T]$,
+	$$w_t \xrightarrow[r \to \infty]{} w_t^{\infty,r},\qquad \eta_t \xrightarrow[r \to \infty]{} \eta_t^{\infty,r}$$
+	and the functions $w^{\infty,r}$ and $\eta^{\infty,r}$ are bounded over $[0,T]$.
+	
+	Moreover, since $\bar{x}_t^{MFG} = \mathbb{E}(\xi) \exp(\int_0^t (b_1 + \bar{b}_1 - B\cdot u_s)ds)$ and $v_t = Var(\xi)\exp(2\int_0^t (b_1 - B^\eta \eta_s) ds) + \sigma^2 \int_0^t \exp(2 \int_s^t (b_1 - B^\eta \eta_u) du) ds$, by the bounded convergence theorem we have: 
 	$$	\bar{x}_t^{MFG} \xrightarrow[r\to \infty]{} \mathbb{E}(\xi) e^{(b_1+ \bar{b}_1)t} =: \bar{x}_t^{\infty,r,MFG},\qquad
-	  v_t \xrightarrow[r\to \infty]{} Var(\xi)e^{2b_1t} + \sigma^2 \int_0^t e^{2 b_1 (t-s) } ds =: v^{\infty,r}_t
+	  v_t \xrightarrow[r\to \infty]{} Var(\xi)e^{2b_1t} + \sigma^2 \int_0^t e^{2 b_1 (t-s) } ds =: v^{\infty,r}_t,
 	$$
-	which are also bounded over $t\in[0,T]$.
-	Hence, by the bounded convergence theorem we have
+	The limits $\bar{x}_t^{\infty,r,MFG}$ and $v_t^{\infty,r}$ are bounded over $[0,T]$. By the bounded convergence theorem, we obtain:
 	\begin{equation*}
 		\lim_{r \to \infty} \int_0^T (\Delta \bar{\eta}_t \cdot \bar{x}_t^{MFG})^2 dt = \int_0^T (u^{\infty,r}_t- w^{\infty,r}_t)^2 (\bar{x}_t^{\infty,r,MFG})^2 dt \  < \infty.
 	\end{equation*}
-	By their explicit formulas, it can be shown that $w^{\infty,r}_0\geq0$ and $v^{\infty,r}_t >0$ for $t>0$ and therefore,
+	It can be shown that $w^{\infty,r}_0\geq0$ and $v^{\infty,r}_t >0$ for $t>0$. Hence,
 	\begin{equation*}
 		\lim_{r \to \infty} SC^{MKV} = \int_0^T (q+\bar{q}) v^{\infty,r}_t dt + (q_T + \bar{q}_T) v^{\infty,r}_T + w^{\infty,r}_0 (\mathbb{E}(\xi))^2 \  >0.
 	\end{equation*}
-	Thus, from Proposition \ref{prop:diff_SC} and equation (\ref{eq:PoA_LQ}), we deduce $\displaystyle \lim_{r \to \infty} PoA = 1$. 
-	
-	Idem, by replacing $\lambda^{\infty,r}$ with $\lambda^{\infty,\bar{r}} = \frac{b_2}{b_2 + \bar{b}_2} (1 - \bar{s})$, we can have $\displaystyle \lim_{\bar{r} \to \infty} PoA = 1$.
+	Therefore, from Proposition \ref{prop:diff_SC} and equation (\ref{eq:PoA_LQ}), when $r\to \infty$, we have $ \frac{(b_2 + \bar{b}_2)^2}{r + \bar{r}(1 - \bar{s})^2}\int_0^T (\Delta \bar{\eta}_t \cdot \bar{x}_t^{MFG})^2 dt \rightarrow 0$	and thus, $\displaystyle \lim_{r \to \infty} PoA = 1$. Idem, by replacing $\lambda^{\infty,r}$ with $\lambda^{\infty,\bar{r}}: = \frac{b_2}{b_2 + \bar{b}_2} (1 - \bar{s})$, we obtain $\displaystyle \lim_{\bar{r} \to \infty} PoA = 1$.
 	
 \end{proof}
 
@@ -792,7 +800,6 @@ where $\delta^\pm_u = -A^u \pm \sqrt{(A^u)^2 + B^u C^u}$. We have analogous expr
 	$$ \lim_{b_2 \to \infty} PoA =: PoA^{\infty,b_2} > 1;$$
 	otherwise $$ \lim_{b_2 \to \infty} PoA = 1.$$ 
 \end{proof}
-
 
 \begin{proposition}
 	Assuming (\ref{eq:assumptions}), the initial condition $\xi$ satisfies $\mathbb{E}(\xi)\neq 0$, and assuming $\bar{b}_1\neq 0$, then 
