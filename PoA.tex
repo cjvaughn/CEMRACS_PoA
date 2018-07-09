@@ -725,80 +725,124 @@ where $\delta^\pm_u = -A^u \pm \sqrt{(A^u)^2 + B^u C^u}$. We have analogous expr
     First, we consider $b_2 \to 0$. If $\bar{b}_2 =0$, we can use the same technique in Proposition \ref{prop:r_bar_r} to show that $\lim_{b_2 \to 0} PoA = 1$. Now assume $\bar{b}_2 > 0$.
     As $b_2 \to 0$, we have $\lambda \to 0 $ and
 	$$ B \to \frac{\bar{b}_2^2}{r + \bar{r}(1-\bar{s})^2}=:B^{0,b_2} >0,\ B^{\eta} \to 0,\ C^u \to 0,\ D^u \to 0.$$
-	We also have $\delta^\pm_u \to -A^u \pm \vert A^u \vert $ and therefore, $\delta^{+}_u - \delta^{-}_u \to 2 \vert A^u \vert $. Thus, from equation (\ref{eq:riccati_ut_sol}) we deduce
-	$$u_t \xrightarrow[b_2 \to 0 ]{} 0, \quad \forall t \in [0,T].$$
+	We also have $\delta^\pm_u \to -A^u \pm \vert A^u \vert $ and therefore, $\delta^{+}_u - \delta^{-}_u \to 2 \vert A^u \vert $. Thus, from equation (\ref{eq:riccati_ut_sol}) we deduce that for every fixed time $t \in [0,T]$:
+	$$u_t \xrightarrow[b_2 \to 0 ]{} 0.$$
 	
 	From equation (\ref{eq:x_bar_MFG_explicit}), we have $\bar{x}_t^{MFG}=\mathbb{E}(\xi) e^{\int_0^t(b_1+\bar{b}_1-Bu_s)ds}$, and therefore, $\bar{x}_t^{MFG} \to \mathbb{E}(\xi) \exp((b_1+\bar{b}_1)t) =: \bar{x}_t^{0,b_2,MFG}$, which is bounded over $[0,T]$.
+		
+	Hence, from Proposition \ref{prop:diff_SC}, the bounded convergence theorem, and the assumption on $\xi$, we deduce
+	\begin{equation*}
+	\begin{split}
+	\lim_{b_2 \to 0} \Delta SC &= \frac{1}{2} B^{0,b_2} \int_0^T (w_t^{0,b_2} \cdot \bar{x}_t^{0,b_2,MFG})^2 dt,\\
+	0<&\lim_{b_2 \to 0} \Delta SC < \infty,
+	\end{split}
+	\end{equation*}
 	
-	Since $B^{0,b_2}>0, B^{0,b_2}C^w >0, B^{0,b_2}D^w \geq 0$, we still have the unique solution for $w^{0,b_2}_t$ when $b_2 \to 0$. Since $B^{\eta} \to 0$, using the same argument shown in Proposition \ref{prop:r_bar_r}, we get:
+	Moreover, since $B^{0,b_2}>0, B^{0,b_2}C^w >0, B^{0,b_2}D^w \geq 0$, we still have the unique solution for $w^{0,b_2}_t$ when $b_2 \to 0$. Since $B^{\eta} \to 0$, using the same argument shown in Proposition \ref{prop:r_bar_r}, we get:
 	\begin{equation*}
 	\begin{split}
 	    \text{when } A^\eta \neq 0, \qquad & \eta_t \to \eta^{0,b_2}_t := \left(D^{\eta} - \frac{C^{\eta}}{2A^\eta}\right) e^{-2A^\eta(T-t)} + \frac{C^\eta}{2A^{\eta} },\\
 	    \text{when } A^{\eta} = 0, \qquad & \eta_t \to \eta^{0,b_2}_t := D^{\eta} - C^{\eta}(T-t),
 	\end{split}
 	\end{equation*}
-	which are bounded over $[0,T]$. Thus, the limiting variance function $ v_t \to  v^{0,b_2}_t := Var(\xi)e^{2b_1t}+ \sigma^2 \int_0^t e^{2b_1(t-s)}ds>0$ for $t>0$ and $v^{0,b_2}_t$ is bounded.
-	Hence, from Proposition \ref{prop:diff_SC}, the bounded convergence theorem, and the assumption on $\xi$, we deduce
-	\begin{equation*}
-	\begin{split}
-	    \lim_{b_2 \to 0} \Delta SC &= \frac{1}{2} B^{0,b_2} \int_0^T (w_t^{0,b_2} \cdot \bar{x}_t^{0,b_2,MFG})^2 dt,\\
-	    0<&\lim_{b_2 \to 0} \Delta SC < \infty,
-	\end{split}
-	\end{equation*}
-	and using the fact that $w^{0,b_2}_t\not \equiv 0$  and using equation (\ref{eq:SC_MKV_2}), we have $0< \lim_{b_2\to 0} SC^{MKV} <\infty $ (ToDo: need to justify why it is also finite!).
+	which are bounded over $[0,T]$. Thus, the variance function $ v_t $ converges to some positive bounded function $ v^{0,b_2}_t := Var(\xi)e^{2b_1t}+ \sigma^2 \int_0^t e^{2b_1(t-s)}ds>0$ for every given time $t\in [0,T]$.
+	Using the fact that $w^{0,b_2}_t\not \equiv 0$  and together with the equation (\ref{eq:SC_MKV_2}), we have $0< \lim_{b_2\to 0} SC^{MKV} <\infty $ .
+	
 	Therefore, combined with equation (\ref{eq:PoA_LQ}), we obtain $$\lim_{b_2 \to 0} PoA = 1 + \frac{\displaystyle \lim_{b_2 \to 0}\Delta SC}{\displaystyle \lim_{b_2 \to 0} SC^{MKV} } =: PoA^{0,b_2} > 1.$$
 	
-	Now, we consider the case when $b_2 \to \infty$. We have $\displaystyle \lambda \to \lambda^{\infty,b_2}:= \frac{r + \bar{r}(1-\bar{s})^2}{r + \bar{r}(1-\bar{s})}$
-	and
-	$$ B \to \infty,\ B^{\eta} \to \infty,\ C^u \to C^{\infty,b_2}_u := \lambda^{\infty,b_2}(q+ \bar{q}(1-s)),\ D^u \to D^{\infty,b_2}_u := \lambda^{\infty,b_2}(q_T + \bar{q}_T(1-s_T)).$$
-	Since 
-	$ \frac{\delta^\pm_u}{b_2 + \bar{b}_2} \xrightarrow[b_2 \to \infty]{} \pm \sqrt{\frac{ C_u^{\infty,b_2}}{r + \bar{r}(1-\bar{s})^2}}$
-	and therefore,  $e^{- (\delta^+_u - \delta^-_u)(T-t)} \to 0$, for $t \in [0,T)$, with equation (\ref{eq:riccati_ut_sol}) we have for $t \in [0,T)$:
-	$$ (b_2 + \bar{b}_2) u_t = \frac{- \left(\frac{C^u}{b_2 + \bar{b}_2} + D^u . \frac{\delta^+_u}{b_2 + \bar{b}_2}\right) + \left(\frac{C^u}{b_2 + \bar{b}_2} + D^u . \frac{\delta^-_u}{b_2 + \bar{b}_2}\right)e^{- (\delta^+_u - \delta^-_u)(T-t)} }
-	{ \left(\frac{\delta^-_u}{(b_2 + \bar{b}_2)^2} - \frac{D^u}{r + \bar{r}(1-\bar{s})^2} \right) - \left(\frac{\delta^+_u}{(b_2 + \bar{b}_2)^2} - \frac{D^u}{r + \bar{r}(1-\bar{s})^2} \right)e^{- (\delta^+_u - \delta^-_u)(T-t)}  } \to \sqrt{(r + \bar{r}(1-\bar{s})^2) C_u^{\infty,b_2}}.
-	$$
-	Similarly, we have $(b_2+\bar{b}_2) w_t \to \sqrt{(r + \bar{r}(1-\bar{s})^2) C^w}$ and $b_2 \eta_t \to \sqrt{(r + \bar{r}) C^\eta}$ for $t \in [0,T)$.
 
+	Now we consider the case when $b_2 \to \infty$. It can be seen later in the proof that both $SC^{MFG}$ and $SC^{MKV}$ tend towards $0$. In order to study the limit of the PoA,  the idea becomes to estimate the order of magnitude in terms of $b_2$ for the quantity $\Delta SC$ and $SC^{MKV}$.
 	
-	The next step is to look at the order of magnitude in terms of $b_2$ for the mean $\bar{x}_t^{MFG}$ and the variance $v_t$.
-	For large $b_2$ and $t \in [0,T)$, we have:
-	$$ B\cdot u_t = \frac{b_2 + \bar{b}_2}{r+\bar{r}(1-\bar{s})^2} (b_2 + \bar{b}_2)u_t \sim \sqrt{\frac{q+ \bar{q}(1-s)}{r+ \bar{r}(1-\bar{s})} } (b_2 +\bar{b}_2) =: \kappa_u \cdot (b_2+ \bar{b}_2). $$ Thus, from equation (\ref{eq:x_bar_MFG_explicit}) we have the approximation:
-	$$ \bar{x}_t^{MFG} = \mathbb{E}(\xi) e^{\int_0^t (b_1 + \bar{b}_1 - B u_s) ds}\sim \mathbb{E}(\xi) e^{ (b_1 + \bar{b}_1 - \kappa_u (b_2+ \bar{b}_2) ) t}$$
-	Similarly, we have for large $b_2$ and $t \in [0,T)$:
-	$$B^{\eta} \cdot \eta_t = \frac{b_2}{r+ \bar{r}} b_2 \eta_t \sim \sqrt{\frac{q + \bar{q}}{r + \bar{r}} } b_2 =: \kappa_v b_2,$$
-	and:
+	For the shake of simplicity, let's denote $\displaystyle \kappa_u = \sqrt{\frac{q + \bar{q}(1-s)}{r + \bar{r}(1 - \bar{s})} } $ and $\zeta_1 = r + \bar{r}(1-\bar{s})^2$.
+	We expand firstly $\lambda$, $C^u$, $D^u$ and $\delta^{\pm}_u$ in terms of $b_2$, namely
 	\begin{equation*}
-		\begin{split}
-		v_t &= Var(\xi) e^{2\int_0^t (b_1 - B^{\eta} \eta_u) du} + \sigma^2 \int_0^t e^{2 \int_s^t (b_1 - B^{\eta} \eta_u) du} ds\\
-		& \sim Var(\xi) e^{(2b_1 - 2\kappa_v b_2)t} + \frac{\sigma^2}{2b_1 - 2\kappa_v b_2} \left(e^{(2b_1 - 2\kappa_v b_2)t} - 1\right).
-		\end{split}
+	\begin{array}{rclcrcl}
+	\frac{b_2}{b_2 + \bar{b}_2} &=& 1 - \frac{\bar{b}_2}{b_2} + \mathcal{O}(b_2^{-2}) &\qquad& 
+	\lambda &=& \frac{\zeta_1}{r + \bar{r}(1-\bar{s})} \left( 1 - \frac{\bar{b}_2}{b_2} + \mathcal{O}(b_2^{-2}) \right) \\
+	C^u &=& \zeta_1 \kappa_u^2 \left( 1 - \frac{\bar{b}_2}{b_2} + \mathcal{O}(b_2^{-2}) \right) &\qquad&
+	D^u &=& \zeta_1 \frac{q_T + \bar{q}_T(1-s)}{r + \bar{r}(1-\bar{s})} \left( 1 - \frac{\bar{b}_2}{b_2} + \mathcal{O}(b_2^{-2}) \right) 
+	\end{array}
 	\end{equation*}
-	Hence, using Proposition \ref{prop:diff_SC}, for large $b_2$, we deduce:
+	and 
 	\begin{IEEEeqnarray*}{rCl}
-		\Delta SC &\sim & \frac{1}{2} (\sqrt{C^{\infty,b_2} }- \sqrt{C^w})^2 \int_0^T (\bar{x}_t^{MFG} )^2 dt \\
-			&=& \frac{(\sqrt{C^{\infty,b_2} }- \sqrt{C^w})^2 \cdot (\mathbb{E}(\xi))^2 }{2 (2b_1 +2\bar{b}_1 - 2 \kappa_u (b_2 + \bar{b}_2) )} \left(  e^{(2b_1 + 2\bar{b}_1 - 2\kappa_u (b_2+ \bar{b}_2) ) T} - 1\right)\\
-			&\sim & \frac{\zeta_1 }{b_2 } e^{- 2 \kappa_u T b_2 }  + \frac{\zeta_2}{ b_2},
+		\frac{\delta_u^{\pm}}{b_2 + \bar{b}_2} &=& \frac{A^u}{b_2 + \bar{b}_2} \pm \sqrt{\frac{C^u}{r + \bar{r}(1-\bar{s})^2} + \frac{(A^u)^2}{(b_2+\bar{b}_2)^2} }\\
+		&=& \frac{A^u}{b_2} \left( 1 - \frac{\bar{b}_2}{b_2} + \mathcal{O}(b_2^{-2}) \right) \pm \sqrt{\kappa_u^2 \left( 1 - \frac{\bar{b}_2}{b_2} + \mathcal{O}(b_2^{-2}) \right) + \mathcal{O}(b_2^{-2}) } \\
+		&=& \pm \kappa_u + \left(A^u \mp \frac{\bar{b}_2}{2}\kappa_u \right) \frac{1}{b_2} + \mathcal{O}(b_2^{-2})
 	\end{IEEEeqnarray*}
-	and using equation (\ref{eq:SC_MKV_2}), we deduce:
+
+	Thus, for $b_2$ tends to infinity, we have $$e^{-(\delta_u^+ - \delta_u^-) (T-t)} = e^{-( (2 b_2+\bar{b}_2)\kappa_u (T-t) + \mathcal{O}(b_2^{-1}) }$$
+	which is uniformly bounded over $[0,T]$. Clearly, $e^{-(\delta_u^+ - \delta_u^-) (T-t)} = \mathcal{O}(b_2^{-2}) \to 0$ for $t \in [0, T)$.
+	
+	The next step is to give an estimation of $\Delta SC$. To do so, we need to expand the product $B u_t$ up till $b_2^{-2}$. We first notice that for $t \in [0,T)$, 
 	\begin{IEEEeqnarray*}{rCl}
-		SC^{MKV} &\sim & \frac{1}{2}(q + \bar{q} )  \int_0^T v_t dt + \frac{1}{2}(q_T + \bar{q}_T)v_T + \frac{1}{2}w_0 (\mathbb{E}(\xi))^2\\
-		&\sim& \frac{(q + \bar{q})}{2} \left[ \left(\frac{Var(\xi)}{2b_1 - 2\kappa_v b_2} + \frac{\sigma^2}{(2b_1 - 2\kappa_v b_2)^2} \right) e^{2b_1 T - 2 \kappa_v T b_2} - \left( \frac{Var(\xi) + \sigma^2 T}{2b_1 - 2\kappa_v b_2} + \frac{\sigma^2}{(2b_1 - 2 \kappa_v b_2)^2} \right) \right]\\
-		& & + \frac{(q_T + \bar{q}_T)}{2} \left[  Var(\xi) e^{2b_1T - 2\kappa_v Tb_2} + \frac{\sigma^2}{2b_1 - 2\kappa_v b_2} \left(e^{2b_1 T - 2\kappa_v Tb_2} - 1\right) \right]\\
-		& &+ \frac{(\mathbb{E}(\xi))^2 \sqrt{(r+ \bar{r}(1-\bar{s})^2) C^w} }{2(b_2 + \bar{b}_2)}\\
-		&\sim & \left( \frac{\zeta_3}{b_2^2} + \frac{\zeta_4}{b_2} + \zeta_5 \right) e^{-2\kappa_v Tb_2}  + \left( \frac{\zeta_6}{b_2^2} + \frac{\zeta_7}{b_2}  \right),
+		(b_2 + \bar{b}_2) u_t &=& \frac{ \displaystyle - \left(\frac{C^u}{b_2 + \bar{b}_2} + D^u . \frac{\delta^+_u}{b_2 + \bar{b}_2}\right) + \left(\frac{C^u}{b_2 + \bar{b}_2} + D^u . \frac{\delta^-_u}{b_2 + \bar{b}_2}\right)e^{- (\delta^+_u - \delta^-_u)(T-t)} }
+		{\displaystyle \left(\frac{\delta^-_u}{(b_2 + \bar{b}_2)^2} - \frac{D^u}{r + \bar{r}(1-\bar{s})^2} \right) - \left(\frac{\delta^+_u}{(b_2 + \bar{b}_2)^2} - \frac{D^u}{r + \bar{r}(1-\bar{s})^2} \right)e^{- (\delta^+_u - \delta^-_u)(T-t)}  } \nonumber \\
+		&=& \frac{ - (\mathcal{O}(b_2^{-1}) + \zeta_1 \frac{q_T + \bar{q}_T(1-s)}{r + \bar{r}(1-\bar{s})} \kappa_u + \mathcal{O}(b_2^{-1}) ) + \mathcal{O}(b_2^{-2})}{(\mathcal{O}(b_2^{-1})- \frac{q_T + \bar{q}_T(1-s)}{r + \bar{r}(1-\bar{s})} ) - \mathcal{O}(b_2^{-2}) } \nonumber \\
+		&=& \zeta_1 \kappa_u + \mathcal{O}(b_2^{-1})
 	\end{IEEEeqnarray*}
-	where $(\zeta_i)_{i=1,\dots, 7}$ are constant w.r.t. $b_2$. In particular
-	$$ \zeta_2 =  \frac{ \left(\sqrt{ \frac{ (r + \bar{r}(1-\bar{s})^2 )( q + \bar{q}(1-s))}{r + \bar{r}(1-\bar{s})} } - \sqrt{ q + \bar{q}(1-s)^2 }\right)^2 \cdot (\mathbb{E}(\xi))^2 }{4 \kappa_u }\geq0,$$
-	and $$\zeta_7 =  \frac{(q+\bar{q}) (Var(\xi) + \sigma^2 T)+ \sigma^2 (q_T + \bar{q}_T) ) }{4 \kappa_v} + \frac{1}{2}(\mathbb{E}(\xi))^2 \sqrt{(r+ \bar{r}(1-\bar{s})^2)(q + \bar{q}(1-s)^2)}>0. $$ 
-	Hence, for large $b_2$ we have:
+	Then, we can continue do the expansion and obtain
+	\begin{IEEEeqnarray*}{rCl}
+		&&(b_2 + \bar{b}_2) ( (b_2 + \bar{b}_2) u_t - \zeta_1 \kappa_u ) \nonumber\\
+		&=& \frac{-(C^u + D^u \delta^+_u) + \mathcal{O}(b_2^{-2}) }{\displaystyle \left(\frac{\delta^-_u}{(b_2 + \bar{b}_2)^2} - \frac{D^u}{r + \bar{r}(1-\bar{s})^2} \right) + \mathcal{O}(b_2^{-2}) } - (b_2 + \bar{b}_2) \zeta_1 \kappa_u \nonumber \\
+		&=& \frac{-\left( C^u + D^u \delta_u^+ + (b_2 + \bar{b}_2) \zeta_1 \kappa_u \left( \frac{\delta^-_u}{(b_2 + \bar{b}_2)^2} - \frac{D^u}{\zeta_1} \right) \right) + \mathcal{O}(b_2^{-2})}{  \left(\frac{\delta^-_u}{(b_2 + \bar{b}_2)^2} - \frac{D^u}{\zeta_1} \right)-  \mathcal{O}(b_2^{-2})} \nonumber \\
+		&=& \frac{  -\left( C^u +\zeta_1 \kappa_u \frac{\delta_u^-}{b_2 + \bar{b}_2} +  D^u (b_2 + \bar{b}_2)(\frac{\delta^+_u}{b_2 + \bar{b}_2} - \kappa_u) \right) + \mathcal{O}(b_2^{-2}) }{ - \frac{D^u}{\zeta_1} + \mathcal{O}(b_2^{-1}) } \nonumber \\
+		&=& \frac{- \left( \zeta_1 \kappa_u^2 (1 -\frac{\bar{b}_2}{b_2} )  + \zeta_1 \kappa_u (- \kappa_u + (A^u + \frac{\bar{b}_2}{2} \kappa_u) \frac{1}{b_2}) ) + D^u (b_2 + \bar{b}_2) \left[ (A^u - \frac{\bar{b}_2}{2} \kappa_u )\frac{1}{b_2} + \mathcal{O}(b_2^{-2}) \right] \right) + \mathcal{O}(b_2^{-2}) }{ - \frac{D^u}{\zeta_1} + \mathcal{O}(b_2^{-1})} \nonumber \\
+		&=& \zeta_1 (A^u - \frac{\bar{b}_2}{2} \kappa_u ) + \mathcal{O}(b_2^{-1})
+	\end{IEEEeqnarray*}
+	Thus, we have for any given $t \in [0,T)$,
 	\begin{equation*}
-		\frac{\Delta SC}{SC^{MKV}} \sim \zeta_2 \zeta_7  .
+		(b_2+\bar{b}_2)^2 u_t = \zeta_1 \kappa_u (b_2 + \bar{b}_2) + \zeta_1 (A^u - \frac{\bar{b}_2}{2} \kappa_u) + h_t(b_2)
 	\end{equation*}
-	Therefore, if $\zeta_2 \neq 0$, namely:
-	$$ \frac{r + \bar{r}(1-\bar{s})^2}{r + \bar{r}(1-\bar{s})} \neq \frac{q + \bar{q}(1-s)^2}{q + \bar{q}(1-s)},$$
-	then we deduce:
+	where $h_t(b_2) = \mathcal{O}(b_2^{-1})$.
+	Since for any $t \in [0,T)$, $\int_0^t h_s(b_2) ds = \mathcal{O}(b_2^{-1})$ and $B = (b_2+ \bar{b}_2)^2 / \zeta_1$, we deduce that 
+	\begin{equation*}
+	\bar{x}_t^{MFG} = \mathbb{E}(\xi) e^{\int_0^t (b_1 + \bar{b}_1 - B u_s) ds} = \mathbb{E}(\xi) e^{(b_1+\bar{b}_1 - \kappa_u (b_2 + \bar{b}_2) - (A^u - \bar{b}_2 \kappa_u / 2) ) t + \mathcal{O}(b_2^{-1}) }
+	\end{equation*}
+	which tends uniformly to $0$ over $[0,T)$ as $b_2 \to \infty$.
+	Moreover, since 
+	\begin{equation*}
+	\begin{split}
+		(b_2 + \bar{b}_2) (u_t - w_t) 
+	= (\zeta_1 \kappa_u + \mathcal{O}(b_2^{-1})) - (\sqrt{\zeta_1 (q+\bar{q}(1-s)^2)} + \mathcal{O}(b_2^{-1}) )\\
+	= \sqrt{\zeta_1} (\sqrt{\zeta_1 \kappa_u^2} - \sqrt{q+\bar{q}(1-s)^2}) + \mathcal{O}(b_2^{-1})
+	\end{split}
+	\end{equation*}
+	Thus
+	\begin{IEEEeqnarray*}{rCl}
+		\Delta SC &=& \frac{1}{2} \frac{(b_2+\bar{b}_2)^2}{\zeta_1} \int_0^T (u_t - w_t)^2 (\bar{x}_t^{MFG})^2 dt \\
+		&=& \frac{\mathbb{E}(\xi)^2}{2} \int_0^T \left[ (\sqrt{\zeta_1 \kappa_u^2} - \sqrt{q+\bar{q}(1-s)^2}) + \mathcal{O}(b_2^{-1})\right]^2 . e^{2 (b_1+\bar{b}_1 - \kappa_u (b_2 + \bar{b}_2) - (A^u - \bar{b}_2 \kappa_u / 2) ) t} e^{-2 \int_0^t h_s(b_2) ds} dt\\
+		&=& \frac{ \mathbb{E}(\xi)^2 (\sqrt{\zeta_1 \kappa_u^2} - \sqrt{q+\bar{q}(1-s)^2}) ^2}{2} \int_0^T e^{2 (b_1+\bar{b}_1 - \kappa_u (b_2 + \bar{b}_2) - (A^u - \bar{b}_2 \kappa_u / 2) ) t} dt \\
+		&& + \frac{\mathbb{E}(\xi)^2  (\sqrt{\zeta_1 \kappa_u^2} - \sqrt{q+\bar{q}(1-s)^2}) ^2}{2} \int_0^T \left[ (1 + \mathcal{O}(b_2^{-1}) ) e^{-2 \int_0^t h_s(b_2)} -1\right]. e^{2 (b_1+\bar{b}_1 - \kappa_u (b_2 + \bar{b}_2) - (A^u - \bar{b}_2 \kappa_u / 2) ) t}  dt
+	\end{IEEEeqnarray*}
+	
+	For the first term, a direct computation yields that
+	\begin{equation*}
+	\begin{array}{rl}
+	&\frac{ \mathbb{E}(\xi)^2 (\sqrt{\zeta_1 \kappa_u^2} - \sqrt{q+\bar{q}(1-s)^2}) ^2}{2} \int_0^T e^{2 (b_1+\bar{b}_1 - \kappa_u (b_2 + \bar{b}_2) - (A^u - \bar{b}_2 \kappa_u / 2) ) t} dt \\
+	=& \frac{ \mathbb{E}(\xi)^2 (\sqrt{\zeta_1 \kappa_u^2} - \sqrt{q+\bar{q}(1-s)^2}) ^2}{2} \frac{1}{2(b_1 + \bar{b}_1- (A^u - \bar{b}_2 \kappa_u /2) - \bar{b}_2 \kappa_u) - 2 \kappa_u b_2} \left(e^{2 (b_1+\bar{b}_1 - \kappa_u (b_2 + \bar{b}_2) - (A^u - \bar{b}_2 \kappa_u / 2) ) T} -1 \right) \\
+	=& \frac{\mathbb{E}(\xi)^2 (\sqrt{\zeta_1 \kappa_u^2} - \sqrt{q+\bar{q}(1-s)^2}) ^2}{4 \kappa_u} \frac{1}{b_2} + \mathcal{O}(b_2^{-2})
+	\end{array}
+	\end{equation*}
+	For the second term, we know that 
+	$$ \vert e^{-2\int_0^t h_s(b_2) ds} - 1 \vert \leq \vert e^{ \mathcal{O}(b_2^{-1}) } -1 \vert = \mathcal{O}(b_2^{-1}).$$
+	Together with the estimation of the first term above, we have 
+	$$ \int_0^T \left[ (1 + \mathcal{O}(b_2^{-1}) ) e^{-2 \int_0^t h_s(b_2)} -1\right]. e^{2 (b_1+\bar{b}_1 - \kappa_u (b_2 + \bar{b}_2) - (A^u - \bar{b}_2 \kappa_u / 2) ) t}  dt = \mathcal{O}(b_2^{-2}).$$
+	Hence, we deduce that
+	\begin{equation}
+		\Delta SC = \frac{\mathbb{E}(\xi)^2 (\sqrt{\zeta_1 \kappa_u^2} - \sqrt{q+\bar{q}(1-s)^2}) ^2}{4 \kappa_u} \frac{1}{b_2} + \mathcal{O}(b_2^{-2}).
+	\end{equation}
+	
+	Similarly, we can have $SC^{MKV} =  \frac{\zeta_2}{b_2} + \mathcal{O}(b_2^{-2})$
+	for some constant $\zeta_2 \neq 0$. Thus,
+	\begin{equation}
+		\frac{\Delta SC}{SC^{MKV}} = \frac{\mathbb{E}(\xi)^2 (\sqrt{\zeta_1 \kappa_u^2} - \sqrt{q+\bar{q}(1-s)^2}) ^2}{4 \kappa_u} \frac{1}{\zeta_2} + \mathcal{O}(b_2^{-1})
+	\end{equation}
+	Therefore, if $ \zeta_1 \kappa_u^2 \neq q + \bar{q}(1-s)^2$, i.e.
+	$$\frac{r + \bar{r}(1-\bar{s})^2}{r + \bar{r}(1-\bar{s})} \neq \frac{q + \bar{q}(1-s)^2}{q + \bar{q}(1-s)},$$
+	we have
 	$$ \lim_{b_2 \to \infty} PoA =: PoA^{\infty,b_2} > 1;$$
 	otherwise $$ \lim_{b_2 \to \infty} PoA = 1.$$ 
+	
 \end{proof}
 
 \begin{proposition}
