@@ -562,7 +562,7 @@ Let's denote the (weighted) difference between the solutions of the Riccati equa
 \begin{proposition}
 	Under assumption (\ref{eq:assumptions}), the difference in the social costs in the LQEMFG and LQEMKV problems can be represented by
 	\begin{equation*}
-		\Delta SC := SC^{MFG} - SC^{MKV} =  \frac{1}{2} \frac{(b_2 + \bar{b}_2)^2}{r + \bar{r}(1-\bar{s})^2} \int_0^T (\Delta \bar{\eta}_t \cdot \bar{x}_t^{MFG})^2 dt.
+		\Delta SC := SC^{MFG} - SC^{MKV} =  \frac{1}{2}\cdot \frac{(b_2 + \bar{b}_2)^2}{r + \bar{r}(1-\bar{s})^2} \int_0^T (\Delta \bar{\eta}_t \cdot \bar{x}_t^{MFG})^2 dt.
 	\end{equation*}
 \label{prop:diff_SC}
 \end{proposition}
@@ -589,7 +589,7 @@ Let's denote the (weighted) difference between the solutions of the Riccati equa
 			&= \frac{1}{2} \int_0^T \left[ - \frac{d (\Delta\bar{\eta}_t (\bar{x}_t^{MFG})^2) }{dt}  + \left( 	\frac{d( \Delta{\bar{\eta}}_t)}{dt} - \gamma_t \Delta\bar{\eta}_t  \right)(\bar{x}_t^{MFG})^2 \right] dt\\
 			&= \frac{1}{2}\int_0^T \left[- 2\Delta{\bar{\eta}}_t \bar{x}_t^{MFG} \dot{\bar{x}}_t^{MFG} - \gamma_t \Delta{\bar{\eta}}_t (\bar{x}_t^{MFG})^2 \right]dt \\
 			&= \frac{1}{2} \int_0^T \Delta{\bar{\eta}}_t (\bar{x}_t^{MFG})^2 \left[-2\left(b_1 + \bar{b}_1 - \frac{(b_2+\bar{b}_2)^2}{r + \bar{r}(1-\bar{s})^2} \lambda \bar{\eta}_t^{MFG}\right) - \gamma_t\right] dt\\
-			&= \frac{1}{2} \frac{(b_2 + \bar{b}_2)^2}{r + \bar{r}(1-\bar{s})^2} \int_0^T (\Delta \bar{\eta}_t \cdot \bar{x}_t^{MFG})^2 dt,
+			&= \frac{1}{2}\cdot \frac{(b_2 + \bar{b}_2)^2}{r + \bar{r}(1-\bar{s})^2} \int_0^T (\Delta \bar{\eta}_t \cdot \bar{x}_t^{MFG})^2 dt,
 		\end{split}
 	\end{equation*}
 	where we use equation (\ref{eq:x_bar_MFG}) for the fourth equality.	
@@ -651,7 +651,7 @@ where $\delta^\pm_u = -A^u \pm \sqrt{(A^u)^2 + B^u C^u}$. We have analogous expr
 
 To make the following computations easier to follow, we repeat equations (\ref{eq:PoA_LQ}), (\ref{eq:x_bar_MFG_explicit}), and (\ref{eq:v_t}), which we recall is equivalent to  equation (\ref{eq:v_t_MKV}), using the above notations:
 \begin{equation}
-PoA =1+ \frac{\Delta SC}{SC^{MKV}}= 1 +  \frac{ \displaystyle   \frac{(b_2 + \bar{b}_2)^2}{r + \bar{r}(1-\bar{s})^2}  \int_0^T (u_t-w_t)^2 \cdot (\bar{x}_t^{MFG})^2 dt }{\displaystyle \int_0^T \left[q+\bar{q} + \frac{b_2^2}{r+\bar{r}} \eta_t^2 \right] v_t dt + (q_T + \bar{q}_T) v_T + w_0 (\mathbb{E}(\xi))^2}.
+PoA =1+ \frac{\Delta SC}{SC^{MKV}}= 1 +  \frac{ \displaystyle   \frac{(b_2 + \bar{b}_2)^2}{r + \bar{r}(1-\bar{s})^2}  \int_0^T (u_t-w_t)^2 \cdot (\bar{x}_t^{MFG})^2 dt }{\displaystyle \int_0^T \left[q+\bar{q} + \frac{b_2^2}{r+\bar{r}} \eta_t^2 \right] v_t dt + (q_T + \bar{q}_T) v_T + w_0 (\mathbb{E}(\xi))^2},
 \label{eq:PoA_LQ_new_notation}
 \end{equation}
 \begin{equation}
@@ -701,9 +701,9 @@ v_t=Var(\xi)e^{\int_0^t 2(b_1-B^{\eta} \eta_s)ds}+\sigma^2 \int_0^t e^{2 \int_s^
 	\text{when } A^u = 0, \qquad & u_t^{r \to \infty} = D^{r \to \infty}_u + C^{r \to \infty}_u (T-t).
 	\end{split}
 	\end{equation*}
-	It is easy to show that for every time $t\in [0,T]$, $\lim_{r \to \infty}u^r_t=u^{r \to \infty}_t$. Next, our goal is to bound the $u^r_t$ uniformly over $t \in [0,T]$ for large enough $r$.
+	It is easy to show that for every time $t\in [0,T]$, $\lim_{r \to \infty}u^r_t=u^{r \to \infty}_t$, and thus, $\lim_{r \to \infty}B^ru^r_t=0$. Next, our goal is to bound the $u^r_t$ uniformly over $t \in [0,T]$ for large enough $r$.
 	
-	Note that $B^r, C^{u,r}, \lambda^{r\to \infty}, C^{r \to \infty}_u>0$, $D^{u,r} , D^{r \to \infty}_u\geq 0$, and $\delta^{-,r}_u < 0 < \delta^{+,r}_u$. Let $\epsilon>0$. Then there exists $r^*>0$ such that for $r \geq r^*$, we have $\max\{ B^{r}, C^{u,r}, D^{u,r} \} \leq \max\{C^{r \to \infty}_u,D^{r \to \infty}_u \}+\epsilon=: \zeta$. When $A^u \neq 0$, we have the following two inequalities for $r \geq r^*$:
+	Note that  $A^u \leq 0$, $B^r, C^{u,r}, \lambda^{r\to \infty}, C^{r \to \infty}_u>0$, $D^{u,r} , D^{r \to \infty}_u\geq 0$, and $\delta^{-,r}_u < 0 < \delta^{+,r}_u$. Let $\epsilon>0$. Then there exists $r^*>0$ such that for $r \geq r^*$, we have $\max\{ B^{r}, C^{u,r}, D^{u,r} \} \leq \max\{C^{r \to \infty}_u,D^{r \to \infty}_u \}+\epsilon=: \zeta$. When $A^u \neq 0$, we have the following two inequalities for $r \geq r^*$ and $\forall t \in [0,T]$:
 	\begin{IEEEeqnarray*}{rl}
 		&\left\vert (C^{u,r} + D^{u,r} \delta^{+,r}_u) - (C^{u,r} + D^{u,r} \delta^{-,r}_u) e^{- (\delta^{+,r}_u - \delta^{-,r}_u) (T-t)} \right\vert\\
 		&= C^{u,r} (1 -  e^{- (\delta^{+,r}_u - \delta^{-,r}_u) (T-t)} ) + D^{u,r} (\delta^{+,r}_u - \delta^{-,r}_u  e^{- (\delta^{+,r}_u - \delta^{-,r}_u) (T-t)} ) \\
@@ -715,49 +715,37 @@ v_t=Var(\xi)e^{\int_0^t 2(b_1-B^{\eta} \eta_s)ds}+\sigma^2 \int_0^t e^{2 \int_s^
 	and 
 	\begin{IEEEeqnarray*}{rl}
 		& \left\vert ( -\delta^{-,r}_u + D^{u,r} B^{r} ) + (\delta^{+,r}_u - D^{u,r} B^{r} ) e^{-(\delta^{+,r}_u - \delta^{-,r}_u)(T-t)} \right\vert \\
-		&=  D^{u,r} B^r (1 - e^{- (\delta^{+,r}_u - \delta^{-,r}_u)(T-t)}) + \delta^{+,r}_u e^{- (\delta^{+,r}_u - \delta^{-,r}_u)(T-t)} - \delta^{-,r}_u \\
-		&\geq \delta^{+,r}_u e^{- (\delta^{+,r}_u - \delta^{-,r}_u)(T-t)} - \delta^{-,r}_u \\		
-		&\geq  \max \left\{ - \delta^{-,r}_u , \delta_u^{+,r} e^{-2 \sqrt{(A^u)^2 + B^{r} C^{u,r}} (T-t) } \right\} \\
-		&=  \max \left\{ A^u + \sqrt{ (A^u)^2 + B^{r} C^{u,r} } , (-A^u + \sqrt{ (A^u)^2 + B^{r} C^{u,r} } )  e^{- 2 \sqrt{(A^u)^2 + B^{r} C^{u,r}} (T-t) } \right\} \\
-		&\geq  \max \left\{ A^u + \vert A^u \vert, (-A^u + \vert A_u \vert) e^{-2 \sqrt{(A^u)^2 + \zeta^2} (T-t) } \right\}\\
-		&>  0
+		&=  D^{u,r} B^r (1 - e^{- (\delta^{+,r}_u - \delta^{-,r}_u)(T-t)}) + \delta^{+,r}_u e^{- (\delta^{+,r}_u - \delta^{-,r}_u)(T-t)} - \delta^{-,r}_u \\		
+		&\geq \delta_u^{+,r} e^{-2 \sqrt{(A^u)^2 + B^{r} C^{u,r}} (T-t) } \\
+		&=(-A^u + \sqrt{ (A^u)^2 + B^{r} C^{u,r} } )  e^{- 2 \sqrt{(A^u)^2 + B^{r} C^{u,r}} (T-t) } \\
+		&\geq(-A^u + \vert A_u \vert) e^{-2T \sqrt{(A^u)^2 + \zeta^2}}\\
+		&\geq -2A^u e^{-2T \sqrt{(A^u)^2 + \zeta^2} }\\
+		&>  0.
 	\end{IEEEeqnarray*}
-	
-	Thus, for $A^u \neq 0$, we can deduce that for $r$ large enough, for every $t \in [0,T]$
+	Thus, for $A^u \neq 0$, we can deduce that for $r>r^*$, for every $t \in [0,T]$:
 	\begin{IEEEeqnarray}{rCl}
-		\vert u_t^{r} \vert  &=& \frac{\left\vert -(C^{u,r} + D^{u,r} \delta^{+,r}_u) + (C^{u,r} + D^{u,r} \delta^{-,r}_u) e^{- (\delta^{+,r}_u - \delta^{-,r}_u) (T-t)} \right\vert}{\left\vert ( \delta^{-,r}_u - D^{u,r} B^{r} ) - (\delta^{+,r}_u - D^{u,r} B^{r} ) e^{-(\delta^{+,r}_u - \delta^{-,r}_u)(T-t)} \right\vert } \nonumber \\
-		& < & \frac{ \zeta + 2 \zeta \sqrt{(A^u)^2 + \zeta^2}  }{ \max \left\{ A^u + \vert A^u \vert, (-A^u + \vert A_u \vert) e^{-2 \sqrt{(A^u)^2 + \zeta^2} (T-t) } \right\} }  \nonumber \\
-		& \leq & \min \{ \kappa, \kappa e^{\kappa (T-t)} \}  \nonumber \\
-		&\leq & \kappa e^{\kappa T}
+		\vert u_t^{r} \vert  &=& \frac{\left\vert (C^{u,r} + D^{u,r} \delta^{+,r}_u) - (C^{u,r} + D^{u,r} \delta^{-,r}_u) e^{- (\delta^{+,r}_u - \delta^{-,r}_u) (T-t)} \right\vert}{\left\vert ( -\delta^{-,r}_u + D^{u,r} B^{r} ) + (\delta^{+,r}_u - D^{u,r} B^{r} ) e^{-(\delta^{+,r}_u - \delta^{-,r}_u)(T-t)} \right\vert } \nonumber \\
+		& \leq & \frac{ \zeta + 2 \zeta \sqrt{(A^u)^2 + \zeta^2}  }{-2A^u e^{-2T \sqrt{(A^u)^2 + \zeta^2} } } \nonumber \\
+		&=:&\kappa.  \nonumber
 	\end{IEEEeqnarray}
-	where the constant $\kappa >0$ is given by
-	\begin{equation}
-		\kappa = \left\{
-			\begin{array}{ll}
-				\frac{\zeta + 2 \zeta \sqrt{(A^u)^2 + \zeta^2}}{A^u + \vert A^u \vert}, & if \quad A^u > 0 \\
-				\max\left\{ \frac{\zeta + 2 \zeta \sqrt{(A^u)^2+ \zeta^2} }{ -A^u + \vert A_u \vert }, 2 \sqrt{ (A^u)^2 + \zeta^2 } \right\} & if \quad A^u < 0
-			\end{array}
-		\right.
-	\end{equation}
-	Thus, 
-	Since $\bar{x}_t^{r,MFG} = \mathbb{E}(\xi) \exp(\int_0^t (b_1 + \bar{b}_1 - B^r \cdot u^r_s)ds)$,  by bounded convergence theorem we have for every $t \in [0,T]$,
+	From equation (\ref{eq:x_bar_MFG_explicit_new_notation}) and by the bounded convergence theorem, we have for every $t \in [0,T]$:
 	\begin{equation*}
-		\bar{x}_t^{r,MFG} \xrightarrow[r\to \infty]{} \mathbb{E}(\xi) e^{(b_1+ \bar{b}_1)t} =: \bar{x}_t^{r\to \infty,MFG},
+		\bar{x}_t^{r,MFG} \xrightarrow[r\to \infty]{} \mathbb{E}(\xi) e^{(b_1+ \bar{b}_1)t} =: \bar{x}_t^{r\to \infty,MFG}.
 	\end{equation*}
-	and moreover for $r$ large enough, $\bar{x}_t^{r,MFG}$ is uniformly bounded over $[0,T]$, i.e. 
-	$$ \vert \bar{x}^{r,MFG}_t \vert \leq \vert \mathbb{E}[\xi] \vert e^{ (\vert{b_1} + \vert{\bar{b}_1} + \zeta \kappa e^{\kappa T} ) T }, \quad t \in [0,T]. $$  
+	Moreover, $\bar{x}_t^{r,MFG}$ is uniformly bounded over $r>r^*$ and $t \in [0,T]$, i.e. 
+	$$ \vert \bar{x}^{r,MFG}_t \vert \leq \vert \mathbb{E}(\xi) \vert e^{ (b_1 + \bar{b}_1 + \zeta \kappa ) T }, \quad t \in [0,T]. $$  
 	
-	Similarly, for any fixed time $t\in [0,T]$, the solutions $w^r_t$ and $\eta^r_t$ of equations (\ref{eq:riccati_wt}) and (\ref{eq:riccati_etat}) converge for each time $t\in [0,T]$ towards the solutions $w^{r\to \infty}_t$ and $\eta_t^{r\to \infty}$ of some first-order differential equations. Namely, for every $t\in [0,T]$,
+	Similarly, the solutions $w^r_t$ and $\eta^r_t$ of equations (\ref{eq:riccati_wt}) and (\ref{eq:riccati_etat}) converge for each time $t\in [0,T]$ towards the solutions $w^{r\to \infty}_t$ and $\eta_t^{r\to \infty}$ of some first-order differential equations. Namely, for every $t\in [0,T]$,
 	$$w^r_t \xrightarrow[r \to \infty]{} w_t^{r\to \infty},\qquad \eta^r_t \xrightarrow[r \to \infty]{} \eta_t^{r\to \infty}$$
-	and the functions $w^{r}$ and $\eta^{r}$ are uniformly bounded over $[0,T]$ for $r$ large enough.
+	and the functions $w^{r}$ and $\eta^{r}$ are uniformly bounded over $t \in[0,T]$ and large $r$.
 	
-	Again, by the bounded convergence theorem we have for every $t \in [0,T]$
+	Again, by the bounded convergence theorem we have for every $t \in [0,T]$:
 	\begin{equation*}
 	\lim_{r \to \infty} \int_0^T (u^r_t - w^r_t)^2 (\bar{x}_t^{r,MFG})^2 dt = \int_0^T (u^{r \to \infty}_t- w^{r \to \infty}_t)^2 (\bar{x}_t^{r\to \infty,MFG})^2 dt \  < \infty,
 	\end{equation*}
-	and thus
+	and thus,
 	\begin{equation*}
-	\lim_{r \to \infty} \Delta SC^r = \lim_{r \to \infty} \frac{1}{2} \frac{(b_2 + \bar{b}_2)^2}{r + \bar{r}(1 - \bar{s})^2}\int_0^T (u^r_t - w^r_t)^2 ( \bar{x}_t^{r,MFG})^2 dt = 0.
+	\lim_{r \to \infty} \Delta SC^r = \lim_{r \to \infty} \frac{1}{2}\cdot \frac{(b_2 + \bar{b}_2)^2}{r + \bar{r}(1 - \bar{s})^2}\int_0^T (u^r_t - w^r_t)^2 ( \bar{x}_t^{r,MFG})^2 dt = 0.
 	\end{equation*}
 	
 	%---------------------------
