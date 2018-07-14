@@ -501,7 +501,7 @@ In the following, we intend to simplify the explicit solutions (\ref{eq:SC_MFG_1
 \begin{equation*}
 \begin{split}
 &\int_0^T (\bar{\eta}^{MFG}_t)^2 (\bar{x}^{MFG}_t)^2 dt\\
-=& - \frac{1}{c^{MFG}(b_2 + \bar{b}_2)} \left[ \int_0^T \dot{\bar{\eta}}^{MFG}_t (\bar{x}^{MFG}_t)^2 dt +  \int_0^T ((2b_1 + \bar{b}_1) \bar{\eta}^{MFG}_t +(q+\bar{q}(1-s))) (\bar{x}^{MFG}_t)^2 dt \right]\\
+&= - \frac{1}{c^{MFG}(b_2 + \bar{b}_2)} \left[ \int_0^T \dot{\bar{\eta}}^{MFG}_t (\bar{x}^{MFG}_t)^2 dt +  \int_0^T ((2b_1 + \bar{b}_1) \bar{\eta}^{MFG}_t +(q+\bar{q}(1-s))) (\bar{x}^{MFG}_t)^2 dt \right]\\
 \end{split}
 \end{equation*}
 Then by integration by parts:
@@ -585,11 +585,11 @@ Let's denote the (weighted) difference between the solutions of the Riccati equa
 	\begin{equation*}
 		\begin{split}
 			& SC^{MFG} - SC^{MKV}\\
-			=& \frac{1}{2} \left[ \Delta\bar{\eta}_0 (\mathbb{E}(\xi))^2 - \Delta\bar{\eta}_T (\bar{x}_T^{MFG})^2 + \int_0^T \beta_t (\bar{x}_t^{MFG})^2 dt \right] \\
-			=& \frac{1}{2} \int_0^T \left[ - \frac{d (\Delta\bar{\eta}_t (\bar{x}_t^{MFG})^2) }{dt}  + \left( 	\frac{d( \Delta{\bar{\eta}}_t)}{dt} - \gamma_t \Delta\bar{\eta}_t  \right)(\bar{x}_t^{MFG})^2 \right] dt\\
-			=& \frac{1}{2}\int_0^T \left[- 2\Delta{\bar{\eta}}_t \bar{x}_t^{MFG} \dot{\bar{x}}_t^{MFG} - \gamma_t \Delta{\bar{\eta}}_t (\bar{x}_t^{MFG})^2 \right]dt \\
-			=& \frac{1}{2} \int_0^T \Delta{\bar{\eta}}_t (\bar{x}_t^{MFG})^2 \left[-2\left(b_1 + \bar{b}_1 - \frac{(b_2+\bar{b}_2)^2}{r + \bar{r}(1-\bar{s})^2} \lambda \bar{\eta}_t^{MFG}\right) - \gamma_t\right] dt\\
-			=& \frac{1}{2} \frac{(b_2 + \bar{b}_2)^2}{r + \bar{r}(1-\bar{s})^2} \int_0^T (\Delta \bar{\eta}_t \cdot \bar{x}_t^{MFG})^2 dt,
+			&= \frac{1}{2} \left[ \Delta\bar{\eta}_0 (\mathbb{E}(\xi))^2 - \Delta\bar{\eta}_T (\bar{x}_T^{MFG})^2 + \int_0^T \beta_t (\bar{x}_t^{MFG})^2 dt \right] \\
+			&= \frac{1}{2} \int_0^T \left[ - \frac{d (\Delta\bar{\eta}_t (\bar{x}_t^{MFG})^2) }{dt}  + \left( 	\frac{d( \Delta{\bar{\eta}}_t)}{dt} - \gamma_t \Delta\bar{\eta}_t  \right)(\bar{x}_t^{MFG})^2 \right] dt\\
+			&= \frac{1}{2}\int_0^T \left[- 2\Delta{\bar{\eta}}_t \bar{x}_t^{MFG} \dot{\bar{x}}_t^{MFG} - \gamma_t \Delta{\bar{\eta}}_t (\bar{x}_t^{MFG})^2 \right]dt \\
+			&= \frac{1}{2} \int_0^T \Delta{\bar{\eta}}_t (\bar{x}_t^{MFG})^2 \left[-2\left(b_1 + \bar{b}_1 - \frac{(b_2+\bar{b}_2)^2}{r + \bar{r}(1-\bar{s})^2} \lambda \bar{\eta}_t^{MFG}\right) - \gamma_t\right] dt\\
+			&= \frac{1}{2} \frac{(b_2 + \bar{b}_2)^2}{r + \bar{r}(1-\bar{s})^2} \int_0^T (\Delta \bar{\eta}_t \cdot \bar{x}_t^{MFG})^2 dt,
 		\end{split}
 	\end{equation*}
 	where we use equation (\ref{eq:x_bar_MFG}) for the fourth equality.	
@@ -644,7 +644,7 @@ We study in the following the variation of $PoA$ by letting one of the coefficie
 	\end{IEEEeqnarray*}
 If $B^u\neq 0$, $B^u D^u \geq 0$ and $B^uC^u >0$, we have (see equation (\ref{eq:riccati_ut_sol_app}) in Appendix A) the existence and uniqueness for $u_t$ which can be expressed by:
 \begin{equation}
-		u_t= \frac{-(C^u+D^u \delta^+_u) + (C^u+D^u \delta^-_u) e^{-(\delta_u^+ - \delta_u^-)(T-t)}}{(\delta^-_u - D^u B^u) - (\delta^+_u - D^u B^u) e^{-(\delta_u^+ - \delta_u^-)(T-t)}}
+		u_t= \frac{(C^u+D^u \delta^+_u) - (C^u+D^u \delta^-_u) e^{-(\delta_u^+ - \delta_u^-)(T-t)}}{(-\delta^-_u + D^u B^u) + (\delta^+_u - D^u B^u) e^{-(\delta_u^+ - \delta_u^-)(T-t)}}
 	\label{eq:riccati_ut_sol}
 \end{equation}
 where $\delta^\pm_u = -A^u \pm \sqrt{(A^u)^2 + B^u C^u}$. We have analogous expressions for $w_t$ and $\eta_t$ in terms of $\delta^\pm_w$ and $\delta^\pm_{\eta}$, respectively. Note that $B^u=B^w=:B$.
@@ -673,7 +673,7 @@ v_t=Var(\xi)e^{\int_0^t 2(b_1-B^{\eta} \eta_s)ds}+\sigma^2 \int_0^t e^{2 \int_s^
 	\label{prop:r_bar_r}
 \end{proposition}
 \begin{proof}
-	First, we consider $r \to \infty$. When assumption $(\ref{eq:assumptions})$ is satisfied, for every given $r >0$, we have existence and uniqueness of the solutions $u^{r}_t$, $w^{r}_t$ and $\eta^{r}_t$ to the scalar Riccati equations (\ref{eq:riccati_ut})-(\ref{eq:riccati_etat}). Note that we have added the superscript $r$ to emphasize the dependence on this coefficient.
+	First, we consider $r \to \infty$. When assumption $(\ref{eq:assumptions})$ is satisfied, for every given $r >0$, we have existence and uniqueness of the solutions $u^{r}_t$, $w^{r}_t$ and $\eta^{r}_t$ to the scalar Riccati equations (\ref{eq:riccati_ut})-(\ref{eq:riccati_etat}). Note that we have added the superscript $r$ to emphasize the dependence on this parameter.
 	
 	When $r \to \infty$, we have:
 	\begin{equation*}
@@ -701,24 +701,26 @@ v_t=Var(\xi)e^{\int_0^t 2(b_1-B^{\eta} \eta_s)ds}+\sigma^2 \int_0^t e^{2 \int_s^
 	\text{when } A^u = 0, \qquad & u_t^{r \to \infty} = D^{r \to \infty}_u + C^{r \to \infty}_u (T-t).
 	\end{split}
 	\end{equation*}
-	It is easy to show that for every time $t\in [0,T]$, $\lim_{r \to \infty}u^r_t=u^{r \to \infty}_t$.
+	It is easy to show that for every time $t\in [0,T]$, $\lim_{r \to \infty}u^r_t=u^{r \to \infty}_t$. Next, our goal is to bound the $u^r_t$ uniformly over $t \in [0,T]$ for large enough $r$.
 	
-	From the formula (\ref{eq:riccati_ut}), we can bound the solution $u^r$ uniformly over $[0,T]$ for large enough $r$. More precisely, under assumption (\ref{eq:assumptions}), we have $B^r>0, C^{u,r}>0, D^{u,r}>0$, and $\delta^{+,r}_u > 0 > \delta^{-,r}_u$. In the asymptotic regime, we have $\lambda^{r\to \infty} >0$, $C^{r \to \infty}_u >0$ and $D^{r \to \infty}_u \geq 0$. Thus, for $r$ large enough, there exists a constant $\zeta > 0 $ such that $\max\{ B^{r}, C^{u,r}, D^{u,r} \} \leq \zeta$. We also observe the following two inequalities when $A^u \neq 0$:
+	Note that $B^r, C^{u,r}, \lambda^{r\to \infty}, C^{r \to \infty}_u>0$, $D^{u,r} , D^{r \to \infty}_u\geq 0$, and $\delta^{-,r}_u < 0 < \delta^{+,r}_u$. Let $\epsilon>0$. Then there exists $r^*>0$ such that for $r \geq r^*$, we have $\max\{ B^{r}, C^{u,r}, D^{u,r} \} \leq \max\{C^{r \to \infty}_u,D^{r \to \infty}_u \}+\epsilon=: \zeta$. When $A^u \neq 0$, we have the following two inequalities for $r \geq r^*$:
 	\begin{IEEEeqnarray*}{rl}
-		&\left\vert -(C^{u,r} + D^{u,r} \delta^{+,r}_u) + (C^{u,r} + D^{u,r} \delta^{-,r}_u) e^{- (\delta^{+,r}_u - \delta^{-,r}_u) (T-t)} \right\vert\\
-		=& C^{u,r} (1 -  e^{- (\delta^{+,r}_u - \delta^{-,r}_u) (T-t)} ) + D^{u,r} (\delta^{+,r}_u - \delta^{-,r}_u  e^{- (\delta^{+,r}_u - \delta^{-,r}_u) (T-t)} ) \\
-		< & C^{u,r} + D^{u,r} (\delta^{+,r}_u - \delta^{-,r}_u)\\
-		= & C^{u,r} + D^{u,r} 2 \sqrt{ (A^u)^2 + B^{r} C^{u,r}} \\
-		\leq&  \zeta + 2 \zeta \sqrt{(A^u)^2 + \zeta^2}  
+		&\left\vert (C^{u,r} + D^{u,r} \delta^{+,r}_u) - (C^{u,r} + D^{u,r} \delta^{-,r}_u) e^{- (\delta^{+,r}_u - \delta^{-,r}_u) (T-t)} \right\vert\\
+		&= C^{u,r} (1 -  e^{- (\delta^{+,r}_u - \delta^{-,r}_u) (T-t)} ) + D^{u,r} (\delta^{+,r}_u - \delta^{-,r}_u  e^{- (\delta^{+,r}_u - \delta^{-,r}_u) (T-t)} ) \\
+		&\leq  C^{u,r} + D^{u,r} (\delta^{+,r}_u - \delta^{-,r}_u)\\
+		&=  C^{u,r} + 2 D^{u,r} \sqrt{ (A^u)^2 + B^{r} C^{u,r}} \\
+		&\leq  \zeta + 2 \zeta \sqrt{(A^u)^2 + \zeta^2} \\
+		&< \infty,
 	\end{IEEEeqnarray*}
 	and 
 	\begin{IEEEeqnarray*}{rl}
-		& \left\vert ( \delta^{-,r}_u - D^{u,r} B^{r} ) - (\delta^{+,r}_u - D^{u,r} B^{r} ) e^{-(\delta^{+,r}_u - \delta^{-,r}_u)(T-t)} \right\vert \\
-		= & D^{u,r} B^r (1 - e^{- (\delta^{+,r}_u - \delta^{-,r}_u)(T-t)}) + \delta^{+,r}_u e^{- (\delta^{+,r}_u - \delta^{-,r}_u)(T-t)} - \delta^{-,r}_u \\
-		\geq & \max \left\{ - \delta^{-,r}_u , \delta_u^{+,r} e^{2 \sqrt{(A^u)^2 + B^{r} C^{u,r}} (T-t) } \right\} \\
-		= & \max \left\{ A^u + \sqrt{ (A^u)^2 + B^{r} C^{u,r} } , (-A^u + \sqrt{ (A^u)^2 + B^{r} C^{u,r} } )  e^{- 2 \sqrt{(A^u)^2 + B^{r} C^{u,r}} (T-t) } \right\} \\
-		\geq & \max \left\{ A^u + \vert A^u \vert, (-A^u + \vert A_u \vert) e^{-2 \sqrt{(A^u)^2 + \zeta^2} (T-t) } \right\}\\
-		> & 0
+		& \left\vert ( -\delta^{-,r}_u + D^{u,r} B^{r} ) + (\delta^{+,r}_u - D^{u,r} B^{r} ) e^{-(\delta^{+,r}_u - \delta^{-,r}_u)(T-t)} \right\vert \\
+		&=  D^{u,r} B^r (1 - e^{- (\delta^{+,r}_u - \delta^{-,r}_u)(T-t)}) + \delta^{+,r}_u e^{- (\delta^{+,r}_u - \delta^{-,r}_u)(T-t)} - \delta^{-,r}_u \\
+		&\geq \delta^{+,r}_u e^{- (\delta^{+,r}_u - \delta^{-,r}_u)(T-t)} - \delta^{-,r}_u \\		
+		&\geq  \max \left\{ - \delta^{-,r}_u , \delta_u^{+,r} e^{-2 \sqrt{(A^u)^2 + B^{r} C^{u,r}} (T-t) } \right\} \\
+		&=  \max \left\{ A^u + \sqrt{ (A^u)^2 + B^{r} C^{u,r} } , (-A^u + \sqrt{ (A^u)^2 + B^{r} C^{u,r} } )  e^{- 2 \sqrt{(A^u)^2 + B^{r} C^{u,r}} (T-t) } \right\} \\
+		&\geq  \max \left\{ A^u + \vert A^u \vert, (-A^u + \vert A_u \vert) e^{-2 \sqrt{(A^u)^2 + \zeta^2} (T-t) } \right\}\\
+		&>  0
 	\end{IEEEeqnarray*}
 	
 	Thus, for $A^u \neq 0$, we can deduce that for $r$ large enough, for every $t \in [0,T]$
@@ -888,8 +890,8 @@ v_t=Var(\xi)e^{\int_0^t 2(b_1-B^{\eta} \eta_s)ds}+\sigma^2 \int_0^t e^{2 \int_s^
 	\begin{equation*}
 	\begin{array}{rl}
 	&\frac{ \mathbb{E}(\xi)^2 (\sqrt{\zeta_1 \kappa_u^2} - \sqrt{q+\bar{q}(1-s)^2}) ^2}{2} \int_0^T e^{2 (b_1+\bar{b}_1 - \kappa_u (b_2 + \bar{b}_2) - (A^u - \bar{b}_2 \kappa_u / 2) ) t} dt \\
-	=& \frac{ \mathbb{E}(\xi)^2 (\sqrt{\zeta_1 \kappa_u^2} - \sqrt{q+\bar{q}(1-s)^2}) ^2}{2} \frac{1}{2(b_1 + \bar{b}_1- (A^u - \bar{b}_2 \kappa_u /2) - \bar{b}_2 \kappa_u) - 2 \kappa_u b_2} \left(e^{2 (b_1+\bar{b}_1 - \kappa_u (b_2 + \bar{b}_2) - (A^u - \bar{b}_2 \kappa_u / 2) ) T} -1 \right) \\
-	=& \frac{\mathbb{E}(\xi)^2 (\sqrt{\zeta_1 \kappa_u^2} - \sqrt{q+\bar{q}(1-s)^2}) ^2}{4 \kappa_u} \frac{1}{b_2} + \mathcal{O}(b_2^{-2})
+	&= \frac{ \mathbb{E}(\xi)^2 (\sqrt{\zeta_1 \kappa_u^2} - \sqrt{q+\bar{q}(1-s)^2}) ^2}{2} \frac{1}{2(b_1 + \bar{b}_1- (A^u - \bar{b}_2 \kappa_u /2) - \bar{b}_2 \kappa_u) - 2 \kappa_u b_2} \left(e^{2 (b_1+\bar{b}_1 - \kappa_u (b_2 + \bar{b}_2) - (A^u - \bar{b}_2 \kappa_u / 2) ) T} -1 \right) \\
+	&= \frac{\mathbb{E}(\xi)^2 (\sqrt{\zeta_1 \kappa_u^2} - \sqrt{q+\bar{q}(1-s)^2}) ^2}{4 \kappa_u} \frac{1}{b_2} + \mathcal{O}(b_2^{-2})
 	\end{array}
 	\end{equation*}
 	For the second term, we know that 
@@ -1343,7 +1345,7 @@ In the case where the coefficients are time-independent, the Riccati equations f
 	\end{equation}
 	then it has a unique solution:
 \begin{equation}
-		\rho_t= \frac{-(C+D \delta^+) + (C+D \delta^-) e^{-(\delta^+ - \delta^-)(T-t)}}{(\delta^- - D B) - (\delta^+ - D B) e^{-(\delta^+ - \delta^-)(T-t)}}
+		\rho_t= \frac{(C+D \delta^+) - (C+D \delta^-) e^{-(\delta^+ - \delta^-)(T-t)}}{(-\delta^- + D B) + (\delta^+ - D B) e^{-(\delta^+ - \delta^-)(T-t)}}
 	\label{eq:riccati_ut_sol_app}
 \end{equation}
 	where $\delta^\pm = -A \pm \sqrt{(A)^2 + B C}$.
