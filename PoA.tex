@@ -687,7 +687,7 @@ v_t=Var(\xi)e^{\int_0^t 2(b_1-B^{\eta} \eta_s)ds}+\sigma^2 \int_0^t e^{2 \int_s^
 	\end{array}
 	\end{equation*}
 	
-	In order to show that $\lim_{r \to \infty} PoA^r = 1$, it suffices to show that $\lim_{r \to \infty}\Delta SC^{r} = 0$ while $\lim_{r \to \infty} SC^{r, MKV} >0$. From equation (\ref{eq:PoA_LQ_new_notation}), a sufficient condition is to demonstrate that $\lim_{r \to \infty}\int_0^T (u^r_t - w^r_t)^2 (\bar{x}_t^{r,MFG} )^2 dt<\infty$, $\lim_{r \to \infty}v^r_T>0$, and $\lim_{r \to \infty}w^r_0>0$.\\
+	In order to show that $\lim_{r \to \infty} PoA^r = 1$, it suffices to show that $\lim_{r \to \infty}\Delta SC^{r} = 0$ while $\lim_{r \to \infty} SC^{r, MKV} >0$.
 
 	% modification Main point 5 (nicolas)
 	Let $u^{r \to \infty}:[0,T] \to \mathbb{R}$ be the solution to the first-order differential equation:
@@ -703,7 +703,7 @@ v_t=Var(\xi)e^{\int_0^t 2(b_1-B^{\eta} \eta_s)ds}+\sigma^2 \int_0^t e^{2 \int_s^
 	\end{equation*}
 	It is easy to show that for every time $t\in [0,T]$, $\lim_{r \to \infty}u^r_t=u^{r \to \infty}_t$, and thus, $\lim_{r \to \infty}B^ru^r_t=0$. Next, our goal is to bound the $u^r_t$ uniformly over $t \in [0,T]$ for large enough $r$.
 	
-	Note that  $A^u \leq 0$, $B^r, C^{u,r}, \lambda^{r\to \infty}, C^{r \to \infty}_u>0$, $D^{u,r} , D^{r \to \infty}_u\geq 0$, and $\delta^{-,r}_u < 0 < \delta^{+,r}_u$. Let $\epsilon>0$. Then there exists $r^*>0$ such that for $r \geq r^*$, we have $\max\{ B^{r}, C^{u,r}, D^{u,r} \} \leq \max\{C^{r \to \infty}_u,D^{r \to \infty}_u \}+\epsilon=: \zeta$. When $A^u \neq 0$, we have the following two inequalities for $r \geq r^*$ and $\forall t \in [0,T]$:
+	Note that  $A^u \leq 0$, $B^r$, $C^{u,r}$, $\lambda^{r\to \infty}$, $C^{r \to \infty}_u>0$, $D^{u,r}$, $D^{r \to \infty}_u\geq 0$, and $\delta^{-,r}_u < 0 < \delta^{+,r}_u$. Let $\epsilon>0$. Then there exists $r^*>0$ such that for $r \geq r^*$, we have $\max\{ B^{r}, C^{u,r}, D^{u,r} \} \leq \max\{C^{r \to \infty}_u,D^{r \to \infty}_u \}+\epsilon=: \zeta$. When $A^u \neq 0$, we have the following two inequalities for $r \geq r^*$ and $\forall t \in [0,T]$:
 	\begin{IEEEeqnarray*}{rl}
 		&\left\vert (C^{u,r} + D^{u,r} \delta^{+,r}_u) - (C^{u,r} + D^{u,r} \delta^{-,r}_u) e^{- (\delta^{+,r}_u - \delta^{-,r}_u) (T-t)} \right\vert\\
 		&= C^{u,r} (1 -  e^{- (\delta^{+,r}_u - \delta^{-,r}_u) (T-t)} ) + D^{u,r} (\delta^{+,r}_u - \delta^{-,r}_u  e^{- (\delta^{+,r}_u - \delta^{-,r}_u) (T-t)} ) \\
@@ -736,8 +736,8 @@ v_t=Var(\xi)e^{\int_0^t 2(b_1-B^{\eta} \eta_s)ds}+\sigma^2 \int_0^t e^{2 \int_s^
 	$$ \vert \bar{x}^{r,MFG}_t \vert \leq \vert \mathbb{E}(\xi) \vert e^{ (b_1 + \bar{b}_1 + \zeta \kappa ) T }, \quad t \in [0,T]. $$  
 	
 	Similarly, the solutions $w^r_t$ and $\eta^r_t$ of equations (\ref{eq:riccati_wt}) and (\ref{eq:riccati_etat}) converge for each time $t\in [0,T]$ towards the solutions $w^{r\to \infty}_t$ and $\eta_t^{r\to \infty}$ of some first-order differential equations. Namely, for every $t\in [0,T]$,
-	$$w^r_t \xrightarrow[r \to \infty]{} w_t^{r\to \infty},\qquad \eta^r_t \xrightarrow[r \to \infty]{} \eta_t^{r\to \infty}$$
-	and the functions $w^{r}$ and $\eta^{r}$ are uniformly bounded over $t \in[0,T]$ and large $r$.
+	$$w^r_t \xrightarrow[r \to \infty]{} w_t^{r\to \infty},\qquad \eta^r_t \xrightarrow[r \to \infty]{} \eta_t^{r\to \infty},$$
+	and the functions $w^{r}_t$ and $\eta^{r}_t$ are uniformly bounded over $t \in[0,T]$ and large $r$.
 	
 	Again, by the bounded convergence theorem we have for every $t \in [0,T]$:
 	\begin{equation*}
@@ -749,10 +749,10 @@ v_t=Var(\xi)e^{\int_0^t 2(b_1-B^{\eta} \eta_s)ds}+\sigma^2 \int_0^t e^{2 \int_s^
 	\end{equation*}
 	
 	%---------------------------
-	Also, since $v^r_t = Var(\xi)\exp(2\int_0^t (b_1 - B^{\eta,r} \eta^r_s) ds) + \sigma^2 \int_0^t \exp(2 \int_s^t (b_1 - B^{\eta,r} \eta^r_u) du) ds$, by the bounded convergence theorem we have for each $t \in [0,T]$: 
-	$$	v^r_t \xrightarrow[r\to \infty]{} Var(\xi)e^{2b_1 t} + \sigma^2 \int_0^t e^{2 b_1 (t-s) } ds =: v^{r \to \infty}_t,
+	From equation (\ref{eq:v_t_new_notation}) and by the bounded convergence theorem, we have for each $t \in [0,T]$: 
+	$$	v^r_t \xrightarrow[r\to \infty]{} Var(\xi)e^{2b_1 t} + \sigma^2 \int_0^t e^{2 b_1 (t-s) } ds =: v^{r \to \infty}_t.
 	$$
-	The variance function $v_t^{r}$ is also uniformly bounded over $[0,T]$ for $r$ large enough.	It can be shown that $w^{r \to \infty }_0\geq0$ and $v^{r \to \infty}_t >0$ for $t>0$. Hence,
+	The variance function $v_t^{r}$ is also uniformly bounded over $t \in [0,T]$ for large $r$.	It can be shown that $w^{r \to \infty }_0\geq0$ and $v^{r \to \infty}_t >0$ for $t>0$. Hence,
 	\begin{equation*}
 		\lim_{r \to \infty} SC^{MKV} = \frac{1}{2} \left( \int_0^T (q+\bar{q}) v^{r \to \infty}_t dt + (q_T + \bar{q}_T) v^{r\to \infty}_T + w^{r \to \infty}_0 (\mathbb{E}(\xi))^2 \right)  >0.
 	\end{equation*}
