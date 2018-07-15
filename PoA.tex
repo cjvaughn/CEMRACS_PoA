@@ -673,7 +673,7 @@ v_t=Var(\xi)e^{\int_0^t 2(b_1-B^{\eta} \eta_s)ds}+\sigma^2 \int_0^t e^{2 \int_s^
 	\label{prop:r_bar_r}
 \end{proposition}
 \begin{proof}
-	First, we consider $r \to \infty$. When assumption $(\ref{eq:assumptions})$ is satisfied, for every given $r >0$, we have existence and uniqueness of the solutions $u^{r}_t$, $w^{r}_t$ and $\eta^{r}_t$ to the scalar Riccati equations (\ref{eq:riccati_ut})-(\ref{eq:riccati_etat}). Note that we have added the superscript $r$ to emphasize the dependence on this parameter. 
+	First, we consider $r \to \infty$. For every given $r >0$, we have existence and uniqueness of the solutions $u^{r}_t$, $w^{r}_t$ and $\eta^{r}_t$ to the scalar Riccati equations (\ref{eq:riccati_ut})-(\ref{eq:riccati_etat}). Note that we have added the superscript $r$ to emphasize the dependence on this parameter. 
 	
 	When $r \to \infty$, we have:
 	\begin{equation*}
@@ -907,7 +907,7 @@ v_t=Var(\xi)e^{\int_0^t 2(b_1-B^{\eta} \eta_s)ds}+\sigma^2 \int_0^t e^{2 \int_s^
 	\label{prop:b2bar}
 \end{proposition}
 \begin{proof}
-	First, we consider $\bar{b}_2 \to 0$. When assumption $(\ref{eq:assumptions})$ is satisfied, for every given $\bar{b}_2 >0$, we have existence and uniqueness of the solutions $u^{\bar{b}_2}_t$, $w^{\bar{b}_2}_t$ and $\eta^{\bar{b}_2}_t$ to the scalar Riccati equations (\ref{eq:riccati_ut})-(\ref{eq:riccati_etat}). Note that, as before, we have added the superscript $\bar{b}_2$ to emphasize the dependence on this parameter.
+	First, we consider $\bar{b}_2 \to 0$. For every given $\bar{b}_2 >0$, we have existence and uniqueness of the solutions $u^{\bar{b}_2}_t$, $w^{\bar{b}_2}_t$ and $\eta^{\bar{b}_2}_t$ to the scalar Riccati equations (\ref{eq:riccati_ut})-(\ref{eq:riccati_etat}). Note that, as before, we have added the superscript $\bar{b}_2$ to emphasize the dependence on this parameter.
 	
 	When $\bar{b}_2 \to 0$, we have:
 	$$\displaystyle \lambda^{\bar{b}_2} \to \lambda^{\bar{b}_2 \to 0} := \frac{r + \bar{r}(1- \bar{s})^2}{r + \bar{r}(1-\bar{s})},$$
@@ -953,11 +953,11 @@ v_t=Var(\xi)e^{\int_0^t 2(b_1-B^{\eta} \eta_s)ds}+\sigma^2 \int_0^t e^{2 \int_s^
 	Hence, we deduce:
 	$$ \lim_{\bar{b}_2 \to 0} PoA =: PoA^{\bar{b}_2 \to 0} > 1. $$
 	
-	Now, for the case when $\bar{b}_2 \to \infty$,  we have $\lambda \to 0$
-	and $B \to \infty,\ C^u \to 0,\ D^u \to 0$. Moreover, if we consider the magnitude w.r.t. $\bar{b}_2$, we have:
-	$$ \lambda = \mathcal{O}(\bar{b}^{-1}_2),\ C^u = \mathcal{O}(\bar{b}_2^{-1}),\ D^u = \mathcal{O}(\bar{b}_2^{-1}),\ B = \mathcal{O}(\bar{b}_2^2),$$
+	Now, for the case when $\bar{b}_2 \to \infty$,  we have $\lambda^{\bar{b}_2} \to 0$
+	and $B^{\bar{b}_2} \to \infty,\ C^{u,\bar{b}_2} \to 0,\ D^{u,\bar{b}_2} \to 0$. Moreover, if we consider the magnitude w.r.t. $\bar{b}_2$, we have:
+	$$ \lambda^{\bar{b}_2} = \mathcal{O}(\bar{b}^{-1}_2),\ B^{\bar{b}_2} = \mathcal{O}(\bar{b}_2^2),\ C^{u,\bar{b}_2} = \mathcal{O}(\bar{b}_2^{-1}),\ D^{u,\bar{b}_2} = \mathcal{O}(\bar{b}_2^{-1}),$$
 	and 
-	$$ \frac{\delta^\pm_u}{\sqrt{b_2 + \bar{b}_2}} \xrightarrow[\bar{b}_2 \to \infty]{} \pm \sqrt{ \frac{b_2 (q + \bar{q}(1-s))}{r + \bar{r}(1-\bar{s})} } =: \pm \delta^{\infty,\bar{b}_2}.$$
+	$$ \frac{\delta^{\pm,\bar{b}_2}_u}{\sqrt{b_2 + \bar{b}_2}} \xrightarrow[\bar{b}_2 \to \infty]{} \pm \sqrt{ \frac{b_2 (q + \bar{q}(1-s))}{r + \bar{r}(1-\bar{s})} } =: \pm \delta^{\bar{b}_2 \to \infty}.$$
 	Thus, from equation (\ref{eq:riccati_ut_sol}), for $t \in [0,T)$ we can deduce:
 	\begin{equation*}
 	\begin{split}
