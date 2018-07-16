@@ -899,7 +899,7 @@ v_t=Var(\xi)e^{\int_0^t 2(b_1-B^{\eta} \eta_s)ds}+\sigma^2 \int_0^t e^{2 \int_s^
 \end{proof}
 
 \begin{proposition}
-	Assuming (\ref{eq:assumptions}), the initial condition $\xi$ satisfies $\mathbb{E}(\xi)\neq 0$, and assuming $\bar{b}_1> 0$, then 
+	Assuming (\ref{eq:assumptions}), the initial condition $\xi$ satisfies $\mathbb{E}(\xi)\neq 0$, and assuming $\bar{b}_1> 0$, $b_2> 0$, $q_T+\bar{q}_T(1-s_T)>0$, and $q_T+\bar{q}_T(1-s_T)^2>0$ then 
 	\begin{equation*}
 	\lim_{\bar{b}_2 \to 0} PoA =: PoA^{\bar{b}_2\to 0} > 1\qquad \text{and} \qquad\lim_{\bar{b}_2 \to \infty} PoA = 1.
 	\end{equation*}
@@ -960,7 +960,7 @@ v_t=Var(\xi)e^{\int_0^t 2(b_1-B^{\eta} \eta_s)ds}+\sigma^2 \int_0^t e^{2 \int_s^
 	and therefore,
 	$$\lim_{\bar{b}_2 \to \infty} \delta^{\pm,\bar{b}_2}_u=\pm \infty,$$
 	$$\lim_{\bar{b}_2 \to \infty} \frac{\delta^{\pm,\bar{b}_2}_u}{b_2 + \bar{b}_2}=0.$$
-	Thus, from equation (\ref{eq:riccati_ut_sol}), for $t \in [0,T)$ we can deduce:
+	Also, note from the assumptions $q_T+\bar{q}_T(1-s_T)>0$ and $q_T+\bar{q}_T(1-s_T)^2>0$, we have $D^u>0$ and $D^w>0$. From equation (\ref{eq:riccati_ut_sol}), for $t \in [0,T)$ we can deduce:
 	\begin{equation*}
 	\begin{split}
 	 	(b_2 + \bar{b}_2)^{\frac{3}{2}}\cdot u^{\bar{b}_2}_t =& \frac{ \left( C^{u,\bar{b}_2}\sqrt{b_2 + \bar{b}_2} + \zeta \cdot \frac{\delta^{+,\bar{b}_2}_u}{\sqrt{b_2 + \bar{b}_2}}  \right) - \left( C^{u,\bar{b}_2}\sqrt{b_2 + \bar{b}_2} + \zeta \cdot \frac{\delta^{-,\bar{b}_2}_u}{\sqrt{b_2 + \bar{b}_2}}  \right) e^{- (\delta^{+,\bar{b}_2}_u - \delta^{-,\bar{b}_2}_u)(T-t)}}{ \left(- \frac{\delta^{-,\bar{b}_2}_u}{b_2 + \bar{b}_2} + \frac{b_2 (q_T + \bar{q}_T (1-s_T) )}{r + \bar{r}(1-\bar{s})} \right) + \left( \frac{\delta^{+,\bar{b}_2}_u}{b_2 + \bar{b}_2} - \frac{b_2 (q_T + \bar{q}_T (1-s_T) )}{r + \bar{r}(1-\bar{s})} \right)e^{- (\delta^{+,\bar{b}_2}_u - \delta^{-,\bar{b}_2}_u)(T-t)} }\\
@@ -981,14 +981,25 @@ v_t=Var(\xi)e^{\int_0^t 2(b_1-B^{\eta} \eta_s)ds}+\sigma^2 \int_0^t e^{2 \int_s^
 	&\xrightarrow[\bar{b}_2 \to \infty]{} \sqrt{(r + \bar{r}(1-\bar{s})^2) C^w}.
 	\end{split}
 	\end{equation*}
-	Similar to the proof of Proposition \ref{prop:r_bar_r}, it can be shown that there exists a $c>0$ and $\bar{b}_2^*$ such that for $\bar{b}_2>\bar{b}^*_2$ and $\forall t \in [0,T]$:
-	\begin{equation*}
-	\begin{split}
-	|(b_2 + \bar{b}_2)^{\frac{3}{2}}\cdot u^{\bar{b}_2}_t| <& c, \\
-	|(b_2 + \bar{b}_2) w^{\bar{b}_2}_t| <& c, \\
-	|\bar{x}_t^{\bar{b}_2,MFG}|<&c.
-	\end{split}
-	\end{equation*}
+	%Similar to the proof of Proposition \ref{prop:r_bar_r}, and using the assumptions $b_2>0$ and $q_T+\bar{q}_T(1-s_T)>0$, it can be shown that there exists a $c>0$ and $\bar{b}_2^*$ such that for $\bar{b}_2>\bar{b}^*_2$ and $\forall t \in [0,T]$:
+	%\begin{equation*}
+	%\begin{split}
+	%|(b_2 + \bar{b}_2)^{\frac{3}{2}}\cdot u^{\bar{b}_2}_t| <& c, \\
+	%|(b_2 + \bar{b}_2) w^{\bar{b}_2}_t| <& c, \\
+	%|\bar{x}_t^{\bar{b}_2,MFG}|<&c.
+	%\end{split}
+	%\end{equation*}
+	
+	Next, our goal is to derive bounds for the functions $\frac{(b_2 + \bar{b}_2)^{\frac{3}{2}}\cdot u^{\bar{b}_2}_t}{\sqrt{b_2+\bar{b}_2}}$, $(b_2 + \bar{b}_2) w^{\bar{b}_2}_t$, and $\bar{x}_t^{\bar{b}_2,MFG}$. Let $0<\epsilon<\delta^{\bar{b}_2 \to \infty}$. We can check that there exists a $\bar{b}_2^*$ such that $ C^{u,\bar{b}_2}\sqrt{b_2 + \bar{b}_2} <\epsilon$, and $\delta^{\bar{b}_2 \to \infty}-\epsilon<\left| \frac{\delta^{\pm,\bar{b}_2}_u}{\sqrt{b_2 + \bar{b}_2}}\right|< \delta^{\bar{b}_2 \to \infty} +\epsilon$ for $\bar{b}_2>\bar{b}_2^*$. Then we have for $t\in[0,T)$:
+		\begin{equation*}
+		\begin{split}
+		\left| \frac{(b_2 + \bar{b}_2)^{\frac{3}{2}}\cdot u^{\bar{b}_2}_t}{\sqrt{b_2+\bar{b}_2}} \right| &\leq \frac{
+			C^{u,\bar{b}_2}\sqrt{b_2 + \bar{b}_2} + \zeta \cdot \left(\frac{\delta^{+,\bar{b}_2}_u}{\sqrt{b_2 + \bar{b}_2}} -\frac{\delta^{-,\bar{b}_2}_u}{\sqrt{b_2 + \bar{b}_2}}\right)}{-\frac{\delta^{-,\bar{b}_2}_u}{\sqrt{b_2 + \bar{b}_2}}}\\
+		&\leq \frac{\epsilon + 2\epsilon\zeta}{\delta^{\bar{b}_2 \to \infty}-\epsilon} \\
+		&=:c_1.
+		\end{split} 
+		\end{equation*}
+	ToDo: other 2 function bounds
 	
 	Hence, by the bounded convergence theorem, we deduce:
 	$$ \lim_{\bar{b}_2 \to \infty} \Delta SC^{\bar{b}_2} =  \frac{1}{2(r+ \bar{r}(1-\bar{s})^2)} \int_0^T \lim_{\bar{b}_2 \to \infty}\left[ \left( \frac{ (b_2 + \bar{b}_2)^{\frac{3}{2}} u^{\bar{b}_2}_t }{\sqrt{b_2 + \bar{b}_2}} - (b_2 + \bar{b}_2)w^{\bar{b}_2}_t \right)^2 \cdot \left(\bar{x}_t^{\bar{b}_2,MFG} \right)^2\right] dt = 0.$$	
