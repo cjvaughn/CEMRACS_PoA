@@ -981,7 +981,7 @@ v_t=Var(\xi)e^{\int_0^t 2(b_1-B^{\eta} \eta_s)ds}+\sigma^2 \int_0^t e^{2 \int_s^
 	\end{equation*}
 	where we have used the fact that $\lim_{\bar{b}_2 \to \infty}\frac{\delta^{\pm,\bar{b}_2}_w}{b_2 + \bar{b}_2}=\sqrt{\frac{C^w}{r+\bar{r}(1-\bar{s})^2}}$ and therefore $\lim_{\bar{b}_2 \to \infty}\frac{\delta^{\pm,\bar{b}_2}_w}{(b_2 + \bar{b}_2)^2}=0$.
 	
-	Next, our goal is to derive bounds for the functions $\frac{(b_2 + \bar{b}_2)^{\frac{3}{2}}\cdot u^{\bar{b}_2}_t}{\sqrt{b_2+\bar{b}_2}}$, $(b_2 + \bar{b}_2) w^{\bar{b}_2}_t$, and $\bar{x}_t^{\bar{b}_2,MFG}$. Let $0<\epsilon<\delta^{\bar{b}_2 \to \infty}$. It is easy to check that there exists a $\bar{b}_2^*$ such that $ C^{u,\bar{b}_2}\sqrt{b_2 + \bar{b}_2} <\epsilon$, and $\delta^{\bar{b}_2 \to \infty}-\epsilon<\left| \frac{\delta^{\pm,\bar{b}_2}_u}{\sqrt{b_2 + \bar{b}_2}}\right|< \delta^{\bar{b}_2 \to \infty} +\epsilon$ for $\bar{b}_2>\bar{b}_2^*$. Then we have for $\bar{b}_2>\bar{b}^*_2$ and $\forall t\in[0,T]$:
+	Next, our goal is to derive bounds for the functions $\frac{(b_2 + \bar{b}_2)^{\frac{3}{2}}\cdot u^{\bar{b}_2}_t}{\sqrt{b_2+\bar{b}_2}}$, $(b_2 + \bar{b}_2) w^{\bar{b}_2}_t$, and $\bar{x}_t^{\bar{b}_2,MFG}$. Let $0<\epsilon<\delta^{\bar{b}_2 \to \infty}$. It is easy to check that there exists a $\bar{b}_2^*$ such that $ C^{u,\bar{b}_2}\sqrt{b_2 + \bar{b}_2} <\epsilon$, $\left| \frac{\delta^{+,\bar{b}_2}_u}{\sqrt{b_2 + \bar{b}_2}}-\delta^{\bar{b}_2 \to \infty}\right|< \epsilon$, and $\left| \frac{\delta^{-,\bar{b}_2}_u}{\sqrt{b_2 + \bar{b}_2}}-(-\delta^{\bar{b}_2 \to \infty})\right|< \epsilon$ for $\bar{b}_2>\bar{b}_2^*$. Then we have for $\bar{b}_2>\bar{b}^*_2$ and $\forall t\in[0,T]$:
 		\begin{equation*}
 		\begin{split}
 		\left| \frac{(b_2 + \bar{b}_2)^{\frac{3}{2}}\cdot u^{\bar{b}_2}_t}{\sqrt{b_2+\bar{b}_2}} \right| &\leq \frac{
@@ -1021,7 +1021,24 @@ v_t=Var(\xi)e^{\int_0^t 2(b_1-B^{\eta} \eta_s)ds}+\sigma^2 \int_0^t e^{2 \int_s^
 	\end{equation*}
 \end{proposition}
 \begin{proof}
-    Clearly we have $\lim_{b_1 \to 0}u_t=:u^{0,b_1}_t$, $\lim_{b_1 \to 0}w_t=:w^{0,b_1}_t$, and $\lim_{b_1 \to 0}\eta_t=:\eta^{0,b_1}_t$, where all three limiting processes are bounded. By the assumption on $\lambda$, $u_t \neq w_t$ on a set of positive Lebesgue measure. By the assumption on $\xi$, we have $\lim_{b_1 \to 0} \bar{x}^{MFG}_t=:\bar{x}^{0,b_1,MFG}_t>0,\ \forall t \in [0,T]$ which is also bounded. Therefore, by Proposition \ref{prop:diff_SC}, and the bounded convergence theorem,
+	First, we consider $b_1 \to 0$. We have $A^{u,b_1} \to A^{b_1\to 0}_u$, $\delta^{+,b_1}_u \to \delta^{+,b_1\to 0}_u>0$, and $\delta^{-,b_1}_u \to \delta^{-,b_1\to 0}_u<0$, and similarly for $A^{w,b_1}$, $A^{\eta,b_1}$, $\delta^{\pm,b_1}_w$, and $\delta^{\pm,b_1}_\eta$. Clearly we have for each $t\in[0,T]$, $\lim_{b_1 \to 0}u^{b_1}_t=:u^{b_1\to 0}_t$, $\lim_{b_1 \to 0}w^{b_1}_t=:w^{b_1 \to 0}_t$, and $\lim_{b_1 \to 0}\eta^{b_1}_t=:\eta^{b_1 \to 0}_t$. Next, we show that the three sequences are uniformly bounded. Let $0<\epsilon<-\delta^{-,b_1\to 0}_u$. There exists a $b_1^*$ such that $\left| \delta^{+,b_1}_u-\delta^{+,b_1\to0}_u \right|<\epsilon$ and $\left| \delta^{-,b_1}_u-\delta^{-,b_1\to0}_u \right|<\epsilon$ for each $b_1<b_1^*$. Then for each $b_1<b_1^*$ and $t\in[0,T]$, we have:
+	\begin{equation*}
+	\begin{split}
+		\left|u^{b_1}_t\right| &\leq \frac{C^u+D^u\left(\delta^{+,b_1}_u-\delta^{-,b_1}_u\right) }{-\delta^{-,b_1}_u} \\
+		&\leq \frac{C^u+D^u\left(\delta^{+,b_1\to 0}_u-\delta^{-,b_1 \to 0}_u+2\epsilon\right) }{-\delta^{-,b_1\to 0}_u-\epsilon}\\
+		&=:c,
+	\end{split}
+	\end{equation*}
+	and similarly for $\left|w^{b_1}_t\right|$ and $\left|\eta^{b_1}_t\right|$. By the assumption on $\lambda$, $u^{b_1\to 0}_t \neq w^{b_1\to 0}_t$ on a set of positive Lebesgue measure.
+	
+	From equation (\ref{eq:x_bar_MFG_explicit_new_notation}), the assumption on $\xi$, and by the bounded convergence theorem, we have for every $t \in [0,T]$:
+	\begin{equation*}
+	\lim_{b_1\to 0}\bar{x}_t^{b_1,MFG} = \mathbb{E}(\xi) e^{\int_0^t(\bar{b}_1-B u^{b_1\to 0}_s)ds} =: \bar{x}_t^{b_1\to 0,MFG}>0.
+	\end{equation*}
+	Moreover, $\bar{x}_t^{b_1\to 0,MFG}$ is uniformly bounded over $b_1<b_1^*$ and $t \in [0,T]$, i.e. 
+	$$ \left| \bar{x}^{b_1,MFG}_t \right| \leq \vert \mathbb{E}(\xi) \vert e^{ \bar{b}_1 T }, \quad \forall t \in [0,T],\ b_1<b_1^*. $$ 
+	
+	Therefore, by Proposition \ref{prop:diff_SC}, and the bounded convergence theorem,
     \begin{equation*}
         \lim_{b_1 \to 0} \Delta SC=:\Delta SC^{0,b_1},\  \Delta SC^{0,b_1}<\infty,\ \text{and}\ \Delta SC^{0,b_1}>0.
     \end{equation*}
@@ -1046,6 +1063,7 @@ v_t=Var(\xi)e^{\int_0^t 2(b_1-B^{\eta} \eta_s)ds}+\sigma^2 \int_0^t e^{2 \int_s^
     We conclude that $PoA \to 1$ as $b_1 \to \infty$.
     
     Similarly, for the case $\bar{b}_1 \to \infty$, we find that $\Delta SC=\mathcal{O}\left(\frac{e^{\bar{b}_1}}{\bar{b}_1}\right)$ and $SC^{MKV}=\mathcal{O}(1)$. We conclude that $PoA \to \infty$ as $\bar{b}_1 \to \infty$.
+    ToDo: check that we showed all 4 cases.
 \end{proof}
 
 
