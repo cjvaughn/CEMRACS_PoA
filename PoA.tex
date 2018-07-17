@@ -936,12 +936,12 @@ v_t=Var(\xi)e^{\int_0^t 2(b_1-B^{\eta} \eta_s)ds}+\sigma^2 \int_0^t e^{2 \int_s^
 		\end{IEEEeqnarray}
 	Similarly, for every time $t\in [0,T]$, $\lim_{\bar{b}_2 \to 0}w^{\bar{b}_2}_t=w^{\bar{b}_2 \to 0}_t$, and  $w^{\bar{b}_2 \to 0}_t$ is uniformly bounded over $t \in [0,T]$ for small enough $\bar{b}_2$.
 	
-	From equation (\ref{eq:x_bar_MFG_explicit_new_notation}) and by the bounded convergence theorem, we have for every $t \in [0,T]$:
-   	$$\lim_{\bar{b}_2 \to 0} \bar{x}_t^{\bar{b}_2,MFG} = \mathbb{E}(\xi) e^{\int_0^t (b_1 + \bar{b}_1 - B^{\bar{b}_2 \to 0}u^{\bar{b}_2 \to 0}_s) ds} =: \bar{x}^{\bar{b}_2 \to 0,MFG}_t.$$
+	From equation (\ref{eq:x_bar_MFG_explicit_new_notation}), the assumption on $\xi$, and by the bounded convergence theorem, we have for every $t \in [0,T]$:
+   	$$\lim_{\bar{b}_2 \to 0} \bar{x}_t^{\bar{b}_2,MFG} = \mathbb{E}(\xi) e^{\int_0^t (b_1 + \bar{b}_1 - B^{\bar{b}_2 \to 0}u^{\bar{b}_2 \to 0}_s) ds} =: \bar{x}^{\bar{b}_2 \to 0,MFG}_t>0.$$
 	Moreover, $\bar{x}_t^{\bar{b}_2,MFG}$ is uniformly bounded over $\bar{b}_2<\bar{b}^*_2$ and $t \in [0,T]$, i.e. 
 	$$ \vert \bar{x}^{\bar{b}_2,MFG}_t \vert \leq \vert \mathbb{E}(\xi) \vert e^{ (b_1 + \bar{b}_1 + c_1 c_2) T }, \quad \forall t \in [0,T], \ \forall \bar{b}_2<\bar{b}^*_2. $$ 
    	
-   	By our assumption on $\bar{b}_1$, we have $A^u \neq A^w$ and thus, $u^{\bar{b}_2 \to 0}_t\neq w^{\bar{b}_2 \to 0}_t$ on a set of positive Lebesgue measure. Thus, by the bounded convergence theorem and the assumption on $\xi$, we deduce:
+   	By our assumption on $\bar{b}_1$, we have $A^u \neq A^w$ and thus, $u^{\bar{b}_2 \to 0}_t\neq w^{\bar{b}_2 \to 0}_t$ on a set of positive Lebesgue measure. Thus, from Proposition \ref{prop:diff_SC}, and by the bounded convergence theorem, we deduce:
 	$$ \lim_{\bar{b}_2 \to 0} \Delta SC^{\bar{b}_2} = \frac{1}{2} B^{\bar{b}_2 \to 0} \int_0^T \left( (u_t^{\bar{b}_2 \to 0} - w_t^{\bar{b}_2 \to 0}\right)^2 \left (\bar{x}_t^{\bar{b}_2 \to 0,MFG} \right)^2 dt \  > 0. $$
 	Meanwhile, $\eta_t$ does not depend on $\bar{b}_2$, and therefore the variance $v_t$ also does not depend on $\bar{b}_2$. It is easy to check that $0<v_t<\infty$ for $t>0$ and $0 \leq w^{\bar{b}_2 \to 0}_0 < \infty$, and thus,
 	\begin{equation*}
@@ -1003,7 +1003,7 @@ v_t=Var(\xi)e^{\int_0^t 2(b_1-B^{\eta} \eta_s)ds}+\sigma^2 \int_0^t e^{2 \int_s^
 		\left| \bar{x}^{\bar{b}_2,MFG,}_t \right| \leq \left|\mathbb{E}(\xi)\right|e^{(b_1+\bar{b}_1)T}.
 	\end{equation*}
 	
-	Hence, by the bounded convergence theorem, we deduce:
+	Hence, from Proposition \ref{prop:diff_SC} and by the bounded convergence theorem, we deduce:
 	$$ \lim_{\bar{b}_2 \to \infty} \Delta SC^{\bar{b}_2} =  \frac{1}{2(r+ \bar{r}(1-\bar{s})^2)} \int_0^T \lim_{\bar{b}_2 \to \infty}\left[ \left( \frac{ (b_2 + \bar{b}_2)^{\frac{3}{2}} u^{\bar{b}_2}_t }{\sqrt{b_2 + \bar{b}_2}} - (b_2 + \bar{b}_2)w^{\bar{b}_2}_t \right)^2 \cdot \left(\bar{x}_t^{\bar{b}_2,MFG} \right)^2\right] dt = 0.$$	
 	Moreover, recall that $\eta_t$ and $v_t$ are invariant with respect to $\bar{b}_2$ and $0<v_t<\infty$ for $t>0$. Clearly we also have $0 \leq w^{\bar{b}_2 \to \infty}_0 < \infty$. Thus,
 	$$0< \lim_{\bar{b}_2 \to \infty} SC^{MKV,\bar{b}_2} <\infty.$$
@@ -1040,9 +1040,11 @@ v_t=Var(\xi)e^{\int_0^t 2(b_1-B^{\eta} \eta_s)ds}+\sigma^2 \int_0^t e^{2 \int_s^
 	
 	Therefore, by Proposition \ref{prop:diff_SC}, and the bounded convergence theorem,
     \begin{equation*}
-        \lim_{b_1 \to 0} \Delta SC=:\Delta SC^{0,b_1},\  \Delta SC^{0,b_1}<\infty,\ \text{and}\ \Delta SC^{0,b_1}>0.
+        0<\lim_{b_1 \to 0} \Delta SC^{b_1}<\infty.
     \end{equation*}
-    Since $\eta^{0,b_1}_t$ is bounded, $\lim_{b_1 \to 0}v_t=:v_t^{0,b_1}>0,\ \forall t>0$ which is also bounded. Using equations (\ref{eq:SC_MFG_2}) and (\ref{eq:SC_MKV_2}), the fact that $0 \leq \eta^{0,b_1}_0 < \infty$, and the bounded convergence theorem, $\lim_{b_1 \to 0} SC^{MKV}>0$ and $\lim_{b_1 \to 0} SC^{MKV}<\infty$. Therefore, $\lim_{b_1 \to 0} PoA =: PoA^{0,b_1} > 1$. The proof can be repeated to show $\lim_{\bar{b}_1 \to 0} PoA =: PoA^{0,\bar{b}_1} > 1$.
+    By the bounded convergence theorem, $\lim_{b_1 \to 0}v_t=:v_t^{b_1 \to 0}$, which is bounded over $t\in [0,T]$, and thus:
+    $$0<\lim_{b_1 \to 0} SC^{MKV,b_1}<\infty.$$
+    Therefore, $\lim_{b_1 \to 0} PoA^{b_1} =: PoA^{b_1 \to 0} > 1$. The proof can be repeated to show $\lim_{\bar{b}_1 \to 0} PoA^{\bar{b}_2} =: PoA^{\bar{b}_1 \to 0} > 1$.
     
     Now we consider $b_1 \to \infty$. We see that:
     \begin{equation*}
