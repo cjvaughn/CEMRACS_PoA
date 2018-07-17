@@ -899,7 +899,7 @@ v_t=Var(\xi)e^{\int_0^t 2(b_1-B^{\eta} \eta_s)ds}+\sigma^2 \int_0^t e^{2 \int_s^
 \end{proof}
 
 \begin{proposition}
-	Assuming (\ref{eq:assumptions}), the initial condition $\xi$ satisfies $\mathbb{E}(\xi)\neq 0$, and assuming $\bar{b}_1> 0$, $b_2> 0$, $q_T+\bar{q}_T(1-s_T)>0$, and $q_T+\bar{q}_T(1-s_T)^2>0$ then 
+	Assuming (\ref{eq:assumptions}), the initial condition $\xi$ satisfies $\mathbb{E}(\xi)\neq 0$, and assuming $\bar{b}_1> 0$, $q_T+\bar{q}_T(1-s_T)>0$, and $q_T+\bar{q}_T(1-s_T)^2>0$ then 
 	\begin{equation*}
 	\lim_{\bar{b}_2 \to 0} PoA =: PoA^{\bar{b}_2\to 0} > 1\qquad \text{and} \qquad\lim_{\bar{b}_2 \to \infty} PoA = 1.
 	\end{equation*}
@@ -918,9 +918,7 @@ v_t=Var(\xi)e^{\int_0^t 2(b_1-B^{\eta} \eta_s)ds}+\sigma^2 \int_0^t e^{2 \int_s^
 	\begin{equation}
 	\left({u}^{{\bar{b}_2 \to 0}}_t\right)' - 2A^u u_t^{\bar{b}_2 \to 0} +B^{\bar{b}_2 \to 0} (u_t^{\bar{b}_2 \to 0})^2+ C^{\bar{b}_2 \to 0}_u = 0, \qquad u_T^{r \to \infty} = D^{\bar{b}_2 \to 0}_u,
 	\end{equation}
-	which we recall has an explicit solution. It is easy to show that for every time $t\in [0,T]$, $\lim_{\bar{b}_2 \to 0}u^{\bar{b}_2}_t=u^{\bar{b}_2 \to 0}_t$. Next, our goal is to bound $u^{\bar{b}_2}_t$ uniformly over $t \in [0,T]$ for small enough $\bar{b}_2$.
-
-	Following the methodology of the proof of Proposition \ref{prop:r_bar_r}, let $\epsilon>0$. Then there is a $\bar{b}^*_2$ such that $\max_{\bar{b}_2<\bar{b}^*_2} \{ B^{\bar{b}_2},C^{u,\bar{b}_2},D^{u,\bar{b}_2} \}<\max \{B^{\bar{b}_2 \to 0},C^{\bar{b}_2 \to 0}_u,D^{\bar{b}_2 \to 0}_u \}+\epsilon=:c_1$. We have the following two inequalities for $\bar{b}_2<\bar{b}^*_2$ and $\forall t \in [0,T]$:
+	which we recall has an explicit solution. It is easy to show that for every time $t\in [0,T]$, $\lim_{\bar{b}_2 \to 0}u^{\bar{b}_2}_t=u^{\bar{b}_2 \to 0}_t$. Next, our goal is to bound $u^{\bar{b}_2}_t$ uniformly over $t \in [0,T]$ for small enough $\bar{b}_2$, following the methodology of the proof of Proposition \ref{prop:r_bar_r}. Let $\epsilon>0$. Then there is a $\bar{b}^*_2$ such that $\max_{\bar{b}_2<\bar{b}^*_2} \{ B^{\bar{b}_2},C^{u,\bar{b}_2},D^{u,\bar{b}_2} \}<\max \{B^{\bar{b}_2 \to 0},C^{\bar{b}_2 \to 0}_u,D^{\bar{b}_2 \to 0}_u \}+\epsilon=:c_1$. We have the following two inequalities for $\bar{b}_2<\bar{b}^*_2$ and $\forall t \in [0,T]$:
 		\begin{IEEEeqnarray*}{rl}
 			&\left\vert (C^{u,\bar{b}_2} + D^{u,\bar{b}_2} \delta^{+,\bar{b}_2}_u) - (C^{u,\bar{b}_2} + D^{u,\bar{b}_2} \delta^{-,\bar{b}_2}_u) e^{- (\delta^{+,\bar{b}_2}_u - \delta^{-,\bar{b}_2}_u) (T-t)} \right\vert\\
 			&\leq  c_1 + 2 c_1 \sqrt{(A^u)^2 + c_1^2} \\
@@ -978,19 +976,12 @@ v_t=Var(\xi)e^{\int_0^t 2(b_1-B^{\eta} \eta_s)ds}+\sigma^2 \int_0^t e^{2 \int_s^
 	\begin{equation*}
 	\begin{split}
 	(b_2 + \bar{b}_2) w^{\bar{b}_2}_t =&\frac{ \left( \frac{C^{w}}{b_2 + \bar{b}_2} + D^{w}\cdot \frac{\delta^{+,\bar{b}_2}_w}{b_2 + \bar{b}_2}  \right) - \left( \frac{C^{w}}{b_2 + \bar{b}_2} + D^{w}\cdot \frac{\delta^{-,\bar{b}_2}_w}{b_2 + \bar{b}_2}  \right) e^{- (\delta^{+,\bar{b}_2}_w - \delta^{-,\bar{b}_2}_w)(T-t)}}{ \left(- \frac{\delta^{-,\bar{b}_2}_w}{(b_2 + \bar{b}_2)^2} + \frac{D^{w}}{r + \bar{r}(1-\bar{s})^2} \right) + \left( \frac{\delta^{+,\bar{b}_2}_w}{(b_2 + \bar{b}_2)^2} - \frac{D^{w}}{r + \bar{r}(1-\bar{s})^2} \right)e^{- (\delta^{+,\bar{b}_2}_w - \delta^{-,\bar{b}_2}_w)(T-t)} }\\
-	&\xrightarrow[\bar{b}_2 \to \infty]{} \sqrt{(r + \bar{r}(1-\bar{s})^2) C^w}.
+	&\xrightarrow[\bar{b}_2 \to \infty]{} \sqrt{(r + \bar{r}(1-\bar{s})^2) C^w},
 	\end{split}
 	\end{equation*}
-	%Similar to the proof of Proposition \ref{prop:r_bar_r}, and using the assumptions $b_2>0$ and $q_T+\bar{q}_T(1-s_T)>0$, it can be shown that there exists a $c>0$ and $\bar{b}_2^*$ such that for $\bar{b}_2>\bar{b}^*_2$ and $\forall t \in [0,T]$:
-	%\begin{equation*}
-	%\begin{split}
-	%|(b_2 + \bar{b}_2)^{\frac{3}{2}}\cdot u^{\bar{b}_2}_t| <& c, \\
-	%|(b_2 + \bar{b}_2) w^{\bar{b}_2}_t| <& c, \\
-	%|\bar{x}_t^{\bar{b}_2,MFG}|<&c.
-	%\end{split}
-	%\end{equation*}
+	where we have used the fact that $\lim_{\bar{b}_2 \to \infty}\frac{\delta^{\pm,\bar{b}_2}_w}{b_2 + \bar{b}_2}=\sqrt{\frac{C^w}{r+\bar{r}(1-\bar{s})^2}}$ and therefore $\lim_{\bar{b}_2 \to \infty}\frac{\delta^{\pm,\bar{b}_2}_w}{(b_2 + \bar{b}_2)^2}=0$.
 	
-	Next, our goal is to derive bounds for the functions $\frac{(b_2 + \bar{b}_2)^{\frac{3}{2}}\cdot u^{\bar{b}_2}_t}{\sqrt{b_2+\bar{b}_2}}$, $(b_2 + \bar{b}_2) w^{\bar{b}_2}_t$, and $\bar{x}_t^{\bar{b}_2,MFG}$. Let $0<\epsilon<\delta^{\bar{b}_2 \to \infty}$. We can check that there exists a $\bar{b}_2^*$ such that $ C^{u,\bar{b}_2}\sqrt{b_2 + \bar{b}_2} <\epsilon$, and $\delta^{\bar{b}_2 \to \infty}-\epsilon<\left| \frac{\delta^{\pm,\bar{b}_2}_u}{\sqrt{b_2 + \bar{b}_2}}\right|< \delta^{\bar{b}_2 \to \infty} +\epsilon$ for $\bar{b}_2>\bar{b}_2^*$. Then we have for $t\in[0,T)$:
+	Next, our goal is to derive bounds for the functions $\frac{(b_2 + \bar{b}_2)^{\frac{3}{2}}\cdot u^{\bar{b}_2}_t}{\sqrt{b_2+\bar{b}_2}}$, $(b_2 + \bar{b}_2) w^{\bar{b}_2}_t$, and $\bar{x}_t^{\bar{b}_2,MFG}$. Let $0<\epsilon<\delta^{\bar{b}_2 \to \infty}$. It is easy to check that there exists a $\bar{b}_2^*$ such that $ C^{u,\bar{b}_2}\sqrt{b_2 + \bar{b}_2} <\epsilon$, and $\delta^{\bar{b}_2 \to \infty}-\epsilon<\left| \frac{\delta^{\pm,\bar{b}_2}_u}{\sqrt{b_2 + \bar{b}_2}}\right|< \delta^{\bar{b}_2 \to \infty} +\epsilon$ for $\bar{b}_2>\bar{b}_2^*$. Then we have for $\bar{b}_2>\bar{b}^*_2$ and $\forall t\in[0,T]$:
 		\begin{equation*}
 		\begin{split}
 		\left| \frac{(b_2 + \bar{b}_2)^{\frac{3}{2}}\cdot u^{\bar{b}_2}_t}{\sqrt{b_2+\bar{b}_2}} \right| &\leq \frac{
@@ -999,7 +990,18 @@ v_t=Var(\xi)e^{\int_0^t 2(b_1-B^{\eta} \eta_s)ds}+\sigma^2 \int_0^t e^{2 \int_s^
 		&=:c_1.
 		\end{split} 
 		\end{equation*}
-	ToDo: other 2 function bounds
+	ToDo setup
+	\begin{equation*}
+	\begin{split}
+		\left| (b_2 + \bar{b}_2) w^{\bar{b}_2}_t \right| &\leq \frac{ \frac{C^{w}}{b_2 + \bar{b}_2} + D^{w}\cdot\left( \frac{\delta^{+,\bar{b}_2}_w}{b_2 + \bar{b}_2}-\frac{\delta^{-,\bar{b}_2}_w}{b_2 + \bar{b}_2} \right)}{ \left(- \frac{\delta^{-,\bar{b}_2}_w}{(b_2 + \bar{b}_2)^2} + \frac{D^{w}}{r + \bar{r}(1-\bar{s})^2} \right) + \left( \frac{\delta^{+,\bar{b}_2}_w}{(b_2 + \bar{b}_2)^2} - \frac{D^{w}}{r + \bar{r}(1-\bar{s})^2} \right)e^{- (\delta^{+,\bar{b}_2}_w - \delta^{-,\bar{b}_2}_w)(T-t)} } \\
+		& \leq \frac{}{0!!!}
+	\end{split}
+	\end{equation*}
+	
+	From equation (\ref{eq:x_bar_MFG_explicit_new_notation}) and the non-negativity of $u^{\bar{b}_2}_t$, we have:
+	\begin{equation*}
+		\left| \bar{x}^{\bar{b}_2,MFG,}_t \right| \leq \left|\mathbb{E}(\xi)\right|e^{(b_1+\bar{b}_1)T}.
+	\end{equation*}
 	
 	Hence, by the bounded convergence theorem, we deduce:
 	$$ \lim_{\bar{b}_2 \to \infty} \Delta SC^{\bar{b}_2} =  \frac{1}{2(r+ \bar{r}(1-\bar{s})^2)} \int_0^T \lim_{\bar{b}_2 \to \infty}\left[ \left( \frac{ (b_2 + \bar{b}_2)^{\frac{3}{2}} u^{\bar{b}_2}_t }{\sqrt{b_2 + \bar{b}_2}} - (b_2 + \bar{b}_2)w^{\bar{b}_2}_t \right)^2 \cdot \left(\bar{x}_t^{\bar{b}_2,MFG} \right)^2\right] dt = 0.$$	
