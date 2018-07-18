@@ -1046,25 +1046,39 @@ v_t=Var(\xi)e^{\int_0^t 2(b_1-B^{\eta} \eta_s)ds}+\sigma^2 \int_0^t e^{2 \int_s^
     $$0<\lim_{b_1 \to 0} SC^{MKV,b_1}<\infty.$$
     Therefore, $\lim_{b_1 \to 0} PoA^{b_1} =: PoA^{b_1 \to 0} > 1$. The proof can be repeated to show $\lim_{\bar{b}_1 \to 0} PoA^{\bar{b}_2} =: PoA^{\bar{b}_1 \to 0} > 1$.
     
-    Now we consider $b_1 \to \infty$. We see that:
-    \begin{equation*}
-        \delta^+_u \to 0,\ \frac{\delta^-_u}{b_1+\frac{\bar{b}_1}{2}} \to -2,\ \delta^+_w \to 0,\ \frac{\delta^-_w}{b_1+\bar{b}_1} \to -2,\ \delta^+_{\eta} \to 0,\ \frac{\delta^-_{\eta}}{b_1} \to -2.
-    \end{equation*}
-    and therefore we find for $t \in [0,T)$:
+    Now we consider $b_1 \to \infty$. For each $b_1>0$, we have the following bounds over $t\in[0,T]$:
     \begin{equation*}
     \begin{split}
-        \left(b_1+\frac{\bar{b}_1}{2}\right)u_t&\to 2 C^u \\
-        \left(b_1+\bar{b}_1\right)w_t&\to 2 C^w \\
-        b_1 \eta_t&\to 2 C^{\eta}.
+	    \left| u^{b_1}_t\right| &\leq \frac{C^u+D^u(\delta^{+,b_1}_u-\delta^{-,b_1}_u)}{-\delta^{-,b_1}_u}=:f_u(b_1) \\
+		\left| w^{b_1}_t\right| &\leq \frac{C^w+D^w(\delta^{+,b_1}_w-\delta^{-,b_1}_w)}{-\delta^{-,b_1}_w}=:f_w(b_1) \\
+		\left| \eta^{b_1}_t\right| &\leq \frac{C^{\eta}+D^{\eta}(\delta^{+,b_1}_{\eta}-\delta^{-,b_1}_{\eta})}{-\delta^{-,b_1}_{\eta}}=:f_{\eta}(b_1) \\
+		\left| \bar{x}^{b_1,MFG}_t \right| &\leq \left| \mathbb{E}(\xi)\right| e^{T(b_1+\bar{b}_1)}=:f_{\bar{x}}(b_1).
     \end{split}
     \end{equation*}
-    Thus, $\Delta \bar{\eta}_t=\mathcal{O}(b_1^{-1})$ for $t \in [0,T)$. We find $\bar{x}^{MFG}_t=\mathcal{O}(e^{b_1})$ for $t \in (0,T]$. Thus, using Proposition \ref{prop:diff_SC}, we have $\Delta SC=\mathcal{O}\left(\frac{e^{b_1}}{b_1}\right)$. We also find $v_t=\mathcal{O}(e^{2b_1})$. Therefore with equation (\ref{eq:SC_MKV_2}) we have:
+    Thus, from Proposition \ref{prop:diff_SC}, we have:
     \begin{equation*}
-        \frac{\Delta SC}{SC^{MKV}}=\mathcal{O}\left(\frac{e^{-b_1}}{b_1}\right)\to 0.
+	    \Delta SC^{b_1} \leq \frac{1}{2}BT(f_u(b_1)+f_w(b_1))^2 (f_{\bar{x}}(b_1))^2.
     \end{equation*}
-    We conclude that $PoA \to 1$ as $b_1 \to \infty$.
     
-    Similarly, for the case $\bar{b}_1 \to \infty$, we find that $\Delta SC=\mathcal{O}\left(\frac{e^{\bar{b}_1}}{\bar{b}_1}\right)$ and $SC^{MKV}=\mathcal{O}(1)$. We conclude that $PoA \to \infty$ as $\bar{b}_1 \to \infty$.
+    %We see that:
+    %\begin{equation*}
+    %    \delta^+_u \to 0,\ \frac{\delta^-_u}{b_1+\frac{\bar{b}_1}{2}} \to -2,\ \delta^+_w \to 0,\ \frac{\delta^-_w}{b_1+\bar{b}_1} \to -2,\ \delta^+_{\eta} \to 0,\ \frac{\delta^-_{\eta}}{b_1} \to -2.
+    %\end{equation*}
+    %and therefore we find for $t \in [0,T)$:
+    %\begin{equation*}
+    %\begin{split}
+    %    \left(b_1+\frac{\bar{b}_1}{2}\right)u_t&\to 2 C^u \\
+    %    \left(b_1+\bar{b}_1\right)w_t&\to 2 C^w \\
+    %    b_1 \eta_t&\to 2 C^{\eta}.
+    %\end{split}
+    %\end{equation*}
+    %Thus, $\Delta \bar{\eta}_t=\mathcal{O}(b_1^{-1})$ for $t \in [0,T)$. We find $\bar{x}^{MFG}_t=\mathcal{O}(e^{b_1})$ for $t \in (0,T]$. Thus, using Proposition \ref{prop:diff_SC}, we have $\Delta SC=\mathcal{O}\left(\frac{e^{b_1}}{b_1}\right)$. We also find $v_t=\mathcal{O}(e^{2b_1})$. Therefore with equation (\ref{eq:SC_MKV_2}) we have:
+    %\begin{equation*}
+    %    \frac{\Delta SC}{SC^{MKV}}=\mathcal{O}\left(\frac{e^{-b_1}}{b_1}\right)\to 0.
+    %\end{equation*}
+    %We conclude that $PoA \to 1$ as $b_1 \to \infty$.
+    %Similarly, for the case $\bar{b}_1 \to \infty$, we find that $\Delta SC=\mathcal{O}\left(\frac{e^{\bar{b}_1}}{\bar{b}_1}\right)$ and $SC^{MKV}=\mathcal{O}(1)$. We conclude that $PoA \to \infty$ as $\bar{b}_1 \to \infty$.
+
 \end{proof}
 
 
