@@ -965,7 +965,7 @@ v_t=Var(\xi)e^{\int_0^t 2(b_1-B^{\eta} \eta_s)ds}+\sigma^2 \int_0^t e^{2 \int_s^
 	\begin{equation*}
 	\begin{split}
 	 	(b_2 + \bar{b}_2)^{\frac{3}{2}}\cdot u^{\bar{b}_2}_t =& \frac{ \left( C^{u,\bar{b}_2}\sqrt{b_2 + \bar{b}_2} + \zeta \cdot \frac{\delta^{+,\bar{b}_2}_u}{\sqrt{b_2 + \bar{b}_2}}  \right) - \left( C^{u,\bar{b}_2}\sqrt{b_2 + \bar{b}_2} + \zeta \cdot \frac{\delta^{-,\bar{b}_2}_u}{\sqrt{b_2 + \bar{b}_2}}  \right) e^{- (\delta^{+,\bar{b}_2}_u - \delta^{-,\bar{b}_2}_u)(T-t)}}{ \left(- \frac{\delta^{-,\bar{b}_2}_u}{b_2 + \bar{b}_2} + \frac{b_2 (q_T + \bar{q}_T (1-s_T) )}{r + \bar{r}(1-\bar{s})} \right) + \left( \frac{\delta^{+,\bar{b}_2}_u}{b_2 + \bar{b}_2} - \frac{b_2 (q_T + \bar{q}_T (1-s_T) )}{r + \bar{r}(1-\bar{s})} \right)e^{- (\delta^{+,\bar{b}_2}_u - \delta^{-,\bar{b}_2}_u)(T-t)} }\\
-	 	& \xrightarrow[\bar{b}_2 \to \infty]{} \delta^{\bar{b}_2 \to \infty} (r + \bar{r}(1-\bar{s})^2),
+	 	& \xrightarrow[\bar{b}_2 \to \infty]{} \delta^{\bar{b}_2 \to \infty} (r + \bar{r}(1-\bar{s})^2)=: c_3,
 	 \end{split} 
 	\end{equation*}
 	where $\zeta = \frac{b_2 (r + \bar{r}(1-\bar{s})^2) }{r+ \bar{r}(1-\bar{s})} (q_T + \bar{q}_T(1-s_T))$. 
@@ -973,32 +973,28 @@ v_t=Var(\xi)e^{\int_0^t 2(b_1-B^{\eta} \eta_s)ds}+\sigma^2 \int_0^t e^{2 \int_s^
 
 	%Nicolas: Mean Value theorem
 	Since $u_t^{\bar{b}_2}$, $w_t^{\bar{b}_2}$ and $\bar{x}_t^{\bar{b}_2,MFG}$ are continuous over $[0,T]$, we have then the functions $t \mapsto \int_0^t u^{\bar{b}_2}_s ds$ and $t \mapsto \int_0^t (u^{\bar{b}_2}_s- w^{\bar{b}_2}_s)^2 (\bar{x}_s^{\bar{b}_2,MFG} )^2 ds$ are continuous over $[0,T]$ and differentiable over $(0,T)$. Then with the equation (\ref{eq:x_bar_MFG_explicit_new_notation}) we can apply the Mean Value theorem and deduce that there exists two fixed times $0< t_2 < t_1 < T$ such that
-	\begin{IEEEeqnarray*}{rCl}
+	\begin{IEEEeqnarray}{rCl}
 		\Delta SC &=& \frac{1}{2} B^{\bar{b}_2} \int_0^T (u_t- w_t)^2 (\bar{x}_t^{\bar{b}_2,MFG} )^2 dt  \nonumber \\
 		&=& \frac{1}{2} B^{\bar{b}_2}  (u_{t_1}^{\bar{b}_2}- w_{t_1}^{\bar{b}_2} )^2 (\bar{x}_{t_1}^{\bar{b}_2,MFG} )^2  \cdot T \nonumber \\
 		&=& \frac{T  B^{\bar{b}_2} }{2} \cdot (u_{t_1}^{\bar{b}_2}- w_{t_1}^{\bar{b}_2} )^2 \cdot \mathbb{E}[\xi]^2 e^{ 2 (b_1 + \bar{b}_1) t_1 - 2\int_0^{t_1} B^{\bar{b}_2} u_s^{\bar{b}_2} ds } \nonumber \\
 		&=&  \kappa_1 (u_{t_1}^{\bar{b}_2}- w_{t_1}^{\bar{b}_2} )^2\cdot \left[ (b_2 + \bar{b}_2) e^{- B^{\bar{b}_2} u_{t_2}^{\bar{b}_2} \cdot t_1}  \right]^2 \nonumber \\
-	\end{IEEEeqnarray*}
-	where $\kappa_1 =\frac{T \mathbb{E}[\xi]^2 e^{2 (b_1 + \bar{b}_1) t_1}}{2 (r + \bar{r}(1-\bar{s})^2)} >0$ is a positive constant independent of $\bar{b}_2$. 
+		&= & \kappa_1 (u_{t_1}^{\bar{b}_2} - w_{t_1}^{\bar{b}_2} )^2 \cdot \left((b_2 + \bar{b}_2) e^{- \kappa (b_2 + \bar{b}_2)^{\frac{1}{2}} f(\bar{b}_2)} \right)^2
+		\label{eq:delta_SC_b_2_bar_infty}
+	\end{IEEEeqnarray}
+	where  $\kappa = \frac{t_1}{r + \bar{r}(1-\bar{s})^2} >0 $ and $\kappa_1 =\frac{T \mathbb{E}[\xi]^2 e^{2 (b_1 + \bar{b}_1) t_1}}{2 (r + \bar{r}(1-\bar{s})^2)} >0$ are two positive constants independent of $\bar{b}_2$, and $f(\bar{b}_2) = (b_2 + \bar{b}_2)^{\frac{3}{2}} u_{t_2}^{\bar{b}_2}$. 
 	
-	Let's denote $(b_2 + \bar{b}_2)^{\frac{1}{2}} = p$ and $f(p) = p^3 u_{t_2}^{\bar{b}_2}$, then we know that $f(p) \xrightarrow[p\to \infty]{} \delta^{\bar{b}_2 \to \infty} (r + \bar{r}(1- \bar{s})^2) := c_3 > 0$. Then we have
-	\begin{equation}
-		 \Delta SC = \kappa_1 (u_{t_1}^{\bar{b}_2}- w_{t_1}^{\bar{b}_2} )^2 \cdot \left(p^2 e^{- \kappa p f(p)} \right)^2
-	\label{eq:delta_SC_b_2_bar_infty}
-	\end{equation}
-	where $\kappa = \frac{t_1}{r + \bar{r}(1-\bar{s})^2} >0 $.
+
 	
-	
-	Our next step is to show that $p^2 e^{- \kappa p f(p) } $ tends towards $0$ when $p \to \infty$. This can be done fairly easy. Since $f(p) \to c_3 >0$, there exists an $\epsilon > 0 $ such that $c_3 - 2 \epsilon >0$ and a constant $p^* := p^*(\epsilon)>0$ so that for all $p \geq p^*$ we have $\vert f(p) - c_3 \vert < \epsilon$. Then $f(p) - (c_3 - 2\epsilon) > \epsilon$ and 
+	Our next step is to show that $(b_2 + \bar{b}_2) e^{- \kappa (b_2 + \bar{b}_2)^{\frac{1}{2}} f(\bar{b}_2) } $ tends towards $0$ when $\bar{b}_2 \to \infty$. This can be done fairly easy. Since $f(\bar{b}_2) \to c_3 >0$, there exists an $\epsilon > 0 $ such that $c_3 - 2 \epsilon >0$ and a constant $\bar{b}_2^* := \bar{b}_2^*(\epsilon)>0$ so that for all $\bar{b}_2 \geq \bar{b}_2^*$ we have $\vert f(\bar{b}_2) - c_3 \vert < \epsilon$. Then $f(\bar{b}_2) - (c_3 - 2\epsilon) > \epsilon$ and 
 	\begin{equation*}
 	\begin{array}{rll}
-		p^2 e^{- \kappa p f(p)} &=& e^{- \kappa p (f(p) - c_3 + 2\epsilon) }\cdot e^{- \kappa  (c_3 - 2 \epsilon) p + 2 \ln p } \\
-		& \leq & e^{- \kappa p^* \epsilon} \cdot e^{- \kappa (c_3 - 2 \epsilon) p + 2 \ln p} 
+		(b_2 + \bar{b}_2) e^{- \kappa (b_2 + \bar{b}_2)^{\frac{1}{2}} f(\bar{b}_2) }  &=& e^{- \kappa (b_2 + \bar{b}_2)^{\frac{1}{2}} (f(\bar{b}_2) - c_3 + 2\epsilon) }\cdot e^{- \kappa  (c_3 - 2 \epsilon) (b_2 + \bar{b}_2)^{\frac{1}{2}} +  \ln (b_2 + \bar{b}_2) } \\
+		& \leq & e^{- \kappa (b_2+\bar{b}_2^*)^{\frac{1}{2}} \cdot \epsilon} \cdot e^{- \kappa (c_3 - 2 \epsilon) (b_2 + \bar{b}_2)^{\frac{1}{2}} + \ln (b_2 + \bar{b}_2)} 
 	\end{array}
 	\end{equation*}
-	Then, for any $\epsilon_1>0$, we can choose $p$ large enough, say $p \geq p^*_1 > p^*$, so that
+	Then, for any $\epsilon_1>0$, we can choose $\bar{b}_2$ large enough, say $\bar{b}_2 \geq \bar{b}_2^{**} > \bar{b}_2^*$, so that
 	\begin{equation}
-		p^2 e^{-\kappa p f(p)} \leq \epsilon_1.
+	(b_2 + \bar{b}_2) e^{- \kappa (b_2 + \bar{b}_2)^{\frac{1}{2}} f(\bar{b}_2) }   \leq \epsilon_1.
 	\label{eq:limit_p_f(p)}
 	\end{equation}
  	
@@ -1013,7 +1009,7 @@ v_t=Var(\xi)e^{\int_0^t 2(b_1-B^{\eta} \eta_s)ds}+\sigma^2 \int_0^t e^{2 \int_s^
 	\begin{equation*}
 	\begin{split}
 	(b_2 + \bar{b}_2) w^{\bar{b}_2}_{t_1} =&\frac{ \left( \frac{C^{w}}{b_2 + \bar{b}_2} + D^{w}\cdot \frac{\delta^{+,\bar{b}_2}_w}{b_2 + \bar{b}_2}  \right) - \left( \frac{C^{w}}{b_2 + \bar{b}_2} + D^{w}\cdot \frac{\delta^{-,\bar{b}_2}_w}{b_2 + \bar{b}_2}  \right) e^{- (\delta^{+,\bar{b}_2}_w - \delta^{-,\bar{b}_2}_w)(T- t_1)}}{ \left(- \frac{\delta^{-,\bar{b}_2}_w}{(b_2 + \bar{b}_2)^2} + \frac{D^{w}}{r + \bar{r}(1-\bar{s})^2} \right) + \left( \frac{\delta^{+,\bar{b}_2}_w}{(b_2 + \bar{b}_2)^2} - \frac{D^{w}}{r + \bar{r}(1-\bar{s})^2} \right)e^{- (\delta^{+,\bar{b}_2}_w - \delta^{-,\bar{b}_2}_w)(T-t_1)} }\\
-	&\xrightarrow[\bar{b}_2 \to \infty]{} \sqrt{(r + \bar{r}(1-\bar{s})^2) C^w} := c_4 >0,
+	&\xrightarrow[\bar{b}_2 \to \infty]{} \sqrt{(r + \bar{r}(1-\bar{s})^2) C^w} =: c_4 >0,
 	\end{split}
 	\end{equation*}
 	where we have used the fact that $\lim_{\bar{b}_2 \to \infty}\frac{\delta^{\pm,\bar{b}_2}_w}{b_2 + \bar{b}_2}=\sqrt{\frac{C^w}{r+\bar{r}(1-\bar{s})^2}}$. Thus $ \vert w_{t_1}^{\bar{b}_2} \vert $ can also be bounded $c_4 + \epsilon$ for large enough $\bar{b}_2$.
