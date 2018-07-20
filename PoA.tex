@@ -994,9 +994,14 @@ v_t=Var(\xi)e^{\int_0^t 2(b_1-B^{\eta} \eta_s)ds}+\sigma^2 \int_0^t e^{2 \int_s^
 		& \xrightarrow[\bar{b}_2 \to \infty]{}0.
 	\end{array}
 	\end{equation*}
+	Let $\epsilon>0$. Then there exists a $\bar{b}_2^{**}>\bar{b}_2^{*}$, such that for all $\bar{b}_2>\bar{b}_2^{**}$, we have:
+	\begin{equation}
+	|(b_2 + \bar{b}_2) e^{- \kappa (b_2 + \bar{b}_2)^{\frac{1}{2}} f(\bar{b}_2,t_2) }|<\epsilon.
+	\label{eq:limit_p_f(p)}
+	\end{equation}
  	
  	
- 	Now, in order to show that $\Delta SC$ tends to $0$, we need to bound the terms $u_{t_1}^{\bar{b}_2}$ and $w_{t_1}^{\bar{b}_2}$ for large enough $\bar{b}_2$. As before, and recycling notation, for any $\epsilon>0$, there exists a $\bar{b}_2^*:=\bar{b}_2^*(\epsilon,t_1) > 1$ such that for any $\bar{b}_2 \geq \bar{b}_2^*$ we have $ (b_2 + \bar{b}_2)^{\frac{3}{2}} \vert u_{t_1}^{\bar{b}_2} \vert \leq c_3 + \epsilon$. Thus, for any $\bar{b}_2 \geq \bar{b}_2^*$ we deduce:
+ 	Now, in order to show that $\Delta SC$ tends to $0$, we need to bound the terms $u_{t_1}^{\bar{b}_2}$ and $w_{t_1}^{\bar{b}_2}$ for large enough $\bar{b}_2$. Given $\epsilon>0$, there exists a $\bar{b}_2^*:=\bar{b}_2^*(\epsilon,t_1) > 1$ such that for any $\bar{b}_2 \geq \bar{b}_2^*$ we have $ (b_2 + \bar{b}_2)^{\frac{3}{2}} \vert u_{t_1}^{\bar{b}_2} \vert \leq c_3 + \epsilon$. Thus, for any $\bar{b}_2 \geq \bar{b}_2^*$ we deduce:
  	$$ \vert u_{t_1}^{\bar{b}_2} \vert \leq \frac{c_3 + \epsilon}{(b_2 + \bar{b}_2)^{\frac{3}{2}} } \leq c_3 + \epsilon.
  	$$
  		
@@ -1007,11 +1012,11 @@ v_t=Var(\xi)e^{\int_0^t 2(b_1-B^{\eta} \eta_s)ds}+\sigma^2 \int_0^t e^{2 \int_s^
 	&\xrightarrow[\bar{b}_2 \to \infty]{} \sqrt{(r + \bar{r}(1-\bar{s})^2) C^w} =: c_4 >0,
 	\end{split}
 	\end{equation*}
-	where we have used the fact that $\lim_{\bar{b}_2 \to \infty}\frac{\delta^{\pm,\bar{b}_2}_w}{b_2 + \bar{b}_2}=\sqrt{\frac{C^w}{r+\bar{r}(1-\bar{s})^2}}$. Thus $ \vert w_{t_1}^{\bar{b}_2} \vert $ can also be bounded $c_4 + \epsilon$ for large enough $\bar{b}_2$.
+	where we have used the fact that $\lim_{\bar{b}_2 \to \infty}\frac{\delta^{\pm,\bar{b}_2}_w}{b_2 + \bar{b}_2}=\sqrt{\frac{C^w}{r+\bar{r}(1-\bar{s})^2}}$. Thus, $ \vert w_{t_1}^{\bar{b}_2} \vert $ can also be bounded $c_4 + \epsilon$ for large enough $\bar{b}_2$.
 	
-	Hence, together with the equation (\ref{eq:delta_SC_b_2_bar_infty}) and  (\ref{eq:limit_p_f(p)}), we obtain that for any $\epsilon > 0$, there exists a $\bar{b}_2^*$ large enough so that for all $\bar{b}_2 \geq \bar{b}_2^*$ we have
-	$$ \Delta SC \leq \kappa_1 (c_3 + c_4 + 2 \epsilon)^2 \epsilon^2 ,$$
-	which implies that 
+	Hence, together with equation (\ref{eq:delta_SC_b_2_bar_infty}) and  (\ref{eq:limit_p_f(p)}), we obtain that for any $\epsilon > 0$, there exists a $\bar{b}_2^*$ large enough so that for all $\bar{b}_2 \geq \bar{b}_2^*$ we have
+	$$ \Delta SC \leq \kappa_1 (c_3 + c_4 + 2 \epsilon)^2 \epsilon^2.$$
+	Thus, by taking $\epsilon \to 0$, we have:
 	$$\lim_{\bar{b}_2 \to \infty} \Delta SC = 0.$$
 	
 
