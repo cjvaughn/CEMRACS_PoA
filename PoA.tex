@@ -901,7 +901,7 @@ v_t=Var(\xi)e^{\int_0^t 2(b_1-B^{\eta} \eta_s)ds}+\sigma^2 \int_0^t e^{2 \int_s^
 
 %proposition 5
 \begin{proposition}
-	Assuming (\ref{eq:assumptions}), the initial condition $\xi$ satisfies $\mathbb{E}(\xi)\neq 0$, and and assuming $\bar{b}_1> 0$, $q_T+\bar{q}_T(1-s_T)>0$, and $q_T+\bar{q}_T(1-s_T)^2>0$
+	Assuming (\ref{eq:assumptions}), the initial condition $\xi$ satisfies $\mathbb{E}(\xi)\neq 0$, and assuming $\bar{b}_1> 0$, $q_T+\bar{q}_T(1-s_T)>0$, and $q_T+\bar{q}_T(1-s_T)^2>0$
 	then 
 	\begin{equation*}
 	\lim_{\bar{b}_2 \to 0} PoA =: PoA^{\bar{b}_2\to 0} > 1\qquad \text{and} \qquad\lim_{\bar{b}_2 \to \infty} PoA = 1.
@@ -972,36 +972,35 @@ v_t=Var(\xi)e^{\int_0^t 2(b_1-B^{\eta} \eta_s)ds}+\sigma^2 \int_0^t e^{2 \int_s^
 	
 
 	%Nicolas: Mean Value theorem
-	Since $u_t^{\bar{b}_2}$, $w_t^{\bar{b}_2}$ and $\bar{x}_t^{\bar{b}_2,MFG}$ are continuous over $[0,T]$, we have then the functions $t \mapsto \int_0^t u^{\bar{b}_2}_s ds$ and $t \mapsto \int_0^t (u^{\bar{b}_2}_s- w^{\bar{b}_2}_s)^2 (\bar{x}_s^{\bar{b}_2,MFG} )^2 ds$ are continuous over $[0,T]$ and differentiable over $(0,T)$. Then with the equation (\ref{eq:x_bar_MFG_explicit_new_notation}) we can apply the Mean Value theorem and deduce that there exists two fixed times $0< t_2 < t_1 < T$ such that
+	Since $u_t^{\bar{b}_2}$, $w_t^{\bar{b}_2}$ and $\bar{x}_t^{\bar{b}_2,MFG}$ are continuous over $[0,T]$, then the functions $t \mapsto \int_0^t u^{\bar{b}_2}_s ds$ and $t \mapsto \int_0^t (u^{\bar{b}_2}_s- w^{\bar{b}_2}_s)^2 (\bar{x}_s^{\bar{b}_2,MFG} )^2 ds$ are continuous over $[0,T]$ and differentiable over $(0,T)$. Then with the equation (\ref{eq:x_bar_MFG_explicit_new_notation}) we can apply the Mean Value theorem and deduce that there exists two fixed times $0< t_2 < t_1 < T$ such that:
 	\begin{IEEEeqnarray}{rCl}
 		\Delta SC &=& \frac{1}{2} B^{\bar{b}_2} \int_0^T (u_t- w_t)^2 (\bar{x}_t^{\bar{b}_2,MFG} )^2 dt  \nonumber \\
 		&=& \frac{1}{2} B^{\bar{b}_2}  (u_{t_1}^{\bar{b}_2}- w_{t_1}^{\bar{b}_2} )^2 (\bar{x}_{t_1}^{\bar{b}_2,MFG} )^2  \cdot T \nonumber \\
 		&=& \frac{T  B^{\bar{b}_2} }{2} \cdot (u_{t_1}^{\bar{b}_2}- w_{t_1}^{\bar{b}_2} )^2 \cdot \mathbb{E}[\xi]^2 e^{ 2 (b_1 + \bar{b}_1) t_1 - 2\int_0^{t_1} B^{\bar{b}_2} u_s^{\bar{b}_2} ds } \nonumber \\
 		&=&  \kappa_1 (u_{t_1}^{\bar{b}_2}- w_{t_1}^{\bar{b}_2} )^2\cdot \left[ (b_2 + \bar{b}_2) e^{- B^{\bar{b}_2} u_{t_2}^{\bar{b}_2} \cdot t_1}  \right]^2 \nonumber \\
-		&= & \kappa_1 (u_{t_1}^{\bar{b}_2} - w_{t_1}^{\bar{b}_2} )^2 \cdot \left((b_2 + \bar{b}_2) e^{- \kappa (b_2 + \bar{b}_2)^{\frac{1}{2}} f(\bar{b}_2)} \right)^2
+		&= & \kappa_1 (u_{t_1}^{\bar{b}_2} - w_{t_1}^{\bar{b}_2} )^2 \cdot \left((b_2 + \bar{b}_2) e^{- \kappa (b_2 + \bar{b}_2)^{\frac{1}{2}} f(\bar{b}_2,t_2)} \right)^2,
 		\label{eq:delta_SC_b_2_bar_infty}
 	\end{IEEEeqnarray}
-	where  $\kappa = \frac{t_1}{r + \bar{r}(1-\bar{s})^2} >0 $ and $\kappa_1 =\frac{T \mathbb{E}[\xi]^2 e^{2 (b_1 + \bar{b}_1) t_1}}{2 (r + \bar{r}(1-\bar{s})^2)} >0$ are two positive constants independent of $\bar{b}_2$, and $f(\bar{b}_2) = (b_2 + \bar{b}_2)^{\frac{3}{2}} u_{t_2}^{\bar{b}_2}$. 
+	where  $\kappa = \frac{t_1}{r + \bar{r}(1-\bar{s})^2} >0 $ and $\kappa_1 =\frac{T \mathbb{E}[\xi]^2 e^{2 (b_1 + \bar{b}_1) t_1}}{2 (r + \bar{r}(1-\bar{s})^2)} >0$ are two positive constants independent of $\bar{b}_2$, and $f(\bar{b}_2,t) = (b_2 + \bar{b}_2)^{\frac{3}{2}} u_{t}^{\bar{b}_2}$. 
 	
 
 	
-	Our next step is to show that $(b_2 + \bar{b}_2) e^{- \kappa (b_2 + \bar{b}_2)^{\frac{1}{2}} f(\bar{b}_2) } $ tends towards $0$ when $\bar{b}_2 \to \infty$. This can be done fairly easy. Since $f(\bar{b}_2) \to c_3 >0$, there exists an $\epsilon > 0 $ such that $c_3 - 2 \epsilon >0$ and a constant $\bar{b}_2^* := \bar{b}_2^*(\epsilon)>0$ so that for all $\bar{b}_2 \geq \bar{b}_2^*$ we have $\vert f(\bar{b}_2) - c_3 \vert < \epsilon$. Then $f(\bar{b}_2) - (c_3 - 2\epsilon) > \epsilon$ and 
+	Our next step is to show that $(b_2 + \bar{b}_2) e^{- \kappa (b_2 + \bar{b}_2)^{\frac{1}{2}} f(\bar{b}_2,t_2) } $ tends towards $0$ when $\bar{b}_2 \to \infty$. We showed above that for all $t \in [0,T]$, $f(\bar{b}_2,t) \to c_3 >0$. Thus, for any $0<\epsilon <\frac{c_3}{2} $, there exists $\bar{b}_2^* := \bar{b}_2^*(\epsilon,t_2)>0$ so that for all $\bar{b}_2 \geq \bar{b}_2^*$ we have $\vert f(\bar{b}_2,t_2) - c_3 \vert < \epsilon$. Then $f(\bar{b}_2,t_2) - c_3 + 2\epsilon > \epsilon$ and 
 	\begin{equation*}
 	\begin{array}{rll}
-		(b_2 + \bar{b}_2) e^{- \kappa (b_2 + \bar{b}_2)^{\frac{1}{2}} f(\bar{b}_2) }  &=& e^{- \kappa (b_2 + \bar{b}_2)^{\frac{1}{2}} (f(\bar{b}_2) - c_3 + 2\epsilon) }\cdot e^{- \kappa  (c_3 - 2 \epsilon) (b_2 + \bar{b}_2)^{\frac{1}{2}} +  \ln (b_2 + \bar{b}_2) } \\
+		(b_2 + \bar{b}_2) e^{- \kappa (b_2 + \bar{b}_2)^{\frac{1}{2}} f(\bar{b}_2,t_2) }  &=& e^{- \kappa (b_2 + \bar{b}_2)^{\frac{1}{2}} (f(\bar{b}_2,t_2) - c_3 + 2\epsilon) }\cdot e^{- \kappa  (c_3 - 2 \epsilon) (b_2 + \bar{b}_2)^{\frac{1}{2}} +  \ln (b_2 + \bar{b}_2) } \\
 		& \leq & e^{- \kappa (b_2+\bar{b}_2^*)^{\frac{1}{2}} \cdot \epsilon} \cdot e^{- \kappa (c_3 - 2 \epsilon) (b_2 + \bar{b}_2)^{\frac{1}{2}} + \ln (b_2 + \bar{b}_2)} 
 	\end{array}
 	\end{equation*}
+	(ToDo: problem here. What is the limit of $e^{- \kappa (b_2+\bar{b}_2^*(\epsilon))^{\frac{1}{2}} \cdot \epsilon}$ as $\epsilon$ goes to 0?)
 	Then, for any $\epsilon_1>0$, we can choose $\bar{b}_2$ large enough, say $\bar{b}_2 \geq \bar{b}_2^{**} > \bar{b}_2^*$, so that
 	\begin{equation}
-	(b_2 + \bar{b}_2) e^{- \kappa (b_2 + \bar{b}_2)^{\frac{1}{2}} f(\bar{b}_2) }   \leq \epsilon_1.
+	(b_2 + \bar{b}_2) e^{- \kappa (b_2 + \bar{b}_2)^{\frac{1}{2}} f(\bar{b}_2,t_2) }   \leq \epsilon_1.
 	\label{eq:limit_p_f(p)}
 	\end{equation}
  	
  	
- 	Now, in order to show that $\Delta SC$ tends to $0$, we need to bound the terms $u_{t_1}^{\bar{b}_2}$ and $w_{t_1}^{\bar{b}_2}$ for large enough $\bar{b}_2$. We observe that for any fixed $t_1 \in (0,T_1)$, we have
- 	$$ (b_2 + \bar{b}_2)^{\frac{3}{2}} u_{t_1}^{\bar{b}_2} \xrightarrow[\bar{b}_2 \to \infty]{} c_3, $$
- 	then for any $\epsilon >0$ there exists a $\bar{b}_2^* > 1$ such that for any $\bar{b}_2 \geq \bar{b}_2^*$ we have $ (b_2 + \bar{b}_2)^{\frac{3}{2}} \vert u_{t_1}^{\bar{b}_2} \vert \leq c_3 + \epsilon$. Thus, for any $\bar{b}_2 \geq \bar{b}_2^*$ we deduce
+ 	Now, in order to show that $\Delta SC$ tends to $0$, we need to bound the terms $u_{t_1}^{\bar{b}_2}$ and $w_{t_1}^{\bar{b}_2}$ for large enough $\bar{b}_2$. As before, and recycling notation, for any $\epsilon>0$, there exists a $\bar{b}_2^*:=\bar{b}_2^*(\epsilon,t_1) > 1$ such that for any $\bar{b}_2 \geq \bar{b}_2^*$ we have $ (b_2 + \bar{b}_2)^{\frac{3}{2}} \vert u_{t_1}^{\bar{b}_2} \vert \leq c_3 + \epsilon$. Thus, for any $\bar{b}_2 \geq \bar{b}_2^*$ we deduce:
  	$$ \vert u_{t_1}^{\bar{b}_2} \vert \leq \frac{c_3 + \epsilon}{(b_2 + \bar{b}_2)^{\frac{3}{2}} } \leq c_3 + \epsilon.
  	$$
  		
