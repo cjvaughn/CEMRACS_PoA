@@ -752,63 +752,18 @@ v_t=Var(\xi)e^{\int_0^t 2(b_1-B^{\eta} \eta_s)ds}+\sigma^2 \int_0^t e^{2 \int_s^
 \end{proof}
 
 
-% proposition b_2
+% proposition b_2 to \infty
 \begin{proposition}
-	Assuming (\ref{eq:assumptions}), if initial condition $\xi$ satisfies $\mathbb{E}(\xi)\neq 0$, and if furthermore, $\bar{b}_2= 0$, then:
-	\begin{equation*}
-	 \lim_{b_2 \to 0} PoA = 1,
-	\end{equation*}
-	whereas if $\bar{b}_2 > 0$, then:
-	\begin{equation*}
-	 \lim_{b_2 \to 0} PoA =: PoA^{0,b_2} > 1.
-	\end{equation*}
-	
-	
-	
-	%Moreover, if
-	%	$$ \frac{r + \bar{r}(1-\bar{s})^2}{r + \bar{r}(1-\bar{s})} \neq \frac{q + %\bar{q}(1-s)^2}{q + \bar{q}(1-s)},$$
-	%then
-	%$$\lim_{b_2 \to \infty} PoA =: PoA^{\infty, b_2} > 1,$$
-	%otherwise
+	Assuming (\ref{eq:assumptions}), if initial condition $\xi$ satisfies $\mathbb{E}(\xi)\neq 0$, then
 	$$ \lim_{b_2 \to \infty} PoA = 1.$$	
 	\label{prop:b2}
 \end{proposition}
 
+\begin{remark}
+	It can be seen later in the proof that when $b_2 \to \infty$, both $SC^{MFG}$ and $SC^{MKV}$ tend towards $0$. The idea here becomes to estimate the order of magnitude in terms of $b_2$ for the quantity $\Delta SC$ and $SC^{MKV}$. Indeed, we will show that $\Delta SC$ decreases exponentially fast when $b_2$ tends towards infinity while $SC^{MKV}$ decreases as fast as $1/b_2$. Therefore, the Price of Anarchy $PoA$ will decrease exponentially fast as $b_2 \to \infty$, which can also be observed in the numerical result hereafter. 
+\end{remark}
+
 \begin{proof}
-    First, we consider $b_2 \to 0$. If $\bar{b}_2 =0$, we can use the same technique in Proposition \ref{prop:r_bar_r} to show that $\lim_{b_2 \to 0} PoA = 1$. Now assume $\bar{b}_2 > 0$.
-    As $b_2 \to 0$, we have $\lambda \to 0 $ and
-	$$ B \to \frac{\bar{b}_2^2}{r + \bar{r}(1-\bar{s})^2}=:B^{0,b_2} >0,\ B^{\eta} \to 0,\ C^u \to 0,\ D^u \to 0.$$
-	We also have $\delta^\pm_u \to -A^u \pm \vert A^u \vert $ and therefore, $\delta^{+}_u - \delta^{-}_u \to 2 \vert A^u \vert $. Thus, from equation (\ref{eq:riccati_ut_sol}) we deduce that for every fixed time $t \in [0,T]$:
-	$$u_t \xrightarrow[b_2 \to 0 ]{} 0.$$
-	
-	From equation (\ref{eq:x_bar_MFG_explicit}), we have $\bar{x}_t^{MFG}=\mathbb{E}(\xi) e^{\int_0^t(b_1+\bar{b}_1-Bu_s)ds}$, and therefore, $\bar{x}_t^{MFG} \to \mathbb{E}(\xi) \exp((b_1+\bar{b}_1)t) =: \bar{x}_t^{MFG,0,b_2}$, which is bounded over $[0,T]$. Moreover, since $B^{0,b_2}>0, B^{0,b_2}C^w >0, B^{0,b_2}D^w \geq 0$, we still have the unique solution for $w^{0,b_2}_t$ when $b_2 \to 0$.
-		
-	Hence, from Proposition \ref{prop:diff_SC}, the bounded convergence theorem, and the assumption on $\xi$, we deduce
-	\begin{equation*}
-	\begin{split}
-	\lim_{b_2 \to 0} \Delta SC &= \frac{1}{2} B^{0,b_2} \int_0^T (w_t^{0,b_2} \cdot \bar{x}_t^{MFG,0,b_2})^2 dt,\\
-	0<&\lim_{b_2 \to 0} \Delta SC < \infty,
-	\end{split}
-	\end{equation*}
-	
-	Since $B^{\eta} \to 0$, using the same argument shown in Proposition \ref{prop:r_bar_r}, we get:
-	\begin{equation*}
-	\begin{split}
-	    \text{when } A^\eta \neq 0, \qquad & \eta_t \to \eta^{0,b_2}_t := \left(D^{\eta} - \frac{C^{\eta}}{2A^\eta}\right) e^{-2A^\eta(T-t)} + \frac{C^\eta}{2A^{\eta} },\\
-	    \text{when } A^{\eta} = 0, \qquad & \eta_t \to \eta^{0,b_2}_t := D^{\eta} - C^{\eta}(T-t),
-	\end{split}
-	\end{equation*}
-	which are bounded over $[0,T]$. Thus, the variance function $ v_t $ converges to some positive bounded function $ v^{0,b_2}_t := Var(\xi)e^{2b_1t}+ \sigma^2 \int_0^t e^{2b_1(t-s)}ds>0$ for every given time $t\in [0,T]$.
-	Using the fact that $w^{0,b_2}_t\not \equiv 0$  and together with equation (\ref{eq:SC_MKV_2}), we have $0< \lim_{b_2\to 0} SC^{MKV} <\infty $ .
-	
-	Therefore, combined with equation (\ref{eq:PoA_LQ_new_notation}), we obtain $$\lim_{b_2 \to 0} PoA = 1 + \frac{\displaystyle \lim_{b_2 \to 0}\Delta SC}{\displaystyle \lim_{b_2 \to 0} SC^{MKV} } =: PoA^{0,b_2} > 1.$$
-	
-	
-	% b_2 to infty	
-	
-	Now we consider the case when $b_2 \to \infty$. It can be seen later in the proof that both $SC^{MFG}$ and $SC^{MKV}$ tend towards $0$. In order to study the limit of $PoA$,  the idea becomes to estimate the order of magnitude in terms of $b_2$ for the quantity $\Delta SC$ and $SC^{MKV}$.
-	
-	
 	
 	When $b_2 \to \infty$, we have 
 	\begin{equation*}
@@ -909,6 +864,49 @@ v_t=Var(\xi)e^{\int_0^t 2(b_1-B^{\eta} \eta_s)ds}+\sigma^2 \int_0^t e^{2 \int_s^
 	$$ (b_2 + \bar{b}_2) e^{-\kappa (b_2 + \bar{b}_2) h_u(b_2,t)} \xrightarrow[b_2\to \infty]{} 0, \quad \forall\   0 \leq t < T. $$
 	Thus, the limits in (\ref{eq:b_2_vt_limit}) hold true and following the previous analysis we conclude that 
 	$$ \lim_{b_2 \to \infty} PoA = 1.$$
+\end{proof}
+
+%proposition b_2 \to 0
+\begin{proposition}
+	Assuming (\ref{eq:assumptions}), the initial condition $\xi$ satisfies $\mathbb{E}(\xi)\neq 0$, and if furthermore, $\bar{b}_2= 0$, then:
+	\begin{equation*}
+	\lim_{b_2 \to 0} PoA = 1,
+	\end{equation*}
+	whereas if $\bar{b}_2 > 0$, then:
+	\begin{equation*}
+	\lim_{b_2 \to 0} PoA =: PoA^{0,b_2} > 1.
+	\end{equation*}
+\end{proposition}
+
+\begin{proof}
+	    First, we consider $b_2 \to 0$. If $\bar{b}_2 =0$, we can use the same technique in Proposition \ref{prop:r_bar_r} to show that $\lim_{b_2 \to 0} PoA = 1$. Now assume $\bar{b}_2 > 0$.
+	As $b_2 \to 0$, we have $\lambda \to 0 $ and
+	$$ B \to \frac{\bar{b}_2^2}{r + \bar{r}(1-\bar{s})^2}=:B^{0,b_2} >0,\ B^{\eta} \to 0,\ C^u \to 0,\ D^u \to 0.$$
+	We also have $\delta^\pm_u \to -A^u \pm \vert A^u \vert $ and therefore, $\delta^{+}_u - \delta^{-}_u \to 2 \vert A^u \vert $. Thus, from equation (\ref{eq:riccati_ut_sol}) we deduce that for every fixed time $t \in [0,T]$:
+	$$u_t \xrightarrow[b_2 \to 0 ]{} 0.$$
+	
+	From equation (\ref{eq:x_bar_MFG_explicit}), we have $\bar{x}_t^{MFG}=\mathbb{E}(\xi) e^{\int_0^t(b_1+\bar{b}_1-Bu_s)ds}$, and therefore, $\bar{x}_t^{MFG} \to \mathbb{E}(\xi) \exp((b_1+\bar{b}_1)t) =: \bar{x}_t^{MFG,0,b_2}$, which is bounded over $[0,T]$. Moreover, since $B^{0,b_2}>0, B^{0,b_2}C^w >0, B^{0,b_2}D^w \geq 0$, we still have the unique solution for $w^{0,b_2}_t$ when $b_2 \to 0$.
+	
+	Hence, from Proposition \ref{prop:diff_SC}, the bounded convergence theorem, and the assumption on $\xi$, we deduce
+	\begin{equation*}
+	\begin{split}
+	\lim_{b_2 \to 0} \Delta SC &= \frac{1}{2} B^{0,b_2} \int_0^T (w_t^{0,b_2} \cdot \bar{x}_t^{MFG,0,b_2})^2 dt,\\
+	0<&\lim_{b_2 \to 0} \Delta SC < \infty,
+	\end{split}
+	\end{equation*}
+	
+	Since $B^{\eta} \to 0$, using the same argument shown in Proposition \ref{prop:r_bar_r}, we get:
+	\begin{equation*}
+	\begin{split}
+	\text{when } A^\eta \neq 0, \qquad & \eta_t \to \eta^{0,b_2}_t := \left(D^{\eta} - \frac{C^{\eta}}{2A^\eta}\right) e^{-2A^\eta(T-t)} + \frac{C^\eta}{2A^{\eta} },\\
+	\text{when } A^{\eta} = 0, \qquad & \eta_t \to \eta^{0,b_2}_t := D^{\eta} - C^{\eta}(T-t),
+	\end{split}
+	\end{equation*}
+	which are bounded over $[0,T]$. Thus, the variance function $ v_t $ converges to some positive bounded function $ v^{0,b_2}_t := Var(\xi)e^{2b_1t}+ \sigma^2 \int_0^t e^{2b_1(t-s)}ds>0$ for every given time $t\in [0,T]$.
+	Using the fact that $w^{0,b_2}_t\not \equiv 0$  and together with equation (\ref{eq:SC_MKV_2}), we have $0< \lim_{b_2\to 0} SC^{MKV} <\infty $ .
+	
+	Therefore, combined with equation (\ref{eq:PoA_LQ_new_notation}), we obtain $$\lim_{b_2 \to 0} PoA = 1 + \frac{\displaystyle \lim_{b_2 \to 0}\Delta SC}{\displaystyle \lim_{b_2 \to 0} SC^{MKV} } =: PoA^{0,b_2} > 1.$$
+	
 \end{proof}
 
 
