@@ -756,7 +756,7 @@ v_t=Var(\xi)e^{\int_0^t 2(b_1-B^{\eta} \eta_s)ds}+\sigma^2 \int_0^t e^{2 \int_s^
 \end{proof}
 
 
-% proposition b_2
+% proposition 4 related to b_2
 \begin{proposition}
 	Assuming (\ref{eq:assumptions}), if initial condition $\xi$ satisfies $\mathbb{E}(\xi)\neq 0$, and if furthermore, $\bar{b}_2= 0$, then:
 	\begin{equation*}
@@ -766,11 +766,16 @@ v_t=Var(\xi)e^{\int_0^t 2(b_1-B^{\eta} \eta_s)ds}+\sigma^2 \int_0^t e^{2 \int_s^
 	\begin{equation*}
 	 \lim_{b_2 \to 0} PoA =: PoA^{0,b_2} > 1.
 	\end{equation*}
-	Moreover, if
-		$$ \frac{r + \bar{r}(1-\bar{s})^2}{r + \bar{r}(1-\bar{s})} \neq \frac{q + \bar{q}(1-s)^2}{q + \bar{q}(1-s)},$$
-	then
-	$$\lim_{b_2 \to \infty} PoA =: PoA^{\infty, b_2} > 1,$$
-	otherwise
+
+
+
+
+
+%	Moreover, if
+%		$$ \frac{r + \bar{r}(1-\bar{s})^2}{r + \bar{r}(1-\bar{s})} \neq \frac{q + \bar{q}(1-s)^2}{q + \bar{q}(1-s)},$$
+%	then
+%	$$\lim_{b_2 \to \infty} PoA =: PoA^{\infty, b_2} > 1,$$
+%	otherwise
 	$$ \lim_{b_2 \to \infty} PoA = 1.$$	
 	\label{prop:b2}
 \end{proposition}
@@ -804,7 +809,40 @@ v_t=Var(\xi)e^{\int_0^t 2(b_1-B^{\eta} \eta_s)ds}+\sigma^2 \int_0^t e^{2 \int_s^
 	
 	Therefore, combined with equation (\ref{eq:PoA_LQ_new_notation}), we obtain $$\lim_{b_2 \to 0} PoA = 1 + \frac{\displaystyle \lim_{b_2 \to 0}\Delta SC}{\displaystyle \lim_{b_2 \to 0} SC^{MKV} } =: PoA^{0,b_2} > 1.$$
 	
+	% case when b_2 tends towards infinity
 	Now we consider the case when $b_2 \to \infty$. It can be seen later in the proof that both $SC^{MFG}$ and $SC^{MKV}$ tend towards $0$. In order to study the limit of $PoA$,  the idea becomes to estimate the order of magnitude in terms of $b_2$ for the quantity $\Delta SC$ and $SC^{MKV}$.
+	
+	When $b_2 \to \infty$, we have 
+	\begin{equation*}
+	\begin{array}{l}
+	\lambda^{b_2} \to \frac{r + \bar{r}(1-\bar{s})^2}{r + \bar{r}(1-\bar{s})} =: \lambda^{b_2 \to \infty}\\
+	B^{b_2} \to \infty, \qquad B^{\eta,b_2} \to \infty\\
+	C^{u,b_2} \to \lambda^{b_2 \to \infty} ( q + \bar{q}(1-s)) =: C^{u,b_2 \to \infty}, \qquad D^{u,b_2} \to \lambda^{b_2 \to \infty} (q_T + \bar{q}_T(1-s_T)) =: D^{u,b_2 \to \infty} \\
+	A^{u}, A^{w}, C^w, D^w, A^{\eta}, C^{\eta}, D^{\eta} \text{ are independent of } b_2
+	\end{array}
+	\end{equation*}
+	Moreover
+	\begin{IEEEeqnarray*}{rCl}
+	\frac{\delta_u^{\pm,b_2}}{b_2 + \bar{b}_2} &=& \frac{A^u}{b_2 + \bar{b}_2} \pm \sqrt{\frac{C^{u,b_2}}{r + \bar{r}(1-\bar{s})^2} + \frac{(A^u)^2}{(b_2+\bar{b}_2)^2} }\\
+	&\xrightarrow[b_2 \to \infty]{}& \displaystyle \pm \sqrt{\frac{q + \bar{q}(1-s)}{r + \bar{r}(1-\bar{s})} } =: \pm \delta^{b_2 \to \infty}_u
+	\end{IEEEeqnarray*}
+	Thus we have $\delta^{+,b_2}_u - \delta^{-,b_2}_u \xrightarrow[b_2 \to \infty]{} +\infty$ and for any $t \in [0,T)$,
+	$$ e^{- (\delta^{+,b_2}_u - \delta^{-,b_2}_u)(T-t)} \xrightarrow[b_2 \to \infty]{} 0.$$
+	
+	Since $u^{b_2}$, $w^{b_2}$ and $\bar{x}^{b_2,MFG}$ are continuous functions on $[0,T]$, we have that the functions $t \mapsto \int_0^t u_s^{b_2} ds$ and $t \mapsto \int_0^t (u_s^{b_2}- w_s^{b_2})^2 (\bar{x}_s^{b_2, MFG})^2 ds$ are continuous over $[0,T]$ and differentiable over $(0,T)$. Then with equation (\ref{eq:x_bar_MFG_explicit_new_notation}) we can apply the Mean Value Theorem and deduce that there exists two fixed times $0 < t_2 < t_1 < T$ such that:
+		\begin{IEEEeqnarray}{rCl}
+		\Delta SC &=& \frac{1}{2} B^{b_2} \int_0^T (u^{b_2}_t- w^{b_2}_t)^2 (\bar{x}_t^{b_2,MFG} )^2 dt  \nonumber \\
+		&=& \frac{1}{2} B^{b_2}  (u_{t_1}^{b_2}- w_{t_1}^{b_2} )^2 (\bar{x}_{t_1}^{\bar{b}_2,MFG} )^2  \cdot T \nonumber \\
+		&=& \frac{T  B^{b_2} }{2} \cdot (u_{t_1}^{b_2}- w_{t_1}^{b_2} )^2 \cdot \mathbb{E}[\xi]^2 e^{ 2 (b_1 + \bar{b}_1) t_1 - 2\int_0^{t_1} B^{b_2} u_s^{\bar{b}_2} ds } \nonumber \\
+		&=&  \kappa_1 (u_{t_1}^{b_2}- w_{t_1}^{b_2} )^2\cdot \left[ (b_2 + \bar{b}_2) e^{- B^{b_2} u_{t_2}^{b_2} \cdot t_1}  \right]^2 \nonumber \\
+		&= & \kappa_1 (u_{t_1}^{b_2} - w_{t_1}^{b_2} )^2 \cdot \left((b_2 + \bar{b}_2) e^{- \kappa (b_2 + \bar{b}_2) f(b_2,t_2)} \right)^2,
+		\label{eq:delta_SC_b_2_infty}
+	\end{IEEEeqnarray}
+	where  $\kappa = \frac{t_1}{r + \bar{r}(1-\bar{s})^2} >0 $ and $\kappa_1 =\frac{T \mathbb{E}[\xi]^2 e^{2 (b_1 + \bar{b}_1) t_1}}{2 (r + \bar{r}(1-\bar{s})^2)} >0$ are two positive constants independent of $b_2$, and $f(b_2,t) = (b_2 + \bar{b}_2) u_{t}^{b_2}$. 
+	
+	
+	
+	-----------------------------
 	
 	For the sake of simplicity, let's denote $\displaystyle \kappa_u = \sqrt{\frac{q + \bar{q}(1-s)}{r + \bar{r}(1 - \bar{s})} } $ and $\zeta_1 = r + \bar{r}(1-\bar{s})^2$.
 	We expand firstly $\lambda$, $C^u$, $D^u$ and $\delta^{\pm}_u$ in terms of $b_2$, namely
@@ -985,7 +1023,7 @@ v_t=Var(\xi)e^{\int_0^t 2(b_1-B^{\eta} \eta_s)ds}+\sigma^2 \int_0^t e^{2 \int_s^
 	
 
 	
-	Our next step is to show that $(b_2 + \bar{b}_2) e^{- \kappa (b_2 + \bar{b}_2)^{\frac{1}{2}} f(\bar{b}_2,t_2) } $ tends towards $0$ when $\bar{b}_2 \to \infty$. We showed above that for all $t \in [0,T]$, $f(\bar{b}_2,t) \to c_3 >0$. Let $c_{b_2}$ such that $0<c_{b_2} <\frac{c_3}{2} $. Then there exists $\bar{b}_2^* := \bar{b}_2^*(c_{b_2},t_2)>0$ so that for all $\bar{b}_2 \geq \bar{b}_2^*$ we have $\vert f(\bar{b}_2,t_2) - c_3 \vert < c_{b_2}$. Then $f(\bar{b}_2,t_2) - c_3 + 2c_{b_2} > c_{b_2}$ and 
+	Our next step is to show that $(b_2 + \bar{b}_2) e^{- \kappa (b_2 + \bar{b}_2)^{\frac{1}{2}} f(\bar{b}_2,t_2) } $ tends towards $0$ when $\bar{b}_2 \to \infty$. We showed above that for all $0 \leq t<T$, $f(\bar{b}_2,t) \to c_3 >0$. Let $c_{b_2}$ such that $0<c_{b_2} <\frac{c_3}{2} $. Then there exists $\bar{b}_2^* := \bar{b}_2^*(c_{b_2},t_2)>0$ so that for all $\bar{b}_2 \geq \bar{b}_2^*$ we have $\vert f(\bar{b}_2,t_2) - c_3 \vert < c_{b_2}$. Then $f(\bar{b}_2,t_2) - c_3 + 2c_{b_2} > c_{b_2}$ and 
 	\begin{equation*}
 	\begin{array}{rl}
 		(b_2 + \bar{b}_2) e^{- \kappa (b_2 + \bar{b}_2)^{\frac{1}{2}} f(\bar{b}_2,t_2) }  &= e^{- \kappa (b_2 + \bar{b}_2)^{\frac{1}{2}} (f(\bar{b}_2,t_2) - c_3 + 2c_{b_2}) }\cdot e^{- \kappa  (c_3 - 2 c_{b_2}) (b_2 + \bar{b}_2)^{\frac{1}{2}} +  \ln (b_2 + \bar{b}_2) } \\
