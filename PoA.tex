@@ -1081,7 +1081,6 @@ Also for convenience, recall the definition:
     \begin{equation*}
 	    \Delta SC^{b_1} \leq \frac{1}{2}BT(h_u(b_1)+h_w(b_1))^2 (h_{\bar{x}}(b_1))^2.
     \end{equation*}
-    
     We also have the following lower bound:
     \begin{equation*}
 	\begin{split}
@@ -1089,7 +1088,24 @@ Also for convenience, recall the definition:
 	& \geq \frac{1}{2}(q_T+\bar{q}_T)Var(\xi)e^{2T(b_1-B^{\eta}h_{\eta}(b_1))}.
 	\end{split}
     \end{equation*}
-    Let $h(b_1)=\max \{h_u(b_1),h_w(b_1),h_{\eta}(b_1) \}$. It is easy to check that $\lim_{b_1 \to \infty}h(b_1)=\infty$. Combining the above bounds and using the assumption $Var(\xi)>0$, we have:
+    
+    Let $h(b_1)=\max \{h_u(b_1),h_w(b_1),h_{\eta}(b_1) \}$. Since $\lim_{b_1 \to \infty} |A^{u,b_1}|=\infty$, we have:
+    \begin{equation*}
+    \begin{split}
+	    \delta^{+,b_1}_u-\delta^{-,b_1}_u&=2 \sqrt{(A^{u,b_1})^2+BC^u} \\
+	    &\xrightarrow[b_1 \to \infty]{}\infty,
+    \end{split}
+    \end{equation*}
+    and
+    \begin{equation*}
+    \begin{split}
+    -\delta^{-,b_1}_u&=A^{u,b_1}+\sqrt{(A^{u,b_1})^2+BC^u} \\
+    &\xrightarrow[b_1 \to \infty]{}0.
+    \end{split}
+    \end{equation*}    
+    Thus, $\lim_{b_1 \to \infty}h_u(b_1)=\infty$, which implies $\lim_{b_1 \to \infty}h(b_1)=\infty$. Combining the above bounds and using the assumption $Var(\xi)>0$, we have:
+     
+     
     \begin{equation*}
     \begin{split}
 	    \frac{\Delta SC^{b_1}}{SC^{MKV,b_1}}&\leq \frac{2BT(h(b_1))^2 (h_{\bar{x}}(b_1))^2}{\frac{1}{2}(q_T+\bar{q}_T)Var(\xi)e^{2T(b_1-B^{\eta}h(b_1))}}\\
