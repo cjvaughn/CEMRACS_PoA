@@ -945,7 +945,7 @@ Also for convenience, recall the definition:
 	\end{equation*}
 	
 	Similarly, for every time $t\in [0,T]$, $\lim_{\bar{b}_2 \to 0}w^{\bar{b}_2}_t=w^{\bar{b}_2 \to 0}_t$, and  $w^{\bar{b}_2}$ is uniformly bounded over $[0,T]$ for small enough $\bar{b}_2$. From equation (\ref{eq:x_bar_MFG_explicit_new_notation}), the assumption on $\xi$, and by the bounded convergence theorem, we have for every $t \in [0,T]$:
-   	$$\lim_{\bar{b}_2 \to 0} \bar{x}_t^{MFG,\bar{b}_2} = \mathbb{E}(\xi) e^{\int_0^t (b_1 + \bar{b}_1 - B^{\bar{b}_2 \to 0}u^{\bar{b}_2 \to 0}_s) ds} =: \bar{x}^{MFG,\bar{b}_2 \to 0}_t>0.$$
+   	$$\lim_{\bar{b}_2 \to 0} \bar{x}_t^{MFG,\bar{b}_2} = \mathbb{E}(\xi) e^{\int_0^t (b_1 + \bar{b}_1 - B^{\bar{b}_2 \to 0}u^{\bar{b}_2 \to 0}_s) ds} =: \bar{x}^{MFG,\bar{b}_2 \to 0}_t\neq 0.$$
 	Moreover, $\bar{x}^{MFG,\bar{b}_2}$ is uniformly bounded for all $\bar{b}_2<\bar{b}^*_2$ and for all $t \in [0,T]$. From the nonnegativity of $u_t$, we have:
 	$$ \left\vert \bar{x}^{MFG,\bar{b}_2}_t \right\vert \leq \left\vert \mathbb{E}(\xi) \right\vert e^{ (b_1 + \bar{b}_1 ) T }, \quad \forall t \in [0,T], \ \forall \bar{b}_2<\bar{b}^*_2. $$ 
    	
@@ -1034,7 +1034,7 @@ Also for convenience, recall the definition:
 \end{proof}
 
 \begin{proposition}\label{prop:b1_b1bar}
-	Assuming (\ref{eq:assumptions}), the initial condition $\xi$ satisfies $\mathbb{E}(\xi)\neq 0$, $Var(\xi)>0$, and $\lambda \neq 1$, then:
+	Assuming (\ref{eq:assumptions}), $b_1>0$, $\bar{b}_1>0$, the initial condition $\xi$ satisfies $\mathbb{E}(\xi)\neq 0$, and $Var(\xi)>0$, then:
 	\begin{equation*}
 	\begin{split}
 	    \lim_{b_1 \to 0} PoA =: PoA^{0,b_1} > 1\qquad &\text{and} \qquad \lim_{\bar{b}_1 \to 0} PoA =: PoA^{0,\bar{b}_1} > 1,\\
@@ -1051,11 +1051,11 @@ Also for convenience, recall the definition:
 		&=:c,
 	\end{split}
 	\end{equation*}
-	and similarly for $\left|w^{b_1}_t\right|$ and $\left|\eta^{b_1}_t\right|$. By the assumption on $\lambda$, $u^{b_1\to 0}_t \neq w^{b_1\to 0}_t$ on a set of positive Lebesgue measure.
+	and similarly for $\left|w^{b_1}_t\right|$ and $\left|\eta^{b_1}_t\right|$. By our assumption on $\bar{b}_1$, we have $A^{u,b_1\to 0} \neq A^{w,b_1\to 0}$ and thus, $u^{b_1\to 0}_t \neq w^{b_1\to 0}_t$ on a set of positive Lebesgue measure.
 	
 	From equation (\ref{eq:x_bar_MFG_explicit_new_notation}), the assumption on $\xi$, and by the bounded convergence theorem, we have for every $t \in [0,T]$:
 	\begin{equation*}
-	\lim_{b_1\to 0}\bar{x}_t^{MFG,b_1} = \mathbb{E}(\xi) e^{\int_0^t(\bar{b}_1-B u^{b_1\to 0}_s)ds} =: \bar{x}_t^{MFG,b_1\to 0}>0.
+	\lim_{b_1\to 0}\bar{x}_t^{MFG,b_1} = \mathbb{E}(\xi) e^{\int_0^t(\bar{b}_1-B u^{b_1\to 0}_s)ds} =: \bar{x}_t^{MFG,b_1\to 0}\neq 0.
 	\end{equation*}
 	Moreover, $\bar{x}_t^{MFG,b_1\to 0}$ is uniformly bounded over $b_1<b_1^*$ and $t \in [0,T]$, i.e. 
 	$$ \left\vert \bar{x}^{MFG,b_1}_t \right\vert \leq \left\vert \mathbb{E}(\xi) \right\vert e^{ \bar{b}_1 T }, \quad \forall t \in [0,T],\ b_1<b_1^*. $$ 
@@ -1086,7 +1086,7 @@ Also for convenience, recall the definition:
     \begin{equation*}
 	\begin{split}
 	SC^{MKV,b_1} &\geq \frac{1}{2}(q_T+\bar{q}_T)v^{b_1}_T \\
-	& \geq (q_T+\bar{q}_T)Var(\xi)e^{2T(b_1-B^{\eta}h_{\eta}(b_1))}.
+	& \geq \frac{1}{2}(q_T+\bar{q}_T)Var(\xi)e^{2T(b_1-B^{\eta}h_{\eta}(b_1))}.
 	\end{split}
     \end{equation*}
     Let $h(b_1)=\max \{h_u(b_1),h_w(b_1),h_{\eta}(b_1) \}$. It is easy to check that $\lim_{b_1 \to \infty}h(b_1)=\infty$. Combining the above bounds and using the assumption $Var(\xi)>0$, we have:
