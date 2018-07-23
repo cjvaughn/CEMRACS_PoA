@@ -768,22 +768,24 @@ Also for convenience, recall the definition:
 \end{remark}
 
 \begin{proof}
-	
-	When $b_2 \to \infty$, we have 
+	If $\bar{b}_2 = 0$ then 
+	$$\lambda = \frac{r + \bar{r}(1-\bar{s})^2}{r + \bar{r}(1-\bar{s})} =: \lambda^{b_2 \to \infty}$$ which is a constant independent of $b_2$,
+	otherwise when $b_2 \to \infty$, we still have
+	$ \lambda^{b_2} \to \lambda^{b_2 \to \infty}$.	
+	For other coefficients, in the case when $b_2 \to \infty$ we have 
 	\begin{equation*}
 	\begin{array}{l}
-	\lambda^{b_2} \to \frac{r + \bar{r}(1-\bar{s})^2}{r + \bar{r}(1-\bar{s})} =: \lambda^{b_2 \to \infty}\\
 	B^{b_2} \to \infty, \qquad B^{\eta,b_2} \to \infty\\
-	C^{u,b_2} \to \lambda^{b_2 \to \infty} ( q + \bar{q}(1-s)) =: C^{u,b_2 \to \infty}, \qquad D^{u,b_2} \to \lambda^{b_2 \to \infty} (q_T + \bar{q}_T(1-s_T)) =: D^{u,b_2 \to \infty} \\
-	A^{u}, A^{w}, C^w, D^w, A^{\eta}, C^{\eta}, D^{\eta} \text{ are independent of } b_2
+	C^{u,b_2} \to \lambda^{b_2 \to \infty} ( q + \bar{q}(1-s)) =: C^{u,b_2 \to \infty}, \qquad D^{u,b_2} \to \lambda^{b_2 \to \infty} (q_T + \bar{q}_T(1-s_T)) =: D^{u,b_2 \to \infty}
 	\end{array}
 	\end{equation*}
+	and $A^{u}, (A^{w}, C^w, D^w), (A^{\eta}, C^{\eta}, D^{\eta})$ are independent of  $b_2$.
+	
 	Moreover
-	\begin{IEEEeqnarray*}{rCl}
-		\frac{\delta_u^{\pm,b_2}}{b_2 + \bar{b}_2} &=& \frac{A^u}{b_2 + \bar{b}_2} \pm \sqrt{\frac{C^{u,b_2}}{r + \bar{r}(1-\bar{s})^2} + \frac{(A^u)^2}{(b_2+\bar{b}_2)^2} }\\
-		&\xrightarrow[b_2 \to \infty]{}& \displaystyle \pm \sqrt{\frac{q + \bar{q}(1-s)}{r + \bar{r}(1-\bar{s})} } =: \pm c_{\delta_u^{b_2 \to \infty}}
-	\end{IEEEeqnarray*}
-	Thus we have $\delta^{+,b_2}_u - \delta^{-,b_2}_u \xrightarrow[b_2 \to \infty]{} +\infty$ and for any $t \in [0,T)$,
+	\begin{equation*}
+		\frac{\delta_u^{\pm,b_2}}{b_2 + \bar{b}_2} = \frac{A^u}{b_2 + \bar{b}_2} \pm \sqrt{\frac{C^{u,b_2}}{r + \bar{r}(1-\bar{s})^2} + \frac{(A^u)^2}{(b_2+\bar{b}_2)^2} } \xrightarrow[b_2 \to \infty]{} \displaystyle \pm \sqrt{\frac{q + \bar{q}(1-s)}{r + \bar{r}(1-\bar{s})} } =: \pm c_{\delta_u^{b_2 \to \infty}}
+	\end{equation*}
+	Thus we have $\delta^{+,b_2}_u - \delta^{-,b_2}_u \xrightarrow[b_2 \to \infty]{} +\infty$ and for any $0 \leq t < T$:
 	$$\displaystyle  e^{- (\delta^{+,b_2}_u - \delta^{-,b_2}_u)(T-t)} \xrightarrow[b_2 \to \infty]{} 0.$$
 	From the explicit formula (\ref{eq:riccati_ut_sol}) of $u_t^{b_2}$, we can compute the limit of $(b_2 + \bar{b}_2) u_t^{b_2}$ for any $t \in [0,T)$ by dividing the numerator with $(b_2 + \bar{b}_2)$ and the denominator with $(b_2)+\bar{b}_2)^2$, namely
 	\begin{IEEEeqnarray*}{rCl}
