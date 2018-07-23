@@ -1027,7 +1027,7 @@ Also for convenience, recall the definition:
 	\end{equation*}
 	Let $\bar{b}^{*,upper}_2 = \max\{ \bar{b}_2^{*,u}, \bar{b}_2^{*,w} \}$ and $M(\epsilon_1) = \max\{ M_u(\epsilon_1), M_v(\epsilon_1) \}$, then we have
 	\begin{equation}
-	 \sup_{\bar{b}_2 \geq \bar{b}_2^{*,1}} \sup_{t \in [0,T]} \max \left\{ \vert u_t^{\bar{b}_2}\vert, \vert w_t^{\bar{b}_2} \vert \right\} \leq M(\epsilon_1).
+	 \sup_{\bar{b}_2 \geq \bar{b}_2^{*,upper}} \sup_{t \in [0,T]} \max \left\{ \vert u_t^{\bar{b}_2}\vert, \vert w_t^{\bar{b}_2} \vert \right\} \leq M(\epsilon_1).
 	 \label{eq:u_t_w_t_uniform_bound_b2_bar_infty}
 	\end{equation}
 	
@@ -1060,7 +1060,7 @@ Also for convenience, recall the definition:
 	Now, we are ready to prove $\lim_{\bar{b}_2 \to \infty} \Delta SC = 0$. For any given $\epsilon > 0$, 
 	%we split the interval $[0,T]$ into two parts $[0,t_\epsilon]$ and $ [t_\epsilon, T]$ in which $0< t_\epsilon < T$ is a time point depending on $\epsilon$, 
 	we split the interval $[0,T]$ into two parts $[0,\frac{T}{2}]$ and $ [\frac{T}{2}, T]$,
-	and then we bound separately the following terms in terms of $\epsilon$:
+	and then we bound separately the following two quantities in terms of $\epsilon$:
 	$$ I_1 = \frac{1}{2} B^{\bar{b}_2} \int_{0}^{\frac{T}{2}} (u^{\bar{b}_2}_s- w^{\bar{b}_2}_s)^2 (\bar{x}_s^{MFG, \bar{b}_2} )^2 ds \quad \text{ and } \quad I_2 = \frac{1}{2} B^{\bar{b}_2} \int_{\frac{T}{2}}^T (u^{\bar{b}_2}_s- w^{\bar{b}_2}_s)^2 (\bar{x}_s^{MFG, \bar{b}_2} )^2 ds. $$
 	
 	% the term I_1
@@ -1074,7 +1074,7 @@ Also for convenience, recall the definition:
 	\left\vert (b_2 + \bar{b}_2) w_s^{\bar{b}_2} \right\vert \leq \left\vert (b_2 + \bar{b}_2) w_{\frac{T}{2}}^{\bar{b}_2} \right\vert \leq c_w + \epsilon_2.$$
 	Thus, for any $\bar{b}_2 \geq \bar{b}_2^{*,1}$ we have
 	\begin{IEEEeqnarray}{rCl}
-		I_1 &=& \frac{1}{2} B^{\bar{b}_2} \int_0^{\frac{T}{2}}  (u^{\bar{b}_2}_s- w^{\bar{b}_2}_s)^2 (\bar{x}_s^{MFG, \bar{b}_2} )^2 ds  \nonumber \\
+		I_1 &=& \frac{1}{2} B^{\bar{b}_2} \int_0^{\frac{T}{2}}  (u^{\bar{b}_2}_t- w^{\bar{b}_2}_t)^2 (\bar{x}_t^{MFG, \bar{b}_2} )^2 dt  \nonumber \\
 		&=& \frac{\mathbb{E}(\xi)^2}{2 (r + \bar{r}(1-\bar{s})^2) } \int_0^{\frac{T}{2}} \left( (b_2 + \bar{b}_2) u_t^{\bar{b}_2} - (b_2 + \bar{b}_2) w_t^{\bar{b}_2} \right)^2 e^{2(b_1 + \bar{b}_1) t} \cdot e^{ -\frac{2}{r + \bar{r}(1-\bar{s})^2} (b_2 + \bar{b}_2)^{\frac{1}{2}} \int_0^t (b_2 + \bar{b}_2)^{\frac{3}{2}} u_s^{\bar{b}_2} ds} dt \nonumber \\
 		&\leq& \frac{\mathbb{E}(\xi)^2 [2 \epsilon_2^2 + 2 (c_w + \epsilon_2)^2 ] e^{2(b_1 + \bar{b}_1) \frac{T}{2}} }{2( r + \bar{r}(1-\bar{s})^2)} \int_0^{\frac{T}{2}} \exp \left(- \frac{2}{r + \bar{r}(1-\bar{s})^2} (b_2 + \bar{b}_2)^{\frac{1}{2}} \cdot (c_u - \epsilon_2) t \right) dt \nonumber \\
 		&=& \kappa_1(\epsilon_2) \frac{1}{(b_2 + \bar{b}_2)^{\frac{1}{2}} } \left( 1 - e^{- \kappa_2(\epsilon_2) (b_2 + \bar{b}_2)^{\frac{1}{2}} }\right)\nonumber \\
@@ -1088,7 +1088,7 @@ Also for convenience, recall the definition:
 	\end{equation}	
 	
 	% the term I_2
-	Now, we look the term $I_2$. Since $u_t^{\bar{b}_2}$, $w_t^{\bar{b}_2}$ and $\bar{x}_t^{MFG,\bar{b}_2}$ are continuous over $[\frac{T}{2},T]$, then the functions $t \mapsto \int_0^t u^{\bar{b}_2}_s ds$ and $t \mapsto \int_0^t (u^{\bar{b}_2}_s- w^{\bar{b}_2}_s)^2 (\bar{x}_s^{MFG,\bar{b}_2} )^2 ds$ are continuous over $[\frac{T}{2},T]$ and differentiable over $(\frac{T}{2},T)$. Then with the equation (\ref{eq:x_bar_MFG_explicit_new_notation}) we can apply the Mean Value theorem and deduce that there exists two fixed times $t_1$ and $t_2$ depending on $\bar{b}_2$ which satisfy $\frac{T}{2} < t_1 < T$ and $0 < t_2 < t_1 <T$ such that:
+	Now, we look the term $I_2$. Since $s \mapsto u_s^{\bar{b}_2}$, $s \mapsto w_s^{\bar{b}_2}$ and $s \mapsto \bar{x}_s^{MFG,\bar{b}_2}$ are continuous over $[T/2,T]$, then the functions $\displaystyle t \mapsto \int_0^t u^{\bar{b}_2}_s ds$ and $\displaystyle t \mapsto \int_0^t (u^{\bar{b}_2}_s- w^{\bar{b}_2}_s)^2 (\bar{x}_s^{MFG,\bar{b}_2} )^2 ds$ are continuous over $[T/2,T]$ and differentiable over $(T/2,T)$. Then with the equation (\ref{eq:x_bar_MFG_explicit_new_notation}) we can apply the Mean Value theorem and deduce that there exists two fixed time points $t_1$ and $t_2$ depending on $\bar{b}_2$ which satisfy $\frac{T}{2} < t_1 < T$ and $0 < t_2 < t_1 <T$ such that:
 	\begin{IEEEeqnarray}{rCl}
 		I_2 &=& \frac{1}{2} B^{\bar{b}_2} \int_{\frac{T}{2}}^T (u^{\bar{b}_2}_t- w^{\bar{b}_2}_t)^2 (\bar{x}_t^{MFG, \bar{b}_2} )^2 dt  \nonumber \\
 		&=& \frac{1}{2} B^{\bar{b}_2}  (u_{t_1}^{\bar{b}_2}- w_{t_1}^{\bar{b}_2} )^2 (\bar{x}_{t_1}^{MFG,\bar{b}_2} )^2  \cdot \frac{T}{2} \nonumber \\
@@ -1103,7 +1103,7 @@ Also for convenience, recall the definition:
 	We are going to bound that the last term in (\ref{eq:I_2_b2_bar_inequality}). To do so, we recall that from equation (\ref{eq:u_t_lower_bound_b2_bar_infty}), we have for all $t \in [0,T]$ and all $\bar{b}_2 \geq \bar{b}_2^{*,lower}$ the inequality $ \inf_{0 \leq s \leq T} h(\bar{b}_2,s) \geq m_u(\epsilon_1)$. 
 	Let $\epsilon_3>0$ such that $m_u(\epsilon_1) -  \epsilon_3 >0$. Then there exists $\bar{b}_2^{*,2} = \bar{b}_2^{*,2}(\epsilon_1,\epsilon_3)$ so that for all $\bar{b}_2 \geq \bar{b}_2^{*,2}$ we have: 
 	$$ 2 \ln(b_2 + \bar{b}_2) - \epsilon_3\kappa_4 \cdot (b_2 + \bar{b}_2)^{\frac{1}{2}} \leq 0.$$ 
-	Hence, let $\bar{b}_2^{*,3} = \max \{\bar{b}_2^{*,upper}, \bar{b}_2^{*,2}, \bar{b}_2^{*,lower} \}$ and together with inequality (\ref{eq:u_t_w_t_uniform_bound_b2_bar_infty}) and (\ref{eq:I_2_b2_bar_inequality}), we obtain that for all $\bar{b}_2 \geq \bar{b}_2^{*,3}$:
+	Hence, let $\bar{b}_2^{*,3} = \max \{\bar{b}_2^{*,upper}, \bar{b}_2^{*,lower}, \bar{b}_2^{*,2} \}$ and together with inequality (\ref{eq:u_t_w_t_uniform_bound_b2_bar_infty}) and (\ref{eq:I_2_b2_bar_inequality}), we obtain that for all $\bar{b}_2 \geq \bar{b}_2^{*,3}$:
 	\begin{IEEEeqnarray*}{rCl}
 		I_2 &\leq& \kappa_3 \cdot 4 M(\epsilon_1)^2 \cdot (b_2 + \bar{b}_2)^2 \exp \left( - \kappa_4 (b_2 + \bar{b}_2)^{\frac{1}{2}} m_u(\epsilon_1) \right) \nonumber \\
 		&=& 4\kappa_3 M(\epsilon_1)^2 e^{ 2 \ln(b_2 + \bar{b}_2) - \epsilon_3 \kappa_4 \cdot (b_2 + \bar{b}_2)^{\frac{1}{2}}} \cdot \exp\left(- \kappa_4 (m_u(\epsilon_1) - \epsilon_3) \cdot (b_2 + \bar{b}_2)^{\frac{1}{2}} \right)   \nonumber \\
@@ -1115,7 +1115,7 @@ Also for convenience, recall the definition:
 	\label{eq:I_2_b2_bar_infinity}
 	\end{equation}
 	
-	Hence, from inequality (\ref{eq:I_1_b2_bar_infinity}) and (\ref{eq:I_2_b2_bar_infinity}), for all $\bar{b}_2 \geq \bar{b}_2^* := \max \{ \bar{b}_2^{*,I_1}, \bar{b}_2^{*,I_2}\}$ we have:
+	Hence, from inequalities (\ref{eq:I_1_b2_bar_infinity}) and (\ref{eq:I_2_b2_bar_infinity}), for all $\bar{b}_2 \geq \bar{b}_2^* := \max \{ \bar{b}_2^{*,I_1}, \bar{b}_2^{*,I_2}\}$ we have:
 	\begin{equation*}
 		\Delta SC = I_1 + I_2 \leq 2\epsilon.
 	\end{equation*} 
