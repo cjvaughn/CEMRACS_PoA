@@ -1119,7 +1119,8 @@ Also for convenience, recall the definition:
 	\begin{equation*}
 		\Delta SC = I_1 + I_2 \leq 2\epsilon.
 	\end{equation*} 
-	Therefore, by taking $\epsilon \to 0$, we obtain:
+	Therefore, we can set $\epsilon_1, \epsilon_2,\epsilon_3$ as the following constants:
+	$$ \epsilon_1 := \frac{1}{2} \min \left\{c_{\delta_u^{\bar{b}_2 \to \infty}}, c_{\delta_w^{\bar{b}_2 \to \infty}} \right\}, \quad  \epsilon_2 := \frac{c_u}{2}, \quad \epsilon_3 = \frac{m_u(\epsilon_1)}{2},$$ and following the previous analysis by taking $\epsilon \to 0$, we obtain:
 	\begin{equation*}
 		\lim_{\bar{b}_2 \to \infty} \Delta SC = 0.
 	\end{equation*}
@@ -1129,6 +1130,10 @@ Also for convenience, recall the definition:
 	Therefore, we conclude that:
 	$$ \lim_{\bar{b}_2 \to \infty} PoA = 1.$$
 \end{proof}
+
+
+
+
 
 \begin{proposition}\label{prop:b1_b1bar}
 	Assuming (\ref{eq:assumptions}), $b_1>0$, $\bar{b}_1>0$, the initial condition $\xi$ satisfies $\mathbb{E}(\xi)\neq 0$, and $Var(\xi)>0$, then:
