@@ -282,11 +282,11 @@ This is a linear FBSDE of McKean-Vlasov type, which can be solved explicitly und
 \begin{equation}
 \begin{split}
 \dot{\bar{x}}^{MFG}_t&=(b_1(t)+\bar{b}_1(t)+c^{MFG}(t)(b_2(t)+\bar{b}_2(t))\bar{\eta}^{MFG}_t)\bar{x}^{MFG}_t, \\
-\bar{x}^{MFG}_0&=\mathbb{E}(\xi).
+\bar{x}^{MFG}_0&=\mathbb{E}(\xi),
 \end{split}
 \label{eq:x_bar_MFG}
 \end{equation}
-And thus,
+where the dot is the standard ODE notation for a derivative. And thus,
 \begin{equation}
 \bar{x}^{MFG}_t=\mathbb{E}(\xi) e^{\int_0^t(b_1(u)+\bar{b}_1(u)+c^{MFG}(u)(b_2(u)+\bar{b}_2(u))\bar{\eta}^{MFG}_u)du},
 \label{eq:x_bar_MFG_explicit}
@@ -500,28 +500,28 @@ In the following, we intend to simplify the explicit solutions (\ref{eq:SC_MFG_1
 \begin{equation*}
 \begin{split}
 &\int_0^T (\bar{\eta}^{MFG}_t)^2 (\bar{x}^{MFG}_t)^2 dt\\
-&= - \frac{1}{c^{MFG}(b_2 + \bar{b}_2)} \left[ \int_0^T \dot{\bar{\eta}}^{MFG}_t (\bar{x}^{MFG}_t)^2 dt +  \int_0^T ((2b_1 + \bar{b}_1) \bar{\eta}^{MFG}_t +(q+\bar{q}(1-s))) (\bar{x}^{MFG}_t)^2 dt \right]\\
+&= - \frac{1}{c^{MFG}(b_2 + \bar{b}_2)} \left[ \int_0^T \dot{\bar{\eta}}^{MFG}_t (\bar{x}^{MFG}_t)^2 dt +  \int_0^T \left[(2b_1 + \bar{b}_1) \bar{\eta}^{MFG}_t +(q+\bar{q}(1-s))\right] (\bar{x}^{MFG}_t)^2 dt \right].\\
 \end{split}
 \end{equation*}
-Then by integration by parts:
+Then we use integration by parts:
 \begin{equation*}
 \begin{split}
 = & - \frac{1}{c^{MFG}(b_2 + \bar{b}_2)} \Bigg[ \bar{\eta}^{MFG}_T(\bar{x}^{MFG}_T)^2-\bar{\eta}^{MFG}_0(\bar{x}^{MFG}_0)^2-2\int_0^T\bar{\eta}^{MFG}_t\bar{x}^{MFG}_t\dot{\bar{x}}^{MFG}_t dt \\
-& + \int_0^T ( (2b_1 + \bar{b}_1) \bar{\eta}^{MFG}_t +(q+\bar{q}(1-s)) (\bar{x}^{MFG}_t)^2 dt \Bigg] \\
+& + \int_0^T \left[(2b_1 + \bar{b}_1) \bar{\eta}^{MFG}_t +(q+\bar{q}(1-s))\right] (\bar{x}^{MFG}_t)^2 dt \Bigg]. \\
 \end{split}
 \end{equation*}
-Then using equation (\ref{eq:x_bar_MFG}):
+Then by using equation (\ref{eq:x_bar_MFG}), we have:
 \begin{equation*}
 \begin{split}
 = & 2 \int_0^T (\bar{\eta}^{MFG}_t)^2 (\bar{x}^{MFG}_t)^2dt  - \frac{1}{c^{MFG}(b_2 + \bar{b}_2)} \Bigg[ \bar{\eta}^{MFG}_T (\bar{x}^{MFG}_T)^2 - \bar{\eta}^{MFG}_0 (\mathbb{E}(\xi))^2 \\
-&- \int_0^T  (\bar{b}_1 \bar{\eta}^{MFG}_t -(q+\bar{q}(1-s))) (\bar{x}^{MFG}_t)^2 dt \Bigg].
+&+ \int_0^T  \left[-\bar{b}_1 \bar{\eta}^{MFG}_t +(q+\bar{q}(1-s))\right] (\bar{x}^{MFG}_t)^2 dt \Bigg].
 \end{split}
 \end{equation*}
 Finally, we solve:
 \begin{equation*}
 \begin{split}
 \int_0^T (\bar{\eta}^{MFG}_t)^2 (\bar{x}^{MFG}_t)^2 dt= \frac{1}{c^{MFG}(b_2 + \bar{b}_2)} &\Bigg[ \bar{\eta}^{MFG}_T (\bar{x}^{MFG}_T)^2 - \bar{\eta}^{MFG}_0 (\mathbb{E}(\xi))^2 \\
-&+ \int_0^T  (-\bar{b}_1 \bar{\eta}^{MFG}_t+(q+\bar{q}(1-s))) (\bar{x}^{MFG}_t)^2 dt \Bigg].
+&+ \int_0^T  \left[-\bar{b}_1 \bar{\eta}^{MFG}_t+(q+\bar{q}(1-s))\right] (\bar{x}^{MFG}_t)^2 dt \Bigg].
 \end{split}
 \end{equation*}
 If we denote:
@@ -543,7 +543,7 @@ Repeating the calculation for $\int_0^T (\bar{\eta}^{MFG}_t)^2 (\bar{x}^{MFG}_t)
 \begin{equation*}
 \begin{split}
 \int_0^T (\bar{\eta}^{MKV}_t)^2 (\bar{x}^{MKV}_t)^2 dt=\frac{1}{c^{MKV}(b_2 + \bar{b}_2)} &\Bigg[ \bar{\eta}^{MKV}_T (\bar{x}^{MKV}_T)^2 - \bar{\eta}^{MKV}_0 (\mathbb{E}(\xi))^2 \\
-&+ \int_0^T (q+\bar{q}(1-s)^2) (\bar{x}^{MKV}_t)^2 dt \Bigg],
+&+ \int_0^T (q+\bar{q}(1-s)^2) (\bar{x}^{MKV}_t)^2 dt \Bigg].
 \end{split}
 \end{equation*}
 Using the terminal condition for $\bar{\eta}^{MKV}_T$, equation (\ref{eq:SC_MKV_1}) can be rewritten as:
@@ -559,7 +559,7 @@ Let's denote the (weighted) difference between the solutions of the Riccati equa
 \end{equation} 
 
 \begin{proposition}
-	Under assumption (\ref{eq:assumptions}), the difference in the social costs in the LQEMFG and LQEMKV problems can be represented by
+	Under assumption (\ref{eq:assumptions}), the difference in the social costs in the LQEMFG and LQEMKV problems can be represented by:
 	\begin{equation*}
 		\Delta SC := SC^{MFG} - SC^{MKV} =  \frac{1}{2}\cdot \frac{(b_2 + \bar{b}_2)^2}{r + \bar{r}(1-\bar{s})^2} \int_0^T (\Delta \bar{\eta}_t \cdot \bar{x}_t^{MFG})^2 dt.
 	\end{equation*}
@@ -599,7 +599,7 @@ Let's denote the (weighted) difference between the solutions of the Riccati equa
 	We can see directly from Proposition \ref{prop:diff_SC} that the social cost in the LQEMFG problem is larger than (or possibly equal to) the social cost in the LQEMKV problem. This result is consistent with the definition of the price of anarchy in Section \ref{Price_Of_Anarchy}.
 \end{remark}
 
-Therefore, under assumption (\ref{eq:assumptions}), the price of anarchy for the LQ model is given by 
+Therefore, under assumption (\ref{eq:assumptions}), the price of anarchy for the LQ model is given by:
 \begin{equation}
 PoA =1+ \frac{\Delta SC}{SC^{MKV}}= 1 +  \frac{ \displaystyle   \frac{(b_2 + \bar{b}_2)^2}{r + \bar{r}(1-\bar{s})^2}  \int_0^T (\Delta \bar{\eta}_t \cdot \bar{x}_t^{MFG})^2 dt }{\displaystyle \int_0^T \left[q+\bar{q} + \frac{b_2^2}{r+\bar{r}} \eta_t^2 \right] v_t dt + (q_T + \bar{q}_T) v_T + \bar{\eta}_0^{MKV} (\mathbb{E}(\xi))^2}.
 \label{eq:PoA_LQ}
@@ -613,7 +613,7 @@ PoA =1+ \frac{\Delta SC}{SC^{MKV}}= 1 +  \frac{ \displaystyle   \frac{(b_2 + \ba
 \end{proof}
 
 
-We study in the following the variation of $PoA$ by letting one of the coefficients tend to $0$ or to $\infty$. It will be useful for us to note here the scalar Riccati equations associated with $u_t := \lambda \bar{\eta}_t^{MFG}$, $w_t := \bar{\eta}_t^{MKV}$ and $\eta_t$:
+We study in the following the variation of $PoA$ by letting one of the coefficients tend to zero or to infinity. It will be useful for us to note here the scalar Riccati equations associated with $u_t := \lambda \bar{\eta}_t^{MFG}$, $w_t := \bar{\eta}_t^{MKV}$ and $\eta_t$:
     \begin{equation}
 		\dot{u}_t - 2A^u u_t - B u_t^2 + C^u =0 \qquad u_T = D^u
 		\label{eq:riccati_ut}
@@ -626,24 +626,24 @@ We study in the following the variation of $PoA$ by letting one of the coefficie
 	    \dot{\eta}_t - 2A^\eta \eta_t - B^\eta \eta_t^2 + C^\eta =0 \qquad \eta_T = D^\eta
 	\label{eq:riccati_etat}
 	\end{equation}
-	where
+	where:
 	\begin{IEEEeqnarray*}{rClcrClcrCl}
-		A^u &=& - \left(b_1 + \frac{\bar{b}_1}{2}\right) & \qquad & 
-		A^w &=& - (b_1 + \bar{b}_1) & \qquad & 
-		A^\eta &=& - b_1 \nonumber \\
-		B^u &=& \frac{(b_2+\bar{b}_2)^2}{r + \bar{r}(1-\bar{s})^2} & \qquad &	
-		B^w &=& \frac{(b_2+\bar{b}_2)^2}{r + \bar{r}(1-\bar{s})^2} &\qquad & 
-		B^\eta &=& \frac{b_2^2}{r+ \bar{r}} \nonumber \\
-		C^u &=& \lambda (q + \bar{q}(1-s))& \qquad & 
-		C^w &=& q + \bar{q}(1-s)^2 & \qquad &
-		C^\eta &=& q + \bar{q} \nonumber \\
-		D^u &=& \lambda(q_T + \bar{q}_T(1-s_T)) & \qquad & 
-		D^w &=& q_T + \bar{q}_T(1-s_T)^2 & \qquad & 
-		D^\eta &=& q_T + \bar{q}_T 
+		A^u &=& - \left(b_1 + \frac{\bar{b}_1}{2}\right), & \qquad & 
+		A^w &=& - (b_1 + \bar{b}_1), & \qquad & 
+		A^\eta &=& - b_1, \nonumber \\
+		B^u &=& \frac{(b_2+\bar{b}_2)^2}{r + \bar{r}(1-\bar{s})^2}, & \qquad &	
+		B^w &=& \frac{(b_2+\bar{b}_2)^2}{r + \bar{r}(1-\bar{s})^2}, &\qquad & 
+		B^\eta &=& \frac{b_2^2}{r+ \bar{r}}, \nonumber \\
+		C^u &=& \lambda (q + \bar{q}(1-s)),& \qquad & 
+		C^w &=& q + \bar{q}(1-s)^2, & \qquad &
+		C^\eta &=& q + \bar{q}, \nonumber \\
+		D^u &=& \lambda(q_T + \bar{q}_T(1-s_T)), & \qquad & 
+		D^w &=& q_T + \bar{q}_T(1-s_T)^2, & \qquad & 
+		D^\eta &=& q_T + \bar{q}_T .
 	\end{IEEEeqnarray*}
 If $B^u\neq 0$, $B^u D^u \geq 0$ and $B^uC^u >0$, we have (see equation (\ref{eq:riccati_ut_sol_app}) in Appendix A) the existence and uniqueness for $u_t$ which can be expressed by:
 \begin{equation}
-		u_t= \frac{(C^u+D^u \delta^+_u) - (C^u+D^u \delta^-_u) e^{-(\delta_u^+ - \delta_u^-)(T-t)}}{(-\delta^-_u + D^u B^u) + (\delta^+_u - D^u B^u) e^{-(\delta_u^+ - \delta_u^-)(T-t)}}
+		u_t= \frac{(C^u+D^u \delta^+_u) - (C^u+D^u \delta^-_u) e^{-(\delta_u^+ - \delta_u^-)(T-t)}}{(-\delta^-_u + D^u B^u) + (\delta^+_u - D^u B^u) e^{-(\delta_u^+ - \delta_u^-)(T-t)}},
 	\label{eq:riccati_ut_sol}
 \end{equation}
 where $\delta^\pm_u = -A^u \pm \sqrt{(A^u)^2 + B^u C^u}$. Note that under the above conditions, we have $\delta^-_u<0<\delta^+_u$ and thus, $u_t \geq 0$ for all $t\in[0,T]$. We have analogous expressions for $w_t$ and $\eta_t$, which are also nonnegative, in terms of $\delta^\pm_w$ and $\delta^\pm_{\eta}$, respectively. Note that $B^u=B^w=:B$, and the above conditions on the parameters $B$, $C^u$, $D^u$, $C^w$, $D^w$, $B^\eta$, $C^\eta$, and $D^\eta$ are exactly the conditions in assumption (\ref{eq:assumptions}).
@@ -661,9 +661,13 @@ PoA =1+ \frac{\Delta SC}{SC^{MKV}}= 1 +  \frac{ \displaystyle B\int_0^T (u_t-w_t
 v_t=Var(\xi)e^{\int_0^t 2(b_1-B^{\eta} \eta_s)ds}+\sigma^2 \int_0^t e^{2 \int_s^t (b_1-B^{\eta}\eta_u) du}ds.
 \label{eq:v_t_new_notation}
 \end{equation}
+Also for convenience, recall the definition:
+\begin{equation*}
+\lambda = \frac{b_2}{b_2 + \bar{b}_2}\cdot \frac{ r + \bar{r}(1-\bar{s})^2 }{r + \bar{r}(1-\bar{s})}.
+\end{equation*}
 
 \begin{proposition}
-	Assuming (\ref{eq:assumptions}), and assuming $b_1>0$,
+	Assuming (\ref{eq:assumptions}), and assuming $b_1>0$, then:
 	\begin{equation*}
 			\lim_{r \to \infty} PoA = 1 \qquad \text{and} \qquad
 			\lim_{\bar{r} \to \infty} PoA = 1.
@@ -743,7 +747,7 @@ v_t=Var(\xi)e^{\int_0^t 2(b_1-B^{\eta} \eta_s)ds}+\sigma^2 \int_0^t e^{2 \int_s^
 	From equation (\ref{eq:v_t_new_notation}) and by the bounded convergence theorem, we have for each $t \in [0,T]$: 
 	$$	\lim_{r\to \infty} v^r_t = Var(\xi)e^{2b_1 t} + \sigma^2 \int_0^t e^{2 b_1 (t-s) } ds =: v^{r \to \infty}_t.
 	$$
-	The variance function $v_t^{r}$ is also uniformly bounded over $t \in [0,T]$ for large $r$.	 $w^{r \to \infty }_0\geq0$ and $v^{r \to \infty}_t >0$ for $t>0$. Hence,
+	The variance function $v_t^{r}$ is also uniformly bounded over $t \in [0,T]$ for large $r$. We also have $w^{r \to \infty }_0\geq0$ and $v^{r \to \infty}_t >0$ for $t>0$. Hence,
 	\begin{equation*}
 		\lim_{r \to \infty} SC^{MKV,r} = \frac{1}{2} \left( \int_0^T (q+\bar{q}) v^{r \to \infty}_t dt + (q_T + \bar{q}_T) v^{r\to \infty}_T + w^{r \to \infty}_0 (\mathbb{E}(\xi))^2 \right)  >0.
 	\end{equation*}
@@ -952,8 +956,7 @@ v_t=Var(\xi)e^{\int_0^t 2(b_1-B^{\eta} \eta_s)ds}+\sigma^2 \int_0^t e^{2 \int_s^
 
 % proposition b2 bar
 \begin{proposition}
-	Assuming (\ref{eq:assumptions}), the initial condition $\xi$ satisfies $\mathbb{E}(\xi)\neq 0$, and assuming $\bar{b}_1> 0$, $q_T+\bar{q}_T(1-s_T)>0$, and $q_T+\bar{q}_T(1-s_T)^2>0$
-	then 
+	Assuming (\ref{eq:assumptions}), the initial condition $\xi$ satisfies $\mathbb{E}(\xi)\neq 0$, and assuming $\bar{b}_1> 0$, $q_T+\bar{q}_T(1-s_T)>0$, and $q_T+\bar{q}_T(1-s_T)^2>0$, then:
 	\begin{equation*}
 	\lim_{\bar{b}_2 \to 0} PoA =: PoA^{\bar{b}_2\to 0} > 1\qquad \text{and} \qquad\lim_{\bar{b}_2 \to \infty} PoA = 1.
 	\end{equation*}
@@ -980,14 +983,12 @@ v_t=Var(\xi)e^{\int_0^t 2(b_1-B^{\eta} \eta_s)ds}+\sigma^2 \int_0^t e^{2 \int_s^
 	\end{split}
 	\end{equation*}
 	
-	Similarly, for every time $t\in [0,T]$, $\lim_{\bar{b}_2 \to 0}w^{\bar{b}_2}_t=w^{\bar{b}_2 \to 0}_t$, and  $w^{\bar{b}_2}$ is uniformly bounded over $[0,T]$ for small enough $\bar{b}_2$.
-	
-	From equation (\ref{eq:x_bar_MFG_explicit_new_notation}), the assumption on $\xi$, and by the bounded convergence theorem, we have for every $t \in [0,T]$:
-   	$$\lim_{\bar{b}_2 \to 0} \bar{x}_t^{MFG,\bar{b}_2} = \mathbb{E}(\xi) e^{\int_0^t (b_1 + \bar{b}_1 - B^{\bar{b}_2 \to 0}u^{\bar{b}_2 \to 0}_s) ds} =: \bar{x}^{MFG,\bar{b}_2 \to 0}_t>0.$$
+	Similarly, for every time $t\in [0,T]$, $\lim_{\bar{b}_2 \to 0}w^{\bar{b}_2}_t=w^{\bar{b}_2 \to 0}_t$, and  $w^{\bar{b}_2}$ is uniformly bounded over $[0,T]$ for small enough $\bar{b}_2$. From equation (\ref{eq:x_bar_MFG_explicit_new_notation}), the assumption on $\xi$, and by the bounded convergence theorem, we have for every $t \in [0,T]$:
+   	$$\lim_{\bar{b}_2 \to 0} \bar{x}_t^{MFG,\bar{b}_2} = \mathbb{E}(\xi) e^{\int_0^t (b_1 + \bar{b}_1 - B^{\bar{b}_2 \to 0}u^{\bar{b}_2 \to 0}_s) ds} =: \bar{x}^{MFG,\bar{b}_2 \to 0}_t\neq 0.$$
 	Moreover, $\bar{x}^{MFG,\bar{b}_2}$ is uniformly bounded for all $\bar{b}_2<\bar{b}^*_2$ and for all $t \in [0,T]$. From the nonnegativity of $u_t$, we have:
 	$$ \left\vert \bar{x}^{MFG,\bar{b}_2}_t \right\vert \leq \left\vert \mathbb{E}(\xi) \right\vert e^{ (b_1 + \bar{b}_1 ) T }, \quad \forall t \in [0,T], \ \forall \bar{b}_2<\bar{b}^*_2. $$ 
    	
-   	By our assumption on $\bar{b}_1$, we have $A^u \neq A^w$ and thus, $u^{\bar{b}_2 \to 0}_t\neq w^{\bar{b}_2 \to 0}_t$ on a set of positive Lebesgue measure. Thus, from Proposition \ref{prop:diff_SC}, and by the bounded convergence theorem, we deduce:
+   	By our assumption on $\bar{b}_1$, we have $A^u \neq A^w$ and thus, $u^{\bar{b}_2 \to 0}_t\neq w^{\bar{b}_2 \to 0}_t$ on a set of positive Lebesgue measure. Thus, from Proposition \ref{prop:diff_SC} and by the bounded convergence theorem, we deduce:
 	$$ \lim_{\bar{b}_2 \to 0} \Delta SC^{\bar{b}_2} = \frac{1}{2} B^{\bar{b}_2 \to 0} \int_0^T \left( (u_t^{\bar{b}_2 \to 0} - w_t^{\bar{b}_2 \to 0}\right)^2 \left (\bar{x}_t^{MFG,\bar{b}_2 \to 0} \right)^2 dt \  > 0. $$
 	Meanwhile, $\eta_t$ does not depend on $\bar{b}_2$, and therefore the variance $v_t$ also does not depend on $\bar{b}_2$. It is easy to check that $0<v_t<\infty$ for $t>0$ and $0 \leq w^{\bar{b}_2 \to 0}_0 < \infty$, and thus,
 	\begin{equation*}
@@ -1086,8 +1087,6 @@ v_t=Var(\xi)e^{\int_0^t 2(b_1-B^{\eta} \eta_s)ds}+\sigma^2 \int_0^t e^{2 \int_s^
 	\label{eq:I_1_b2_bar_infinity}
 	\end{equation}	
 	
-	
-	
 	% the term I_2
 	Now, we look the term $I_2$. Since $u_t^{\bar{b}_2}$, $w_t^{\bar{b}_2}$ and $\bar{x}_t^{MFG,\bar{b}_2}$ are continuous over $[\frac{T}{2},T]$, then the functions $t \mapsto \int_0^t u^{\bar{b}_2}_s ds$ and $t \mapsto \int_0^t (u^{\bar{b}_2}_s- w^{\bar{b}_2}_s)^2 (\bar{x}_s^{MFG,\bar{b}_2} )^2 ds$ are continuous over $[\frac{T}{2},T]$ and differentiable over $(\frac{T}{2},T)$. Then with the equation (\ref{eq:x_bar_MFG_explicit_new_notation}) we can apply the Mean Value theorem and deduce that there exists two fixed times $t_1$ and $t_2$ depending on $\bar{b}_2$ which satisfy $\frac{T}{2} < t_1 < T$ and $0 < t_2 < t_1 <T$ such that:
 	\begin{IEEEeqnarray}{rCl}
@@ -1124,56 +1123,6 @@ v_t=Var(\xi)e^{\int_0^t 2(b_1-B^{\eta} \eta_s)ds}+\sigma^2 \int_0^t e^{2 \int_s^
 	\begin{equation*}
 		\lim_{\bar{b}_2 \to \infty} \Delta SC = 0.
 	\end{equation*}
-	
-		
-% comment out: error in using Mean Value theorem	
-\begin{comment}
-	-----------------
-	
-	Our next step is to show that $(b_2 + \bar{b}_2) e^{- \kappa (b_2 + \bar{b}_2)^{\frac{1}{2}} h(\bar{b}_2) } $ tends towards $0$ when $\bar{b}_2 \to \infty$. We previously showed that $\lim_{\bar{b}_2 \to \infty}h(\bar{b}_2)= c_3 >0$. Let $\epsilon_1>0$ such that $c_3 - 2 \epsilon_1 >0$. Then there exists $\bar{b}_2^{*,1}>0$ so that for all $\bar{b}_2 > \bar{b}_2^{*,1}$ we have $\left\vert h(\bar{b}_2) - c_3 \right\vert < \epsilon_1$. Then $h(\bar{b}_2) - c_3 + 2\epsilon_1 > \epsilon_1$ and 
-	\begin{equation*}
-	\begin{array}{rl}
-	(b_2 + \bar{b}_2) e^{- \kappa (b_2 + \bar{b}_2)^{1/2} h(\bar{b}_2) }  & 	\displaystyle  = e^{- \kappa (b_2 + \bar{b}_2)^{1/2} (h(\bar{b}_2) - c_3 + 2\epsilon_1 )}\cdot e^{- \kappa  (c_3 - 2 \epsilon_1) (b_2 + \bar{b}_2)^{1/2} +  \ln (b_2 + \bar{b}_2) } \\
-		&	\displaystyle  \leq  e^{- \kappa (b_2+\bar{b}_2^{*,1})^{1/2} \epsilon_1 } \cdot \exp \left( - \kappa (c_3 - 2 \epsilon_1 ) (b_2 + \bar{b}_2)^{\frac{1}{2}} + \ln (b_2 + \bar{b}_2)\right) \\
-		%& 	\displaystyle  = c_5 e^{- \kappa (c_3 - 2 \epsilon_1) (b_2 + \bar{b}_2)^{1/2} + \ln (b_2 + \bar{b}_2)} \\
-		%& \xrightarrow[\bar{b}_2 \to \infty]{}0.
-	\end{array}
-	\end{equation*}
-	The first term on the right hand side of the above inequality is a constant depending only on $\epsilon_1$, and the second term tends towards $0$ when $b_2 \to \infty$. Thus,  for any $\epsilon>0$, there exists a $\bar{b}_2^{*,2} \geq \bar{b}_2^{*,1}$, such that for all $\bar{b}_2>\bar{b}_2^{*,2}$ we have:
-	\begin{equation}
-	|(b_2 + \bar{b}_2) e^{- \kappa (b_2 + \bar{b}_2)^{\frac{1}{2}} h(\bar{b}_2) }|<\epsilon.
-	\label{eq:limit_p_f(p)}
-	\end{equation}
- 	
- 	
- 	Now, in order to show that $\Delta SC$ tends to $0$, we need to bound the terms $u_{t_1}^{\bar{b}_2}$ and $w_{t_1}^{\bar{b}_2}$ for large enough $\bar{b}_2$. Given $\epsilon>0$, there exists a $\bar{b}_2^{*,3} \geq 1$ such that for any $\bar{b}_2 > \bar{b}_2^{*,3}$ we have $ (b_2 + \bar{b}_2)^{\frac{3}{2}} \left\vert u_{t_1}^{\bar{b}_2} \right\vert \leq c_3 + \epsilon$. Thus, for any $\bar{b}_2 > \bar{b}_2^{*,3} \geq 1$ we deduce:
- 	$$ \left\vert u_{t_1}^{\bar{b}_2} \right\vert \leq \frac{c_3 + \epsilon}{(b_2 + \bar{b}_2)^{\frac{3}{2}} } \leq \frac{c_3+ \epsilon}{(b_2 + \bar{b}^{*,3}_2)^{\frac{3}{2}} } \leq c_3 + \epsilon.
- 	$$
- 	
- 	
- 	\begin{comment}	
- 	Idem, we can show that for $t_1 \in [0,T)$:
-	\begin{equation*}
-	\begin{split}
-	(b_2 + \bar{b}_2) w^{\bar{b}_2}_{t_1} =&\frac{ \left( \frac{C^{w}}{b_2 + \bar{b}_2} + D^{w}\cdot \frac{\delta^{+,\bar{b}_2}_w}{b_2 + \bar{b}_2}  \right) - \left( \frac{C^{w}}{b_2 + \bar{b}_2} + D^{w}\cdot \frac{\delta^{-,\bar{b}_2}_w}{b_2 + \bar{b}_2}  \right) e^{- (\delta^{+,\bar{b}_2}_w - \delta^{-,\bar{b}_2}_w)(T- t_1)}}{ \left(- \frac{\delta^{-,\bar{b}_2}_w}{(b_2 + \bar{b}_2)^2} + \frac{D^{w}}{r + \bar{r}(1-\bar{s})^2} \right) + \left( \frac{\delta^{+,\bar{b}_2}_w}{(b_2 + \bar{b}_2)^2} - \frac{D^{w}}{r + \bar{r}(1-\bar{s})^2} \right)e^{- (\delta^{+,\bar{b}_2}_w - \delta^{-,\bar{b}_2}_w)(T-t_1)} }\\
-	&\xrightarrow[\bar{b}_2 \to \infty]{} \sqrt{(r + \bar{r}(1-\bar{s})^2) C^w} =: c_4 >0,
-	\end{split}
-	\end{equation*}
-	where we have used the fact that $\lim_{\bar{b}_2 \to \infty}\frac{\delta^{\pm,\bar{b}_2}_w}{b_2 + \bar{b}_2}=\sqrt{\frac{C^w}{r+\bar{r}(1-\bar{s})^2}}$. 
-	
-	
-	Idem we can show that for any $t_1 \in [0,T)$:
-	\begin{equation*}
-		(b_2 + \bar{b}_2) w^{\bar{b}_2}_{t_1} \xrightarrow[\bar{b}_2 \to \infty]{} (r+ \bar{r}(1-\bar{s})^2) c_{\delta_w^{\bar{b}_2 \to \infty}} =: c_4, \qquad \text{where } \quad c_{\delta_w^{\bar{b}_2 \to \infty}} = \sqrt{\frac{q+ \bar{q}(1-s)^2}{r + \bar{r}(1 - \bar{s})^2} }.
-	\end{equation*}
-	Thus, $\left\vert w_{t_1}^{\bar{b}_2} \right\vert $ can also be bounded by $c_4 + \epsilon$ for any $\bar{b}_2$ large enough.
-	
-	Hence, together with equation (\ref{eq:delta_SC_b_2_bar_infty}) and  (\ref{eq:limit_p_f(p)}), we obtain that for any $\epsilon > 0$, there exists a $\bar{b}_2^*$ large enough so that for all $\bar{b}_2 > \bar{b}_2^*$ we have
-	$$ \Delta SC \leq \kappa_1 (c_3 + c_4 + 2 \epsilon)^2 \epsilon^2.$$
-	Thus, by taking $\epsilon \to 0$, we have:
-	$$\lim_{\bar{b}_2 \to \infty} \Delta SC = 0.$$
-\end{comment}
-
 
 	Moreover, recall that $\eta_t$ and $v_t$ are invariant with respect to $\bar{b}_2$ and $0<v_t<\infty$ for $t>0$. Clearly we also have $w^{\bar{b}_2}_0 \geq 0$ and $w^{\bar{b}_2}_0 \xrightarrow[\bar{b}_2 \to \infty]{} 0$. Thus, together with equation (\ref{eq:v_t_new_notation}) we obtain
 	$$0< \lim_{\bar{b}_2 \to \infty} SC^{MKV} <\infty.$$
@@ -1182,7 +1131,7 @@ v_t=Var(\xi)e^{\int_0^t 2(b_1-B^{\eta} \eta_s)ds}+\sigma^2 \int_0^t e^{2 \int_s^
 \end{proof}
 
 \begin{proposition}\label{prop:b1_b1bar}
-	Assuming (\ref{eq:assumptions}), the initial condition $\xi$ satisfies $\mathbb{E}(\xi)\neq 0$, $Var(\xi)>0$, and $\lambda \neq 1$, then
+	Assuming (\ref{eq:assumptions}), $b_1>0$, $\bar{b}_1>0$, the initial condition $\xi$ satisfies $\mathbb{E}(\xi)\neq 0$, and $Var(\xi)>0$, then:
 	\begin{equation*}
 	\begin{split}
 	    \lim_{b_1 \to 0} PoA =: PoA^{0,b_1} > 1\qquad &\text{and} \qquad \lim_{\bar{b}_1 \to 0} PoA =: PoA^{0,\bar{b}_1} > 1,\\
@@ -1199,11 +1148,11 @@ v_t=Var(\xi)e^{\int_0^t 2(b_1-B^{\eta} \eta_s)ds}+\sigma^2 \int_0^t e^{2 \int_s^
 		&=:c,
 	\end{split}
 	\end{equation*}
-	and similarly for $\left|w^{b_1}_t\right|$ and $\left|\eta^{b_1}_t\right|$. By the assumption on $\lambda$, $u^{b_1\to 0}_t \neq w^{b_1\to 0}_t$ on a set of positive Lebesgue measure.
+	and similarly for $\left|w^{b_1}_t\right|$ and $\left|\eta^{b_1}_t\right|$. By our assumption on $\bar{b}_1$, we have $A^{u,b_1\to 0} \neq A^{w,b_1\to 0}$ and thus, $u^{b_1\to 0}_t \neq w^{b_1\to 0}_t$ on a set of positive Lebesgue measure.
 	
 	From equation (\ref{eq:x_bar_MFG_explicit_new_notation}), the assumption on $\xi$, and by the bounded convergence theorem, we have for every $t \in [0,T]$:
 	\begin{equation*}
-	\lim_{b_1\to 0}\bar{x}_t^{MFG,b_1} = \mathbb{E}(\xi) e^{\int_0^t(\bar{b}_1-B u^{b_1\to 0}_s)ds} =: \bar{x}_t^{MFG,b_1\to 0}>0.
+	\lim_{b_1\to 0}\bar{x}_t^{MFG,b_1} = \mathbb{E}(\xi) e^{\int_0^t(\bar{b}_1-B u^{b_1\to 0}_s)ds} =: \bar{x}_t^{MFG,b_1\to 0}\neq 0.
 	\end{equation*}
 	Moreover, $\bar{x}_t^{MFG,b_1\to 0}$ is uniformly bounded over $b_1<b_1^*$ and $t \in [0,T]$, i.e. 
 	$$ \left\vert \bar{x}^{MFG,b_1}_t \right\vert \leq \left\vert \mathbb{E}(\xi) \right\vert e^{ \bar{b}_1 T }, \quad \forall t \in [0,T],\ b_1<b_1^*. $$ 
@@ -1229,15 +1178,31 @@ v_t=Var(\xi)e^{\int_0^t 2(b_1-B^{\eta} \eta_s)ds}+\sigma^2 \int_0^t e^{2 \int_s^
     \begin{equation*}
 	    \Delta SC^{b_1} \leq \frac{1}{2}BT(h_u(b_1)+h_w(b_1))^2 (h_{\bar{x}}(b_1))^2.
     \end{equation*}
-    
     We also have the following lower bound:
     \begin{equation*}
 	\begin{split}
 	SC^{MKV,b_1} &\geq \frac{1}{2}(q_T+\bar{q}_T)v^{b_1}_T \\
-	& \geq (q_T+\bar{q}_T)Var(\xi)e^{2T(b_1-B^{\eta}h_{\eta}(b_1))}.
+	& \geq \frac{1}{2}(q_T+\bar{q}_T)Var(\xi)e^{2T(b_1-B^{\eta}h_{\eta}(b_1))}.
 	\end{split}
     \end{equation*}
-    Let $h(b_1)=\max \{h_u(b_1),h_w(b_1),h_{\eta}(b_1) \}$. It is easy to check that $\lim_{b_1 \to \infty}h(b_1)=\infty$. Combining the above bounds and using the assumption $Var(\xi)>0$, we have:
+    
+    Let $h(b_1)=\max \{h_u(b_1),h_w(b_1),h_{\eta}(b_1) \}$. Since $\lim_{b_1 \to \infty} |A^{u,b_1}|=\infty$, we have:
+    \begin{equation*}
+    \begin{split}
+	    \delta^{+,b_1}_u-\delta^{-,b_1}_u&=2 \sqrt{(A^{u,b_1})^2+BC^u} \\
+	    &\xrightarrow[b_1 \to \infty]{}\infty,
+    \end{split}
+    \end{equation*}
+    and
+    \begin{equation*}
+    \begin{split}
+    -\delta^{-,b_1}_u&=A^{u,b_1}+\sqrt{(A^{u,b_1})^2+BC^u} \\
+    &\xrightarrow[b_1 \to \infty]{}0.
+    \end{split}
+    \end{equation*}    
+    Thus, $\lim_{b_1 \to \infty}h_u(b_1)=\infty$, which implies $\lim_{b_1 \to \infty}h(b_1)=\infty$. Combining the above bounds and using the assumption $Var(\xi)>0$, we have:
+     
+     
     \begin{equation*}
     \begin{split}
 	    \frac{\Delta SC^{b_1}}{SC^{MKV,b_1}}&\leq \frac{2BT(h(b_1))^2 (h_{\bar{x}}(b_1))^2}{\frac{1}{2}(q_T+\bar{q}_T)Var(\xi)e^{2T(b_1-B^{\eta}h(b_1))}}\\
@@ -1358,7 +1323,7 @@ The authors would like to thank the organizers of CEMRACS 2017 for putting toget
 Y.~Achdou and M.~Lauri\`{e}re.
 \newblock On the system of partial differential equations arising in mean field
   type control.
-\newblock {\em arXiv preprint arXiv:1503.05044}, 2015.
+\newblock {\em arXiv:1503.05044}, 2015.
 
 \bibitem{balandat2013efficiency}
 M.~Balandat and C.~J. Tomlin.
@@ -1375,13 +1340,13 @@ A.~Bensoussan, J.~Frehse, and P.~Yam.
 \bibitem{pierre_poa}
 P.~Cardaliaguet and C.~Rainer.
 \newblock On the (in)efficiency of {MFG} equilibria.
-\newblock Technical report, 2018.
+\newblock {\em arXiv:1802.06637}, 2018.
 
 \bibitem{carmona_acciaio}
 R.~Carmona, B.~Acciaio, and J.~Backhoff~Veraguas.
 \newblock Generalized {M}c{K}ean-{V}lasov ({M}ean {F}ield) {C}ontrol: a
   stochastic maximum principle and a transport perspective.
-\newblock Technical report, 2018.
+\newblock {\em arXiv:1802.05754}, 2018.
 
 \bibitem{carmona2013probabilistic}
 R.~Carmona and F.~Delarue.
@@ -1430,18 +1395,18 @@ J.~M. Lasry and P.~L. Lions.
 \newblock Mean field games.
 \newblock {\em Japanese Journal of Mathematics}, 2(1):229--260, 2007.
 
+\bibitem{nourian2011mean}
+M.~Nourian, P.~E. Caines, and R.~P. Malham{\'e}.
+\newblock Mean field analysis of controlled {C}ucker-{S}male type flocking:
+Linear analysis and perturbation equations.
+\newblock {\em IFAC Proceedings Volumes}, 44(1):4471--4476, 2011.
+
 \bibitem{nourian2010synthesis}
 M.~Nourian, P.~E. Caines, and R.~P. Malham{\'e}.
 \newblock Synthesis of {C}ucker-{S}male type flocking via mean field stochastic
   control theory: {N}ash equilibria.
 \newblock In {\em Communication, Control, and Computing (Allerton), 2010 48th
   Annual Allerton Conference on}, pages 814--819. IEEE, 2010.
-
-\bibitem{nourian2011mean}
-M.~Nourian, P.~E. Caines, and R.~P. Malham{\'e}.
-\newblock Mean field analysis of controlled {C}ucker-{S}male type flocking:
-  Linear analysis and perturbation equations.
-\newblock {\em IFAC Proceedings Volumes}, 44(1):4471--4476, 2011.
 
 \bibitem{nourian2013nash}
 M.~Nourian, P.~E. Caines, R.~P. Malhame, and M.~Huang.
@@ -1506,7 +1471,7 @@ Now we return to the general FBSDE system (\ref{eq:FBSDE_general}). By taking ex
         \dot{\bar{x}}_t&=(a^x_t+a^{\bar{x}}_t)\bar{x}_t+(a^y_t+a^{\bar{y}}_t)\bar{y}_t\\
         \bar{x}_0&=\mathbb{E}(\xi) \\
         \dot{\bar{y}}_t&=(b^x_t+b^{\bar{x}}_t)\bar{x}_t+(b^y_t+b^{\bar{y}}_t)\bar{y}_t\\
-        \bar{y}_T&=(c^x+c^{\bar{x}})\bar{x}_T
+        \bar{y}_T&=(c^x+c^{\bar{x}})\bar{x}_T,
 \end{split}
 \label{eq:FBSDE_general_means}
 \end{equation}
@@ -1523,7 +1488,7 @@ The first equation is a Riccati equation. Note that $\bar{\chi}_t$ solves a firs
 \begin{equation*}
 \begin{split}
     \dot{\bar{x}}_t&=(a^x_t+a^{\bar{x}}_t+(a^y_t+a^{\bar{y}}_t)\bar{\eta}_t)\bar{x}_t \\
-    \bar{x}_0&=\mathbb{E}(\xi)
+    \bar{x}_0&=\mathbb{E}(\xi),
 \end{split}
 \end{equation*}
 and thus,
@@ -1537,7 +1502,7 @@ Once we have computed $(\bar{x}_t)_{0\leq t\leq T}$, we can rewrite the original
         dX_t&=\left(a^x_tX_t+a^y_tY_t+a^0_t\right)dt+\sigma dW_t \\
         X_0&=\xi \\
         dY_t&=\left(b^x_tX_t+b^y_tY_t+b^0_t\right)dt +Z_t dW_t \\
-        Y_T&=c^xX_T+c^0
+        Y_T&=c^xX_T+c^0,
 \end{split}
 \end{equation*}
 with:
@@ -1548,7 +1513,6 @@ with:
     c^0&=c^{\bar{x}}\bar{x}_T.
 \end{split}
 \end{equation*}
-
 Now we make the ansatz: $Y_t=\eta_t X_t+\chi_t$, which reduces the problem to the ODE system:
 \begin{equation*}
 \begin{split}
@@ -1568,7 +1532,7 @@ Thus,
     \chi_t=(\bar{\eta}_t-\eta_t)\bar{x}_t.
 \end{equation*}
 
-In summary, the solution to the linear FBSDE of McKean-Vlasov type is reduced to solving linear ODEs and Riccati equations. It will also be useful to compute $Var(X_t)$, which we denote by $v_t$. After we have solved the above equations, we have
+In summary, the solution to the linear FBSDE of McKean-Vlasov type is reduced to solving linear ODEs and Riccati equations. It will also be useful to compute $Var(X_t)$, which we denote by $v_t$. After we have solved the above equations, we have:
 \begin{equation*}
 \begin{split}
         dX_t&=\left((a^x_t+a^y_t \eta_t)X_t+a^y_t \chi_t+a^0_t\right)dt+\sigma dW_t \\
@@ -1621,7 +1585,7 @@ Hence, returning to the linear FBSDE (\ref{eq:FBSDE_general}), for $\bar{\eta}_t
 		A=&-\frac{1}{2}(a^x+a^{\bar{x}}-b^y-b^{\bar{y}}) \\
 		B=&-(a^y+a^{\bar{y}}) \\
 		C=&-(b^x+b^{\bar{x}}) \\
-		D=&\ c^x+c^{\bar{x}}
+		D=&\ c^x+c^{\bar{x}}.
 	\end{array}
 	\right.
 \end{equation*}
@@ -1631,7 +1595,7 @@ The conditions (\ref{eq:Riccati_assumptions}) are satisfied if:
 	\begin{array}{rl}
 		-(a^y+a^{\bar{y}})&>0 \\
 		-(b^x+b^{\bar{x}})&>0 \\
-		c^x+c^{\bar{x}}& \geq 0
+		c^x+c^{\bar{x}}& \geq 0.
 	\end{array}
 	\right.
 \end{equation*}
