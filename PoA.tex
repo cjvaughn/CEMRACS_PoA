@@ -804,13 +804,13 @@ Also for convenience, recall the definition:
 	% lower bound for (b_2 + b2 bar) u_t
 	Moreover, we can derive a uniform lower bound for $(b_2 + \bar{b}_2) u_t^{b_2}$ for any large enough $b_2$ by expanding this whole expression with equation (\ref{eq:riccati_ut_sol}). Let $\epsilon_1 > 0$ so that $\epsilon_1 < \min \{ c_{\delta_u^{b_2 \to \infty}}, D^{u,b_2 \to \infty} \}$, for example $\epsilon_1 = \frac{1}{2} \min \{ c_{\delta_u^{b_2 \to \infty}}, D^{u,b_2 \to \infty} \}$. Then there exists $b_2^{*,lower} := b_2^{*,lower}(\epsilon_1) 	>0$ such that for all $b_2 \geq b_2^{*,lower}$,
 	$$ 
-	\max \left\{  \left\vert \frac{\delta_u^{+,b_2}}{b_2 + \bar{b}_2}  - c_{\delta_u^{b_2 \to \infty}} \right\vert, \   \left\vert \frac{\delta_u^{-,b_2}}{b_2 + \bar{b}_2}  - (-c_{\delta_u^{b_2 \to \infty}}) \right\vert, \vert D^{u,b_2} - D^{u,b_2\to \infty} \vert  \right\} \leq \epsilon_1,
+	\max \left\{  \left\vert \frac{\delta_u^{+,b_2}}{b_2 + \bar{b}_2}  - c_{\delta_u^{b_2 \to \infty}} \right\vert, \   \left\vert \frac{\delta_u^{-,b_2}}{b_2 + \bar{b}_2}  - (-c_{\delta_u^{b_2 \to \infty}}) \right\vert, \vert D^{u,b_2} - D^{u,b_2\to \infty} \vert,  \left\vert \frac{1}{b_2 + \bar{b}_2} \right\vert  \right\} \leq \epsilon_1,
 	$$ 
 	so that
 	\begin{IEEEeqnarray}{rCl}
 		(b_2 + \bar{b}_2) u_t^{b_2} &\geq&  (b_2 + \bar{b}_2) \frac{D^{u,b_2} \delta_u^{+, b_2} }{ (\delta_u^{+,b_2} - \delta_u^{-,b_2}) + B^{b_2}D^{u,b_2} } \nonumber \\
-		&=& \frac{D^{u,b_2} \frac{\delta_u^{+, b_2}}{b_2+ \bar{b}_2} }{ \frac{\delta_u^{+,b_2} - \delta_u^{-,b_2}}{b_2 + \bar{b}_2} + \frac{D^{u,b_2}}{r + \bar{r}(1-\bar{s})^2} } \nonumber \\
-		&\geq& \frac{(D^{u,b_2 \to \infty} - \epsilon_1 ) \cdot (c_{\delta_u^{b_2 \to \infty}} - \epsilon_1) }{ (2 c_{\delta_u^{b_2 \to \infty}} + 2 \epsilon_1) + (D^{u,b_2 \to \infty} + \epsilon_1) / (r+ \bar{r}(1-\bar{s})^2) } =: m_u(\epsilon_1)
+		&=& \frac{D^{u,b_2} \frac{\delta_u^{+, b_2}}{b_2+ \bar{b}_2} }{ \frac{1}{b_2 + \bar{b}_2} \cdot \frac{\delta_u^{+,b_2} - \delta_u^{-,b_2}}{b_2 + \bar{b}_2} + \frac{D^{u,b_2}}{r + \bar{r}(1-\bar{s})^2} } \nonumber \\
+		&\geq& \frac{(D^{u,b_2 \to \infty} - \epsilon_1 ) \cdot (c_{\delta_u^{b_2 \to \infty}} - \epsilon_1) }{ \epsilon_1 \cdot (2 c_{\delta_u^{b_2 \to \infty}} + 2 \epsilon_1) + (D^{u,b_2 \to \infty} + \epsilon_1) / (r+ \bar{r}(1-\bar{s})^2) } =: m_u(\epsilon_1)
 	\label{eq:ut_uniform_lower_bound_b2_infinity}
 	\end{IEEEeqnarray}
 
