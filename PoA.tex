@@ -643,10 +643,10 @@ We study in the following the variation of $PoA$ by letting one of the coefficie
 	\end{IEEEeqnarray*}
 If $B^u\neq 0$, $B^u D^u \geq 0$ and $B^uC^u >0$, we have (see equation (\ref{eq:riccati_ut_sol_app}) in Appendix A) the existence and uniqueness for $u_t$ which can be expressed by:
 \begin{equation}
-		u_t= \frac{(C^u+D^u \delta^+_u) - (C^u+D^u \delta^-_u) e^{-(\delta_u^+ - \delta_u^-)(T-t)}}{(-\delta^-_u + D^u B^u) + (\delta^+_u - D^u B^u) e^{-(\delta_u^+ - \delta_u^-)(T-t)}},
+		u_t= \frac{C^u(1-e^{-(\delta_u^+ - \delta_u^-)(T-t)})+D^u(\delta^+_u -\delta^-_ue^{-(\delta_u^+ - \delta_u^-)(T-t)} )}{D^u B^u(1-e^{-(\delta_u^+ - \delta_u^-)(T-t)})+ \delta^+_ue^{-(\delta_u^+ - \delta_u^-)(T-t)} -\delta^-_u  },
 	\label{eq:riccati_ut_sol}
 \end{equation}
-where $\delta^\pm_u = -A^u \pm \sqrt{(A^u)^2 + B^u C^u}$. Note that under the above conditions, we have $\delta^-_u<0<\delta^+_u$ and thus, $u_t \geq 0$ for all $t\in[0,T]$. We have analogous expressions for $w_t$ and $\eta_t$, which are also nonnegative, in terms of $\delta^\pm_w$ and $\delta^\pm_{\eta}$, respectively. Note that $B^u=B^w=:B$, and the above conditions on the parameters $B$, $C^u$, $D^u$, $C^w$, $D^w$, $B^\eta$, $C^\eta$, and $D^\eta$ are exactly the conditions in assumption (\ref{eq:assumptions}).
+where $\delta^\pm_u = -A^u \pm \sqrt{(A^u)^2 + B^u C^u}$. Under assumption (\ref{eq:assumptions}), the above conditions on $B^u$, $C^u$, and $D^u$ are satisfied, and we have $\delta^-_u<0<\delta^+_u$, $u_t > 0$ for all $t\in[0,T)$, and $u_T \geq 0$. We have analogous expressions for $w_t$ and $\eta_t$, in terms of $\delta^\pm_w$ and $\delta^\pm_{\eta}$, respectively. Note that $B^u=B^w=:B$.
 
 To make the following computations easier to follow, we repeat equations (\ref{eq:PoA_LQ}), (\ref{eq:x_bar_MFG_explicit}), and (\ref{eq:v_t}), which we recall is equivalent to  equation (\ref{eq:v_t_MKV}), using the above notations:
 \begin{equation}
@@ -701,8 +701,7 @@ Also for convenience, recall the definition:
 	
 	Note that  $A^u < 0$, $B^r$, $C^{u,r}$, $\lambda^{r\to \infty}$, $C^{r \to \infty}_u>0$, $D^{u,r}$, $D^{r \to \infty}_u\geq 0$, and $\delta^{-,r}_u < 0 < \delta^{+,r}_u$. Let $\epsilon>0$. Then there exists $r^*>0$ such that $\max_{r > r^*}\{ B^{r}, C^{u,r}, D^{u,r} \} \leq \max\{C^{r \to \infty}_u,D^{r \to \infty}_u \}+\epsilon=: c_1$. We have the following two inequalities for $r > r^*$ and $\forall t \in [0,T]$:
 	\begin{IEEEeqnarray*}{rl}
-		&\left\vert (C^{u,r} + D^{u,r} \delta^{+,r}_u) - (C^{u,r} + D^{u,r} \delta^{-,r}_u) e^{- (\delta^{+,r}_u - \delta^{-,r}_u) (T-t)} \right\vert\\
-		&= C^{u,r} (1 -  e^{- (\delta^{+,r}_u - \delta^{-,r}_u) (T-t)} ) + D^{u,r} (\delta^{+,r}_u - \delta^{-,r}_u  e^{- (\delta^{+,r}_u - \delta^{-,r}_u) (T-t)} ) \\
+		C^{u,r} (1 -  e^{- (\delta^{+,r}_u - \delta^{-,r}_u) (T-t)} ) +& D^{u,r} (\delta^{+,r}_u - \delta^{-,r}_u  e^{- (\delta^{+,r}_u - \delta^{-,r}_u) (T-t)} )\\
 		&\leq  C^{u,r} + D^{u,r} (\delta^{+,r}_u - \delta^{-,r}_u)\\
 		&=  C^{u,r} + 2 D^{u,r} \sqrt{ (A^u)^2 + B^{r} C^{u,r}} \\
 		&\leq  c_1 + 2 c_1 \sqrt{(A^u)^2 + c_1^2} \\
@@ -710,8 +709,7 @@ Also for convenience, recall the definition:
 	\end{IEEEeqnarray*}
 	and 
 	\begin{IEEEeqnarray*}{rl}
-		& \left\vert ( -\delta^{-,r}_u + D^{u,r} B^{r} ) + (\delta^{+,r}_u - D^{u,r} B^{r} ) e^{-(\delta^{+,r}_u - \delta^{-,r}_u)(T-t)} \right\vert \\
-		&=  D^{u,r} B^r (1 - e^{- (\delta^{+,r}_u - \delta^{-,r}_u)(T-t)}) + \delta^{+,r}_u e^{- (\delta^{+,r}_u - \delta^{-,r}_u)(T-t)} - \delta^{-,r}_u \\		
+		D^{u,r} B^r (1 - e^{- (\delta^{+,r}_u - \delta^{-,r}_u)(T-t)})& + \delta^{+,r}_u e^{- (\delta^{+,r}_u - \delta^{-,r}_u)(T-t)} - \delta^{-,r}_u \\
 		&\geq \delta_u^{+,r} e^{-2 \sqrt{(A^u)^2 + B^{r} C^{u,r}} (T-t) } \\
 		&=(-A^u + \sqrt{ (A^u)^2 + B^{r} C^{u,r} } )  e^{- 2 \sqrt{(A^u)^2 + B^{r} C^{u,r}} (T-t) } \\
 		&\geq(-A^u + \left\vert A_u \right\vert) e^{-2T \sqrt{(A^u)^2 + c_1^2}}\\
@@ -720,7 +718,7 @@ Also for convenience, recall the definition:
 	\end{IEEEeqnarray*}
 	Thus, we can deduce that for $r>r^*$, for every $t \in [0,T]$:
 	\begin{IEEEeqnarray}{rCl}
-		\left\vert u_t^{r} \right\vert  &=& \frac{\left\vert (C^{u,r} + D^{u,r} \delta^{+,r}_u) - (C^{u,r} + D^{u,r} \delta^{-,r}_u) e^{- (\delta^{+,r}_u - \delta^{-,r}_u) (T-t)} \right\vert}{\left\vert ( -\delta^{-,r}_u + D^{u,r} B^{r} ) + (\delta^{+,r}_u - D^{u,r} B^{r} ) e^{-(\delta^{+,r}_u - \delta^{-,r}_u)(T-t)} \right\vert } \nonumber \\
+		\left\vert u_t^{r} \right\vert  &=& \frac{C^{u,r} (1 -  e^{- (\delta^{+,r}_u - \delta^{-,r}_u) (T-t)} ) +D^{u,r} (\delta^{+,r}_u - \delta^{-,r}_u  e^{- (\delta^{+,r}_u - \delta^{-,r}_u) (T-t)} )}{D^{u,r} B^r (1 - e^{- (\delta^{+,r}_u - \delta^{-,r}_u)(T-t)}) + \delta^{+,r}_u e^{- (\delta^{+,r}_u - \delta^{-,r}_u)(T-t)} - \delta^{-,r}_u} \nonumber \\
 		& \leq & \frac{ c_1 + 2 c_1 \sqrt{(A^u)^2 + c_1^2}  }{-2A^u e^{-2T \sqrt{(A^u)^2 + c_1^2} } } \nonumber \\
 		&=:&c_2.  \nonumber
 	\end{IEEEeqnarray}
@@ -1049,7 +1047,7 @@ Also for convenience, recall the definition:
 	$$ \max\left\{ \left\vert \frac{\delta_u^{+,\bar{b}_2}}{\sqrt{b_2 + \bar{b}_2}} - c_{\delta^{\bar{b}_2 \to \infty}_u} \right\vert , \ \left\vert \frac{\delta_u^{-,\bar{b}_2}}{\sqrt{b_2 + \bar{b}_2}} - (-c_{\delta^{\bar{b}_2 \to \infty}_u})\right\vert,\    \left\vert \frac{C^{u,\bar{b}_2}}{\sqrt{b_2 + \bar{b}_2}} \right\vert, \   \left\vert D^{u,\bar{b}_2} \right\vert \right\} \leq \epsilon_1. $$ 
 	Then with equation (\ref{eq:riccati_ut_sol}), for any $t \in [0,T]$:
 	\begin{IEEEeqnarray*}{rCl}
-		\vert u_t^{\bar{b}_2} \vert &=& \frac{\displaystyle C^{u,\bar{b}_2} \left(1 - e^{-(\delta^{+,\bar{b}_2}_u - \delta^{-,\bar{b}_2}_u)(T-t)} \right) + D^{u,\bar{b}_2} \left(\delta_u^{+,\bar{b}_2} - \delta_u^{-,\bar{b}_2} e^{- (\delta^{+,\bar{b}_2}_u - \delta^{-,\bar{b}_2}_u)(T-t)} \right) }{\displaystyle B^{\bar{b}_2} D^{u,\bar{b}_2} \left( 1 - e^{-(\delta^{+,\bar{b}_2}_u - \delta^{-,\bar{b}_2}_u)(T-t)} \right) + \left( - \delta_u^{-,\bar{b}_2} + \delta_u^{+,\bar{b}_2} e^{- (\delta^{+,\bar{b}_2}_u - \delta^{-,\bar{b}_2}_u)(T-t)} \right) } \\
+		\vert u_t^{\bar{b}_2} \vert &=& \frac{\displaystyle C^{u,\bar{b}_2} \left(1 - e^{-(\delta^{+,\bar{b}_2}_u - \delta^{-,\bar{b}_2}_u)(T-t)} \right) + D^{u,\bar{b}_2} \left(\delta_u^{+,\bar{b}_2} - \delta_u^{-,\bar{b}_2} e^{- (\delta^{+,\bar{b}_2}_u - \delta^{-,\bar{b}_2}_u)(T-t)} \right) }{\displaystyle B^{\bar{b}_2} D^{u,\bar{b}_2} \left( 1 - e^{-(\delta^{+,\bar{b}_2}_u - \delta^{-,\bar{b}_2}_u)(T-t)} \right)+ \delta_u^{+,\bar{b}_2} e^{- (\delta^{+,\bar{b}_2}_u - \delta^{-,\bar{b}_2}_u)(T-t)} - \delta_u^{-,\bar{b}_2} } \\
 		&\leq & \frac{C^{u,\bar{b}_2}+ D^{u,\bar{b}_2} \left(\delta_u^{+,\bar{b}_2} - \delta_u^{-,\bar{b}_2} \right)}{- \delta_u^{-,\bar{b}_2}} \\
 		&\leq & \frac{\epsilon_1 + \epsilon_1 (2 c_{\delta_u^{\bar{b}_2 \to \infty}} + 2 \epsilon_1)}{ c_{\delta_u^{\bar{b}_2 \to \infty}} - \epsilon_1} =: M_u(\epsilon_1)
 	\end{IEEEeqnarray*}
@@ -1592,7 +1590,7 @@ In the case where the coefficients are time-independent, the Riccati equations f
 	\end{equation}
 	then it has a unique solution:
 \begin{equation}
-		\rho_t= \frac{(C+D \delta^+) - (C+D \delta^-) e^{-(\delta^+ - \delta^-)(T-t)}}{(-\delta^- + D B) + (\delta^+ - D B) e^{-(\delta^+ - \delta^-)(T-t)}}
+		\rho_t= \frac{C(1-e^{-(\delta^+ - \delta^-)(T-t)})+D( \delta^+ -\delta^-e^{-(\delta^+ - \delta^-)(T-t)}) }{D B(1-e^{-(\delta^+ - \delta^-)(T-t)})+ \delta^+e^{-(\delta^+ - \delta^-)(T-t)}  -\delta^- }
 	\label{eq:riccati_ut_sol_app}
 \end{equation}
 	where $\delta^\pm = -A \pm \sqrt{(A)^2 + B C}$.
