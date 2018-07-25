@@ -756,7 +756,15 @@ Also for convenience, recall the definition:
 
 % proposition b_2 to \infty
 \begin{proposition}
-	Assuming (\ref{eq:assumptions}), $q_T+\bar{q}_T(1-s_T)>0$, $q_T+\bar{q}_T(1-s_T)^2>0$, and the initial condition $\xi$ satisfies $\mathbb{E}(\xi)\neq 0$, then:
+	Assuming (\ref{eq:assumptions}),
+	\begin{equation*}
+	\begin{split}
+	q_T+\bar{q}_T(1-s_T)&>0 \\
+	q_T+\bar{q}_T(1-s_T)^2&>0 \\
+	\frac{q+\bar{q}(1-s)}{r+\bar{r}(1-\bar{s})}&=\frac{q+\bar{q}(1-s)^2}{r+\bar{r}(1-\bar{s})^2},
+	\end{split}
+	\end{equation*}
+	and the initial condition $\xi$ satisfies $\mathbb{E}(\xi)\neq 0$, then:
 	$$ \lim_{b_2 \to \infty} PoA = 1.$$	
 \label{prop:b2_to_infty}
 \end{proposition}
@@ -789,9 +797,11 @@ Also for convenience, recall the definition:
 	\end{IEEEeqnarray*}
 	Idem, for any $t \in [0,T)$,
 	$$ (b_2 + \bar{b}_2) w_t^{b_2} \xrightarrow[b_2 \to \infty]{}  (r + \bar{r}(1-\bar{s})^2) \cdot c_{\delta_w^{b_2 \to \infty}} =: c_w,\qquad \text{with } \quad c_{\delta_w^{b_2 \to \infty}} = \sqrt{ \frac{q + \bar{q}(1-s)^2}{r + \bar{r}(1-\bar{s})^2} }.$$
-%	and for any $t \in [0,T)$,
-%	$$ b_2 \eta_t^{b_2} \xrightarrow[b_2 \to \infty]{} (r+ \bar{r}) c_{\delta_\eta^{b_2 \to \infty}} =: c_5, \qquad \text{with } \quad c_{\delta_\eta^{b_2 \to \infty}} = \sqrt{\frac{q+\bar{q}}{r + \bar{r}}}.
-%	$$
+	From the assumption:
+	\begin{equation*}
+	\frac{q+\bar{q}(1-s)}{r+\bar{r}(1-\bar{s})}=\frac{q+\bar{q}(1-s)^2}{r+\bar{r}(1-\bar{s})^2},
+	\end{equation*}
+	we have $c_w=c_u=:c$.
 	
 	% lower bound for (b_2 + b2 bar) u_t
 	Next, we derive a uniform lower bound for $(b_2 + \bar{b}_2) u_t^{b_2}$ over $[0,T]$ and large $b_2$. Let $\zeta_1 =\frac{1}{2} \min \left\{ c_{\delta_u^{b_2 \to \infty}}, D^{u,b_2 \to \infty} \right\}$. Then there exists $b_2^{*,lower}>0$ such that for all $b_2 \geq b_2^{*,lower}$,
@@ -850,38 +860,28 @@ Also for convenience, recall the definition:
 		I_2^{b_2} = \frac{(b_2 + \bar{b}_2)^3}{r + \bar{r}(1-\bar{s})^2}  \int_{t^*}^T (u_t^{b_2} - w_t^{b_2})^2 e^{2(b_1 + \bar{b}_1)t} \exp \left( -\frac{2 (b_2 + \bar{b}_2)}{r + \bar{r}(1-\bar{s})^2} \int_0^{t} h_u(b_2,s) ds \right) dt.
 	$$
 	
-	Fix $\epsilon>0$. In the following, we show that the time point $t^*$ can be chosen such that $I_1^{b_2} \leq \epsilon$ and $I_2^{b_2} \leq \epsilon$ for large $b_2$.
-	  
-
+	Fix $\epsilon>0$. In the following, we show that $I_1^{b_2} \leq \epsilon$ and $I_2^{b_2} \leq \epsilon$ for large $b_2$.
 	% the term I_1
-	First, consider $I_1^{b_2}$. Recall that for $t \in[0,T/2]$, we have $\lim_{b_2 \to \infty}h_u(b_2,t) = c_u$ and $\lim_{b_2 \to \infty}h_w(b_2,t) = c_w$, and for all $b_2 \geq b_2^{*,upper}$, the functions $[0,T/2] \ni s \mapsto u_s^{b_2}$ and $[0,T/2] \ni s \mapsto w_s^{b_2}$ are increasing, and thus, $[0,T/2] \ni s \mapsto h_u(b_2,t)$ and $[0,T/2] \ni s \mapsto h_w(b_2,t)$ are increasing. (Note that $T/2<T$ is chosen arbitrarily, since the above limits do not hold at $T$.) Let $\zeta_2 =\frac{1}{2} \min \{ c_u, c_w \} $. Then there exists $b_2^{*,I_1}  > b_2^{*,upper}$ such that for all $b_2 \geq b_2^{*,I_1}$ and all $s\in [0, T/2]$ we have:
+	First, consider $I_1^{b_2}$. Recall that for $t \in[0,T/2]$, we have $\lim_{b_2 \to \infty}h_u(b_2,t) = c_u$ and $\lim_{b_2 \to \infty}h_w(b_2,t) = c_w$, and for all $b_2 \geq b_2^{*,upper}$, the functions $[0,T/2] \ni s \mapsto u_s^{b_2}$ and $[0,T/2] \ni s \mapsto w_s^{b_2}$ are increasing, and thus, $[0,T/2] \ni s \mapsto h_u(b_2,t)$ and $[0,T/2] \ni s \mapsto h_w(b_2,t)$ are increasing. (Note that $T/2<T$ is chosen arbitrarily, since the above limits do not hold at $T$.) Let $\zeta_2 =\min \{\frac{1}{2}\sqrt{\epsilon c}e^{-T(b_1+\bar{b}_2)},\frac{c}{2}\}$. Then there exists $b_2^{*,I_1}  > b_2^{*,upper}$ such that for all $b_2 \geq b_2^{*,I_1}$ and all $s\in [0, T/2]$ we have:
 	\begin{equation*}
 	\begin{array}{lclclclcl}
-		c_u - \zeta_2 &\leq& h_u(b_2,0) &\leq& h_u(b_2,s) &\leq& h_u(b_2, T/2 ) &\leq& c_u + \zeta_2, \\
-		c_w - \zeta_2 &\leq& h_w(b_2,0) &\leq& h_w(b_2,s) &\leq& h_w(b_2, T/2 ) &\leq& c_w + \zeta_2.
+		c - \zeta_2 &\leq& h_u(b_2,0) &\leq& h_u(b_2,s) &\leq& h_u(b_2, T/2 ) &\leq& c + \zeta_2, \\
+		c - \zeta_2 &\leq& h_w(b_2,0) &\leq& h_w(b_2,s) &\leq& h_w(b_2, T/2 ) &\leq& c + \zeta_2.
 	\end{array}
 	\end{equation*}
 	Thus, if $t^* < \frac{T}{2}$, then for any $t \in [0,t^*]$ and $b_2 \geq b_2^{*,I_1}$, we have:
 	$$
-		\vert h_u(b_2, t) - h_w(b_2,t) \vert^2 \leq  2 [ (c_u + \zeta_2)^2 + (c_w+ \zeta_2)^2 ]\quad \text{and} \quad \int_0^t h_u(b_2,s)ds \geq (c_u - \zeta_2) t.
+		\vert h_u(b_2, t) - h_w(b_2,t) \vert^2 \leq  4 \zeta_2^2 \quad \text{and} \quad \int_0^t h_u(b_2,s)ds \geq (c - \zeta_2) t \geq \frac{c}{2}\cdot t.
 	$$
 	Therefore,
 	\begin{IEEEeqnarray}{rCl}
-		I_1^{b_2} &\leq& e^{2T(b_1 + \bar{b}_1)}[ (c_u+ \zeta_2)^2 + (c_w + \zeta_2)^2 ] \cdot\frac{2(b_2 + \bar{b}_2)}{r+ \bar{r}(1-\bar{s})^2} \int_0^{t^*} \exp \left(  - \frac{2 (b_2 + \bar{b}_2)}{r + \bar{r}(1-\bar{s})^2} \cdot (c_u - \zeta_2) t \right) dt \nonumber \\
-		&=& \kappa_1 \left( 1 - e^{ - \kappa_2 (b_2 + \bar{b}_2) t^* } \right), 
+		I_1^{b_2} &\leq& 4\zeta_2^2e^{2T(b_1 + \bar{b}_1)} \cdot\frac{(b_2 + \bar{b}_2)}{r+ \bar{r}(1-\bar{s})^2} \int_0^{t^*} \exp \left(  - \frac{2 (b_2 + \bar{b}_2)}{r + \bar{r}(1-\bar{s})^2} \cdot \frac{c}{2}\cdot t \right) dt \nonumber \\
+		&=& 2\zeta_2^2 \cdot \frac{e^{2T(b_1 + \bar{b}_1)}}{\frac{c}{2}} \left( 1 - e^{ - \frac{2(b_2 + \bar{b}_2) \frac{c}{2}}{r + \bar{r}(1-\bar{s})^2}  t^* } \right) \\
+		&\leq& \frac{4e^{2T(b_1 + \bar{b}_1)}}{c}\cdot \zeta_2^2\\
+		&\leq&\epsilon, 
 	\label{eq:I1_ineq_b2_infinity}
 	\end{IEEEeqnarray}
-	where the coefficients $ \displaystyle \kappa_1:= \frac{e^{2T(b_1 + \bar{b}_1)}\cdot  [ (c_u+ \zeta_2)^2 + (c_w + \zeta_2)^2 ]}{c_u - \zeta_2}>0$ and $\displaystyle \kappa_2 := \frac{2 (c_u - \zeta_2)}{r + \bar{r}(1-\bar{s})^2}>0$ are independent of $b_2$.	
-	In particular, the above inequality is valid when $b_2 = b_2^{*,I_1}$, so if we choose the time point $t^*$ as follows:
-	\begin{equation}
-	 t^* := \min\left\{ \frac{T}{2}, \  \frac{1}{\kappa_2 \cdot \left( b_2^{*,I_1} + \bar{b}_2\right) } \ln \left( \frac{1}{\displaystyle 1- \frac{\epsilon}{\kappa_1} } \right) \right\},
-	\label{eq:t^*_b2_infty} 
-	\end{equation}
-	then we are able to deduce from inequality (\ref{eq:I1_ineq_b2_infinity}) that: 	(ToDo: there is a mistake here! This is only true for $I_1^{b_2^{*,I_1}}$, not for $I_1^{b_2}$ for any $b_2> b_2^{*,I_1}$.)
-	\begin{equation}
-		I_1^{b_2} \leq \kappa_1 \left(1 - e^{- \kappa_2 (b_2^{*,I_1} + \bar{b}_2) t^*}  \right) \leq \epsilon.\\
-	\label{eq:I1_b2_infty}
-	\end{equation}
+	where the last inequality comes from the definition of $\zeta_2$.
 	
 	% check I_2
 	Next, consider $I_2^{b_2}$ with $t^*$ as in equation (\ref{eq:t^*_b2_infty}). 
@@ -909,9 +909,9 @@ Also for convenience, recall the definition:
 	\label{eq:I2_b2_infty}
 	\end{equation}
 	
-	Let $b_2^*(\epsilon) := \max \{ b_2^{*,I_1}, b_2^{*,I_2}\}$. Then equations (\ref{eq:I_1_plus_I_2}), (\ref{eq:I1_b2_infty}) and (\ref{eq:I2_b2_infty}) give:
+	Let $b_2^*(\epsilon) := \max \{ b_2^{*,I_1}, b_2^{*,I_2}\}$. Then equations (\ref{eq:I_1_plus_I_2}), (\ref{eq:I1_ineq_b2_infinity}) and (\ref{eq:I2_b2_infty}) give:
 	\begin{equation*}
-		\frac{\Delta SC}{SC^{MKV}} \leq \frac{I_1 + I_2}{(b_2 + \bar{b}_2) w_0^{b_2}} \leq \frac{ \epsilon + \epsilon }{h_w(b_2,0)} \leq \frac{2\epsilon}{c_w - \zeta_2}.
+		\frac{\Delta SC^{b_2}}{SC^{MKV,b_2}} \leq \frac{I_1^{b_2} + I_2^{b_2}}{(b_2 + \bar{b}_2) w_0^{b_2}} \leq \frac{ \epsilon + \epsilon }{h_w(b_2,0)} \leq \frac{2\epsilon}{c_w - \zeta_2}.
 	\end{equation*}
 	Since the proof holds for arbitrary $\epsilon>0$, we conclude:
 	\begin{equation*}
