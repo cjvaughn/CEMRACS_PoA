@@ -794,7 +794,7 @@ Also for convenience, recall the definition:
 %	$$
 	
 	% lower bound for (b_2 + b2 bar) u_t
-	Next, we derive a uniform lower bound for $(b_2 + \bar{b}_2) u_t^{b_2}$ over $[0,T]$ and large $b_2$. Let $\epsilon_1 > 0$ so that $\epsilon_1 < \min \left\{ c_{\delta_u^{b_2 \to \infty}}, D^{u,b_2 \to \infty} \right\}$. Then there exists $b_2^{*,lower} := b_2^{*,lower}(\epsilon_1) 	>0$ such that for all $b_2 \geq b_2^{*,lower}$,
+	Next, we derive a uniform lower bound for $(b_2 + \bar{b}_2) u_t^{b_2}$ over $[0,T]$ and large $b_2$. Let $\epsilon_1 > 0$ so that $\epsilon_1 < \min \left\{ c_{\delta_u^{b_2 \to \infty}}, D^{u,b_2 \to \infty} \right\}$. Then there exists $b_2^{*,lower}>0$ such that for all $b_2 \geq b_2^{*,lower}$,
 	$$ 
 	\max \left\{  \left\vert \frac{\delta_u^{+,b_2}}{b_2 + \bar{b}_2}  - c_{\delta_u^{b_2 \to \infty}} \right\vert, \   \left\vert \frac{\delta_u^{-,b_2}}{b_2 + \bar{b}_2}  - \left(-c_{\delta_u^{b_2 \to \infty}}\right) \right\vert, \vert D^{u,b_2} - D^{u,b_2\to \infty} \vert,  \left\vert \frac{1}{b_2 + \bar{b}_2} \right\vert  \right\} \leq \epsilon_1,
 	$$ 
@@ -824,27 +824,27 @@ Also for convenience, recall the definition:
 	\end{equation}
 	(ToDo: why should we write the uniform upper bounds together? We can give them individually.)
 	
-	Now we are ready to show that $\lim_{b_2 \to \infty} \frac{\Delta SC}{SC^{MKV}} = 0$. The idea is to split the whole interval into two parts $[0,T] =[0,t^*] \cup [t^*,T]$.	
-	Since $v_t \geq 0$ for all $t\in [0,T]$, we have $SC^{MKV} \geq w_0^{b_2} \mathbb{E}(\xi)^2$.	For the sake of simplicity, for all $t \in [0,T]$, we denote $h_u(b_2,t) = (b_2 + \bar{b}_2) u_{t}^{b_2}$ and $h_w(b_2,t) = (b_2 + \bar{b}_2)w_t^{b_2}$. Thus by multiplying $(b_2 + \bar{b}_2)$ both on the numerator and denominator we get
+	Now we are ready to show that $\lim_{b_2 \to \infty} \frac{\Delta SC}{SC^{MKV}} = 0$. Our approach is to split the interval $[0,T]$ into two parts, $[0,t^*] \cup [t^*,T]$.	
+	Since $v_t \geq 0$ for all $t\in [0,T]$, we have $SC^{MKV} \geq w_0^{b_2} (\mathbb{E}(\xi))^2$.	For the sake of simplicity, we denote $h_u(b_2,t) := (b_2 + \bar{b}_2) u_{t}^{b_2}$ and $h_w(b_2,t) := (b_2 + \bar{b}_2)w_t^{b_2}$. We have:
 	\begin{IEEEeqnarray*}{rCl}
-		0 \leq \frac{\Delta SC}{SC^{MKV}} &\leq& \frac{1}{w_0^{b_2} \mathbb{E}(\xi)^2 } \left( B^{b_2} \int_{[0,t^*]} (u_t^{b_2} - w_t^{b_2})^2 (\bar{x}_t^{MFG,b_2})^2 dt + B^{b_2} \int_{[t^*, T]} (u_t^{b_2} - w_t^{b_2})^2 (\bar{x}_t^{MFG,b_2})^2 dt \right) \\ 
+		0 \leq \frac{\Delta SC}{SC^{MKV}} &\leq& \frac{1}{w_0^{b_2} \mathbb{E}(\xi)^2 } \left( B^{b_2} \int_{0}^{t^*} (u_t^{b_2} - w_t^{b_2})^2 (\bar{x}_t^{MFG,b_2})^2 dt + B^{b_2} \int_{t^*}^{T} (u_t^{b_2} - w_t^{b_2})^2 (\bar{x}_t^{MFG,b_2})^2 dt \right) \\ 
 		&=&  \frac{1}{(b_2 + \bar{b}_2) w_0^{b_2} } \left( I_1 + I_2 \right)
 	\end{IEEEeqnarray*}
-	where
+	where:
 	\begin{IEEEeqnarray*}{rCl}
 	I_1 &=& \frac{(b_2 + \bar{b}_2)^3}{r + \bar{r}(1-\bar{s})^2}  \int_0^{t^*} (u_t^{b_2} - w_t^{b_2})^2 e^{2(b_1 + \bar{b}_1)t} \exp \left( -2B^{b_2} \int_0^{t} u_s^{b_2} ds 
 	\right) dt \\
-	&=& \frac{b_2 + \bar{b}_2}{r + \bar{r}(1-\bar{s})^2} \int_0^{t^*} [ h_u(b_2,t)- h_w(b_2,t) ]^2 \cdot e^{2(b_1 + \bar{b}_1)t} \exp \left( - \frac{2 (b_2 + \bar{b}_2)}{r+ \bar{r}(1-\bar{s})^2}  \int_0^t h_u(b_2,s) ds \right) dt	 
+	&=& \frac{b_2 + \bar{b}_2}{r + \bar{r}(1-\bar{s})^2} \int_0^{t^*} [ h_u(b_2,t)- h_w(b_2,t) ]^2 \cdot e^{2(b_1 + \bar{b}_1)t} \exp \left( - \frac{2 (b_2 + \bar{b}_2)}{r+ \bar{r}(1-\bar{s})^2}  \int_0^t h_u(b_2,s) ds \right) dt, 
 	\end{IEEEeqnarray*}
-	and 
+	and:
 	$$
 		I_2 = \frac{(b_2 + \bar{b}_2)^3}{r + \bar{r}(1-\bar{s})^2}  \int_{t^*}^T (u_t^{b_2} - w_t^{b_2})^2 e^{2(b_1 + \bar{b}_1)t} \exp \left( -\frac{2 (b_2 + \bar{b}_2)}{r + \bar{r}(1-\bar{s})^2} \int_0^{t} h_u(b_2,s) ds \right) dt.
 	$$	
-	The time point $t^*$ is chosen afterwards in order to make $I_1$ small enough. For any given $\epsilon>0$, we want to show that $I_1 \leq \epsilon$ and $I_2 \leq \epsilon$ for any $b_2$ large enough.\\
+	The time point $t^*$ will be chosen such that for any given $\epsilon>0$, we will have $I_1 \leq \epsilon$ and $I_2 \leq \epsilon$ for large $b_2$.
 	  
 
 	% the term I_1
-	We look at the term $I_1$ first. Recall that on the closed sub-interval $[0,T/2]$, we have pointwise convergence $(b_2 + \bar{b}_2) u_t^{b_2} \to c_u$ and $(b_2 + \bar{b}_2) w_t^{b_2} \to c_w$. Because we have shown that for all $b_2 \geq b_w^{*,upper}$, the functions $[0,T/2] \ni s \mapsto u_s^{b_2}$ and $[0,T/2] \ni s \mapsto w_s^{b_2}$ are increasing. Consequently, for any positive constant $\epsilon_2 < \min \{ c_u, c_w \} $, saying for example $\epsilon_2 = \frac{1}{2} \min \{c_u, c_w \}$, there exists $b_2^{*,I_1} := b_2^{*,I_1}(\epsilon_2) > b_2^{*,upper}$ such that for all $b_2 \geq b_2^{*,I_1}$ and all $s\in [0, T/2]$ we have:
+	First, consider $I_1$. Recall that for $t \in[0,T/2]$, we have $\lim_{b_2 \to \infty}h_u(b_2,t) = c_u$ and $\lim_{b_2 \to \infty}h_w(b_2,t) = c_w$, and for all $b_2 \geq b_w^{*,upper}$, the functions $[0,T/2] \ni s \mapsto u_s^{b_2}$ and $[0,T/2] \ni s \mapsto w_s^{b_2}$ are increasing. Consequently, for any $\epsilon_2>0$ with $\epsilon_2 < \min \{ c_u, c_w \} $, there exists $b_2^{*,I_1}  > b_2^{*,upper}$ such that for all $b_2 \geq b_2^{*,I_1}$ and all $s\in [0, T/2]$ we have:
 	\begin{equation*}
 	\left\{
 	\begin{array}{lclclclcl}
@@ -853,26 +853,25 @@ Also for convenience, recall the definition:
 	\end{array}
 	\right.
 	\end{equation*}
-	Thus, if $t^* < \frac{T}{2}$, then for any $t \in [0,t^*] \subset [0,T/2]$ and $b_2 \geq b_2^{*,I_1}$,
+	Thus, if $t^* < \frac{T}{2}$, then for any $t \in [0,t^*] \subset [0,T/2]$ and $b_2 \geq b_2^{*,I_1}$, we have:
 	$$
 		\vert h_u(b_2, t) - h_w(b_2,t) \vert^2 \leq  2 [ (c_u + \epsilon_2)^2 + (c_w+ \epsilon_2)^2 ]\quad \text{and} \quad \int_0^t h_u(b_2,s)ds \geq (c_u - \epsilon_2) t,
 	$$
-	which implies
+	which implies:
 	\begin{IEEEeqnarray}{rCl}
-		I_1 &=& \frac{b_2 + \bar{b}_2}{r + \bar{r}(1-\bar{s})^2} \int_0^{t^*} [ h_u(b_2,t)- h_w(b_2,t) ]^2 \cdot e^{2(b_1 + \bar{b}_1)t} \exp \left( - \frac{2 (b_2 + \bar{b}_2)}{r+ \bar{r}(1-\bar{s})^2}  \int_0^t h_u(b_2,s) ds \right) dt \nonumber \\
-		&\leq& \frac{e^{(b_1 + \bar{b}_1) T}\cdot  2[ (c_u+ \epsilon_2)^2 + (c_w + \epsilon_2)^2 ]}{r+ \bar{r}(1-\bar{s})^2} \cdot (b_2 + \bar{b}_2) \int_0^{t^*} \exp \left(  - \frac{2 (b_2 + \bar{b}_2)}{r + \bar{r}(1-\bar{s})^2} \cdot (c_u - \epsilon_2) t \right) dt \nonumber \\
-		&=& \kappa_1 \left( 1 - e^{ - \kappa_2 \cdot (b_2 + \bar{b}_2) t^* } \right) 
+		I_1 &\leq& \frac{e^{2T(b_1 + \bar{b}_1)}\cdot  2[ (c_u+ \epsilon_2)^2 + (c_w + \epsilon_2)^2 ]}{r+ \bar{r}(1-\bar{s})^2} \cdot (b_2 + \bar{b}_2) \int_0^{t^*} \exp \left(  - \frac{2 (b_2 + \bar{b}_2)}{r + \bar{r}(1-\bar{s})^2} \cdot (c_u - \epsilon_2) t \right) dt \nonumber \\
+		&=& \kappa_1 \left( 1 - e^{ - \kappa_2 (b_2 + \bar{b}_2) t^* } \right), 
 	\label{eq:I1_ineq_b2_infinity}
 	\end{IEEEeqnarray}
-	where the coefficients $ \displaystyle \kappa_1 := \kappa_1(\epsilon_2) = \frac{e^{(b_1 + \bar{b}_1) T}\cdot  [ (c_u+ \epsilon_2)^2 + (c_w + \epsilon_2)^2 ]}{c_u - \epsilon_2}$ and $\displaystyle \kappa_2 := \kappa_2(\epsilon_2) = \frac{2 (c_u - \epsilon_2)}{r + \bar{r}(1-\bar{s})^2} $ independent of $b_2$.	
-	In particular, the above inequality is valid when $b_2 = b_2^{*,I_1}$, so if we let $\epsilon_2 = \frac{1}{2} \min \{c_u, c_w\}$ as previous, and choose the time point $t^*$ as following
+	where the coefficients $ \displaystyle \kappa_1 := \kappa_1(\epsilon_2) = \frac{e^{2T(b_1 + \bar{b}_1)}\cdot  [ (c_u+ \epsilon_2)^2 + (c_w + \epsilon_2)^2 ]}{c_u - \epsilon_2}>0$ and $\displaystyle \kappa_2 := \kappa_2(\epsilon_2) = \frac{2 (c_u - \epsilon_2)}{r + \bar{r}(1-\bar{s})^2}>0$ are independent of $b_2$.	
+	In particular, the above inequality is valid when $b_2 = b_2^{*,I_1}$, so if we choose the time point $t^*$ as follows:
 	\begin{equation}
 	 t^* := t^*(\epsilon) = \min\left\{ \frac{T}{2}, \  \frac{1}{\kappa_2 \cdot \left( b_2^{*,I_2} + \bar{b}_2\right) } \ln \left( \frac{1}{\displaystyle 1- \frac{\epsilon}{\kappa_1} } \right) \right\},
 	\label{eq:t^*_b2_infty} 
 	\end{equation}
-	then we are able to deduce from inequality (\ref{eq:I1_ineq_b2_infinity}) that
+	then we are able to deduce from inequality (\ref{eq:I1_ineq_b2_infinity}) that:
 	\begin{equation}
-		I_1 \leq \kappa_1 \left[1 - e^{- \kappa_2 \cdot (b_2^{*,I_2} + \bar{b}_2) \cdot t^*}  \right] = \epsilon.\\
+		I_1 \leq \kappa_1 \left(1 - e^{- \kappa_2 (b_2^{*,I_2} + \bar{b}_2) t^*}  \right) \leq \epsilon.\\
 	\label{eq:I1_b2_infty}
 	\end{equation}
 	
