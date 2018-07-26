@@ -1004,7 +1004,11 @@ Also for convenience, recall the definition:
 
 % proposition b2 bar infinity
 \begin{proposition}
-	Assuming (\ref{eq:assumptions}), the initial condition $\xi$ satisfies $\mathbb{E}(\xi)\neq 0$, and assuming $\bar{b}_1> 0$, $q_T+\bar{q}_T(1-s_T)>0$, and $q_T+\bar{q}_T(1-s_T)^2>0$, then:
+	Assuming (\ref{eq:assumptions}), the initial condition $\xi$ satisfies $\mathbb{E}(\xi)\neq 0$, and assuming $\bar{b}_1> 0$, $q_T+\bar{q}_T(1-s_T)>0$, and $q_T+\bar{q}_T(1-s_T)^2>0$, and:
+	\begin{equation*}
+		\frac{r + \bar{r}(1- \bar{s})^2}{r + \bar{r}(1-\bar{s})} \neq \frac{q_T+\bar{q}_T(1-s_T)^2}{q_T+\bar{q}_T(1-s_T)}
+	\end{equation*}
+	then:
 	\begin{equation*}
 	\lim_{\bar{b}_2 \to 0} PoA =: PoA^{\bar{b}_2\to 0} > 1\qquad \text{and} \qquad\lim_{\bar{b}_2 \to \infty} PoA = 1.
 	\end{equation*}
@@ -1037,7 +1041,7 @@ Also for convenience, recall the definition:
 	Moreover, $\bar{x}^{MFG,\bar{b}_2}$ is uniformly bounded for all $\bar{b}_2<\bar{b}^*_2$ and for all $t \in [0,T]$. From the nonnegativity of $u_t$, we have:
 	$$ \left\vert \bar{x}^{MFG,\bar{b}_2}_t \right\vert \leq \left\vert \mathbb{E}(\xi) \right\vert e^{ (b_1 + \bar{b}_1 ) T }, \quad \forall t \in [0,T], \ \forall \bar{b}_2<\bar{b}^*_2. $$ 
    	
-   	By our assumption on $\bar{b}_1$, we have $A^u \neq A^w$ and thus, $u^{\bar{b}_2 \to 0}_t\neq w^{\bar{b}_2 \to 0}_t$ on a set of positive Lebesgue measure. Thus, from Proposition \ref{prop:diff_SC} and by the bounded convergence theorem, we deduce:
+   	By the assumption $\frac{r + \bar{r}(1- \bar{s})^2}{r + \bar{r}(1-\bar{s})} \neq \frac{q_T+\bar{q}_T(1-s_T)^2}{q_T+\bar{q}_T(1-s_T)}$, we have $D^{u,\bar{b}_2 \to 0} \neq D^{w,\bar{b}_2 \to 0}$, and thus by continuity, $u^{\bar{b}_2 \to 0}_t\neq w^{\bar{b}_2 \to 0}_t$ on a set of positive Lebesgue measure. Thus, from Proposition \ref{prop:diff_SC} and by the bounded convergence theorem, we deduce:
 	$$ \lim_{\bar{b}_2 \to 0} \Delta SC^{\bar{b}_2} = \frac{1}{2} B^{\bar{b}_2 \to 0} \int_0^T \left( (u_t^{\bar{b}_2 \to 0} - w_t^{\bar{b}_2 \to 0}\right)^2 \left (\bar{x}_t^{MFG,\bar{b}_2 \to 0} \right)^2 dt \  > 0. $$
 	Meanwhile, $\eta_t$ does not depend on $\bar{b}_2$, and therefore the variance $v_t$ also does not depend on $\bar{b}_2$. It is easy to check that $0<v_t<\infty$ for $t>0$ and $0 \leq w^{\bar{b}_2 \to 0}_0 < \infty$, and thus,
 	\begin{equation*}
@@ -1144,7 +1148,11 @@ Also for convenience, recall the definition:
 
 % proposition b1 bar
 \begin{proposition}\label{prop:b1_b1bar}
-	Assuming (\ref{eq:assumptions}), $b_1>0$, $\bar{b}_1>0$, the initial condition $\xi$ satisfies $\mathbb{E}(\xi)\neq 0$, and $Var(\xi)>0$, then:
+	Assuming (\ref{eq:assumptions}), the initial condition $\xi$ satisfies $\mathbb{E}(\xi)\neq 0$, and $Var(\xi)>0$, and:
+	\begin{equation*}
+	\frac{b_2}{b_2+\bar{b}_2}\cdot \frac{r + \bar{r}(1- \bar{s})^2}{r + \bar{r}(1-\bar{s})} \neq \frac{q_T+\bar{q}_T(1-s_T)^2}{q_T+\bar{q}_T(1-s_T)}
+	\end{equation*}
+	then:
 	\begin{equation*}
 	\begin{split}
 	    \lim_{b_1 \to 0} PoA =: PoA^{0,b_1} > 1\qquad &\text{and} \qquad \lim_{\bar{b}_1 \to 0} PoA =: PoA^{0,\bar{b}_1} > 1,\\
@@ -1158,7 +1166,7 @@ Also for convenience, recall the definition:
 		\left|u^{b_1}_t\right| \leq \frac{C^u+D^u\left(\delta^{+,b_1}_u-\delta^{-,b_1}_u\right) }{-\delta^{-,b_1}_u} \\
 		\leq \frac{C^u+D^u\left(\delta^{+,b_1\to 0}_u-\delta^{-,b_1 \to 0}_u+2\epsilon\right) }{-\delta^{-,b_1\to 0}_u-\epsilon} := c
 	\end{equation*}
-	and similarly for $\left|w^{b_1}_t\right|$ and $\left|\eta^{b_1}_t\right|$. By our assumption on $\bar{b}_1$, we have $A^{u,b_1\to 0} \neq A^{w,b_1\to 0}$ and thus, $u^{b_1\to 0}_t \neq w^{b_1\to 0}_t$ on a set of positive Lebesgue measure.
+	and similarly for $\left|w^{b_1}_t\right|$ and $\left|\eta^{b_1}_t\right|$. From the assumption $\frac{b_2}{b_2+\bar{b}_2}\cdot \frac{r + \bar{r}(1- \bar{s})^2}{r + \bar{r}(1-\bar{s})} \neq \frac{q_T+\bar{q}_T(1-s_T)^2}{q_T+\bar{q}_T(1-s_T)}$, we have $D^{u} \neq D^{w,b_1}$ and thus by continuity, $u^{b_1\to 0}_t \neq w^{b_1\to 0}_t$ on a set of positive Lebesgue measure.
 	
 	From equation (\ref{eq:x_bar_MFG_explicit_new_notation}), the assumption on $\xi$, and by the bounded convergence theorem, we have for every $t \in [0,T]$:
 	\begin{equation*}
