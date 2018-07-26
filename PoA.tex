@@ -1295,9 +1295,14 @@ Note that $u_t$ is increasing if $B (D^{u})^2 + 2 A^u D^{u} - C^{u}>0$, and like
 
 	Since $\lim_{\bar{b}_1 \to \infty}B (D^{u})^2 + 2 A^{u,\bar{b}_1} D^{u} - C^{u}=-\infty$, from equation (\ref{eq:riccati_ut_sol_deriv}) there exists a $\bar{b}_1^{*,dec}$ such that for $\bar{b}_1 \geq \bar{b}_1^{*,dec}$, $t \mapsto u_t^{\bar{b}_1}$ is decreasing, and thus, $(\bar{b}_1-B u_t^{\bar{b}_1})\geq (\bar{b}_1-B u_{0}^{\bar{b}_1})$.
 	
-	(ToDo: Show $(\bar{b}_1-B u_0^{\bar{b}_1}) \to 0$.)
+	(ToDo: Show $\lim_{\bar{b}_1 \to \infty}(\bar{b}_1-B u_0^{\bar{b}_1}) \geq 0$.)
 	
-	Let $\zeta_2>0$. Since $\lim_{\bar{b}_1 \to \infty}(\bar{b}_1-B u_0^{\bar{b}_1}) = 0$, there exists $\bar{b}_1^{*} \geq \max \{\bar{b}_1^{*,u,w},\bar{b}_1^{*,dec} \}$, such that for $\bar{b}_1 \geq \bar{b}_1^{*}$,
+	Next, we show $\lim_{\bar{b}_1 \to \infty}(\bar{b}_1-B u_0^{\bar{b}_1}) \geq 0$. We have: (ToDo don't use $\xi$, add superscripts)
+	\begin{equation*} 
+	\bar{b}_1-Bu^{\bar{b}_1}_0=\frac{BD(\bar{b}_1-\delta^+_u)-\delta^-_u\bar{b}_1-BC+(BC+BD\delta^-_u+\delta^+_u\bar{b}_1-BD\bar{b}_1)e^{-(\delta^+_u-\delta^-_u)T}}{-\delta^-_u+BD+(\delta^+_u-BD) e^{-(\delta^+_u-\delta^-_u)T}}
+	\end{equation*}
+	
+	Let $\zeta_2>0$. Since $\lim_{\bar{b}_1 \to \infty}(\bar{b}_1-B u_0^{\bar{b}_1}) \geq 0$, there exists $\bar{b}_1^{*} \geq \max \{\bar{b}_1^{*,u,w},\bar{b}_1^{*,dec} \}$, such that for $\bar{b}_1 \geq \bar{b}_1^{*}$,
 	\begin{equation*}
 	\frac{1}{\bar{b}_1^2}\Delta SC^{\bar{b}_1}\geq \frac{1}{4B}(\mathbb{E}(\xi))^2 \int_0^{\frac{T}{2}}e^{2tb_1}e^{-2t\zeta_2}dt=:c_{\Delta SC}>0,
 	\end{equation*}
