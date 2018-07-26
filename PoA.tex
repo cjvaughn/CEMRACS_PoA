@@ -668,6 +668,13 @@ Also for convenience, recall the definition:
 \lambda = \frac{b_2}{b_2 + \bar{b}_2}\cdot \frac{ r + \bar{r}(1-\bar{s})^2 }{r + \bar{r}(1-\bar{s})}.
 \end{equation*}
 
+It will also be useful to compute the derivative of $u_t$ with respect to time $t$ from the explicit form in equation (\ref{eq:riccati_ut_sol}):
+\begin{equation}
+\frac{d u_t}{dt} = \frac{\left(B (D^{u})^2 + 2 A^u D^{u} - C^{u} \right) \cdot \left(\delta_u^{+} - \delta_u^{-}\right)^2 e^{- (\delta_u^{+} - \delta_u^{-})(T-t) } }{\left[B D^{u}(1-e^{- (\delta_u^{+} - \delta_u^{-})(T-t)})   + \delta_u^{+}e^{- (\delta_u^{+} - \delta_u^{-})(T-t)}- \delta_u^{-}  \right]^2 }.
+\label{eq:riccati_ut_sol_deriv}
+\end{equation}
+Note that $u_t$ is increasing if $B (D^{u})^2 + 2 A^u D^{u} - C^{u}>0$, and likewise, decreasing if $B (D^{u})^2 + 2 A^u D^{u} - C^{u}<0$.
+
 
 % proposition r to infty
 \begin{proposition}
@@ -767,11 +774,11 @@ Also for convenience, recall the definition:
 	
 	If 
 	\begin{equation*}
-	\frac{q+\bar{q}(1-s)}{r+\bar{r}(1-\bar{s})} =\frac{q+\bar{q}(1-s)^2}{r+\bar{r}(1-\bar{s})^2}
+	\frac{q+\bar{q}(1-s)}{r+\bar{r}(1-\bar{s})} =\frac{q+\bar{q}(1-s)^2}{r+\bar{r}(1-\bar{s})^2},
 	\end{equation*}
 	then 
-	$$ \lim_{b_2 \to \infty} PoA = 1,$$	
-	otherwise, 
+	$$ \lim_{b_2 \to \infty} PoA = 1.$$	
+	Otherwise, 
 	$$ \lim_{b_2 \to \infty} PoA >1.$$
 \label{prop:b2_to_infty}
 \end{proposition}
@@ -827,11 +834,7 @@ Also for convenience, recall the definition:
 
 
 	% upper bound for u_t, w_t
-	Also, from equation (\ref{eq:riccati_ut_sol}), for any fixed $b_2$, we can compute the derivative of $u_t^{b_2}$ with respect to time $t$:
-	\begin{equation*}
-		\frac{d u_t^{b_2}}{dt} = \frac{\left(B^{b_2} (D^{u,b_2})^2 + 2 A^u D^{u,b_2} - C^{u,b_2} \right) \cdot \left(\delta_u^{+,b_2} - \delta_u^{-,b_2}\right)^2 e^{- (\delta_u^{+,b_2} - \delta_u^{-,b_2})(T-t) } }{\left[B^{b_2} D^{u,b_2}(1-e^{- (\delta_u^{+,b_2} - \delta_u^{-,b_2})(T-t)})   + \delta_u^{+,b_2}e^{- (\delta_u^{+,b_2} - \delta_u^{-,b_2})(T-t)}- \delta_u^{-,b_2}  \right]^2 }.
-	\end{equation*}
-	Hence, the function $t \mapsto u_t^{b_2}$ is increasing if $B^{b_2} (D^{u,b_2})^2 + 2 A^u D^{u,b_2} - C^{u,b_2} > 0$. Since 
+	From equation (\ref{eq:riccati_ut_sol_deriv}), we see that $t \mapsto u_t^{b_2}$ is increasing if $B^{b_2} (D^{u,b_2})^2 + 2 A^u D^{u,b_2} - C^{u,b_2} > 0$. Since 
 	$$\lim_{b_2 \to \infty} B^{b_2} (D^{u,b_2})^2 + 2 A^u D^{u,b_2} - C^{u,b_2} = \infty,$$
 	there exists $b_2^{*,u,upper} >0$ such that for all $b_2 \geq b_2^{*,u,upper}$, we have $t \mapsto u_t^{b_2}$ is increasing and 
 	$$ \sup_{b_2 \geq b_2^{*,u,upper}} \sup_{0\leq t \leq T} \left\{ u_t^{b_2} \right\} = \sup_{b_2 \geq b_2^{*,u,upper}} \left\{ u_T^{b_2}\right\}  = \sup_{b_2 \geq b_2^{*,u,upper}} \{ D^{u,b_2}  \} \leq D^{u,b_2 \to \infty} + 1.$$
@@ -1238,6 +1241,81 @@ Also for convenience, recall the definition:
 \end{comment}
 
 	Todo: case $b_1 \to \infty$ and $\bar{b}_1 \to \infty$.
+	
+	Now, consider $\bar{b}_1 \to \infty$.
+	Since $\lim_{\bar{b}_1 \to \infty} |A^{u,\bar{b}_1}|=\infty$, we have:
+	\begin{equation*}
+	\begin{split}
+	\delta^{+,\bar{b}_1}_u-\delta^{-,\bar{b}_1}_u&=2 \sqrt{(A^{u,\bar{b}_1})^2+BC^u} \\
+	&\xrightarrow[\bar{b}_1 \to \infty]{}\infty,
+	\end{split}
+	\end{equation*}
+	and
+	\begin{equation*}
+	\begin{split}
+	-\delta^{-,\bar{b}_1}_u&=A^{u,\bar{b}_1}+\sqrt{(A^{u,\bar{b}_1})^2+BC^u} \\
+	&\xrightarrow[\bar{b}_1 \to \infty]{}0.
+	\end{split}
+	\end{equation*}
+	Therefore, it can be shown that for $t \in [0,T)$:
+	\begin{equation*}
+	\lim_{\bar{b}_1 \to \infty}\frac{u^{\bar{b}_1}_t}{\bar{b}_1}=\frac{1}{B}.
+	\end{equation*}
+	Similarly, for $t \in [0,T)$:
+	\begin{equation*}
+	\lim_{\bar{b}_1 \to \infty}\frac{w^{\bar{b}_1}_t}{\bar{b}_1}=\frac{2}{B}.
+	\end{equation*}
+	Thus,
+	\begin{equation*}
+	\lim_{\bar{b}_1 \to \infty} \left(\frac{u^{\bar{b}_1}_t}{\bar{b}_1}-\frac{w^{\bar{b}_1}_t}{\bar{b}_1}\right)^2=\frac{1}{B^2}.
+	\end{equation*}
+	
+	Note that $\eta_t$, and therefore $v_t$, are independent of $\bar{b}_1$. Thus,
+	\begin{equation*}
+	\begin{split}
+	\frac{1}{\bar{b}_1^2}SC^{MKV,\bar{b}_1}&=\frac{1}{2\bar{b}_1^2}\left[\int_0^T \left[q+\bar{q} + B^{\eta} \eta_t^2 \right] v_t dt + (q_T + \bar{q}_T) v_T\right] + \frac{w^{\bar{b}_1}_0}{2\bar{b}_1^2} (\mathbb{E}(\xi))^2\\
+	&\xrightarrow[\bar{b}_1 \to \infty]{}0.
+	\end{split}
+	\end{equation*}
+		
+	Now, consider:
+	\begin{equation*}
+	\frac{1}{\bar{b}_1^2}\Delta SC^{\bar{b}_1}\geq \frac{B}{2}(\mathbb{E}(\xi))^2\int_{0}^{\frac{T}{2}} \left(\frac{u_t^{\bar{b}_1}}{\bar{b}_1} - \frac{w_t^{\bar{b}_1}}{\bar{b}_1}\right)^2 e^{2\int_0^t (b_1+\bar{b}_1-B u_s^{\bar{b}_1})ds} dt.
+	\end{equation*}
+	(ToDo: Show $\frac{u^{\bar{b}_1}_t}{\bar{b}_1} \to \frac{1}{B}$ and $\frac{w^{\bar{b}_1}_t}{\bar{b}_1} \to \frac{2}{B}$ UNIFORMLY for $t \in [0,T/2]$. OR show both are uniformly bounded and use the bounded convergence theorem.)
+	
+	Then for $\zeta:=\frac{1}{B^2}$, there exists $\bar{b}_1^{*,u,w}$ such that for $t\in[0,T/2]$ and $\bar{b}_1 \geq \bar{b}_1^{*,u,w}$,
+	\begin{equation*}
+	\left(\frac{u_t^{\bar{b}_1}}{\bar{b}_1} - \frac{w_t^{\bar{b}_1}}{\bar{b}_1}\right)^2 \geq \frac{1}{B^2}-\zeta=\frac{1}{2B^2}.
+	\end{equation*}
+	Then,
+	\begin{equation*}
+	\frac{1}{\bar{b}_1^2}\Delta SC^{\bar{b}_1}\geq \frac{1}{4B}(\mathbb{E}(\xi))^2\int_{0}^{\frac{T}{2}}e^{2\int_0^t (b_1+\bar{b}_1-B u_s^{\bar{b}_1})ds} dt.
+	\end{equation*}
+
+	Since $\lim_{\bar{b}_1 \to \infty}B (D^{u})^2 + 2 A^{u,\bar{b}_1} D^{u} - C^{u}=-\infty$, from equation (\ref{eq:riccati_ut_sol_deriv}) there exists a $\bar{b}_1^{*,dec}$ such that for $\bar{b}_1 \geq \bar{b}_1^{*,dec}$, $t \mapsto u_t^{\bar{b}_1}$ is decreasing, and thus, $(\bar{b}_1-B u_t^{\bar{b}_1})\geq (\bar{b}_1-B u_{0}^{\bar{b}_1})$.
+	
+	(ToDo: Show $(\bar{b}_1-B u_0^{\bar{b}_1}) \to 0$.)
+	
+	Let $\zeta_2>0$. Since $\lim_{\bar{b}_1 \to \infty}(\bar{b}_1-B u_0^{\bar{b}_1}) = 0$, there exists $\bar{b}_1^{*} \geq \max \{\bar{b}_1^{*,u,w},\bar{b}_1^{*,dec} \}$, such that for $\bar{b}_1 \geq \bar{b}_1^{*}$,
+	\begin{equation*}
+	\frac{1}{\bar{b}_1^2}\Delta SC^{\bar{b}_1}\geq \frac{1}{4B}(\mathbb{E}(\xi))^2 \int_0^{\frac{T}{2}}e^{2tb_1}e^{-2t\zeta_2}dt=:c_{\Delta SC}>0,
+	\end{equation*}
+	and therefore:
+	\begin{equation*}
+	\lim_{\bar{b}_1 \to \infty}\frac{1}{\bar{b}_1^2}\Delta SC^{\bar{b}_1}>0.
+	\end{equation*}
+	Thus, we conclude:
+	\begin{equation*}
+	\begin{split}
+	\lim_{\bar{b}_1 \to \infty}\frac{\Delta SC^{\bar{b}_1}}{SC^{MKV,\bar{b}_1}}=\lim_{\bar{b}_1 \to \infty}\frac{\frac{1}{\bar{b}_1^2}\Delta SC^{\bar{b}_1}}{\frac{1}{\bar{b}_1^2}SC^{MKV,\bar{b}_1}}=\infty,
+	\end{split}
+	\end{equation*}
+	and therefore,
+	\begin{equation*}
+	\lim_{\bar{b}_1 \to \infty} PoA^{\bar{b}_1}=\infty.
+	\end{equation*}
+	
 \end{proof}
 
 
