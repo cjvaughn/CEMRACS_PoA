@@ -896,7 +896,7 @@ Note that $u_t$ is increasing if $B (D^{u})^2 + 2 A^u D^{u} - C^{u}>0$, and like
 	\begin{equation*}
 		\frac{\Delta SC^{b_2}}{SC^{MKV,b_2}} \leq \frac{I_1^{b_2} + I_2^{b_2}}{(b_2 + \bar{b}_2) w_0^{b_2}} \leq \frac{ \epsilon + \epsilon }{h_w(b_2,0)} \leq \frac{2\epsilon}{c/2}=\frac{4}{c}\epsilon.
 	\end{equation*}
-	Since the proof holds for arbitrary $\epsilon>0$, and $c=\sqrt{(q+\bar{q}(1-s)^2)(r+\bar{r}(1-\bar{s})^2)}>0$ is independent of $\epsilon$, we conclude:
+	Since the proof holds for arbitrary $\epsilon>0$, and $c=\sqrt{(q+\bar{q}(1-s)^2)(r+\bar{r}(1-\bar{s})^2)}>0$ is independent of $b_2$ and $\epsilon$, we conclude:
 	\begin{equation*}
 		\lim_{b_2 \to \infty} \frac{\Delta SC^{b_2}}{SC^{MKV,b_2}} = 0, 
 	\end{equation*}
@@ -1152,19 +1152,25 @@ Note that $u_t$ is increasing if $B (D^{u})^2 + 2 A^u D^{u} - C^{u}>0$, and like
 	
 	% case 3: b1 to infinity
 	\textbf{Case 3:} Consider $b_1 \to \infty$. Since $\lim_{b_1 \to \infty} A^{u,b_1} = \lim_{b_1 \to \infty} A^{w,b_1} = - \infty$ we have 
-	$\lim_{b_1 \to \infty}B (D^{u})^2 + 2 A^{u,b_1} D^{u} - C^{u} = \lim_{b_1 \to \infty}B (D^{w})^2 + 2 A^{w,b_1} D^{w} - C^{w}=-\infty$. Moreover we have the following limits, for all $t \in [0,T)$:
+	$\lim_{b_1 \to \infty}B (D^{u})^2 + 2 A^{u,b_1} D^{u} - C^{u} = \lim_{b_1 \to \infty}B (D^{w})^2 + 2 A^{w,b_1} D^{w} - C^{w}=-\infty$. Denote $h_u(b_1,t) = B \frac{u_t^{b_1}}{b_1}$ and $h_w(b_1,t) = B \frac{w_t^{b_1}}{b_1}$. We have the following limits, for all $t \in [0,T)$:
 	\begin{equation}
-		\lim_{b_1 \to \infty} \frac{u_t^{b_1}}{b_1} =  	\lim_{b_1 \to \infty} \frac{w_t^{b_1}}{b_1} = \frac{2}{B}.
+		\lim_{b_1 \to \infty} h_u(b_1,t) =  \lim_{b_1 \to \infty} h_w(b_1,t) = 2.
 	\label{eq:ut_wt_lim_b1_infty}
 	\end{equation}
-	Denote $h_u(b_1,t) = B \frac{u_t^{b_1}}{b_1}$ and $h_w(b_1,t) = B \frac{w_t^{b_1}}{b_1}$. From equation (\ref{eq:riccati_ut_sol_deriv}), and together with equation (\ref{eq:ut_wt_lim_b1_infty}), there exists $b_1^{*,upper} >0$ such that for all $b_1 \geq b_1^{*,upper}$, we have:
-	$$\max \left\{ \left|\frac{u_0^{b_1}}{b_1}-\frac{2}{B} \right|,\left|\frac{w_0^{b_1}}{b_1}-\frac{2}{B} \right| \right\} \leq \frac{1}{B},$$
-	and the functions $t \mapsto u_t^{b_1}$ and $t \mapsto w_t^{b_1}$ are decreasing. Thus,
-	$$ \sup_{0 \leq t \leq T} \left\{ h_u(b_1, t), h_w(b_1,t)\right\} \leq \max \left\{ h_u(b_1, 0), h_w(b_1,0) \right\} \leq B \left(\frac{2}{B} +\frac{1}{B} \right) = 3.$$
+	From equation (\ref{eq:riccati_ut_sol_deriv}), and together with equation (\ref{eq:ut_wt_lim_b1_infty}), there exists $b_1^{*,upper} >0$ such that for all $b_1 \geq b_1^{*,upper}$, the functions $t \mapsto u_t^{b_1}$ and $t \mapsto w_t^{b_1}$ are decreasing and
+	$$ \sup_{0 \leq t \leq T} \left\{ h_u(b_1, t), h_w(b_1,t)\right\} \leq \max \left\{ h_u(b_1, 0), h_w(b_1,0) \right\} \leq 2+1= 3.$$
 	
-	Fix $\epsilon>0$. There exists $b^{*,I_1}_1\geq b_1^{*,upper}$ such that for all $b_1 \geq b_1^{*,I_1} $, and for all $t \in [0, 3/4 T]$,
-	$$ \vert h_u(b_1, t) - h_u(b_1,t) \vert  \leq \epsilon, \quad h_w(b_1,0) \geq B \left( \frac{2}{B} - \frac{1}{3B} \right) = \frac{5}{3},\quad  h_u(b_1,t) \geq h_u(b_1, \frac{3}{4} T) \geq \frac{5}{3}.$$
-	We adapt the methodology in Proposition \ref{prop:b2_to_infty} and split the interval $[0,T]$ into two parts: $[0, 3/4 T]$ and $[3/4 T, T]$. For all $b_1 \geq b_1^{*,I_1}(\epsilon)$, similar to equation (\ref{eq:I_1_plus_I_2}), we have:
+	Fix $\epsilon>0$. There exists $b^{*,I_1}_1\geq b_1^{*,upper}$ such that for all $b_1 \geq b_1^{*,I_1} $, and for all $t \in [0, 3T/4]$,
+	\begin{equation*}
+	\begin{split}
+	\vert h_u(b_1, t) - h_w(b_1,t) \vert  &=\max \{h_u(b_1, t)-h_w(b_1, t),h_w(b_1, t)-h_u(b_1, t) \}\\
+	&\leq \max \{h_u(b_1, 0)-h_w(b_1, 3T/4),h_w(b_1, 0)-h_u(b_1, 3T/4) \} \\
+	&\leq \epsilon,
+	\end{split}
+	\end{equation*}
+	and
+	$$h_w(b_1,0) \geq 2 - \frac{1}{3} = \frac{5}{3},\quad  h_u(b_1,t) \geq h_u(b_1, 3T/4) \geq \frac{5}{3}.$$
+	We adapt the methodology in Proposition \ref{prop:b2_to_infty} and split the interval $[0,T]$ into two parts: $[0, 3T/4]$ and $[3T/4, T]$. For all $b_1 \geq b_1^{*,I_1}$, similar to equation (\ref{eq:I_1_plus_I_2}), we have:
 	\begin{equation*}
 		\frac{\Delta SC^{b_1}}{SC^{MKV,b_1}} \leq \frac{I^{b_1}_1 + I^{b_1}_2 }{h_w(b_1,0)},
 	\end{equation*}
