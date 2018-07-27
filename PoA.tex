@@ -770,16 +770,14 @@ Note that $u_t$ is increasing if $B (D^{u})^2 + 2 A^u D^{u} - C^{u}>0$, and like
 
 % proposition b_2 to \infty
 \begin{proposition}
-	Assuming (\ref{eq:assumptions}), and the initial condition $\xi$ satisfies $\mathbb{E}(\xi)\neq 0$. Moreover, we assume that $q_T+\bar{q}_T(1-s_T)>0$, $q_T+\bar{q}_T(1-s_T)^2>0$ and $q_T + \bar{q}_T > 0$.
-	
-	If 
+	Assuming (\ref{eq:assumptions}), and the initial condition $\xi$ satisfies $\mathbb{E}(\xi)\neq 0$. Moreover, we assume that $q_T+\bar{q}_T(1-s_T)>0$, $q_T+\bar{q}_T(1-s_T)^2>0$, $q_T + \bar{q}_T > 0$ and 
 	\begin{equation*}
 	\frac{q+\bar{q}(1-s)}{r+\bar{r}(1-\bar{s})} =\frac{q+\bar{q}(1-s)^2}{r+\bar{r}(1-\bar{s})^2},
 	\end{equation*}
 	then 
 	$$ \lim_{b_2 \to \infty} PoA = 1.$$	
-	Otherwise, 
-	$$ \lim_{b_2 \to \infty} PoA >1.$$
+	%Otherwise, 
+	%$$ \lim_{b_2 \to \infty} PoA >1.$$
 \label{prop:b2_to_infty}
 \end{proposition}
 
@@ -857,12 +855,13 @@ Note that $u_t$ is increasing if $B (D^{u})^2 + 2 A^u D^{u} - C^{u}>0$, and like
 	\end{equation}
 	and the functions $t \mapsto u_t^{b_2}$, $t \mapsto w_t^{b_2}$ and $t \mapsto \eta_t^{b_2}$ are increasing along $[0,T]$. \\
 	
-	\textbf{Case 1:} when
+	%\textbf{Case 1:} when
+	Since we have assume that
 	\begin{equation*}
 	\frac{q+\bar{q}(1-s)}{r+\bar{r}(1-\bar{s})}=\frac{q+\bar{q}(1-s)^2}{r+\bar{r}(1-\bar{s})^2},
 	\end{equation*}
 	we have $c_{\delta_u^{b_2 \to \infty}}=c_{\delta_w^{b_2 \to \infty}}$ and so that $c_u = c_w =: c$. 
-	We would like to show that $\lim_{b_2 \to \infty} \frac{\Delta SC}{SC^{MKV}} = 0$. Our approach is to split the interval $[0,T]$ into two parts: $[0,T/2]$ and $[T/2,T]$.	
+	We would like to show in this case that $\lim_{b_2 \to \infty} \frac{\Delta SC}{SC^{MKV}} = 0$. Our approach is to split the interval $[0,T]$ into two parts: $[0,T/2]$ and $[T/2,T]$.	
 	Since $v^{b_2}_t \geq 0$ for all $t\in [0,T]$, we have $SC^{MKV,b_2} \geq w_0^{b_2} (\mathbb{E}(\xi))^2$.	For the sake of simplicity, we denote $h_u(b_2,t) := (b_2 + \bar{b}_2) u_{t}^{b_2}$ and $h_w(b_2,t) := (b_2 + \bar{b}_2)w_t^{b_2}$. We have:
 	\begin{equation}
 	\begin{split}
