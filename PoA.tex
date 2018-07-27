@@ -1273,19 +1273,27 @@ Note that $u_t$ is increasing if $B (D^{u})^2 + 2 A^u D^{u} - C^{u}>0$, and like
 	\begin{equation*}
 	\lim_{\bar{b}_1 \to \infty}\frac{w^{\bar{b}_1}_t}{\bar{b}_1}=\frac{2}{B}.
 	\end{equation*}
-	Thus,
+	%Thus,
+	%\begin{equation*}
+	%\lim_{\bar{b}_1 \to \infty} \frac{w^{\bar{b}_1}_t}{\bar{b}_1}-\frac{u^{\bar{b}_1}_t}{\bar{b}_1}  = \frac{1}{B} > 0.
+	%\end{equation*}
+	Since $\lim_{\bar{b}_1 \to \infty}B (D^{u})^2 + 2 A^{u,\bar{b}_1} D^{u} - C^{u}=-\infty$ and $\lim_{\bar{b}_1 \to \infty}B (D^{w})^2 + 2 A^{w,\bar{b}_1} D^{w} - C^{w}=-\infty$,   from equation (\ref{eq:riccati_ut_sol_deriv}) there exists a $\bar{b}_1^{*,lower}$ such that for $\bar{b}_1 \geq \bar{b}_1^{*,lower}$, $t \mapsto u_t^{\bar{b}_1}$ and $ t \mapsto w_t^{\bar{b}_1}$ are decreasing, and all $t \in [0, T/2]$ we have
 	\begin{equation*}
-	\lim_{\bar{b}_1 \to \infty} \left(\frac{u^{\bar{b}_1}_t}{\bar{b}_1}-\frac{w^{\bar{b}_1}_t}{\bar{b}_1}\right)^2=\frac{1}{B^2}.
+	    0< \frac{u_t^{\bar{b}_1}}{\bar{b}_1} \leq \frac{u_0^{\bar{b}_1}}{\bar{b}_1} \leq \frac{1}{B} + \frac{1}{4B}  \leq \frac{2}{B} - \frac{1}{4 B} \leq \frac{w_{T/2}^{\bar{b}_1}}{ \bar{b}_1} \leq \frac{w_t^{\bar{b}_1}}{\bar{b}_1} 
+	\end{equation*}
+	Thus, for all $\bar{b}_1 \geq \bar{b}_1^{*,lower}$ and all $t \in [0,T/2]$,
+	\begin{equation*}
+	 (\bar{b}_1-B u_t^{\bar{b}_1})\geq (\bar{b}_1-B u_{0}^{\bar{b}_1}), \quad \text{and} \quad \left\vert  \frac{w^{\bar{b}_1}_t}{\bar{b}_1}-\frac{u^{\bar{b}_1}_t}{\bar{b}_1} \right\vert \geq \frac{1}{2B}.
 	\end{equation*}
 	
 	Note that $\eta_t$, and therefore $v_t$, are independent of $\bar{b}_1$. Thus,
 	\begin{equation*}
 	\begin{split}
-	\frac{1}{\bar{b}_1^2}SC^{MKV,\bar{b}_1}&=\frac{1}{2\bar{b}_1^2}\left[\int_0^T \left[q+\bar{q} + B^{\eta} \eta_t^2 \right] v_t dt + (q_T + \bar{q}_T) v_T\right] + \frac{w^{\bar{b}_1}_0}{2\bar{b}_1^2} (\mathbb{E}(\xi))^2\\
-	&\xrightarrow[\bar{b}_1 \to \infty]{}0.
+	\frac{1}{\bar{b}_1^2}SC^{MKV,\bar{b}_1}&=\frac{1}{2\bar{b}_1^2}\left[\int_0^T \left[q+\bar{q} + B^{\eta} \eta_t^2 \right] v_t dt + (q_T + \bar{q}_T) v_T\right] + \frac{w^{\bar{b}_1}_0}{2\bar{b}_1^2} (\mathbb{E}(\xi))^2 \\
+	&\xrightarrow[\bar{b}_1 \to \infty]{}0.	
 	\end{split}
 	\end{equation*}
-		
+
 	Now, consider:
 	\begin{equation}
 	\frac{1}{\bar{b}_1^2}\Delta SC^{\bar{b}_1}\geq \frac{B}{2}(\mathbb{E}(\xi))^2\int_{0}^{\frac{T}{2}} \left(\frac{u_t^{\bar{b}_1}}{\bar{b}_1} - \frac{w_t^{\bar{b}_1}}{\bar{b}_1}\right)^2 e^{2\int_0^t (b_1+\bar{b}_1-B u_s^{\bar{b}_1})ds} dt.
@@ -1301,7 +1309,8 @@ Note that $u_t$ is increasing if $B (D^{u})^2 + 2 A^u D^{u} - C^{u}>0$, and like
 	%\begin{equation*}
 	%\frac{1}{\bar{b}_1^2}\Delta SC^{\bar{b}_1}\geq \frac{1}{4B}(\mathbb{E}(\xi))^2\int_{0}^{\frac{T}{2}}e^{2\int_0^t (b_1+\bar{b}_1-B u_s^{\bar{b}_1})ds} dt.
 	%\end{equation*}
-	Since $\lim_{\bar{b}_1 \to \infty}B (D^{u})^2 + 2 A^{u,\bar{b}_1} D^{u} - C^{u}=-\infty$, from equation (\ref{eq:riccati_ut_sol_deriv}) there exists a $\bar{b}_1^{*,dec}$ such that for $\bar{b}_1 \geq \bar{b}_1^{*,dec}$, $t \mapsto u_t^{\bar{b}_1}$ is decreasing, and thus, $(\bar{b}_1-B u_t^{\bar{b}_1})\geq (\bar{b}_1-B u_{0}^{\bar{b}_1})$. Next, we will show $\lim_{\bar{b}_1 \to \infty}(\bar{b}_1-B u_0^{\bar{b}_1})=c$. We have the following limits for $t\in[0,T)$:
+	
+	Next, we will show $\lim_{\bar{b}_1 \to \infty}(\bar{b}_1-B u_0^{\bar{b}_1})=c$. We have the following limits for $t\in[0,T)$:
 	\begin{equation*}
 	\begin{split}
 	\lim_{\bar{b}_1 \to \infty}\bar{b}_1-\delta^{+,\bar{b}_1}_u&=-2b_1\\
@@ -1314,18 +1323,15 @@ Note that $u_t$ is increasing if $B (D^{u})^2 + 2 A^u D^{u} - C^{u}>0$, and like
 	\begin{equation*}
 	\begin{split}
 	\bar{b}_1-Bu^{\bar{b}_1}_0&=\frac{-BC^u+BD^u(\bar{b}_1-\delta^{+,\bar{b}_1}_u)-\delta^{-,\bar{b}_1}_u\bar{b}_1+(\delta^{+,\bar{b}_1}_u\bar{b}_1+BC^u+BD^u(\delta^{-,\bar{b}_1}_u-\bar{b}_1))e^{-(\delta^{+,\bar{b}_1}_u-\delta^{-,\bar{b}_1}_u)T}}{BD^u-\delta^{-,\bar{b}_1}_u+(\delta^{+,\bar{b}_1}_u-BD^u) e^{-(\delta^{+,\bar{b}_1}_u-\delta^{-,\bar{b}_1}_u)T}} \\
-	&\xrightarrow[\bar{b}_1 \to \infty]{}-2b_1.
+	&\xrightarrow[\bar{b}_1 \to \infty]{} -2b_1 .
 	\end{split}
 	\end{equation*}
 	
-	Since $\lim_{\bar{b}_1 \to \infty}(\bar{b}_1-B u_0^{\bar{b}_1}) =-2b_1$, there exists $\bar{b}_1^{*}\geq\bar{b}_1^{*,dec}$, such that for $\bar{b}_1 \geq \bar{b}_1^{*}$, $(\bar{b}_1-B u_0^{\bar{b}_1}) \geq -3b_1$. Returning to equation (\ref{eq:prop_7_case_4_numerator}), we have for $\bar{b}_1 \geq \bar{b}^*_1$:
-	\begin{equation*}
-	\frac{1}{\bar{b}_1^2}\Delta SC^{\bar{b}_1}\geq\frac{B}{2}(\mathbb{E}(\xi))^2\int_{0}^{\frac{T}{2}} \left(\frac{u_t^{\bar{b}_1}}{\bar{b}_1} - \frac{w_t^{\bar{b}_1}}{\bar{b}_1}\right)^2 e^{2(b_1-3b_1)t}dt.
-	\end{equation*}
-	By the bounded convergence theorem,
-	\begin{equation*}
-	=\frac{B}{2}(\mathbb{E}(\xi))^2\int_{0}^{\frac{T}{2}} \frac{1}{B^2} e^{-4b_1t}dt=:c>0.
-	\end{equation*}	
+	Since $\lim_{\bar{b}_1 \to \infty}(\bar{b}_1-B u_0^{\bar{b}_1}) = -2b_1 < 0$, there exists $\bar{b}_1^{*}\geq\bar{b}_1^{*,lower}$, such that for $\bar{b}_1 \geq \bar{b}_1^{*}$, $(\bar{b}_1-B u_0^{\bar{b}_1}) \geq -3b_1$. Returning to equation (\ref{eq:prop_7_case_4_numerator}), we have for $\bar{b}_1 \geq \bar{b}^*_1$:
+	\begin{equation}
+	\frac{1}{\bar{b}_1^2}\Delta SC^{\bar{b}_1}
+	\geq \frac{B}{2}\mathbb{E}(\xi)^2 \cdot \frac{1}{4B^2} \cdot \int_{0}^{\frac{T}{2}} e^{2b_1 t + 2(\bar{b}_1 - B u_0^{\bar{b}_1}) t } dt \geq \frac{\mathbb{E}(\xi)^2}{8 B} \int_0^{\frac{T}{2}} e^{-4b_1 t} dt  > 0.
+	\end{equation}
 	Therefore,
 	\begin{equation*}
 	\lim_{\bar{b}_1 \to \infty}\frac{1}{\bar{b}_1^2}\Delta SC^{\bar{b}_1}>0,
