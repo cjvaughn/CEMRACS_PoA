@@ -819,22 +819,22 @@ Note that $u_t$ is increasing if $B (D^{u})^2 + 2 A^u D^{u} - C^{u}>0$, and like
 	$$ \sup_{b_2 \geq b_2^{*,u,upper}} \sup_{0\leq t \leq T} \left\{ u_t^{b_2} \right\} = \sup_{b_2 \geq b_2^{*,u,upper}} \left\{ u_T^{b_2}\right\}  = \sup_{b_2 \geq b_2^{*,u,upper}} \{ D^{u,b_2}  \} \leq D^{u,b_2 \to \infty} + 1.$$
 	Thus,
 	\begin{equation*}
-	\left\vert u_t^{b_2}\right\vert \leq D^{u,b_2 \to \infty} + 1 , \quad \forall \  t\in[0,T],\ b_2 \geq b_2^{*,u,upper},
+	\left\vert u_t^{b_2}\right\vert \leq D^{u,b_2 \to \infty} + 1 , \quad \forall \  t\in[0,T],\ b_2 \geq b_2^{*,u,upper}.
 	\label{eq:u_t_bound}
 	\end{equation*}
-	and by the same argument for $w_t^{b_2}$ and $\eta_t^{b_2}$, there exists $b_2^{*,upper} \geq b_2^{*,u,upper}$ such that
+	By the same argument for $w_t^{b_2}$ and $\eta_t^{b_2}$, there exists $b_2^{*,upper} \geq b_2^{*,u,upper}$ such that
 	\begin{equation}
-	\sup_{b_2 \geq b_2^{*,upper}} \sup_{0 \leq t \leq T} \max \left\{ \vert u_t^{b_2} \vert , \vert w_t^{b_2} \vert, \vert \eta_t^{b_2} \vert \right\} \leq M.
+	\sup_{b_2 \geq b_2^{*,upper}} \sup_{0 \leq t \leq T} \max \left\{ \vert u_t^{b_2} \vert , \vert w_t^{b_2} \vert, \vert \eta_t^{b_2} \vert \right\} \leq M,
 	\label{eq:ut_wt_upper_bound_b2_infty}
 	\end{equation}
-	and the functions $t \mapsto u_t^{b_2}$, $t \mapsto w_t^{b_2}$ and $t \mapsto \eta_t^{b_2}$ are increasing along $[0,T]$. \\
+	and the functions $t \mapsto u_t^{b_2}$, $t \mapsto w_t^{b_2}$ and $t \mapsto \eta_t^{b_2}$ are increasing on $[0,T]$. \\
 	
 	%\textbf{Case 1:} when
-	Since we have assume that
+	From the assumption:
 	\begin{equation*}
 	\frac{q+\bar{q}(1-s)}{r+\bar{r}(1-\bar{s})}=\frac{q+\bar{q}(1-s)^2}{r+\bar{r}(1-\bar{s})^2},
 	\end{equation*}
-	we have $c_{\delta_u^{b_2 \to \infty}}=c_{\delta_w^{b_2 \to \infty}}$ and so that $c_u = c_w =: c$. 
+	we have $c_{\delta_u^{b_2 \to \infty}}=c_{\delta_w^{b_2 \to \infty}}$ and therefore, $c_u = c_w =: c$. 
 	We would like to show in this case that $\lim_{b_2 \to \infty} \frac{\Delta SC}{SC^{MKV}} = 0$. Our approach is to split the interval $[0,T]$ into two parts: $[0,T/2]$ and $[T/2,T]$.	
 	Since $v^{b_2}_t \geq 0$ for all $t\in [0,T]$, we have $SC^{MKV,b_2} \geq w_0^{b_2} (\mathbb{E}(\xi))^2$.	For the sake of simplicity, we denote $h_u(b_2,t) := (b_2 + \bar{b}_2) u_{t}^{b_2}$ and $h_w(b_2,t) := (b_2 + \bar{b}_2)w_t^{b_2}$. We have:
 	\begin{equation}
@@ -886,13 +886,13 @@ Note that $u_t$ is increasing if $B (D^{u})^2 + 2 A^u D^{u} - C^{u}>0$, and like
 	\end{equation*}
 	Hence, there exists $b_2^{*,I_2} \geq \max \{ b_2^{*,upper}, b_2^{*,u,lower} \}$ such that for all $b_2 \geq b_2^{*,I_2}$:
 	\begin{IEEEeqnarray}{rCl}
-		I_2^{b_2} &\leq&  \frac{(b_2+ \bar{b}_2)^3}{r + \bar{r}(1- \bar{s})^2} \cdot 4M^2 \cdot e^{2(b_1 + \bar{b}_1) T} \int_{\frac{T}{2}}^{T} \exp\left( - \frac{2 (b_2 + \bar{b}_2)}{r + \bar{r}(1-\bar{s})^2} \cdot m_u \frac{T}{2} \right) dt \nonumber\\	
-		&=& \kappa_3 (b_2 + \bar{b}_2)^3 e^{- \kappa_4 (b_2 + \bar{b}_2)} \leq \epsilon
+		I_2^{b_2} &\leq&  \frac{(b_2+ \bar{b}_2)^3}{r + \bar{r}(1- \bar{s})^2} \cdot 4M^2 \cdot e^{2(b_1 + \bar{b}_1) T} \int_{\frac{T}{2}}^{T} \exp\left( - \frac{T(b_2 + \bar{b}_2)}{r + \bar{r}(1-\bar{s})^2} \cdot m_u \right) dt \nonumber\\	
+		&=& \kappa_3 (b_2 + \bar{b}_2)^3 e^{- \kappa_4 (b_2 + \bar{b}_2)} \leq \epsilon,
 	\label{eq:I2_b2_infty}
 	\end{IEEEeqnarray}
 	where $\kappa_3 = \frac{2 TM^2 e^{2(b_1 + \bar{b}_1) T} }{r + \bar{r}(1-\bar{s})^2} >0$ and $\kappa_4 :=  \frac{T  m_u}{r + \bar{r}(1-\bar{s})^2}>0$ are constants independent of $b_2$. 	
 	
-	Let $b_2^*(\epsilon) := \max \{ b_2^{*,I_1}, b_2^{*,I_2}\}$. Then equations (\ref{eq:I_1_plus_I_2}), (\ref{eq:I1_ineq_b2_infinity}) and (\ref{eq:I2_b2_infty}) give:
+	Let $b_2^* := \max \{ b_2^{*,I_1}, b_2^{*,I_2}\}$. Then equations (\ref{eq:I_1_plus_I_2}), (\ref{eq:I1_ineq_b2_infinity}) and (\ref{eq:I2_b2_infty}) give:
 	\begin{equation*}
 		\frac{\Delta SC^{b_2}}{SC^{MKV,b_2}} \leq \frac{I_1^{b_2} + I_2^{b_2}}{(b_2 + \bar{b}_2) w_0^{b_2}} \leq \frac{ \epsilon + \epsilon }{h_w(b_2,0)} \leq \frac{2\epsilon}{c/2}=\frac{4}{c}\epsilon.
 	\end{equation*}
@@ -1018,7 +1018,7 @@ Note that $u_t$ is increasing if $B (D^{u})^2 + 2 A^u D^{u} - C^{u}>0$, and like
 	
 	
 	% case when b2 bar \to infty
-	\textbf{Case 2:}Now, for the case when $\bar{b}_2 \to \infty$,  we have 
+	\textbf{Case 2:} Now, for the case when $\bar{b}_2 \to \infty$,  we have 
 	\begin{equation*}
 	\begin{array}{l}
 		\lambda^{\bar{b}_2} \to 0;\\
