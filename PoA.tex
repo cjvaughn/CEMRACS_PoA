@@ -1189,63 +1189,48 @@ Note that $u_t$ is increasing if $B (D^{u})^2 + 2 A^u D^{u} - C^{u}>0$, and like
     $$0<\lim_{b_1 \to 0} SC^{MKV,b_1}<\infty.$$
     Therefore, $\lim_{b_1 \to 0} PoA^{b_1} =: PoA^{b_1 \to 0} > 1$. The proof can be repeated to show $\lim_{\bar{b}_1 \to 0} PoA^{\bar{b}_1} =: PoA^{\bar{b}_1 \to 0} > 1$.
     
-    \begin{comment}
-    Now we consider $b_1 \to \infty$. For each $b_1>0$, we have the following bounds over $t\in[0,T]$:
-    \begin{equation*}
-    \begin{split}
-	    \left| u^{b_1}_t\right| &\leq \frac{C^u+D^u(\delta^{+,b_1}_u-\delta^{-,b_1}_u)}{-\delta^{-,b_1}_u}=:h_u(b_1) \\
-		\left| w^{b_1}_t\right| &\leq \frac{C^w+D^w(\delta^{+,b_1}_w-\delta^{-,b_1}_w)}{-\delta^{-,b_1}_w}=:h_w(b_1) \\
-		\left| \eta^{b_1}_t\right| &\leq \frac{C^{\eta}+D^{\eta}(\delta^{+,b_1}_{\eta}-\delta^{-,b_1}_{\eta})}{-\delta^{-,b_1}_{\eta}}=:h_{\eta}(b_1) \\
-		\left| \bar{x}^{MFG,b_1}_t \right| &\leq \left| \mathbb{E}(\xi)\right| e^{T(b_1+\bar{b}_1)}=:h_{\bar{x}}(b_1).
-    \end{split}
-    \end{equation*}
-    Thus, from Proposition \ref{prop:diff_SC}, we have:
-    \begin{equation*}
-	    \Delta SC^{b_1} \leq \frac{1}{2}BT(h_u(b_1)+h_w(b_1))^2 (h_{\bar{x}}(b_1))^2.
-    \end{equation*}
-    We also have the following lower bound:
-    \begin{equation*}
-	\begin{split}
-	SC^{MKV,b_1} &\geq \frac{1}{2}(q_T+\bar{q}_T)v^{b_1}_T \\
-	& \geq \frac{1}{2}(q_T+\bar{q}_T)Var(\xi)e^{2T(b_1-B^{\eta}h_{\eta}(b_1))}.
-	\end{split}
-    \end{equation*}
-    
-    Let $h(b_1)=\max \{h_u(b_1),h_w(b_1),h_{\eta}(b_1) \}$. Since $\lim_{b_1 \to \infty} |A^{u,b_1}|=\infty$, we have:
-    \begin{equation*}
-    \begin{split}
-	    \delta^{+,b_1}_u-\delta^{-,b_1}_u&=2 \sqrt{(A^{u,b_1})^2+BC^u} \\
-	    &\xrightarrow[b_1 \to \infty]{}\infty,
-    \end{split}
-    \end{equation*}
-    and
-    \begin{equation*}
-    \begin{split}
-    -\delta^{-,b_1}_u&=A^{u,b_1}+\sqrt{(A^{u,b_1})^2+BC^u} \\
-    &\xrightarrow[b_1 \to \infty]{}0.
-    \end{split}
-    \end{equation*}    
-    Thus, $\lim_{b_1 \to \infty}h_u(b_1)=\infty$, which implies $\lim_{b_1 \to \infty}h(b_1)=\infty$. Combining the above bounds and using the assumption $Var(\xi)>0$, we have:
-     
-     
-    \begin{equation*}
-    \begin{split}
-	    \frac{\Delta SC^{b_1}}{SC^{MKV,b_1}}&\leq \frac{2BT(h(b_1))^2 (h_{\bar{x}}(b_1))^2}{\frac{1}{2}(q_T+\bar{q}_T)Var(\xi)e^{2T(b_1-B^{\eta}h(b_1))}}\\
-	    &= \frac{4BT(h(b_1))^2 (\left| \mathbb{E}(\xi)\right| e^{T(b_1+\bar{b}_1)})^2}{(q_T+\bar{q}_T)Var(\xi)e^{2T(b_1-B^{\eta}h(b_1))}}\\
-	    &= \frac{4BTe^{2T(\bar{b}_1)}(\mathbb{E}(\xi))^2  }{(q_T+\bar{q}_T)Var(\xi)} \cdot \frac{(h(b_1))^2}{e^{-2TB^{\eta}h(b_1))}}\\
-	    &\xrightarrow[b_1 \to \infty ]{} 0.
-    \end{split}
-    \end{equation*}
-    Therefore,
-    \begin{equation*}
-	    \lim_{b_1 \to \infty}\frac{\Delta SC^{b_1}}{SC^{MKV,b_1}}=0,
-    \end{equation*}
-    and thus, $\lim_{b_1 \to \infty} PoA^{b_1}=1$. ToDo: last case.
-\end{comment}
 
-	Todo: case $b_1 \to \infty$.
 	
-	Now, consider $\bar{b}_1 \to \infty$.
+	% case 3: b1 to infinity
+	\textbf{Case 3:} consider $b_1 \to \infty$. Since $\lim_{b_1 \to \infty} A^{u,b_1} = \lim_{b_1 \to \infty} A^{w,b_1} = - \infty$ we have 
+	$\lim_{b_1 \to \infty}B (D^{u})^2 + 2 A^{u,b_1} D^{u} - C^{u} = \lim_{b_1 \to \infty}B (D^{w})^2 + 2 A^{w,b_1} D^{w} - C^{w}=-\infty$. Moreover we have the following limits, for all $t \in [0,T)$,
+	\begin{equation}
+		\lim_{b_1 \to \infty} \frac{u_t^{b_1}}{b_1} =  	\lim_{b_1 \to \infty} \frac{w_t^{b_1}}{b_1} = \frac{2}{B}.
+	\label{eq:ut_wt_lim_b1_infty}
+	\end{equation}
+	Denote $h_u(b_1,t) = B \frac{u_t^{b_1}}{b_1}$ and $h_w(b_1,t) = B \frac{w_t^{b_1}}{b_1}$. From equation (\ref{eq:riccati_ut_sol_deriv}), and together with equation (\ref{eq:ut_wt_lim_b1_infty}), there exists $b_1^{*,upper} >0$ such that for all $b_1 \geq b_1^{*,upper}$, the functions $t \mapsto u_t^{b_1}$ and $t \mapsto w_t^{b_1}$ are decreasing, and
+	$$ \sup_{0 \leq t \leq T} \left\{ h_u(b_1, t), h_w(b_1,t)\right\} \leq \max \left\{ h_u(b_1, 0), h_w(b_1,0) \right\} \leq B \left(\frac{2}{B} +\frac{1}{B} \right) = 3.$$
+	
+	Moreover, for any fixed $\epsilon$, there exists $b^{*,I_1}_1(\epsilon) \geq b_1^{*,upper}$ such that for all $b_1 \geq b_1^{*,I_1}(\epsilon) $, and for all $t \in [0, 3/4 T]$,
+	$$ \vert h_u(b_1, t) - h_u(b_1,t) \vert  \leq \epsilon, \quad h_w(b_1,0) \geq B \left( \frac{2}{B} - \frac{1}{3B} \right) = \frac{5}{3},\quad  h_u(b_1,t) \geq h_u(b_1, \frac{3}{4} T) \geq \frac{5}{3}.$$
+	We adapt the methodology in Proposition \ref{prop:b2_to_infty} and split the interval $[0,T]$ into two parts: $[0, 3/4 T]$ and $[3/4 T, T]$. For all $b_2 \geq b_2^{*,I_1}(\epsilon)$, similar to equation (\ref{eq:I_1_plus_I_2}), we have
+	\begin{equation*}
+		\frac{\Delta SC^{b_1}}{SC^{MKV,b_1}} \leq \frac{I_1 + I_2 }{h_w(b_1,0)}
+	\end{equation*}
+	where
+	\begin{IEEEeqnarray*}{rCl}
+	I_1 &=& b_1 \int_0^{\frac{3}{4}T} \left( h_u(b_1,t) - h_w(b_1,t) \right)^2 e^{2\bar{b}_1 t} \cdot \exp \left( 2b_1 t - 2 b_1 \int_0^t h_u(b_1,s) ds \right) dt \nonumber \\
+	&\leq & \epsilon^2 e^{2\bar{b}_1 \cdot \frac{3}{4} T } \cdot b_1 \int_0^{\frac{3}{4}T} \exp \left( 2b_1 t - 2 b_1 \cdot \frac{5}{3} t \right) dt  \nonumber \\
+	& \leq & \kappa_1 \epsilon^2 
+	\end{IEEEeqnarray*} 	
+	in which $\kappa_1 = \frac{3}{4} e^{\frac{3\bar{b}_1 T}{2} } $, and
+	\begin{IEEEeqnarray*}{rCl}
+		 I_2 &=& b_1 \int_{\frac{3}{4}T}^T \left( h_u(b_1,t) - h_w(b_1,t) \right)^2 e^{2\bar{b}_1 t} \cdot \exp \left( 2b_1 t - 2 b_1 \int_0^t h_u(b_1,s) ds \right) dt \nonumber \\
+		 &\leq & b_1 (3+3)^2 e^{2 \bar{b}_1 T} \cdot \int_{\frac{3}{4}T}^{T}  \exp \left( 2b_1 t - 2b_1 \int_0^{\frac{3}{4}T} h_u(b_1,s) ds \right) dt \nonumber \\
+		 &\leq & 36 e^{2 \bar{b}_1 T} b_1 \cdot \frac{T}{4} \exp\left(2b_1 \cdot T - 2 b_1 \cdot  \frac{3}{4} T \cdot \frac{5}{3} \right) \nonumber \\
+		 &=& \kappa_2 b_1 e^{- \frac{1}{2} b_1 T}
+	\end{IEEEeqnarray*}
+	in which $\kappa_2 = 9 T e^{2 \bar{b}_1 T}$.	
+	We can continue to choose $b_2$ being even larger, say for example $b_2 \geq b_2^{*}$ with $b_2^{*}(\epsilon) \geq b_2^{*,I_1}(\epsilon)$, so that $ I_2 \leq \epsilon$. Hence, for any given $\epsilon >0$ we obtain that for all $b_1 \geq b_1^{*}(\epsilon)$,
+	$$ 	\frac{\Delta SC^{b_1}}{SC^{MKV,b_1}} \leq \frac{I_1 + I_2 }{h_w(b_1,0)} \leq \frac{3}{5} (\kappa_1 \epsilon^2 + \epsilon),$$
+	thus by letting $\epsilon \to 0$ we conclude that 
+	$$ \lim_{b_1 \to \infty} PoA^{b_1} = 1.$$ 
+	
+	
+	
+	
+	% case 4: b1 bar to infinity
+	\textbf{Case 4:} Now, consider $\bar{b}_1 \to \infty$.
 	Since $A^{u,\bar{b}_1}<0$ and $\lim_{\bar{b}_1 \to \infty} |A^{u,\bar{b}_1}|=\infty$, we have the following limits:
 	\begin{equation*}
 	\begin{split}
