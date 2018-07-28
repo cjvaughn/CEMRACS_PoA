@@ -745,7 +745,7 @@ In the following propositions, based on assumption (\ref{eq:assumptions}) and th
 	\lim_{r \to \infty} \Delta SC^r = \lim_{r \to \infty} \frac{1}{2}\cdot B^r\int_0^T (u^r_t - w^r_t)^2 ( \bar{x}_t^{MFG,r})^2 dt = 0.
 	\end{equation*}
 	
-	Again, from equation (\ref{eq:v_t_new_notation}) and by the bounded convergence theorem, we have for every $t \in [0,T]$: 
+	From equation (\ref{eq:v_t_new_notation}) and by the bounded convergence theorem, we have for every $t \in [0,T]$: 
 	$$	\lim_{r\to \infty} v^r_t = Var(\xi)e^{2b_1 t} + \sigma^2 \int_0^t e^{2 b_1 (t-s) } ds =: v^{r \to \infty}_t.
 	$$
 	The variance function $v_t^{r}$ is also uniformly bounded over $t \in [0,T]$. We also have $w^{r \to \infty }_0\geq0$ and $v^{r \to \infty}_t >0$ for $t>0$. Hence,
@@ -754,6 +754,7 @@ In the following propositions, based on assumption (\ref{eq:assumptions}) and th
 	\end{equation*}
 	Therefore, from Proposition \ref{prop:diff_SC} and equation (\ref{eq:PoA_LQ_new_notation}), we have 
 	$$\displaystyle \lim_{r \to \infty} PoA^r = 1.$$
+	
 	Idem, by replacing $\lambda^{r \to \infty}$ with $\lambda^{\bar{r} \to \infty}: = \frac{b_2}{b_2 + \bar{b}_2} (1 - \bar{s})$, we obtain $\displaystyle \lim_{\bar{r} \to \infty} PoA^{\bar{r}} = 1$.
 \end{proof}
 
