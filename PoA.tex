@@ -719,7 +719,7 @@ In the following propositions, we utilize the following assumption.
 %	Note that $D^{r \to \infty}_u > 0$ and $\lim_{r \to \infty} B^{r}(D^{r,u})^2 + 2 A^u D^{u,r} - C^{u,r} = \infty$, from equation (\ref{eq:riccati_ut_sol_deriv}) we know that for all large $r$, the function $ t \mapsto u_t^{r}$ is increasing. Moreover, there exists $r^*>0$ such that for all $r \geq r^*$ and all $t \in [0,T]$,
 %	$$ 0 \leq u_t^{r} \leq u_T^{r}  = D^{u,r} \leq D^{r\to \infty}_u + 1.$$
 	Next, our goal is to bound the $u^r_t$ uniformly over $t \in [0,T]$ for large $r$.
-	Note that  $A^u < 0$, $B^r$, $C^{u,r}$, $\lambda^{r\to \infty}$, $C^{r \to \infty}_u>0$, $D^{u,r}$, $D^{r \to \infty}_u\geq 0$, and $\delta^{-,r}_u < 0 < \delta^{+,r}_u$. Let $\epsilon>0$. Then there exists $r^*>0$ such that $\max_{r > r^*}\{ B^{r}, C^{u,r}, D^{u,r} \} \leq \max\{C^{r \to \infty}_u,D^{r \to \infty}_u \}+\epsilon=: c_1$. Thus, we can deduce that for $r>r^*$, for every $t \in [0,T]$:
+	Note that  $A^u < 0$, $B^r$, $C^{u,r}$, $\lambda^{r\to \infty}$, $C^{r \to \infty}_u>0$, $D^{u,r}$, $D^{r \to \infty}_u\geq 0$, and $\delta^{-,r}_u < 0 < \delta^{+,r}_u$. Let $\epsilon>0$. Then there exists $r^*>0$ such that $\max_{r > r^*}\{ B^{r}, C^{u,r}, D^{u,r} \} \leq \max\{C^{r \to \infty}_u,D^{r \to \infty}_u \}+\epsilon=: c_1$. Thus, we can deduce that for $r \geq r^*$, for every $t \in [0,T]$:
 	\begin{equation*}
 	\left\vert u_t^{r} \right\vert \leq \frac{C^{u,r} + D^{u,r} (\delta^{+,r}_u - \delta^{-,r}_u)}{\delta^{+,r}_u e^{- (\delta^{+,r}_u - \delta^{-,r}_u)(T-t)}} 
 	\leq  \frac{ c_1 + 2 c_1 \sqrt{(A^u)^2 + c_1^2}  }{-2A^u e^{-2T \sqrt{(A^u)^2 + c_1^2} } }.
@@ -847,7 +847,7 @@ In the following propositions, we utilize the following assumption.
 	
 	Fix $\epsilon>0$. In the following, we show that $I_1^{b_2} \leq \epsilon$ and $I_2^{b_2} \leq \epsilon$ for large $b_2$. First, consider $I_1^{b_2}$. Recall that for $t \in[0,T/2]$, we have $\lim_{b_2 \to \infty}h_u(b_2,t) = \lim_{b_2 \to \infty}h_w(b_2,t) = c$, and for all $b_2 \geq b_2^{*,upper}$, the functions $[0,T/2] \ni s \mapsto u_s^{b_2}$ and $[0,T/2] \ni s \mapsto w_s^{b_2}$ are increasing, and thus, $[0,T/2] \ni s \mapsto h_u(b_2,t)$ and $[0,T/2] \ni s \mapsto h_w(b_2,t)$ are increasing. (Note that $T/2<T$ is chosen arbitrarily, since the above limits do not hold at $T$.) Let 
 	$$ \zeta_2: = \min \left\{ \frac{c}{2},  \frac{1}{2} e^{-T(b_1+\bar{b}_2)} \sqrt{\epsilon c} \right\}.$$
-	Then there exists $b_2^{*,I_1}  > b_2^{*,upper}$ such that for all $b_2 \geq b_2^{*,I_1}$ and all $s\in [0, T/2]$ we have:
+	Then there exists $b_2^{*,I_1}  \geq b_2^{*,upper}$ such that for all $b_2 \geq b_2^{*,I_1}$ and all $s\in [0, T/2]$ we have:
 	\begin{equation*}
 	\begin{array}{lclclclcl}
 		c - \zeta_2 &\leq& h_u(b_2,0) &\leq& h_u(b_2,s) &\leq& h_u(b_2, T/2 ) &\leq& c + \zeta_2, \\
@@ -880,7 +880,7 @@ In the following propositions, we utilize the following assumption.
 	\end{IEEEeqnarray}
 	where $\kappa_3: = \frac{2 TM^2 e^{2(b_1 + \bar{b}_1) T} }{r + \bar{r}(1-\bar{s})^2} >0$ and $\kappa_4 :=  \frac{T  m_u}{r + \bar{r}(1-\bar{s})^2}>0$ are constants independent of $b_2$. 	
 	
-	Let $b_2^* := \max \{ b_2^{*,I_1}, b_2^{*,I_2}\}$. Then inequalities (\ref{eq:I_1_plus_I_2}), (\ref{eq:I1_ineq_b2_infinity}) and (\ref{eq:I2_b2_infty}) give:
+	Let $b_2^* := \max \{ b_2^{*,I_1}, b_2^{*,I_2}\}$. Then inequalities (\ref{eq:I_1_plus_I_2}), (\ref{eq:I1_ineq_b2_infinity}) and (\ref{eq:I2_b2_infty}) give for $b_2 \geq b_2^*$:
 	\begin{equation*}
 		\frac{\Delta SC^{b_2}}{SC^{MKV,b_2}} \leq \frac{I_1^{b_2} + I_2^{b_2}}{(b_2 + \bar{b}_2) w_0^{b_2}} \leq \frac{ \epsilon + \epsilon }{h_w(b_2,0)} \leq \frac{2\epsilon}{c/2}=\frac{4}{c}\epsilon.
 	\end{equation*}
@@ -925,7 +925,7 @@ In the following propositions, we utilize the following assumption.
 	and $A^u, (A^w, C^w, D^w), (A^\eta, C^\eta, D^\eta)$ are independent of $b_2$.
 	Moreover, we have $\lim_{b_2 \to 0}\delta^{+,b_2}_u =-2A^u >0 $ and $\lim_{b_2 \to 0}\delta^{-,b_2}_u = 0$, so that $\lim_{b_2 \to 0}(\delta^{+}_u - \delta^{-}_u) = -2 A^u > 0$. Thus, from equation (\ref{eq:riccati_ut_sol}) we deduce that for every fixed time $t \in [0,T]$, $\lim_{b_2 \to 0}u^{b_2}_t = 0.$
 	
-	Similar to Proposition \ref{prop:r_bar_r}, we can derive a uniform bound for $u_t^{b_2}$ over $[0,T]$ for small $b_2$. Indeed, for any fixed $\epsilon >0$ there exits $b_2^* >0$ such that for any $b_2 < b_2^*$, $\max \{B^{b_2}, C^{u,b_2}, D^{u,b_2} \} \leq B^{b_2 \to \infty} + \epsilon =: c_1$ and
+	Similar to Proposition \ref{prop:r_bar_r}, we can derive a uniform bound for $u_t^{b_2}$ over $[0,T]$ for small $b_2$. Indeed, for any fixed $\epsilon >0$ there exits $b_2^* >0$ such that for any $b_2 \leq b_2^*$, $\max \{B^{b_2}, C^{u,b_2}, D^{u,b_2} \} \leq B^{b_2 \to \infty} + \epsilon =: c_1$ and
 	\begin{equation*}
 	 \vert u_t^{b_2} \vert \leq \frac{c_1 + 2 \epsilon \sqrt{(A^u)^2 + c_1^2} }{- 2 A^u e^{-2T \sqrt{(A^u)^2 + c_1^2} } } ,\qquad \forall  \  t \in [0,T].
 	\end{equation*}
@@ -1059,7 +1059,7 @@ In the following propositions, we utilize the following assumption.
 	\left({u}^{{\bar{b}_2 \to 0}}_t\right)' - 2A^u u_t^{\bar{b}_2 \to 0} -B^{\bar{b}_2 \to 0} (u_t^{\bar{b}_2 \to 0})^2+ C^{\bar{b}_2 \to 0}_u = 0, \qquad u_T^{r \to \infty} = D^{\bar{b}_2 \to 0}_u,
 	\label{eq:riccati_limiting_u}
 	\end{equation}
-	which we recall has an explicit solution. It is easy to show that for every time $t\in [0,T]$, $\lim_{\bar{b}_2 \to 0}u^{\bar{b}_2}_t=u^{\bar{b}_2 \to 0}_t$. Next, our goal is to bound $u^{\bar{b}_2}_t$ uniformly over $t \in [0,T]$ for small $\bar{b}_2$, following the methodology of the proof of Proposition \ref{prop:r_bar_r}. For any $\epsilon>0$, there exists a $\bar{b}^*_2>0$ such that $\max_{\bar{b}_2<\bar{b}^*_2} \{ B^{\bar{b}_2},C^{u,\bar{b}_2},D^{u,\bar{b}_2} \}<\max \{B^{\bar{b}_2 \to 0},C^{\bar{b}_2 \to 0}_u,D^{\bar{b}_2 \to 0}_u \}+\epsilon=:c_1$. Thus, for all $\bar{b}_2<\bar{b}^*_2$ and for every $t \in [0,T]$:
+	which we recall has an explicit solution. It is easy to show that for every time $t\in [0,T]$, $\lim_{\bar{b}_2 \to 0}u^{\bar{b}_2}_t=u^{\bar{b}_2 \to 0}_t$. Next, our goal is to bound $u^{\bar{b}_2}_t$ uniformly over $t \in [0,T]$ for small $\bar{b}_2$, following the methodology of the proof of Proposition \ref{prop:r_bar_r}. For any $\epsilon>0$, there exists a $\bar{b}^*_2>0$ such that $\max_{\bar{b}_2 \leq \bar{b}^*_2} \{ B^{\bar{b}_2},C^{u,\bar{b}_2},D^{u,\bar{b}_2} \}<\max \{B^{\bar{b}_2 \to 0},C^{\bar{b}_2 \to 0}_u,D^{\bar{b}_2 \to 0}_u \}+\epsilon=:c_1$. Thus, for all $\bar{b}_2<\bar{b}^*_2$ and for every $t \in [0,T]$:
 	\begin{equation*}
 		\left \vert u_t^{\bar{b}_2} \right\vert \leq \frac{c_1 + 2 c_1 \sqrt{(A^u)^2 + c_1^2}}{-2A^u e^{-2T \sqrt{(A^u)^2 + c_1^2}}}.
 	\end{equation*}
@@ -1069,8 +1069,8 @@ In the following propositions, we utilize the following assumption.
    	\lim_{\bar{b}_2 \to 0} \bar{x}_t^{MFG,\bar{b}_2} = \mathbb{E}(\xi) e^{\int_0^t (b_1 + \bar{b}_1 - B^{\bar{b}_2 \to 0}u^{\bar{b}_2 \to 0}_s) ds} =: \bar{x}^{MFG,\bar{b}_2 \to 0}_t\neq 0.
    	\label{eq:x_bar_neq_0}
    	\end{equation}
-	Moreover, $\bar{x}^{MFG,\bar{b}_2}$ is uniformly bounded for all $\bar{b}_2<\bar{b}^*_2$ and for all $t \in [0,T]$. From the non-negativity of $u_t$, we have:
-	$$ \left\vert \bar{x}^{MFG,\bar{b}_2}_t \right\vert \leq \left\vert \mathbb{E}(\xi) \right\vert e^{ (b_1 + \bar{b}_1 ) T }, \quad \forall t \in [0,T], \ \forall \bar{b}_2<\bar{b}^*_2. $$ 
+	Moreover, $\bar{x}^{MFG,\bar{b}_2}$ is uniformly bounded for all $\bar{b}_2 \leq \bar{b}^*_2$ and for all $t \in [0,T]$. From the non-negativity of $u_t$, we have:
+	$$ \left\vert \bar{x}^{MFG,\bar{b}_2}_t \right\vert \leq \left\vert \mathbb{E}(\xi) \right\vert e^{ (b_1 + \bar{b}_1 ) T }, \quad \forall t \in [0,T], \ \forall \bar{b}_2 \leq \bar{b}^*_2. $$ 
    	
    	By the assumption $\frac{r + \bar{r}(1- \bar{s})^2}{r + \bar{r}(1-\bar{s})} \neq \frac{q_T+\bar{q}_T(1-s_T)^2}{q_T+\bar{q}_T(1-s_T)}$, we have $D^{u,\bar{b}_2 \to 0} \neq D^{w}$, and thus by continuity, $u^{\bar{b}_2 \to 0}_t\neq w^{\bar{b}_2 \to 0}_t$ on a set of positive Lebesgue measure. 
    	 Thus, from Proposition \ref{prop:diff_SC} and by the bounded convergence theorem, we deduce:
@@ -1116,7 +1116,7 @@ In the following propositions, we utilize the following assumption.
 	\end{equation*}
 \end{proposition}
 \begin{proof}
-	\textbf{Cases 1 and 2:} First, we consider $b_1 \to 0$. We have $A^{u,b_1} \to A^{b_1\to 0}_u$, $\delta^{+,b_1}_u \to \delta^{+,b_1\to 0}_u>0$, and $\delta^{-,b_1}_u \to \delta^{-,b_1\to 0}_u<0$, and similarly for $A^{w,b_1}$, $A^{\eta,b_1}$, $\delta^{\pm,b_1}_w$, and $\delta^{\pm,b_1}_\eta$. Clearly we have for each $t\in[0,T]$, $\lim_{b_1 \to 0}u^{b_1}_t=:u^{b_1\to 0}_t$, $\lim_{b_1 \to 0}w^{b_1}_t=:w^{b_1 \to 0}_t$, and $\lim_{b_1 \to 0}\eta^{b_1}_t=:\eta^{b_1 \to 0}_t$. Next, we show that the three sequences are uniformly bounded. Let $0<\epsilon<-\delta^{-,b_1\to 0}_u$. There exists a $b_1^*$ such that $\max \left \{\left| \delta^{+,b_1}_u-\delta^{+,b_1\to0}_u \right|,\left| \delta^{-,b_1}_u-\delta^{-,b_1\to0}_u \right| \right\}<\epsilon$ for each $b_1<b_1^*$. Then for each $b_1<b_1^*$ and $t\in[0,T]$, we have:
+	\textbf{Cases 1 and 2:} First, we consider $b_1 \to 0$. We have $A^{u,b_1} \to A^{b_1\to 0}_u$, $\delta^{+,b_1}_u \to \delta^{+,b_1\to 0}_u>0$, and $\delta^{-,b_1}_u \to \delta^{-,b_1\to 0}_u<0$, and similarly for $A^{w,b_1}$, $A^{\eta,b_1}$, $\delta^{\pm,b_1}_w$, and $\delta^{\pm,b_1}_\eta$. Clearly we have for each $t\in[0,T]$, $\lim_{b_1 \to 0}u^{b_1}_t=:u^{b_1\to 0}_t$, $\lim_{b_1 \to 0}w^{b_1}_t=:w^{b_1 \to 0}_t$, and $\lim_{b_1 \to 0}\eta^{b_1}_t=:\eta^{b_1 \to 0}_t$. Next, we show that the three sequences are uniformly bounded. Let $0<\epsilon<-\delta^{-,b_1\to 0}_u$. There exists a $b_1^*$ such that $\max \left \{\left| \delta^{+,b_1}_u-\delta^{+,b_1\to0}_u \right|,\left| \delta^{-,b_1}_u-\delta^{-,b_1\to0}_u \right| \right\}<\epsilon$ for each $b_1 \leq b_1^*$. Then for each $b_1 \leq b_1^*$ and $t\in[0,T]$, we have:
 	\begin{equation*}
 		\left|u^{b_1}_t\right| \leq \frac{C^u+D^u\left(\delta^{+,b_1}_u-\delta^{-,b_1}_u\right) }{-\delta^{-,b_1}_u} \\
 		\leq \frac{C^u+D^u\left(\delta^{+,b_1\to 0}_u-\delta^{-,b_1 \to 0}_u+2\epsilon\right) }{-\delta^{-,b_1\to 0}_u-\epsilon},
@@ -1127,8 +1127,8 @@ In the following propositions, we utilize the following assumption.
 	\begin{equation*}
 	\lim_{b_1\to 0}\bar{x}_t^{MFG,b_1} = \mathbb{E}(\xi) e^{\int_0^t(\bar{b}_1-B u^{b_1\to 0}_s)ds} =: \bar{x}_t^{MFG,b_1\to 0}\neq 0.
 	\end{equation*}
-	Moreover, $\bar{x}_t^{MFG,b_1}$ is uniformly bounded over $b_1<b_1^*$ and $t \in [0,T]$, i.e. 
-	$$ \left\vert \bar{x}^{MFG,b_1}_t \right\vert \leq \left\vert \mathbb{E}(\xi) \right\vert e^{ \bar{b}_1 T }, \quad \forall t \in [0,T],\ b_1<b_1^*. $$ 
+	Moreover, $\bar{x}_t^{MFG,b_1}$ is uniformly bounded over $b_1 \leq b_1^*$ and $t \in [0,T]$, i.e. 
+	$$ \left\vert \bar{x}^{MFG,b_1}_t \right\vert \leq \left\vert \mathbb{E}(\xi) \right\vert e^{ \bar{b}_1 T }, \quad \forall t \in [0,T],\ b_1 \leq b_1^*. $$ 
 	
 	Therefore, by Proposition \ref{prop:diff_SC}, and the bounded convergence theorem, $0<\lim_{b_1 \to 0} \Delta SC^{b_1}<\infty$. By the bounded convergence theorem, $\lim_{b_1 \to 0}v^{b_1}_t=:v_t^{b_1 \to 0}$, which is bounded over $t\in [0,T]$, and thus $0<\lim_{b_1 \to 0} SC^{MKV,b_1}<\infty.$
     Therefore, $\lim_{b_1 \to 0} PoA^{b_1} =: PoA^{b_1 \to 0} > 1$. The proof can be repeated to show $\lim_{\bar{b}_1 \to 0} PoA^{\bar{b}_1} =: PoA^{\bar{b}_1 \to 0} > 1$.
@@ -1223,7 +1223,7 @@ In the following propositions, we utilize the following assumption.
 	\label{eq:prop_7_case_4_numerator}
 	\end{equation}
 	
-	Since $u^{\bar{b}_1}_t$ is decreasing for $\bar{b}_1> \bar{b}_1^{*,lower}$, we have $\bar{b}_1-B u_t^{\bar{b}_1} \geq \bar{b}_1-B u_0^{\bar{b}_1}$. We have the following limits for $t\in[0,T)$:
+	Since $u^{\bar{b}_1}_t$ is decreasing for $\bar{b}_1 \geq \bar{b}_1^{*,lower}$, we have $\bar{b}_1-B u_t^{\bar{b}_1} \geq \bar{b}_1-B u_0^{\bar{b}_1}$. We have the following limits for $t\in[0,T)$:
 	\begin{equation*}
 	\lim_{\bar{b}_1 \to \infty}\bar{b}_1-\delta^{+,\bar{b}_1}_u=-2b_1, \quad \lim_{\bar{b}_1 \to \infty}-\delta^{-,\bar{b}_1}_u\bar{b}_1=BC^u,
 	\end{equation*}
