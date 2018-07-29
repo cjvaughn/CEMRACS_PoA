@@ -1066,7 +1066,7 @@ In the following propositions, we utilize the following assumption.
 	and $A^u, (A^w, C^w, D^w), (A^\eta, B^\eta, C^\eta, D^\eta)$ are independent of $\bar{b}_2$.	
 	Let $u^{\bar{b}_2 \to 0}:[0,T]\to \mathbb{R}$ be the solution to the limiting Riccati equation:
 	\begin{equation}
-	\left({u}^{{\bar{b}_2 \to 0}}_t\right)' - 2A^u u_t^{\bar{b}_2 \to 0} +B^{\bar{b}_2 \to 0} (u_t^{\bar{b}_2 \to 0})^2+ C^{\bar{b}_2 \to 0}_u = 0, \qquad u_T^{r \to \infty} = D^{\bar{b}_2 \to 0}_u,
+	\left({u}^{{\bar{b}_2 \to 0}}_t\right)' - 2A^u u_t^{\bar{b}_2 \to 0} -B^{\bar{b}_2 \to 0} (u_t^{\bar{b}_2 \to 0})^2+ C^{\bar{b}_2 \to 0}_u = 0, \qquad u_T^{r \to \infty} = D^{\bar{b}_2 \to 0}_u,
 	\label{eq:riccati_limiting_u}
 	\end{equation}
 	which we recall has an explicit solution. It is easy to show that for every time $t\in [0,T]$, $\lim_{\bar{b}_2 \to 0}u^{\bar{b}_2}_t=u^{\bar{b}_2 \to 0}_t$. Next, our goal is to bound $u^{\bar{b}_2}_t$ uniformly over $t \in [0,T]$ for small enough $\bar{b}_2$, following the methodology of the proof of Proposition \ref{prop:r_bar_r}. For any $\epsilon>0$, there exists a $\bar{b}^*_2>0$ such that $\max_{\bar{b}_2<\bar{b}^*_2} \{ B^{\bar{b}_2},C^{u,\bar{b}_2},D^{u,\bar{b}_2} \}<\max \{B^{\bar{b}_2 \to 0},C^{\bar{b}_2 \to 0}_u,D^{\bar{b}_2 \to 0}_u \}+\epsilon=:c_1$. Thus, for all $\bar{b}_2<\bar{b}^*_2$ and for every $t \in [0,T]$:
@@ -1100,15 +1100,15 @@ In the following propositions, we utilize the following assumption.
 \begin{remark}
 	Consider assumption \ref{assumption} and the case when $\bar{b}_2$ tends to zero. We have $0< SC^{MKV, \bar{b}_2 \to 0} < \infty$, and therefore, $\lim_{\bar{b}_2 \to 0} PoA^{\bar{b}_2 } =1$ implies $\lim_{\bar{b}_2 \to 0} \Delta SC^{\bar{b}_2} = 0$. Hence, from equation (\ref{eq:x_bar_neq_0}) and Proposition \ref{prop:diff_SC}, if $\lim_{\bar{b}_2 \to 0} PoA^{\bar{b}_2 } =1$, then for all $t \in [0,T]$:
 	$$u_t^{\bar{b}_2 \to 0} = w_t^{\bar{b}_2 \to 0}.$$
-	From equation (\ref{eq:riccati_limiting_u}) and an analogous Riccati equation for $w_t^{\bar{b}_2 \to 0}$, the above equality implies $ D^{u,\bar{b}_2 \to \infty} =  u_T^{\bar{b}_2 \to 0} = w_T^{\bar{b}_2 \to 0} = D^w$ and:
-	$$ B^{\bar{b}_2 \to 0} (D^{u,\bar{b}_2 \to 0} )^2 + 2 A^{u}D^{u,\bar{b}_2 \to 0} - C^{u,\bar{b}_2 \to 0} = B^{\bar{b}_2 \to 0} (D^w)^2 + 2 A^{w} D^w - C^w  = 0.$$
-	In another words, the coefficients have to satisfy the following three equations:
+	From equation (\ref{eq:riccati_limiting_u}) and an analogous Riccati equation for $w_t^{\bar{b}_2 \to 0}$, a sufficient condition for the above equality is:
+	$$D^{u,\bar{b}_2 \to \infty} = D^w \quad \text{and} \quad B^{\bar{b}_2 \to 0} (D^{u,\bar{b}_2 \to 0} )^2 + 2 A^{u}D^{u,\bar{b}_2 \to 0} - C^{u,\bar{b}_2 \to 0} = B^{\bar{b}_2 \to 0} (D^w)^2 + 2 A^{w} D^w - C^w  = 0.$$
+	In other words, the following three equations provide a sufficient condition for $\lim_{\bar{b}_2 \to 0} PoA^{\bar{b}_2 } =1$:
 	$$	\frac{r + \bar{r}(1- \bar{s})^2}{r + \bar{r}(1-\bar{s})} = \frac{q_T+\bar{q}_T(1-s_T)^2}{q_T+\bar{q}_T(1-s_T)},
 	\qquad
-	 \bar{b}_1 \frac{q_T + \bar{q}_T(1-s_T)^2}{q + \bar{q}(1-s)^2} = 1 - \frac{r + \bar{r}(1- \bar{s})^2}{r + \bar{r}(1-\bar{s})} \frac{q + \bar{q}(1-s)}{q + \bar{q}(1-s)^2},
+	 \bar{b}_1 \frac{q_T + \bar{q}_T(1-s_T)^2}{q + \bar{q}(1-s)^2} =  \frac{r + \bar{r}(1- \bar{s})^2}{r + \bar{r}(1-\bar{s})} \frac{q + \bar{q}(1-s)}{q + \bar{q}(1-s)^2}-1,
 	$$
 	and
-	$$ \frac{b_2^2}{r + \bar{r}(1-\bar{s})^2} \left(q_T + \bar{q}_T(1- s_T)^2 \right)^2 - 2 (b_1 + \bar{b}_1) \left(q_T + \bar{q}_T(1- s_T)^2 \right) - \left(q_ + \bar{q}(1- s)^2 \right) = 0.$$\\
+	$$ \frac{b_2^2}{r + \bar{r}(1-\bar{s})^2} \left(q_T + \bar{q}_T(1- s_T)^2 \right)^2 - 2 (b_1 + \bar{b}_1) \left(q_T + \bar{q}_T(1- s_T)^2 \right) - \left(q + \bar{q}(1- s)^2 \right) = 0.$$\\
 \end{remark}
 
 
