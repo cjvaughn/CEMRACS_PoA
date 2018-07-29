@@ -777,7 +777,7 @@ In the following propositions, we utilize the following assumption.
 	\begin{equation*}
 		\frac{\delta_u^{\pm,b_2}}{b_2 + \bar{b}_2} = -\frac{A^u}{b_2 + \bar{b}_2} \pm \sqrt{\frac{(A^u)^2}{(b_2+\bar{b}_2)^2}+\frac{C^{u,b_2}}{r + \bar{r}(1-\bar{s})^2} } \xrightarrow[b_2 \to \infty]{} \displaystyle \pm \sqrt{\frac{q + \bar{q}(1-s)}{r + \bar{r}(1-\bar{s})} } =: \pm c_{\delta_u^{b_2 \to \infty}}.
 	\end{equation*}
-	and thus, $\delta^{+,b_2}_u - \delta^{-,b_2}_u \xrightarrow[b_2 \to \infty]{} +\infty$.
+	and thus, $\lim_{b_2 \to \infty}\delta^{+,b_2}_u - \delta^{-,b_2}_u = +\infty$.
 	From equation (\ref{eq:riccati_ut_sol}), for each $t \in[0,T)$, we deduce:
 	\begin{IEEEeqnarray*}{rCl}
 		(b_2 + \bar{b}_2) u^{b_2}_t &=& \frac{ \displaystyle  \left(\frac{C^{u,b_2}}{b_2 + \bar{b}_2} + D^{u,b_2} \cdot \frac{\delta^{+,b_2}_u}{b_2 + \bar{b}_2}\right) - \left(\frac{C^{u,b_2}}{b_2 + \bar{b}_2} + D^{u,b_2} \cdot \frac{\delta^{-,b_2}_u}{b_2 + \bar{b}_2}\right)e^{- (\delta^{+,b_2}_u - \delta^{-,b_2}_u)(T-t)} }
@@ -786,9 +786,9 @@ In the following propositions, we utilize the following assumption.
 		&\xrightarrow[b_2 \to \infty]{}& \quad (r + \bar{r}(1-\bar{s})^2) \cdot c_{\delta_u^{b_2 \to \infty}}  =: c_u.
 	\end{IEEEeqnarray*}
 	Idem, for all $t \in [0,T)$,
-	$$ (b_2 + \bar{b}_2) w_t^{b_2} \xrightarrow[b_2 \to \infty]{}  (r + \bar{r}(1-\bar{s})^2) \cdot c_{\delta_w^{b_2 \to \infty}} =: c_w,\qquad \text{with } \quad c_{\delta_w^{b_2 \to \infty}} := \sqrt{ \frac{q + \bar{q}(1-s)^2}{r + \bar{r}(1-\bar{s})^2} },$$
+	$$\lim_{b_2 \to \infty} (b_2 + \bar{b}_2) w_t^{b_2} =  (r + \bar{r}(1-\bar{s})^2) \cdot c_{\delta_w^{b_2 \to \infty}} =: c_w,\qquad \text{with } \quad c_{\delta_w^{b_2 \to \infty}} := \sqrt{ \frac{q + \bar{q}(1-s)^2}{r + \bar{r}(1-\bar{s})^2} },$$
 	and
-	$$ b_2 \eta_t^{b_2} \xrightarrow[b_2 \to \infty]{} (r + \bar{r}) \cdot c_{\delta_{\eta}^{b_2 \to \infty}} =: c_\eta, \qquad \text{with } \quad c_{\delta_\eta^{b_2 \to \infty}} := \sqrt{ \frac{q + \bar{q}}{r +\bar{r}} }.$$
+	$$ \lim_{b_2 \to \infty}b_2 \eta_t^{b_2} = (r + \bar{r}) \cdot c_{\delta_{\eta}^{b_2 \to \infty}} =: c_\eta, \qquad \text{with } \quad c_{\delta_\eta^{b_2 \to \infty}} := \sqrt{ \frac{q + \bar{q}}{r +\bar{r}} }.$$
 	
 	Next, we derive a strictly positive uniform lower bound for $(b_2 + \bar{b}_2) u_t^{b_2}$ over $[0,T]$ and large $b_2$. Let $\zeta_1 :=\frac{1}{2} \min \left\{ c_{\delta_u^{b_2 \to \infty}}, D^{u,b_2 \to \infty} \right\}$. Then there exists $b_2^{*,u,lower}>0$ such that for all $b_2 \geq b_2^{*,u,lower}$,
 	$$ 
@@ -978,8 +978,8 @@ In the following propositions, we utilize the following assumption.
 	and, for all $t \in [0,T)$:
 	\begin{equation*}
 	\begin{array}{l}
-	(b_2 + \bar{b}_2)^{\frac{3}{2}}\cdot u^{\bar{b}_2}_t \xrightarrow[\bar{b}_2 \to \infty]{} (r + \bar{r}(1-\bar{s})^2) \cdot c_{\delta^{\bar{b}_2 \to \infty}_u} =: c_u, \\
-	(b_2 + \bar{b}_2) w_t^{\bar{b}_2} \xrightarrow[\bar{b}_2 \to \infty]{} (r + \bar{r}(1-\bar{s}^2) ) \cdot c_{\delta_w^{\bar{b}_2\to \infty}} =: c_w.
+	\lim_{\bar{b}_2 \to \infty}(b_2 + \bar{b}_2)^{\frac{3}{2}}\cdot u^{\bar{b}_2}_t = (r + \bar{r}(1-\bar{s})^2) \cdot c_{\delta^{\bar{b}_2 \to \infty}_u} =: c_u, \\
+	\lim_{\bar{b}_2 \to \infty}(b_2 + \bar{b}_2) w_t^{\bar{b}_2} = (r + \bar{r}(1-\bar{s}^2) ) \cdot c_{\delta_w^{\bar{b}_2\to \infty}} =: c_w.
 	\end{array}
 	\end{equation*}
 	
@@ -1039,7 +1039,7 @@ In the following propositions, we utilize the following assumption.
 	\begin{equation*}
 	\lim_{\bar{b}_2 \to \infty} \Delta SC^{\bar{b}_2} = 0.
 	\end{equation*}
-	Moreover, recall that $\eta_t$ and $v_t$ are invariant with respect to $\bar{b}_2$ and $0<v_t<\infty$ for $t>0$. Clearly we also have $w^{\bar{b}_2}_0 \geq 0$ and $w^{\bar{b}_2}_0 \xrightarrow[\bar{b}_2 \to \infty]{} 0$. Thus, we obtain:
+	Moreover, recall that $\eta_t$ and $v_t$ are invariant with respect to $\bar{b}_2$ and $0<v_t<\infty$ for $t>0$. Clearly we also have $w^{\bar{b}_2}_0 \geq 0$ and $\lim_{\bar{b}_2 \to \infty}w^{\bar{b}_2}_0 = 0$. Thus, we obtain:
 	$$0< \lim_{\bar{b}_2 \to \infty} SC^{MKV,\bar{b}_2} <\infty,$$
 	and conclude that:
 	$$ \lim_{\bar{b}_2 \to \infty} PoA^{\bar{b}_2} = 1.$$	
