@@ -18,6 +18,7 @@
 \newtheorem{proposition}{Proposition}
 \newtheorem{corollary}{Corollary}
 \newtheorem{lemma}{Lemma}
+\newtheorem{assumption}{Assumption}
 
 \def\balpha{\boldsymbol{\alpha}}
 \def\bbeta{\boldsymbol{\beta}}
@@ -673,14 +674,16 @@ It will also be useful to compute the derivative of $u_t$ with respect to time $
 \frac{d u_t}{dt} = \frac{\left(B (D^{u})^2 + 2 A^u D^{u} - C^{u} \right) \cdot \left(\delta_u^{+} - \delta_u^{-}\right)^2 e^{- (\delta_u^{+} - \delta_u^{-})(T-t) } }{\left[B D^{u}(1-e^{- (\delta_u^{+} - \delta_u^{-})(T-t)})   + \delta_u^{+}e^{- (\delta_u^{+} - \delta_u^{-})(T-t)}- \delta_u^{-}  \right]^2 }.
 \label{eq:riccati_ut_sol_deriv}
 \end{equation}
-Note that $u_t$ is increasing if $B (D^{u})^2 + 2 A^u D^{u} - C^{u}>0$, and likewise, decreasing if $B (D^{u})^2 + 2 A^u D^{u} - C^{u}<0$.
+Note that $u_t$ is increasing if $B (D^{u})^2 + 2 A^u D^{u} - C^{u}>0$, and likewise, decreasing if $B (D^{u})^2 + 2 A^u D^{u} - C^{u}<0$.\\
 
-In the following propositions, based on assumption (\ref{eq:assumptions}) and the positivity of coefficients, we assume in addition that $b_1 > 0, D^{u} > 0, D^w > 0, D^{\eta} >0$ and the initial condition $\xi$ satisfies $\mathbb{E}(\xi) \neq 0$. These assumptions allow us to better understand the main ideas and techniques employed in the following propositions.
-
+In the following propositions, we utilize the following assumption.	
+\begin{assumption}\label{assumption}
+	Assume (\ref{eq:assumptions}). In addition, assume: $b_1 > 0$, $D^{u} > 0$, $D^w > 0$, $D^{\eta} >0$ and the initial condition satisfies $\mathbb{E}(\xi) \neq 0$.
+\end{assumption}
 
 % proposition r to infty
 \begin{proposition}
-	Assuming (\ref{eq:assumptions}), then:
+	Assuming assumption \ref{assumption}, then:
 	\begin{equation*}
 			\lim_{r \to \infty} PoA = 1 \qquad \text{and} \qquad
 			\lim_{\bar{r} \to \infty} PoA = 1.
@@ -754,7 +757,7 @@ In the following propositions, based on assumption (\ref{eq:assumptions}) and th
 
 % proposition b_2 to \infty
 \begin{proposition}
-	Assuming (\ref{eq:assumptions}), and if
+	Assuming assumption \ref{assumption}, and if
 	\begin{equation*}
 	\frac{q+\bar{q}(1-s)}{r+\bar{r}(1-\bar{s})} =\frac{q+\bar{q}(1-s)^2}{r+\bar{r}(1-\bar{s})^2},
 	\end{equation*}
@@ -775,7 +778,7 @@ In the following propositions, based on assumption (\ref{eq:assumptions}) and th
 		\frac{\delta_u^{\pm,b_2}}{b_2 + \bar{b}_2} = -\frac{A^u}{b_2 + \bar{b}_2} \pm \sqrt{\frac{(A^u)^2}{(b_2+\bar{b}_2)^2}+\frac{C^{u,b_2}}{r + \bar{r}(1-\bar{s})^2} } \xrightarrow[b_2 \to \infty]{} \displaystyle \pm \sqrt{\frac{q + \bar{q}(1-s)}{r + \bar{r}(1-\bar{s})} } =: \pm c_{\delta_u^{b_2 \to \infty}}.
 	\end{equation*}
 	and thus, $\delta^{+,b_2}_u - \delta^{-,b_2}_u \xrightarrow[b_2 \to \infty]{} +\infty$.
-	From the assumption $q_T+\bar{q}_T(1-s_T)>0$, we have $D^{u,b_2}>0$. From equation (\ref{eq:riccati_ut_sol}), for each $t \in[0,T)$, we deduce:
+	From equation (\ref{eq:riccati_ut_sol}), for each $t \in[0,T)$, we deduce:
 	\begin{IEEEeqnarray*}{rCl}
 		(b_2 + \bar{b}_2) u^{b_2}_t &=& \frac{ \displaystyle  \left(\frac{C^{u,b_2}}{b_2 + \bar{b}_2} + D^{u,b_2} \cdot \frac{\delta^{+,b_2}_u}{b_2 + \bar{b}_2}\right) - \left(\frac{C^{u,b_2}}{b_2 + \bar{b}_2} + D^{u,b_2} \cdot \frac{\delta^{-,b_2}_u}{b_2 + \bar{b}_2}\right)e^{- (\delta^{+,b_2}_u - \delta^{-,b_2}_u)(T-t)} }
 		{\displaystyle \left(\frac{- \delta^{-,b_2}_u}{(b_2 + \bar{b}_2)^2} + \frac{D^{u,b_2}}{r + \bar{r}(1-\bar{s})^2} \right) + \left(\frac{\delta^{+,b_2}_u}{(b_2 + \bar{b}_2)^2} - \frac{D^{u,b_2} }{r + \bar{r}(1-\bar{s})^2} \right)e^{- (\delta^{+,b_2}_u - \delta^{-,b_2}_u)(T-t)}  } \nonumber \\
@@ -824,7 +827,7 @@ In the following propositions, based on assumption (\ref{eq:assumptions}) and th
 	\frac{q+\bar{q}(1-s)}{r+\bar{r}(1-\bar{s})}=\frac{q+\bar{q}(1-s)^2}{r+\bar{r}(1-\bar{s})^2},
 	\end{equation*}
 	we have $c_{\delta_u^{b_2 \to \infty}}=c_{\delta_w^{b_2 \to \infty}}$ and therefore, $c_u = c_w =: c$. 
-	We would like to show in this case that $\lim_{b_2 \to \infty} \frac{\Delta SC}{SC^{MKV}} = 0$. Our approach is to split the interval $[0,T]$ into two parts: $[0,T/2]$ and $[T/2,T]$.	
+	We would like to show in this case that $\lim_{b_2 \to \infty} \frac{\Delta SC^{b_2}}{SC^{MKV,b_2}} = 0$. Our approach is to split the interval $[0,T]$ into two parts: $[0,T/2]$ and $[T/2,T]$.	
 	Since $v^{b_2}_t \geq 0$ for all $t\in [0,T]$, we have $SC^{MKV,b_2} \geq w_0^{b_2} (\mathbb{E}(\xi))^2$.	For the sake of simplicity, we denote $h_u(b_2,t) := (b_2 + \bar{b}_2) u_{t}^{b_2}$ and $h_w(b_2,t) := (b_2 + \bar{b}_2)w_t^{b_2}$. We have:
 	\begin{equation}
 	\begin{split}
@@ -897,7 +900,7 @@ In the following propositions, based on assumption (\ref{eq:assumptions}) and th
 
 %proposition b_2 \to 0
 \begin{proposition}
-	Assume (\ref{eq:assumptions}). If $\bar{b}_2= 0$, then:
+	Assume assumption \ref{assumption}. If $\bar{b}_2= 0$, then:
 	\begin{equation*}
 	\lim_{b_2 \to 0} PoA = 1,
 	\end{equation*}
@@ -932,18 +935,18 @@ In the following propositions, based on assumption (\ref{eq:assumptions}) and th
 	 \vert u_t^{b_2} \vert \leq \frac{c_1 + 2 \epsilon \sqrt{(A^u)^2 + c_1^2} }{- 2 A^u e^{-2T \sqrt{(A^u)^2 + c_1^2} } } ,\qquad \forall  \  t \in [0,T]
 	\end{equation*}
 	
-	From equation (\ref{eq:x_bar_MFG_explicit_new_notation}), the assumption on $\xi$, and by the bounded convergence theorem, we derive that for any fixed $t \in [0,T]$:
+	From equation (\ref{eq:x_bar_MFG_explicit_new_notation}), the assumption $\mathbb{E}(\xi)\neq 0$, and by the bounded convergence theorem, we derive that for any fixed $t \in [0,T]$:
 	$$\lim_{b_2 \to 0} \bar{x}_t^{MFG,b_2} = \mathbb{E}(\xi) e^{(b_1+\bar{b}_1)t} =: \bar{x}_t^{MFG,b_2 \to 0} \neq 0.$$
 	It can also be shown that $\left| \bar{x}_t^{MFG,b_2}\right| \leq \vert \mathbb{E}(\xi) \vert e^{(b_1 + \bar{b}_1) T}$ for any $t \in [0,T]$ and $b_2 > 0$.
 	
 	
-	Moreover, since $B^{b_2 \to 0}>0$, $B^{b_2 \to 0}C^w >0$, $B^{b_2\to 0}D^w \geq 0$, we have $\lim_{b_2 \to 0} w_t^{b_2}=:w_t^{b_2 \to 0}$, and $w_t^{b_2 \to 0}$ is strictly positive over $[0,T)$. It is easy to check that $w_t^{b_2}$ is also uniformly bounded over $[0,T]$ for small $b_2$. Hence, from Proposition \ref{prop:diff_SC} and the bounded convergence theorem, we deduce:
+	Moreover, since $B^{b_2 \to 0}>0$, $B^{b_2 \to 0}C^w >0$, $B^{b_2\to 0}D^w > 0$, we have $\lim_{b_2 \to 0} w_t^{b_2}=:w_t^{b_2 \to 0}$, and $w_t^{b_2 \to 0}$ is strictly positive over $[0,T)$. It is easy to check that $w_t^{b_2}$ is also uniformly bounded over $[0,T]$ for small $b_2$. Hence, from Proposition \ref{prop:diff_SC} and the bounded convergence theorem, we deduce:
 	\begin{equation*}
 	\lim_{b_2 \to 0} \Delta SC^{b_2} = \frac{1}{2} B^{b_2\to 0} \int_0^T (w_t^{b_2 \to 0} \cdot \bar{x}_t^{MFG,b_2 \to 0})^2 dt >0.
 	\end{equation*}
 	
 	
-	Since $B^{\eta,b_2} \to 0, A^{\eta} < 0, C^{\eta} >0$, and $D^{\eta} \geq 0$, using the same argument shown in Proposition \ref{prop:r_bar_r}, 
+	Since $B^{\eta,b_2} \to 0, A^{\eta} < 0, C^{\eta} >0$, and $D^{\eta} > 0$, using the same argument shown in Proposition \ref{prop:r_bar_r}, 
 	we deduce that $\eta_t^{b_2}$ is uniformly bounded over $[0,T]$ for small $b_2$ and for all $t \in[0,T]$:
 	$$\lim_{b_2 \to 0}\eta_t^{b_2}=\left(D^{\eta} - \frac{C^{\eta}}{2A^\eta}\right) e^{-2A^\eta(T-t)} + \frac{C^\eta}{2A^{\eta} }=:\eta_t^{b_2 \to 0}.$$
 	
@@ -958,61 +961,22 @@ In the following propositions, based on assumption (\ref{eq:assumptions}) and th
 
 % proposition b2 bar infinity
 \begin{proposition}
-	Assuming (\ref{eq:assumptions}). 
-	If	$	\frac{r + \bar{r}(1- \bar{s})^2}{r + \bar{r}(1-\bar{s})} \neq \frac{q_T+\bar{q}_T(1-s_T)^2}{q_T+\bar{q}_T(1-s_T)}$ then:
+	Assuming assumption \ref{assumption}, then:
+	$$ \qquad\lim_{\bar{b}_2 \to \infty} PoA = 1.$$
+	Furthermore, if	$\frac{r + \bar{r}(1- \bar{s})^2}{r + \bar{r}(1-\bar{s})} \neq \frac{q_T+\bar{q}_T(1-s_T)^2}{q_T+\bar{q}_T(1-s_T)}$ then:
 	\begin{equation*}
 	\lim_{\bar{b}_2 \to 0} PoA =: PoA^{\bar{b}_2\to 0} > 1. 
 	\end{equation*}	
-	When $\bar{b}_2$ tends to infinity, we always have:
-	$$ \qquad\lim_{\bar{b}_2 \to \infty} PoA = 1.$$
 	\label{prop:b2bar}
 \end{proposition}
 
-\begin{proof}	
-	\textbf{Case 1: } When $\bar{b}_2 \to 0$, we have:
-	\begin{equation*}
-	\begin{array}{l}
-		 \lambda^{\bar{b}_2} \to \lambda^{\bar{b}_2 \to 0} := \frac{r + \bar{r}(1- \bar{s})^2}{r + \bar{r}(1-\bar{s})}, \qquad 
-		 B^{\bar{b}_2} \to \frac{b_2^2}{r + \bar{r}(1-\bar{s})^2}=:B^{\bar{b}_2 \to 0} > 0,\\
-		 C^{u,\bar{b}_2} \to \lambda^{\bar{b}_2 \to 0}(q+\bar{q}(1-s))=:C^{\bar{b}_2 \to 0}_u >0,\qquad 
-		 D^{u,\bar{b}_2} \to \lambda^{\bar{b}_2 \to 0}(q_T+\bar{q}_T(1-s_T))=:D^{\bar{b}_2 \to 0}_u \geq 0,
-	\end{array}
-	\end{equation*}
-	and $A^u, (A^w, C^w, D^w), (A^\eta, B^\eta, C^\eta, D^\eta)$ are independent of $\bar{b}_2$.	
-	Let $u^{\bar{b}_2 \to 0}:[0,T]\to \mathbb{R}$ be the solution to the limiting Riccati equation:
-	\begin{equation}
-	\left({u}^{{\bar{b}_2 \to 0}}_t\right)' - 2A^u u_t^{\bar{b}_2 \to 0} +B^{\bar{b}_2 \to 0} (u_t^{\bar{b}_2 \to 0})^2+ C^{\bar{b}_2 \to 0}_u = 0, \qquad u_T^{r \to \infty} = D^{\bar{b}_2 \to 0}_u,
-	\end{equation}
-	which we recall has an explicit solution. It is easy to show that for every time $t\in [0,T]$, $\lim_{\bar{b}_2 \to 0}u^{\bar{b}_2}_t=u^{\bar{b}_2 \to 0}_t$. Next, our goal is to bound $u^{\bar{b}_2}_t$ uniformly over $t \in [0,T]$ for small enough $\bar{b}_2$, following the methodology of the proof of Proposition \ref{prop:r_bar_r}. Because $b_1 > 0$, we have $A^u < 0$. For any $\epsilon>0$, there exists a $\bar{b}^*_2>0$ such that $\max_{\bar{b}_2<\bar{b}^*_2} \{ B^{\bar{b}_2},C^{u,\bar{b}_2},D^{u,\bar{b}_2} \}<\max \{B^{\bar{b}_2 \to 0},C^{\bar{b}_2 \to 0}_u,D^{\bar{b}_2 \to 0}_u \}+\epsilon=:c_1$. Thus, for all $\bar{b}_2<\bar{b}^*_2$ and for every $t \in [0,T]$:
-	\begin{equation*}
-		\left \vert u_t^{\bar{b}_2} \right\vert \leq \frac{c_1 + 2 c_1 \sqrt{(A^u)^2 + c_1^2}}{-2A^u e^{-2T \sqrt{(A^u)^2 + c_1^2}}}.
-	\end{equation*}
-	
-	Similarly, for every time $t\in [0,T]$, $\lim_{\bar{b}_2 \to 0}w^{\bar{b}_2}_t=w^{\bar{b}_2 \to 0}_t$, and  $w^{\bar{b}_2}$ is uniformly bounded over $[0,T]$ for small enough $\bar{b}_2$. From equation (\ref{eq:x_bar_MFG_explicit_new_notation}), the assumption on $\xi$, and by the bounded convergence theorem, we have for every $t \in [0,T]$:
-   	$$\lim_{\bar{b}_2 \to 0} \bar{x}_t^{MFG,\bar{b}_2} = \mathbb{E}(\xi) e^{\int_0^t (b_1 + \bar{b}_1 - B^{\bar{b}_2 \to 0}u^{\bar{b}_2 \to 0}_s) ds} =: \bar{x}^{MFG,\bar{b}_2 \to 0}_t\neq 0.$$
-	Moreover, $\bar{x}^{MFG,\bar{b}_2}$ is uniformly bounded for all $\bar{b}_2<\bar{b}^*_2$ and for all $t \in [0,T]$. From the non-negativity of $u_t$, we have:
-	$$ \left\vert \bar{x}^{MFG,\bar{b}_2}_t \right\vert \leq \left\vert \mathbb{E}(\xi) \right\vert e^{ (b_1 + \bar{b}_1 ) T }, \quad \forall t \in [0,T], \ \forall \bar{b}_2<\bar{b}^*_2. $$ 
-   	
-   	By the assumption $\frac{r + \bar{r}(1- \bar{s})^2}{r + \bar{r}(1-\bar{s})} \neq \frac{q_T+\bar{q}_T(1-s_T)^2}{q_T+\bar{q}_T(1-s_T)}$, we have $D^{u,\bar{b}_2 \to 0} \neq D^{w}$, and thus by continuity, $u^{\bar{b}_2 \to 0}_t\neq w^{\bar{b}_2 \to 0}_t$ on a set of positive Lebesgue measure. 
-   	 Thus, from Proposition \ref{prop:diff_SC} and by the bounded convergence theorem, we deduce:
-	\begin{equation}
-	\lim_{\bar{b}_2 \to 0} \Delta SC^{\bar{b}_2} = \frac{1}{2} B^{\bar{b}_2 \to 0} \int_0^T \left( (u_t^{\bar{b}_2 \to 0} - w_t^{\bar{b}_2 \to 0}\right)^2 \left (\bar{x}_t^{MFG,\bar{b}_2 \to 0} \right)^2 dt \  > 0. 
-	\label{eq:delta_SC_limit_b2_bar_0}
-	\end{equation}	
-	
-	Meanwhile, $\eta_t$ does not depend on $\bar{b}_2$, and therefore the variance $v_t$ also does not depend on $\bar{b}_2$. It is easy to check that $0<v_t<\infty$ for $t>0$ and $0 \leq w^{\bar{b}_2 \to 0}_0 < \infty$, and thus,
-	\begin{equation*}
-	    0<\lim_{\bar{b}_2 \to 0}SC^{MKV,\bar{b}_2} = \frac{1}{2}\int_0^T \left[q+\bar{q} + B^{\eta} \eta_t^2 \right] v_t dt + \frac{1}{2}(q_T + \bar{q}_T) v_T + \frac{1}{2}w^{\bar{b}_2 \to 0}_0 (\mathbb{E}(\xi))^2<\infty.     
-	\end{equation*}
-	Hence, we deduce:
-	$$ \lim_{\bar{b}_2 \to 0} PoA^{\bar{b}_2} =: PoA^{\bar{b}_2 \to 0} > 1. $$
-	
+\begin{proof}
 	% case when b2 bar \to infty
-	\textbf{Case 2:} Now, for the case when $\bar{b}_2 \to \infty$,  we have:
+	\textbf{Case 1:} When $\bar{b}_2 \to \infty$,  we have:
 	\begin{equation*}
 	\begin{array}{l}
-		\lambda^{\bar{b}_2} \to 0,\\
-		B^{\bar{b}_2} \to \infty,\ C^{u,\bar{b}_2} \to 0,\ D^{u,\bar{b}_2} \to 0,
+	\lambda^{\bar{b}_2} \to 0,\\
+	B^{\bar{b}_2} \to \infty,\ C^{u,\bar{b}_2} \to 0,\ D^{u,\bar{b}_2} \to 0,
 	\end{array}
 	\end{equation*}
 	and $A^{u}, (A^w,C^w,D^w), (A^\eta, B^\eta, C^\eta, D^\eta)$ are independent of $\bar{b}_2$.
@@ -1032,37 +996,37 @@ In the following propositions, based on assumption (\ref{eq:assumptions}) and th
 	$$ \max\left\{ \left\vert \frac{\delta_u^{+,\bar{b}_2}}{\sqrt{b_2 + \bar{b}_2}} - c_{\delta^{\bar{b}_2 \to \infty}_u} \right\vert , \ \left\vert \frac{\delta_u^{-,\bar{b}_2}}{\sqrt{b_2 + \bar{b}_2}} - (-c_{\delta^{\bar{b}_2 \to \infty}_u})\right\vert,\    \left\vert \frac{C^{u,\bar{b}_2}}{\sqrt{b_2 + \bar{b}_2}} \right\vert, \   \left\vert D^{u,\bar{b}_2} \right\vert, \  \frac{1}{\sqrt{b_2 + \bar{b}_2}}  \right\} \leq \zeta_1. $$ 
 	Then with equation (\ref{eq:riccati_ut_sol}), for any $t \in [0,T]$ and $\bar{b}_2 \geq \bar{b}_2^{*,u}$,
 	\begin{equation}
-		\left\vert u_t^{\bar{b}_2} \right\vert 
-		\leq \frac{C^{u,\bar{b}_2}+ D^{u,\bar{b}_2} \left(\delta_u^{+,\bar{b}_2} - \delta_u^{-,\bar{b}_2} \right)}{- \delta_u^{-,\bar{b}_2}} \\
-		\leq  \frac{\zeta_1 + \zeta_1 (2 c_{\delta_u^{\bar{b}_2 \to \infty}} + 2 \zeta_1)}{ c_{\delta_u^{\bar{b}_2 \to \infty}} - \zeta_1} \leq 3 c_{\delta_u^{\bar{b}_2 \to \infty}} + 1
+	\left\vert u_t^{\bar{b}_2} \right\vert 
+	\leq \frac{C^{u,\bar{b}_2}+ D^{u,\bar{b}_2} \left(\delta_u^{+,\bar{b}_2} - \delta_u^{-,\bar{b}_2} \right)}{- \delta_u^{-,\bar{b}_2}} \\
+	\leq  \frac{\zeta_1 + \zeta_1 (2 c_{\delta_u^{\bar{b}_2 \to \infty}} + 2 \zeta_1)}{ c_{\delta_u^{\bar{b}_2 \to \infty}} - \zeta_1} \leq 3 c_{\delta_u^{\bar{b}_2 \to \infty}} + 1
 	\label{eq:ut_uniform_upper_bound_b2_bar_infinity}
 	\end{equation}
 	By the same argument for $w_t^{b_2}$ and together with inequality (\ref{eq:ut_uniform_upper_bound_b2_bar_infinity}), there exists $\bar{b}_2^{*,upper} \geq \bar{b}_2^{*,u}$ and $M>0$ such that for all $\bar{b}_2 \geq \bar{b}_2^{*,upper}$, 
 	\begin{equation}
-	 \sup_{\bar{b}_2 \geq \bar{b}_2^{*,upper}} \sup_{t \in [0,T]} \max \left\{ \vert u_t^{\bar{b}_2}\vert, \vert w_t^{\bar{b}_2} \vert \right\} \leq M.
-	 \label{eq:ut_wt_uniform_upper_bound_b2_bar_infty}
+	\sup_{\bar{b}_2 \geq \bar{b}_2^{*,upper}} \sup_{t \in [0,T]} \max \left\{ \vert u_t^{\bar{b}_2}\vert, \vert w_t^{\bar{b}_2} \vert \right\} \leq M.
+	\label{eq:ut_wt_uniform_upper_bound_b2_bar_infty}
 	\end{equation}
 	Furthermore, we can get a uniform lower bound for $(b_2 + \bar{b}_2)^{\frac{3}{2}} u_t^{\bar{b}_2}$. Denote $\zeta: = \frac{b_2 (r + \bar{r}(1-\bar{s})^2) (q_T + \bar{q}_T(1-s_T))}{r + \bar{r}(1-s)}$. Then for all $t \in [0,T]$ and $\bar{b}_2 \geq \bar{b}_2^{*,u}$ we have:
 	\begin{equation}
-		\left\vert (b_2 + \bar{b}_2)^{\frac{3}{2}} u_t^{\bar{b}_2} \right\vert \geq    \frac{ (b_2 + \bar{b}_2)^{\frac{3}{2}} \cdot D^{u,\bar{b}_2} \delta_u^{+,\bar{b}_2}}{(\delta_u^{+,\bar{b}_2} - \delta_u^{-,\bar{b}_2}) + B^{\bar{b}_2} D^{u,\bar{b}_2} } 
-		\geq  \frac{\zeta (c_{\delta_u^{\bar{b}_2 \to \infty}} - \zeta_1)}{ \zeta_1 (2 c_{\delta_u^{\bar{b}_2 \to \infty}} + 2 \zeta_1) + \zeta / (r+ \bar{r}(1-\bar{s})^2) } =: m_u.
+	\left\vert (b_2 + \bar{b}_2)^{\frac{3}{2}} u_t^{\bar{b}_2} \right\vert \geq    \frac{ (b_2 + \bar{b}_2)^{\frac{3}{2}} \cdot D^{u,\bar{b}_2} \delta_u^{+,\bar{b}_2}}{(\delta_u^{+,\bar{b}_2} - \delta_u^{-,\bar{b}_2}) + B^{\bar{b}_2} D^{u,\bar{b}_2} } 
+	\geq  \frac{\zeta (c_{\delta_u^{\bar{b}_2 \to \infty}} - \zeta_1)}{ \zeta_1 (2 c_{\delta_u^{\bar{b}_2 \to \infty}} + 2 \zeta_1) + \zeta / (r+ \bar{r}(1-\bar{s})^2) } =: m_u.
 	\label{eq:ut_lower_bound_b2_bar_infty}
 	\end{equation}
-
+	
 	Now, we adapt the method used in Proposition \ref{prop:b2_to_infty} to prove $\lim_{\bar{b}_2 \to \infty} \Delta SC^{\bar{b}_2} = 0$. Consider the two quantities:
 	$$ I^{\bar{b}_2}_1 := \frac{1}{2} B^{\bar{b}_2} \int_{0}^{\frac{T}{2}} (u^{\bar{b}_2}_s- w^{\bar{b}_2}_s)^2 (\bar{x}_s^{MFG, \bar{b}_2} )^2 ds \quad \text{ and } \quad I^{\bar{b}_2}_2: = \frac{1}{2} B^{\bar{b}_2} \int_{\frac{T}{2}}^T (u^{\bar{b}_2}_s- w^{\bar{b}_2}_s)^2 (\bar{x}_s^{MFG, \bar{b}_2} )^2 ds. $$
 	
 	Fix $\epsilon>0$. In the following, we will show that $\Delta SC^{\bar{b}_2} = I^{\bar{b}_2}_1 + I^{\bar{b}_2}_2 \leq 2\epsilon$ for large $\bar{b}_2$. First, consider $I^{\bar{b}_2}_1$. Let $\zeta_2 = c_u / 2$. Because $ \lim_{\bar{b}_2 \to \infty} B^{\bar{b}_2} (D^{u,\bar{b}_2})^2+ 2 A^{u} D^{u,\bar{b}_2} - C^{u,\bar{b}_2} >0$, there exists $\bar{b}_2^{*,0} \geq \bar{b}_2^{*,upper}$ so that for all $\bar{b}_2 \geq \bar{b}_2^{*,0}$, the functions $s \mapsto u_s^{\bar{b}_2}$ and $s \mapsto w_s^{\bar{b}_2}$ are increasing, and for all $s \in [0, T/2]$:
 	\begin{IEEEeqnarray*}{c}
-		 c_u - \zeta_2 \leq (b_2 + \bar{b}_2)^{\frac{3}{2}} u_0^{\bar{b}_2} \leq  (b_2 + \bar{b}_2)^{\frac{3}{2}} u_s^{\bar{b}_2} \leq (b_2 + \bar{b}_2)^{\frac{3}{2}} u_{\frac{T}{2}}^{\bar{b}_2} \leq c_u + \zeta_2,\\
-		 \left\vert (b_2 + \bar{b}_2) u_s^{\bar{b}_2} \right\vert \leq \left\vert (b_2 + \bar{b}_2) u_{\frac{T}{2}}^{\bar{b}_2} \right\vert \leq  \zeta_2, \quad \text{and} \quad 
-		 \left\vert (b_2 + \bar{b}_2) w_s^{\bar{b}_2} \right\vert \leq \left\vert (b_2 + \bar{b}_2) w_{\frac{T}{2}}^{\bar{b}_2} \right\vert \leq c_w + \zeta_2.
+		c_u - \zeta_2 \leq (b_2 + \bar{b}_2)^{\frac{3}{2}} u_0^{\bar{b}_2} \leq  (b_2 + \bar{b}_2)^{\frac{3}{2}} u_s^{\bar{b}_2} \leq (b_2 + \bar{b}_2)^{\frac{3}{2}} u_{\frac{T}{2}}^{\bar{b}_2} \leq c_u + \zeta_2,\\
+		\left\vert (b_2 + \bar{b}_2) u_s^{\bar{b}_2} \right\vert \leq \left\vert (b_2 + \bar{b}_2) u_{\frac{T}{2}}^{\bar{b}_2} \right\vert \leq  \zeta_2, \quad \text{and} \quad 
+		\left\vert (b_2 + \bar{b}_2) w_s^{\bar{b}_2} \right\vert \leq \left\vert (b_2 + \bar{b}_2) w_{\frac{T}{2}}^{\bar{b}_2} \right\vert \leq c_w + \zeta_2.
 	\end{IEEEeqnarray*}
 	Thus, for any $\bar{b}_2 \geq \bar{b}_2^{*,0}$ we have:
 	\begin{IEEEeqnarray}{rCl}
 		I^{\bar{b}_2}_1 &=& \frac{\mathbb{E}(\xi)^2}{2 (r + \bar{r}(1-\bar{s})^2) } \int_0^{\frac{T}{2}} \left( (b_2 + \bar{b}_2) u_t^{\bar{b}_2} - (b_2 + \bar{b}_2) w_t^{\bar{b}_2} \right)^2 e^{2(b_1 + \bar{b}_1) t} \cdot e^{ -\frac{2 (b_2 + \bar{b}_2)^{1/2}}{r + \bar{r}(1-\bar{s})^2}  \int_0^t (b_2 + \bar{b}_2)^{3/2} u_s^{\bar{b}_2} ds} dt \nonumber \\
 		&\leq& \kappa_1  \frac{1}{\sqrt{b_2 + \bar{b}_2} } \left( 1 - e^{- \kappa_2 (b_2 + \bar{b}_2)^{\frac{1}{2}} }\right) \xrightarrow[\bar{b}_2 \to \infty]{} 0,
-	\label{eq:I1_b2_bar_infinity}
+		\label{eq:I1_b2_bar_infinity}
 	\end{IEEEeqnarray} 
 	where $\kappa_1 = \frac{\mathbb{E}(\xi)^2 [\zeta_2^2 + (c_w + \zeta_2)^2 ] e^{2(b_1 + \bar{b}_1) \frac{T}{2}} }{2 (c_u - \zeta_2)}$ and $ \kappa_2 = \frac{(c_u - \zeta_2)T}{r+ \bar{r}(1-\bar{s})^2}$ are independent of $\bar{b}_2$. Therefore, there exists $\bar{b}_2^{*,I_1} \geq \bar{b}_2^{*,0}$ such that for $\bar{b}_2 \geq \bar{b}_2^{*,I_1}$, we have $I_1^{\bar{b}_1} \leq \epsilon$.
 	
@@ -1076,25 +1040,67 @@ In the following propositions, based on assumption (\ref{eq:assumptions}) and th
 	\label{eq:I2_b2_bar_infinity}
 	\end{equation}
 	where  $\kappa_3 =\frac{T \mathbb{E}(\xi)^2 e^{2 (b_1 + \bar{b}_1) T} M^2 }{r + \bar{r}(1-\bar{s})^2}$ and $\kappa_4 = \frac{T m_u}{r + \bar{r}(1-\bar{s})^2}$ are independent of $\bar{b}_2$.
-
+	
 	Hence, for all $\bar{b}_2 \geq \bar{b}_2^* := \max \{ \bar{b}_2^{*,I_1}, \bar{b}_2^{*,I_2}\}$ we have:
 	\begin{equation*}
-		\Delta SC^{\bar{b}_2} = I^{\bar{b}_2}_1 + I^{\bar{b}_2}_2 \leq 2\epsilon.
+	\Delta SC^{\bar{b}_2} = I^{\bar{b}_2}_1 + I^{\bar{b}_2}_2 \leq 2\epsilon.
 	\end{equation*} 
 	Since the proof holds for arbitrary $\epsilon > 0$, we obtain:
 	\begin{equation*}
-		\lim_{\bar{b}_2 \to \infty} \Delta SC^{\bar{b}_2} = 0.
+	\lim_{\bar{b}_2 \to \infty} \Delta SC^{\bar{b}_2} = 0.
 	\end{equation*}
 	Moreover, recall that $\eta_t$ and $v_t$ are invariant with respect to $\bar{b}_2$ and $0<v_t<\infty$ for $t>0$. Clearly we also have $w^{\bar{b}_2}_0 \geq 0$ and $w^{\bar{b}_2}_0 \xrightarrow[\bar{b}_2 \to \infty]{} 0$. Thus, we obtain:
 	$$0< \lim_{\bar{b}_2 \to \infty} SC^{MKV,\bar{b}_2} <\infty,$$
 	and conclude that:
-	$$ \lim_{\bar{b}_2 \to \infty} PoA^{\bar{b}_2} = 1.$$
+	$$ \lim_{\bar{b}_2 \to \infty} PoA^{\bar{b}_2} = 1.$$	
+	
+	\textbf{Case 2: } When $\bar{b}_2 \to 0$, we have:
+	\begin{equation*}
+	\begin{array}{l}
+		 \lambda^{\bar{b}_2} \to \lambda^{\bar{b}_2 \to 0} := \frac{r + \bar{r}(1- \bar{s})^2}{r + \bar{r}(1-\bar{s})}, \qquad 
+		 B^{\bar{b}_2} \to \frac{b_2^2}{r + \bar{r}(1-\bar{s})^2}=:B^{\bar{b}_2 \to 0} > 0,\\
+		 C^{u,\bar{b}_2} \to \lambda^{\bar{b}_2 \to 0}(q+\bar{q}(1-s))=:C^{\bar{b}_2 \to 0}_u >0,\qquad 
+		 D^{u,\bar{b}_2} \to \lambda^{\bar{b}_2 \to 0}(q_T+\bar{q}_T(1-s_T))=:D^{\bar{b}_2 \to 0}_u > 0,
+	\end{array}
+	\end{equation*}
+	and $A^u, (A^w, C^w, D^w), (A^\eta, B^\eta, C^\eta, D^\eta)$ are independent of $\bar{b}_2$.	
+	Let $u^{\bar{b}_2 \to 0}:[0,T]\to \mathbb{R}$ be the solution to the limiting Riccati equation:
+	\begin{equation}
+	\left({u}^{{\bar{b}_2 \to 0}}_t\right)' - 2A^u u_t^{\bar{b}_2 \to 0} +B^{\bar{b}_2 \to 0} (u_t^{\bar{b}_2 \to 0})^2+ C^{\bar{b}_2 \to 0}_u = 0, \qquad u_T^{r \to \infty} = D^{\bar{b}_2 \to 0}_u,
+	\label{eq:riccati_limiting_u}
+	\end{equation}
+	which we recall has an explicit solution. It is easy to show that for every time $t\in [0,T]$, $\lim_{\bar{b}_2 \to 0}u^{\bar{b}_2}_t=u^{\bar{b}_2 \to 0}_t$. Next, our goal is to bound $u^{\bar{b}_2}_t$ uniformly over $t \in [0,T]$ for small enough $\bar{b}_2$, following the methodology of the proof of Proposition \ref{prop:r_bar_r}. For any $\epsilon>0$, there exists a $\bar{b}^*_2>0$ such that $\max_{\bar{b}_2<\bar{b}^*_2} \{ B^{\bar{b}_2},C^{u,\bar{b}_2},D^{u,\bar{b}_2} \}<\max \{B^{\bar{b}_2 \to 0},C^{\bar{b}_2 \to 0}_u,D^{\bar{b}_2 \to 0}_u \}+\epsilon=:c_1$. Thus, for all $\bar{b}_2<\bar{b}^*_2$ and for every $t \in [0,T]$:
+	\begin{equation*}
+		\left \vert u_t^{\bar{b}_2} \right\vert \leq \frac{c_1 + 2 c_1 \sqrt{(A^u)^2 + c_1^2}}{-2A^u e^{-2T \sqrt{(A^u)^2 + c_1^2}}}.
+	\end{equation*}
+	
+	Similarly, for every time $t\in [0,T]$, $\lim_{\bar{b}_2 \to 0}w^{\bar{b}_2}_t=w^{\bar{b}_2 \to 0}_t$, and  $w^{\bar{b}_2}$ is uniformly bounded over $[0,T]$ for small enough $\bar{b}_2$. From equation (\ref{eq:x_bar_MFG_explicit_new_notation}), the assumption $\mathbb{E}(\xi)\neq 0$, and by the bounded convergence theorem, we have for every $t \in [0,T]$:
+   	\begin{equation}
+   	\lim_{\bar{b}_2 \to 0} \bar{x}_t^{MFG,\bar{b}_2} = \mathbb{E}(\xi) e^{\int_0^t (b_1 + \bar{b}_1 - B^{\bar{b}_2 \to 0}u^{\bar{b}_2 \to 0}_s) ds} =: \bar{x}^{MFG,\bar{b}_2 \to 0}_t\neq 0.
+   	\label{eq:x_bar_neq_0}
+   	\end{equation}
+	Moreover, $\bar{x}^{MFG,\bar{b}_2}$ is uniformly bounded for all $\bar{b}_2<\bar{b}^*_2$ and for all $t \in [0,T]$. From the non-negativity of $u_t$, we have:
+	$$ \left\vert \bar{x}^{MFG,\bar{b}_2}_t \right\vert \leq \left\vert \mathbb{E}(\xi) \right\vert e^{ (b_1 + \bar{b}_1 ) T }, \quad \forall t \in [0,T], \ \forall \bar{b}_2<\bar{b}^*_2. $$ 
+   	
+   	By the assumption $\frac{r + \bar{r}(1- \bar{s})^2}{r + \bar{r}(1-\bar{s})} \neq \frac{q_T+\bar{q}_T(1-s_T)^2}{q_T+\bar{q}_T(1-s_T)}$, we have $D^{u,\bar{b}_2 \to 0} \neq D^{w}$, and thus by continuity, $u^{\bar{b}_2 \to 0}_t\neq w^{\bar{b}_2 \to 0}_t$ on a set of positive Lebesgue measure. 
+   	 Thus, from Proposition \ref{prop:diff_SC} and by the bounded convergence theorem, we deduce:
+	\begin{equation}
+	\lim_{\bar{b}_2 \to 0} \Delta SC^{\bar{b}_2} = \frac{1}{2} B^{\bar{b}_2 \to 0} \int_0^T \left( (u_t^{\bar{b}_2 \to 0} - w_t^{\bar{b}_2 \to 0}\right)^2 \left (\bar{x}_t^{MFG,\bar{b}_2 \to 0} \right)^2 dt \  > 0. 
+	\label{eq:delta_SC_limit_b2_bar_0}
+	\end{equation}	
+	
+	Meanwhile, $\eta_t$ does not depend on $\bar{b}_2$, and therefore the variance $v_t$ also does not depend on $\bar{b}_2$. It is easy to check that $0<v_t<\infty$ for $t>0$ and $0 \leq w^{\bar{b}_2 \to 0}_0 < \infty$, and thus,
+	\begin{equation*}
+	    0<\lim_{\bar{b}_2 \to 0}SC^{MKV,\bar{b}_2} = \frac{1}{2}\int_0^T \left[q+\bar{q} + B^{\eta} \eta_t^2 \right] v_t dt + \frac{1}{2}(q_T + \bar{q}_T) v_T + \frac{1}{2}w^{\bar{b}_2 \to 0}_0 (\mathbb{E}(\xi))^2<\infty.     
+	\end{equation*}
+	Hence, we deduce:
+	$$ \lim_{\bar{b}_2 \to 0} PoA^{\bar{b}_2} =: PoA^{\bar{b}_2 \to 0} > 1. $$
 \end{proof}
 
 \begin{remark}
-	In the case when $\bar{b}_2$ tends to zero, if $\lim_{\bar{b}_2 \to 0} PoA^{\bar{b}_2 } =1$, then since $0< SC^{MKV, \bar{b}_2 \to 0} < \infty$ we must have $\lim_{\bar{b}_2 \to 0} \Delta SC^{\bar{b}_2} = 0$. Hence, from equation (\ref{eq:delta_SC_limit_b2_bar_0}) we  can derive that that for $t \in [0,T]$,
+	Consider assumption \ref{assumption} and the case when $\bar{b}_2$ tends to zero. We have $0< SC^{MKV, \bar{b}_2 \to 0} < \infty$, and therefore, $\lim_{\bar{b}_2 \to 0} PoA^{\bar{b}_2 } =1$ implies $\lim_{\bar{b}_2 \to 0} \Delta SC^{\bar{b}_2} = 0$. Hence, from equation (\ref{eq:x_bar_neq_0}) and Proposition \ref{prop:diff_SC}, if $\lim_{\bar{b}_2 \to 0} PoA^{\bar{b}_2 } =1$, then for all $t \in [0,T]$:
 	$$u_t^{\bar{b}_2 \to 0} = w_t^{\bar{b}_2 \to 0}.$$
-	We know that $u_t^{\bar{b}_2 \to 0}$ and $w_t^{\bar{b}_2 \to 0}$ are solutions to some Riccati equations, the above equality implies $ D^{u,\bar{b}_2 \to \infty} =  u_T^{\bar{b}_2 \to 0} = w_T^{\bar{b}_2 \to 0} = D^w$ and 
+	From equation (\ref{eq:riccati_limiting_u}) and an analogous Riccati equation for $w_t^{\bar{b}_2 \to 0}$, the above equality implies $ D^{u,\bar{b}_2 \to \infty} =  u_T^{\bar{b}_2 \to 0} = w_T^{\bar{b}_2 \to 0} = D^w$ and:
 	$$ B^{\bar{b}_2 \to 0} (D^{u,\bar{b}_2 \to 0} )^2 + 2 A^{u}D^{u,\bar{b}_2 \to 0} - C^{u,\bar{b}_2 \to 0} = B^{\bar{b}_2 \to 0} (D^w)^2 + 2 A^{w} D^w - C^w  = 0.$$
 	In another words, the coefficients have to satisfy the following three equations:
 	$$	\frac{r + \bar{r}(1- \bar{s})^2}{r + \bar{r}(1-\bar{s})} = \frac{q_T+\bar{q}_T(1-s_T)^2}{q_T+\bar{q}_T(1-s_T)},
@@ -1108,12 +1114,9 @@ In the following propositions, based on assumption (\ref{eq:assumptions}) and th
 
 % proposition b1 and b1 bar
 \begin{proposition}\label{prop:b1_b1bar}
-	Assuming (\ref{eq:assumptions}), the initial condition $\xi$ satisfies $\mathbb{E}(\xi)\neq 0$, and $Var(\xi)>0$, and:
+	Assuming assumption \ref{assumption}, the initial condition satisfies $Var(\xi)>0$, and:
 	\begin{equation*}
 	\frac{b_2}{b_2+\bar{b}_2}\cdot \frac{r + \bar{r}(1- \bar{s})^2}{r + \bar{r}(1-\bar{s})}\cdot (q_T+\bar{q}_T(1-s_T)) \neq q_T+\bar{q}_T(1-s_T)^2,
-	\end{equation*}
-	\begin{equation*}
-	q_T+\bar{q}_T(1-s_T) >0,
 	\end{equation*}
 	then:
 	\begin{equation*}
@@ -1131,7 +1134,7 @@ In the following propositions, based on assumption (\ref{eq:assumptions}) and th
 	\end{equation*}
 	and similarly for $\left|w^{b_1}_t\right|$ and $\left|\eta^{b_1}_t\right|$. From the assumption $\frac{b_2}{b_2+\bar{b}_2}\cdot \frac{r + \bar{r}(1- \bar{s})^2}{r + \bar{r}(1-\bar{s})}\cdot q_T+\bar{q}_T(1-s_T) \neq q_T+\bar{q}_T(1-s_T)^2$, we have $D^{u} \neq D^{w}$ and thus by continuity, $u^{b_1\to 0}_t \neq w^{b_1\to 0}_t$ on a set of positive Lebesgue measure.
 	
-	From equation (\ref{eq:x_bar_MFG_explicit_new_notation}), the assumption on $\xi$, and by the bounded convergence theorem, we have for every $t \in [0,T]$:
+	From equation (\ref{eq:x_bar_MFG_explicit_new_notation}), the assumption $\mathbb{E}(\xi)\neq 0$, and by the bounded convergence theorem, we have for every $t \in [0,T]$:
 	\begin{equation*}
 	\lim_{b_1\to 0}\bar{x}_t^{MFG,b_1} = \mathbb{E}(\xi) e^{\int_0^t(\bar{b}_1-B u^{b_1\to 0}_s)ds} =: \bar{x}_t^{MFG,b_1\to 0}\neq 0.
 	\end{equation*}
@@ -1259,7 +1262,7 @@ In the following propositions, based on assumption (\ref{eq:assumptions}) and th
 	\lim_{\bar{b}_1 \to \infty}(\delta^{-,\bar{b}_1}_u-\bar{b}_1)e^{-(\delta^{+,\bar{b}_1}_u-\delta^{-,\bar{b}_1}_u)(T-t)}&=0,
 	\end{split}
 	\end{equation*}
-	and thus, with the assumption $\frac{b_2}{b_2+\bar{b}_2}\cdot \frac{r + \bar{r}(1- \bar{s})^2}{r + \bar{r}(1-\bar{s})}\cdot q_T+\bar{q}_T(1-s_T) >0$ which implies $D^u>0$,
+	and thus,
 	\begin{equation*}
 	\begin{split}
 	\bar{b}_1-Bu^{\bar{b}_1}_0&=\frac{-BC^u+BD^u(\bar{b}_1-\delta^{+,\bar{b}_1}_u)-\delta^{-,\bar{b}_1}_u\bar{b}_1+(\delta^{+,\bar{b}_1}_u\bar{b}_1+BC^u+BD^u(\delta^{-,\bar{b}_1}_u-\bar{b}_1))e^{-(\delta^{+,\bar{b}_1}_u-\delta^{-,\bar{b}_1}_u)T}}{BD^u-\delta^{-,\bar{b}_1}_u+(\delta^{+,\bar{b}_1}_u-BD^u) e^{-(\delta^{+,\bar{b}_1}_u-\delta^{-,\bar{b}_1}_u)T}} \\
@@ -1291,7 +1294,7 @@ In the following propositions, based on assumption (\ref{eq:assumptions}) and th
 
 
 \subsection{\textbf{Numerical Results}}
-The solutions to the problems we have considered are given by the formulas derived in Appendix \ref{appendix_solving_fbsdes}, which are explicit up to evaluating integrals. Using the simple rectangle rule to evaluate integrals, we numerically compute the price of anarchy when the coefficients are time-independent, nonnegative, and satisfy assumption (\ref{eq:assumptions}). In particular, when we allow for full interaction (i.e. through the states and the controls), we choose the following default values:
+The solutions to the problems we have considered are given by the formulas derived in Appendix \ref{appendix_solving_fbsdes}, which are explicit up to evaluating integrals. Using the simple rectangle rule to evaluate integrals, we numerically compute the price of anarchy when the coefficients are time-independent, nonnegative, and satisfy assumption \ref{assumption}. In particular, when we allow for full interaction (i.e. through the states and the controls), we choose the following default values:
 
 \begin{equation*}
 \begin{split}
