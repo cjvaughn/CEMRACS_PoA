@@ -882,7 +882,7 @@ In the following propositions, we utilize the following assumption.
 	\end{IEEEeqnarray}
 	where $\kappa_3: = \frac{2 TM^2 e^{2(b_1 + \bar{b}_1) T} }{r + \bar{r}(1-\bar{s})^2} >0$ and $\kappa_4 :=  \frac{T  m_u}{r + \bar{r}(1-\bar{s})^2}>0$ are constants independent of $b_2$. 	
 	
-	Let $b_2^* := \max \{ b_2^{*,I_1}, b_2^{*,I_2}\}$. Then equations (\ref{eq:I_1_plus_I_2}), (\ref{eq:I1_ineq_b2_infinity}) and (\ref{eq:I2_b2_infty}) give:
+	Let $b_2^* := \max \{ b_2^{*,I_1}, b_2^{*,I_2}\}$. Then inequalities (\ref{eq:I_1_plus_I_2}), (\ref{eq:I1_ineq_b2_infinity}) and (\ref{eq:I2_b2_infty}) give:
 	\begin{equation*}
 		\frac{\Delta SC^{b_2}}{SC^{MKV,b_2}} \leq \frac{I_1^{b_2} + I_2^{b_2}}{(b_2 + \bar{b}_2) w_0^{b_2}} \leq \frac{ \epsilon + \epsilon }{h_w(b_2,0)} \leq \frac{2\epsilon}{c/2}=\frac{4}{c}\epsilon.
 	\end{equation*}
@@ -1159,7 +1159,7 @@ In the following propositions, we utilize the following assumption.
 	\end{equation*}
 	and
 	$$h_w(b_1,0) \geq 2 - \frac{1}{3} = \frac{5}{3},\quad  h_u(b_1,t) \geq h_u(b_1, 3T/4) \geq \frac{5}{3}.$$
-	We adapt the methodology in Proposition \ref{prop:b2_to_infty} and split the interval $[0,T]$ into two parts: $[0, 3T/4]$ and $[3T/4, T]$. For all $b_1 \geq b_1^{*,I_1}$, similar to equation (\ref{eq:I_1_plus_I_2}), we have:
+	We adapt the methodology in Proposition \ref{prop:b2_to_infty} and split the interval $[0,T]$ into two parts: $[0, 3T/4]$ and $[3T/4, T]$. For all $b_1 \geq b_1^{*,I_1}$, similar to inequality (\ref{eq:I_1_plus_I_2}), we have:
 	\begin{equation*}
 		\frac{\Delta SC^{b_1}}{SC^{MKV,b_1}} \leq \frac{I^{b_1}_1 + I^{b_1}_2 }{h_w(b_1,0)},
 	\end{equation*}
@@ -1242,7 +1242,7 @@ In the following propositions, we utilize the following assumption.
 	\end{split}
 	\end{equation*}
 	
-	Since $\lim_{\bar{b}_1 \to \infty}(\bar{b}_1-B u_0^{\bar{b}_1}) = -2b_1 < 0$, there exists $\bar{b}_1^{*}\geq\bar{b}_1^{*,lower}$, such that for $\bar{b}_1 \geq \bar{b}_1^{*}$, $(\bar{b}_1-B u_0^{\bar{b}_1}) \geq -3b_1$. Returning to equation (\ref{eq:prop_7_case_4_numerator}), and using equation (\ref{eq:lower_bound_u_w}) we have for $\bar{b}_1 \geq \bar{b}^*_1$:
+	Since $\lim_{\bar{b}_1 \to \infty}(\bar{b}_1-B u_0^{\bar{b}_1}) = -2b_1 < 0$, there exists $\bar{b}_1^{*}\geq\bar{b}_1^{*,lower}$, such that for $\bar{b}_1 \geq \bar{b}_1^{*}$, $(\bar{b}_1-B u_0^{\bar{b}_1}) \geq -3b_1$. Returning to inequality (\ref{eq:prop_7_case_4_numerator}), and using inequality (\ref{eq:lower_bound_u_w}) we have for $\bar{b}_1 \geq \bar{b}^*_1$:
 	\begin{equation}
 	\frac{1}{\bar{b}_1^2}\Delta SC^{\bar{b}_1}
 	\geq \frac{B}{2}\mathbb{E}(\xi)^2 \cdot \frac{1}{4B^2} \cdot \int_{0}^{\frac{T}{2}} e^{2b_1 t + 2(\bar{b}_1 - B u_0^{\bar{b}_1}) t } dt \geq \frac{\mathbb{E}(\xi)^2}{8 B} \int_0^{\frac{T}{2}} e^{-4b_1 t} dt  > 0.
