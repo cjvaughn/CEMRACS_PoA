@@ -939,7 +939,7 @@ In the following propositions, based on assumption (\ref{eq:assumptions}) and th
 	
 	Moreover, since $B^{b_2 \to 0}>0$, $B^{b_2 \to 0}C^w >0$, $B^{b_2\to 0}D^w \geq 0$, we have $\lim_{b_2 \to 0} w_t^{b_2}=:w_t^{b_2 \to 0}$, and $w_t^{b_2 \to 0}$ is strictly positive over $[0,T)$. It is easy to check that $w_t^{b_2}$ is also uniformly bounded over $[0,T]$ for small $b_2$. Hence, from Proposition \ref{prop:diff_SC} and the bounded convergence theorem, we deduce:
 	\begin{equation*}
-	\lim_{b_2 \to 0} \Delta SC = \frac{1}{2} B^{b_2\to 0} \int_0^T (w_t^{b_2 \to 0} \cdot \bar{x}_t^{MFG,b_2 \to 0})^2 dt >0.
+	\lim_{b_2 \to 0} \Delta SC^{b_2} = \frac{1}{2} B^{b_2\to 0} \int_0^T (w_t^{b_2 \to 0} \cdot \bar{x}_t^{MFG,b_2 \to 0})^2 dt >0.
 	\end{equation*}
 	
 	
@@ -950,8 +950,8 @@ In the following propositions, based on assumption (\ref{eq:assumptions}) and th
 	From equation (\ref{eq:v_t_new_notation}) and the bounded convergence theorem, for each $t \in [0,T]$:
 	$$ \lim_{b_2 \to 0}v_t^{b_2}=Var(\xi) e^{2b_1 t} + \sigma^2 \int_0^t e^{2b_1 (t-s)} ds=:v_t^{b_2 \to 0}>0,$$
 	and thus,
-	$$ 0 < \lim_{b_2 \to 0} SC^{MKV} < \infty.$$
-	Therefore, combined with equation (\ref{eq:PoA_LQ_new_notation}), we conclude that $$\lim_{b_2 \to 0} PoA = 1 + \frac{\displaystyle \lim_{b_2 \to 0}\Delta SC}{\displaystyle \lim_{b_2 \to 0} SC^{MKV} } =: PoA^{b_2 \to 0} > 1.$$
+	$$ 0 < \lim_{b_2 \to 0} SC^{MKV,b_2} < \infty.$$
+	Therefore, combined with equation (\ref{eq:PoA_LQ_new_notation}), we conclude that $$\lim_{b_2 \to 0} PoA^{b_2} = 1 + \frac{\displaystyle \lim_{b_2 \to 0}\Delta SC^{b_2}}{\displaystyle \lim_{b_2 \to 0} SC^{MKV,b_2} } =: PoA^{b_2 \to 0} > 1.$$
 	
 \end{proof}
 
@@ -1049,7 +1049,7 @@ In the following propositions, based on assumption (\ref{eq:assumptions}) and th
 	\label{eq:ut_lower_bound_b2_bar_infty}
 	\end{equation}
 
-	Now, we adapt the method used in Proposition \ref{prop:b2_to_infty} to prove $\lim_{\bar{b}_2 \to \infty} \Delta SC = 0$. Consider the two quantities:
+	Now, we adapt the method used in Proposition \ref{prop:b2_to_infty} to prove $\lim_{\bar{b}_2 \to \infty} \Delta SC^{\bar{b}_2} = 0$. Consider the two quantities:
 	$$ I^{\bar{b}_2}_1 := \frac{1}{2} B^{\bar{b}_2} \int_{0}^{\frac{T}{2}} (u^{\bar{b}_2}_s- w^{\bar{b}_2}_s)^2 (\bar{x}_s^{MFG, \bar{b}_2} )^2 ds \quad \text{ and } \quad I^{\bar{b}_2}_2: = \frac{1}{2} B^{\bar{b}_2} \int_{\frac{T}{2}}^T (u^{\bar{b}_2}_s- w^{\bar{b}_2}_s)^2 (\bar{x}_s^{MFG, \bar{b}_2} )^2 ds. $$
 	
 	Fix $\epsilon>0$. In the following, we will show that $\Delta SC^{\bar{b}_2} = I^{\bar{b}_2}_1 + I^{\bar{b}_2}_2 \leq 2\epsilon$ for large $\bar{b}_2$. First, consider $I^{\bar{b}_2}_1$. Let $\zeta_2 = c_u / 2$. Because $ \lim_{\bar{b}_2 \to \infty} B^{\bar{b}_2} (D^{u,\bar{b}_2})^2+ 2 A^{u} D^{u,\bar{b}_2} - C^{u,\bar{b}_2} >0$, there exists $\bar{b}_2^{*,0} \geq \bar{b}_2^{*,upper}$ so that for all $\bar{b}_2 \geq \bar{b}_2^{*,0}$, the functions $s \mapsto u_s^{\bar{b}_2}$ and $s \mapsto w_s^{\bar{b}_2}$ are increasing, and for all $s \in [0, T/2]$:
@@ -1118,7 +1118,7 @@ In the following propositions, based on assumption (\ref{eq:assumptions}) and th
 	then:
 	\begin{equation*}
 	\begin{split}
-	    \lim_{b_1 \to 0} PoA =: PoA^{0,b_1} > 1\qquad &\text{and} \qquad \lim_{\bar{b}_1 \to 0} PoA =: PoA^{0,\bar{b}_1} > 1,\\
+	    \lim_{b_1 \to 0} PoA =: PoA^{b_1 \to 0} > 1\qquad &\text{and} \qquad \lim_{\bar{b}_1 \to 0} PoA =: PoA^{\bar{b}_1 \to 0} > 1,\\
 	    \lim_{b_1 \to \infty} PoA = 1 \qquad &\text{and} \qquad\lim_{\bar{b}_1 \to \infty} PoA =\infty.
 	\end{split}
 	\end{equation*}
@@ -1135,7 +1135,7 @@ In the following propositions, based on assumption (\ref{eq:assumptions}) and th
 	\begin{equation*}
 	\lim_{b_1\to 0}\bar{x}_t^{MFG,b_1} = \mathbb{E}(\xi) e^{\int_0^t(\bar{b}_1-B u^{b_1\to 0}_s)ds} =: \bar{x}_t^{MFG,b_1\to 0}\neq 0.
 	\end{equation*}
-	Moreover, $\bar{x}_t^{MFG,b_1\to 0}$ is uniformly bounded over $b_1<b_1^*$ and $t \in [0,T]$, i.e. 
+	Moreover, $\bar{x}_t^{MFG,b_1}$ is uniformly bounded over $b_1<b_1^*$ and $t \in [0,T]$, i.e. 
 	$$ \left\vert \bar{x}^{MFG,b_1}_t \right\vert \leq \left\vert \mathbb{E}(\xi) \right\vert e^{ \bar{b}_1 T }, \quad \forall t \in [0,T],\ b_1<b_1^*. $$ 
 	
 	Therefore, by Proposition \ref{prop:diff_SC}, and the bounded convergence theorem,
