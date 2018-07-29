@@ -997,21 +997,21 @@ In the following propositions, we utilize the following assumption.
 	\max \left\{ \vert u_t^{\bar{b}_2}\vert, \vert w_t^{\bar{b}_2} \vert \right\} \leq M, \quad \forall t \in[0,T],\ \bar{b}_2 \geq \bar{b}_2^{*,upper} .
 	\label{eq:ut_wt_uniform_upper_bound_b2_bar_infty}
 	\end{equation}
-	Furthermore, we can get a uniform lower bound for $(b_2 + \bar{b}_2)^{\frac{3}{2}} u_t^{\bar{b}_2}$. Denote $\zeta: = \frac{b_2 (r + \bar{r}(1-\bar{s})^2) (q_T + \bar{q}_T(1-s_T))}{r + \bar{r}(1-s)}$. Then for all $t \in [0,T]$ and $\bar{b}_2 \geq \bar{b}_2^{*,u}$ we have:
+	Furthermore, we can get a uniform lower bound for $(b_2 + \bar{b}_2)^{\frac{3}{2}} u_t^{\bar{b}_2}$. Denote $\zeta_2: = \frac{b_2 (r + \bar{r}(1-\bar{s})^2) (q_T + \bar{q}_T(1-s_T))}{r + \bar{r}(1-s)}$. Then for all $t \in [0,T]$ and $\bar{b}_2 \geq \bar{b}_2^{*,u}$ we have:
 	\begin{equation}
 	\left\vert (b_2 + \bar{b}_2)^{\frac{3}{2}} u_t^{\bar{b}_2} \right\vert \geq    \frac{ (b_2 + \bar{b}_2)^{\frac{3}{2}} \cdot D^{u,\bar{b}_2} \delta_u^{+,\bar{b}_2}}{(\delta_u^{+,\bar{b}_2} - \delta_u^{-,\bar{b}_2}) + B^{\bar{b}_2} D^{u,\bar{b}_2} } 
-	\geq  \frac{\zeta (c_{\delta_u^{\bar{b}_2 \to \infty}} - \zeta_1)}{ \zeta_1 (2 c_{\delta_u^{\bar{b}_2 \to \infty}} + 2 \zeta_1) + \zeta / (r+ \bar{r}(1-\bar{s})^2) } =: m_u.
+	\geq  \frac{\zeta_2 (c_{\delta_u^{\bar{b}_2 \to \infty}} - \zeta_1)}{ \zeta_1 (2 c_{\delta_u^{\bar{b}_2 \to \infty}} + 2 \zeta_1) + \zeta_2 / (r+ \bar{r}(1-\bar{s})^2) } =: m_u.
 	\label{eq:ut_lower_bound_b2_bar_infty}
 	\end{equation}
 	
 	Now, we adapt the method used in Proposition \ref{prop:b2_to_infty} to prove $\lim_{\bar{b}_2 \to \infty} \Delta SC^{\bar{b}_2} = 0$. Consider the two quantities:
 	$$ I^{\bar{b}_2}_1 := \frac{1}{2} B^{\bar{b}_2} \int_{0}^{\frac{T}{2}} (u^{\bar{b}_2}_s- w^{\bar{b}_2}_s)^2 (\bar{x}_s^{MFG, \bar{b}_2} )^2 ds \quad \text{ and } \quad I^{\bar{b}_2}_2: = \frac{1}{2} B^{\bar{b}_2} \int_{\frac{T}{2}}^T (u^{\bar{b}_2}_s- w^{\bar{b}_2}_s)^2 (\bar{x}_s^{MFG, \bar{b}_2} )^2 ds. $$
 	
-	Fix $\epsilon>0$. In the following, we will show that $\Delta SC^{\bar{b}_2} = I^{\bar{b}_2}_1 + I^{\bar{b}_2}_2 \leq 2\epsilon$ for large $\bar{b}_2$. First, consider $I^{\bar{b}_2}_1$. Let $\zeta_2 := c_u / 2$. Because $ \lim_{\bar{b}_2 \to \infty} B^{\bar{b}_2} (D^{u,\bar{b}_2})^2+ 2 A^{u} D^{u,\bar{b}_2} - C^{u,\bar{b}_2} >0$, there exists $\bar{b}_2^{*,0} \geq \bar{b}_2^{*,upper}$ so that for all $\bar{b}_2 \geq \bar{b}_2^{*,0}$, the functions $s \mapsto u_s^{\bar{b}_2}$ and $s \mapsto w_s^{\bar{b}_2}$ are increasing, and so that for all $s \in [0, T/2]$:
+	Fix $\epsilon>0$. In the following, we will show that $\Delta SC^{\bar{b}_2} = I^{\bar{b}_2}_1 + I^{\bar{b}_2}_2 \leq 2\epsilon$ for large $\bar{b}_2$. First, consider $I^{\bar{b}_2}_1$. Let $\zeta_3 := c_u / 2$. Because $ \lim_{\bar{b}_2 \to \infty} B^{\bar{b}_2} (D^{u,\bar{b}_2})^2+ 2 A^{u} D^{u,\bar{b}_2} - C^{u,\bar{b}_2} >0$, there exists $\bar{b}_2^{*,0} \geq \bar{b}_2^{*,upper}$ so that for all $\bar{b}_2 \geq \bar{b}_2^{*,0}$, the functions $s \mapsto u_s^{\bar{b}_2}$ and $s \mapsto w_s^{\bar{b}_2}$ are increasing, and so that for all $s \in [0, T/2]$:
 	\begin{IEEEeqnarray*}{c}
-		c_u - \zeta_2 \leq (b_2 + \bar{b}_2)^{\frac{3}{2}} u_0^{\bar{b}_2} \leq  (b_2 + \bar{b}_2)^{\frac{3}{2}} u_s^{\bar{b}_2} \leq (b_2 + \bar{b}_2)^{\frac{3}{2}} u_{\frac{T}{2}}^{\bar{b}_2} \leq c_u + \zeta_2,\\
-		\left\vert (b_2 + \bar{b}_2) u_s^{\bar{b}_2} \right\vert \leq \left\vert (b_2 + \bar{b}_2) u_{\frac{T}{2}}^{\bar{b}_2} \right\vert \leq  \zeta_2, \quad \text{and} \quad 
-		\left\vert (b_2 + \bar{b}_2) w_s^{\bar{b}_2} \right\vert \leq \left\vert (b_2 + \bar{b}_2) w_{\frac{T}{2}}^{\bar{b}_2} \right\vert \leq c_w + \zeta_2.
+		c_u - \zeta_3 \leq (b_2 + \bar{b}_2)^{\frac{3}{2}} u_0^{\bar{b}_2} \leq  (b_2 + \bar{b}_2)^{\frac{3}{2}} u_s^{\bar{b}_2} \leq (b_2 + \bar{b}_2)^{\frac{3}{2}} u_{\frac{T}{2}}^{\bar{b}_2} \leq c_u + \zeta_3,\\
+		\left\vert (b_2 + \bar{b}_2) u_s^{\bar{b}_2} \right\vert \leq \left\vert (b_2 + \bar{b}_2) u_{\frac{T}{2}}^{\bar{b}_2} \right\vert \leq  \zeta_3, \quad \text{and} \quad 
+		\left\vert (b_2 + \bar{b}_2) w_s^{\bar{b}_2} \right\vert \leq \left\vert (b_2 + \bar{b}_2) w_{\frac{T}{2}}^{\bar{b}_2} \right\vert \leq c_w + \zeta_3.
 	\end{IEEEeqnarray*}
 	Thus, for any $\bar{b}_2 \geq \bar{b}_2^{*,0}$ we have:
 	\begin{IEEEeqnarray}{rCl}
@@ -1019,7 +1019,7 @@ In the following propositions, we utilize the following assumption.
 		&\leq& \kappa_1  \frac{1}{\sqrt{b_2 + \bar{b}_2} } \left( 1 - e^{- \kappa_2 (b_2 + \bar{b}_2)^{\frac{1}{2}} }\right) \xrightarrow[\bar{b}_2 \to \infty]{} 0, \nonumber
 		\label{eq:I1_b2_bar_infinity}
 	\end{IEEEeqnarray} 
-	where $\kappa_1: = \frac{\mathbb{E}(\xi)^2 [\zeta_2^2 + (c_w + \zeta_2)^2 ] e^{2(b_1 + \bar{b}_1) \frac{T}{2}} }{2 (c_u - \zeta_2)}$ and $ \kappa_2 := \frac{(c_u - \zeta_2)T}{r+ \bar{r}(1-\bar{s})^2}$ are independent of $\bar{b}_2$. Therefore, there exists $\bar{b}_2^{*,I_1} \geq \bar{b}_2^{*,0}$ such that for $\bar{b}_2 \geq \bar{b}_2^{*,I_1}$, we have $I_1^{\bar{b}_1} \leq \epsilon$.
+	where $\kappa_1: = \frac{\mathbb{E}(\xi)^2 [\zeta_3^2 + (c_w + \zeta_3)^2 ] e^{2(b_1 + \bar{b}_1) \frac{T}{2}} }{2 (c_u - \zeta_3)}$ and $ \kappa_2 := \frac{(c_u - \zeta_3)T}{r+ \bar{r}(1-\bar{s})^2}$ are independent of $\bar{b}_2$. Therefore, there exists $\bar{b}_2^{*,I_1} \geq \bar{b}_2^{*,0}$ such that for $\bar{b}_2 \geq \bar{b}_2^{*,I_1}$, we have $I_1^{\bar{b}_1} \leq \epsilon$.
 	
 	Now, we consider the quantity $I^{\bar{b}_2}_2$. Since $u_t^{\bar{b}_2}$ is positive over $[0,T]$ and from inequalities (\ref{eq:ut_wt_uniform_upper_bound_b2_bar_infty}) and (\ref{eq:ut_lower_bound_b2_bar_infty}), we know that for all $\bar{b}_2 \geq \bar{b}_2^{*,upper} \geq \bar{b}_2^{*,u}$ and $t \in [T/2,T]$,
 	\begin{equation*}
