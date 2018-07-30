@@ -414,7 +414,7 @@ and:
 \end{equation*}
 
 \subsection{\textbf{Theoretical Results}}
-For the remainder of the paper, we assume the coefficients are independent of time and nonnegative:
+For the remainder of the paper, we assume the coefficients are independent of time and non-negative:
 \begin{equation*}
     (b_1(t), \bar{b}_1(t),b_2(t),\bar{b}_2(t),q(t),\bar{q}(t),r(t),\bar{r}(t),s(t),\bar{s}(t))=(b_1,\bar{b}_1,b_2,\bar{b}_2,q,\bar{q},r,\bar{r},s,\bar{s})\in (\mathbb{R}^+)^{10},
 \end{equation*}
@@ -1250,7 +1250,7 @@ In the following propositions, we utilize the following assumption.
 
 
 \subsection{\textbf{Numerical Results}}
-The solutions to the problems we have considered are given by the formulas derived in Appendix \ref{appendix_solving_fbsdes}, which are explicit up to evaluating integrals. Using the simple rectangle rule to evaluate integrals, we numerically compute the price of anarchy when the coefficients are time-independent, nonnegative, and satisfy assumption \ref{assumption}. In particular, when we allow for full interaction (i.e. through the states and the controls), we choose the following default values:
+The solutions to the problems we have considered are given by the formulas derived in Appendix \ref{appendix_solving_fbsdes}, which are explicit up to evaluating integrals. Using the simple rectangle rule to evaluate integrals, we numerically compute the price of anarchy when the coefficients are time-independent, non-negative, and satisfy assumption \ref{assumption}. In particular, when we allow for full interaction (i.e. through the states and the controls), we choose the following default values:
 
 \begin{equation*}
 \begin{split}
@@ -1319,7 +1319,7 @@ Unless otherwise stated, the parameters stay at these default values. For result
     \label{fig:r_rbar}
 \end{figure}
 
-The results show various limiting behaviors, such as some of the cases proved in the previous section. In Figure \ref{fig:b1_b1bar}, we note that Proposition \ref{prop:b1_b1bar} is confirmed. For all three cases, we see that $\lim_{b_1 \to 0}PoA >1$ and $\lim_{\bar{b}_1 \to 0}PoA=>1$. We also see that $\lim_{b_1 \to \infty}PoA = 1$ and $\lim_{\bar{b}_1 \to \infty}PoA = \infty$. Propositions \ref{prop:b2_to_infty} and \ref{prop:b2_to_0} are confirmed in Figure \ref{fig:b2_b2bar}. When there is only interaction through the states, then $\bar{b}_2=0$ and we see that $\lim_{b_2 \to 0}PoA= 1$. When there is full interaction or only interaction through the controls, then $\bar{b}_2\neq0$ and we see that $\lim_{b_2 \to 0}PoA>1$. For all three cases, we note that the condition $\frac{r + \bar{r}(1-\bar{s})^2}{r + \bar{r}(1-\bar{s})}= \frac{q + \bar{q}(1-s)^2}{q + \bar{q}(1-s)}$ is satisfied, and thus, $\lim_{b_2 \to \infty}PoA= 1$. For Proposition \ref{prop:b2bar}, Figure \ref{fig:b2_b2bar} confirms that $\lim_{\bar{b}_2 \to 0}PoA>1$ and $\lim_{\bar{b}_2 \to \infty}PoA= 1$. Figure \ref{fig:r_rbar} confirms as in Proposition \ref{prop:r_bar_r} that $\lim_{r \to \infty}PoA= 1$ and $\lim_{\bar{r} \to \infty}PoA= 1$.
+The results show various limiting behaviors, such as some of the cases proved in the previous section. In Figure \ref{fig:b1_b1bar}, we note that Proposition \ref{prop:b1_b1bar} is confirmed. For all three cases, we see that $\lim_{b_1 \to 0}PoA >1$ and $\lim_{\bar{b}_1 \to 0}PoA>1$. We also see that $\lim_{b_1 \to \infty}PoA = 1$ and $\lim_{\bar{b}_1 \to \infty}PoA = \infty$. Propositions \ref{prop:b2_to_infty} and \ref{prop:b2_to_0} are confirmed in Figure \ref{fig:b2_b2bar}. When there is only interaction through the states, then $\bar{b}_2=0$ and we see that $\lim_{b_2 \to 0}PoA= 1$. When there is full interaction or only interaction through the controls, then $\bar{b}_2\neq0$ and we see that $\lim_{b_2 \to 0}PoA>1$. For all three cases, we note that the condition $\frac{r + \bar{r}(1-\bar{s})^2}{r + \bar{r}(1-\bar{s})}= \frac{q + \bar{q}(1-s)^2}{q + \bar{q}(1-s)}$ is satisfied, and thus, $\lim_{b_2 \to \infty}PoA= 1$. For Proposition \ref{prop:b2bar}, Figure \ref{fig:b2_b2bar} confirms that $\lim_{\bar{b}_2 \to 0}PoA>1$ and $\lim_{\bar{b}_2 \to \infty}PoA= 1$. Figure \ref{fig:r_rbar} confirms as in Proposition \ref{prop:r_bar_r} that $\lim_{r \to \infty}PoA= 1$ and $\lim_{\bar{r} \to \infty}PoA= 1$.
 
 \subsection{\textbf{A Particular Example: Flocking}}
 Mean field game models of flocking have been proposed in the literature by Nourian et al \cite{nourian2010synthesis}\cite{nourian2011mean}. Here we consider a slightly different formulation as described in Section 3.6.1 of the book \cite{Carmona_book}. A representative bird in the flock controls their velocity, $X_t$, through the drift:
@@ -1611,7 +1611,7 @@ For $\eta_t$, we use:
 		D=&\ c^x.
 	\end{array}
 \end{equation*}
-The conditions (\ref{eq:Riccati_assumptions}) are satisfied if $-a^y>0$, $-b^x>0$, and $c^x \geq0$. Returning to the LGEMFG and LGEMKV problems, if we assume the coefficients are nonnegative, we see that these conditions are exactly assumption (\ref{eq:assumptions}).
+The conditions (\ref{eq:Riccati_assumptions}) are satisfied if $-a^y>0$, $-b^x>0$, and $c^x \geq0$. Returning to the LGEMFG and LGEMKV problems, if we assume the coefficients are non-negative, we see that these conditions are exactly assumption (\ref{eq:assumptions}).
 
 \end{appendices}
 
