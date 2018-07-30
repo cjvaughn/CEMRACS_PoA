@@ -647,7 +647,7 @@ If $B^u\neq 0$, $B^u D^u \geq 0$ and $B^uC^u >0$, we have (see equation (\ref{eq
 		u_t= \frac{C^u(1-e^{-(\delta_u^+ - \delta_u^-)(T-t)})+D^u(\delta^+_u -\delta^-_ue^{-(\delta_u^+ - \delta_u^-)(T-t)} )}{B^uD^u(1-e^{-(\delta_u^+ - \delta_u^-)(T-t)})+ \delta^+_ue^{-(\delta_u^+ - \delta_u^-)(T-t)} -\delta^-_u  },
 	\label{eq:riccati_ut_sol}
 \end{equation}
-where $\delta^\pm_u = -A^u \pm \sqrt{(A^u)^2 + B^u C^u}$. Under assumption (\ref{eq:assumptions}), the above conditions on $B^u$, $C^u$, and $D^u$ are satisfied, and we have $\delta^-_u<0<\delta^+_u$, $u_t > 0$ for all $t\in[0,T)$, and $u_T \geq 0$. We have analogous expressions for $w_t$ and $\eta_t$, in terms of $\delta^\pm_w$ and $\delta^\pm_{\eta}$, respectively. Note that $B^u=B^w=:B$.
+with $\delta^\pm_u = -A^u \pm \sqrt{(A^u)^2 + B^u C^u}$. Under assumption (\ref{eq:assumptions}), the above conditions on $B^u$, $C^u$, and $D^u$ are satisfied, and we have $\delta^-_u<0<\delta^+_u$, $u_t > 0$ for all $t\in[0,T)$, and $u_T \geq 0$. We have analogous expressions for $w_t$ and $\eta_t$, in terms of $\delta^\pm_w$ and $\delta^\pm_{\eta}$, respectively. Note that $B^u=B^w=:B$.
 
 To make the following computations easier to follow, we repeat equations (\ref{eq:PoA_LQ}), (\ref{eq:x_bar_MFG_explicit}), and (\ref{eq:v_t}), which we recall is equivalent to  equation (\ref{eq:v_t_MKV}), using the above notations:
 \begin{equation}
@@ -874,7 +874,7 @@ In the following propositions, we utilize the following assumption.
 		&=& \kappa_3 (b_2 + \bar{b}_2)^3 e^{- \kappa_4 (b_2 + \bar{b}_2)} \leq \epsilon,
 	\label{eq:I2_b2_infty}
 	\end{IEEEeqnarray}
-	where $\kappa_3: = \frac{2 TM^2 e^{2(b_1 + \bar{b}_1) T} }{r + \bar{r}(1-\bar{s})^2} >0$ and $\kappa_4 :=  \frac{T  m_u}{r + \bar{r}(1-\bar{s})^2}>0$ are constants independent of $b_2$. 	
+	with $\kappa_3: = \frac{2 TM^2 e^{2(b_1 + \bar{b}_1) T} }{r + \bar{r}(1-\bar{s})^2} >0$ and $\kappa_4 :=  \frac{T  m_u}{r + \bar{r}(1-\bar{s})^2}>0$ are constants independent of $b_2$. 	
 	
 	Let $b_2^* := \max \{ b_2^{*,I_1}, b_2^{*,I_2}\}$. Then inequalities (\ref{eq:I_1_plus_I_2}), (\ref{eq:I1_ineq_b2_infinity}) and (\ref{eq:I2_b2_infty}) give for $b_2 \geq b_2^*$:
 	\begin{equation*}
@@ -1016,7 +1016,7 @@ In the following propositions, we utilize the following assumption.
 		&\leq& \kappa_1  \frac{1}{\sqrt{b_2 + \bar{b}_2} } \left( 1 - e^{- \kappa_2 (b_2 + \bar{b}_2)^{\frac{1}{2}} }\right) \xrightarrow[\bar{b}_2 \to \infty]{} 0, \nonumber
 		\label{eq:I1_b2_bar_infinity}
 	\end{IEEEeqnarray} 
-	where $\kappa_1: = \frac{\mathbb{E}(\xi)^2 [\zeta_3^2 + (c_w + \zeta_3)^2 ] e^{2(b_1 + \bar{b}_1) \frac{T}{2}} }{2 (c_u - \zeta_3)}$ and $ \kappa_2 := \frac{(c_u - \zeta_3)T}{r+ \bar{r}(1-\bar{s})^2}$ are independent of $\bar{b}_2$. Therefore, there exists $\bar{b}_2^{*,I_1} \geq \bar{b}_2^{*,0}$ such that for $\bar{b}_2 \geq \bar{b}_2^{*,I_1}$, we have $I_1^{\bar{b}_1} \leq \epsilon$.
+	with $\kappa_1: = \frac{\mathbb{E}(\xi)^2 [\zeta_3^2 + (c_w + \zeta_3)^2 ] e^{2(b_1 + \bar{b}_1) \frac{T}{2}} }{2 (c_u - \zeta_3)}$ and $ \kappa_2 := \frac{(c_u - \zeta_3)T}{r+ \bar{r}(1-\bar{s})^2}$ are independent of $\bar{b}_2$. Therefore, there exists $\bar{b}_2^{*,I_1} \geq \bar{b}_2^{*,0}$ such that for $\bar{b}_2 \geq \bar{b}_2^{*,I_1}$, we have $I_1^{\bar{b}_1} \leq \epsilon$.
 	
 	Now, we consider the quantity $I^{\bar{b}_2}_2$. Since $u_t^{\bar{b}_2}$ is positive over $[0,T]$ and from inequalities (\ref{eq:ut_wt_uniform_upper_bound_b2_bar_infty}) and (\ref{eq:ut_lower_bound_b2_bar_infty}), we know that for all $\bar{b}_2 \geq \bar{b}_2^{*,upper} \geq \bar{b}_2^{*,u}$ and $t \in [T/2,T]$,
 	\begin{equation*}
@@ -1472,10 +1472,8 @@ Q.~Zhu and T.~Ba{\c{s}}ar.
 Consider a linear FBSDE system of McKean-Vlasov type:
 \begin{equation}
 \begin{split}
-        dX_t&=\left(a^x_tX_t+a^{\bar{x}}_t \mathbb{E}X_t+a^y_tY_t+a^{\bar{y}}_t \mathbb{E}Y_t\right)dt+\sigma dW_t \\
-        X_0&=\xi \\
-        dY_t&=\left(b^x_tX_t+b^{\bar{x}}_t \mathbb{E}X_t+b^y_tY_t+b^{\bar{y}}_t \mathbb{E}Y_t\right)dt +Z_t dW_t \\
-        Y_T&=c^xX_T+c^{\bar{x}}\mathbb{E}X_T.
+        dX_t&=\left(a^x_tX_t+a^{\bar{x}}_t \mathbb{E}X_t+a^y_tY_t+a^{\bar{y}}_t \mathbb{E}Y_t\right)dt+\sigma dW_t, \quad X_0=\xi, \\
+        dY_t&=\left(b^x_tX_t+b^{\bar{x}}_t \mathbb{E}X_t+b^y_tY_t+b^{\bar{y}}_t \mathbb{E}Y_t\right)dt +Z_t dW_t, \quad Y_T=c^xX_T+c^{\bar{x}}\mathbb{E}X_T.
 \end{split}
 \label{eq:FBSDE_general}
 \end{equation}
@@ -1499,27 +1497,22 @@ For the LQEMKV model considered in Section \ref{sec:EMKV}, the FBSDE system in e
 Now we return to the general FBSDE system (\ref{eq:FBSDE_general}). By taking expectations in equation (\ref{eq:FBSDE_general}), and letting $\bar{x}_t$ and $\bar{y}_t$ denote $\mathbb{E}X_t$ and $\mathbb{E}Y_t$, respectively, we get:
 \begin{equation}
 \begin{split}
-        \dot{\bar{x}}_t&=(a^x_t+a^{\bar{x}}_t)\bar{x}_t+(a^y_t+a^{\bar{y}}_t)\bar{y}_t\\
-        \bar{x}_0&=\mathbb{E}(\xi) \\
-        \dot{\bar{y}}_t&=(b^x_t+b^{\bar{x}}_t)\bar{x}_t+(b^y_t+b^{\bar{y}}_t)\bar{y}_t\\
-        \bar{y}_T&=(c^x+c^{\bar{x}})\bar{x}_T,
+        \dot{\bar{x}}_t&=(a^x_t+a^{\bar{x}}_t)\bar{x}_t+(a^y_t+a^{\bar{y}}_t)\bar{y}_t, \quad \bar{x}_0=\mathbb{E}(\xi), \\
+        \dot{\bar{y}}_t&=(b^x_t+b^{\bar{x}}_t)\bar{x}_t+(b^y_t+b^{\bar{y}}_t)\bar{y}_t, \quad \bar{y}_T=(c^x+c^{\bar{x}})\bar{x}_T,
 \end{split}
 \label{eq:FBSDE_general_means}
 \end{equation}
 where the dot is the standard ODE notation for a derivative. We then make the ansatz $\bar{y}_t=\bar{\eta}_t\bar{x}_t+\bar{\chi}_t$ for deterministic functions $[0,T] \ni t \mapsto \bar{\eta}_t \in \mathbb{R}$ and $[0,T] \ni t \mapsto \bar{\chi}_t \in \mathbb{R}$. By plugging in the ansatz, the system in equation (\ref{eq:FBSDE_general_means}) is equivalent to the ODE system:
 \begin{equation*}
 \begin{split}
-    \dot{\bar{\eta}}_t+(a^y_t+a^{\bar{y}}_t) \bar{\eta}_t^2+(a^x_t+a^{\bar{x}}_t-b^y_t-b^{\bar{y}}_t) \bar{\eta}_t -b^x_t-b^{\bar{x}}_t&=0\\
-    \bar{\eta}_T-c^x-c^{\bar{x}}&=0 \\
-    \dot{\bar{\chi}}_t+(\bar{\eta}_t(a^y_t+a^{\bar{y}}_t)-b^y_t-b^{\bar{y}}_t)\bar{\chi}_t &=0\\
-    \bar{\chi}_T&=0.
+    \dot{\bar{\eta}}_t+(a^y_t+a^{\bar{y}}_t) \bar{\eta}_t^2+(a^x_t+a^{\bar{x}}_t-b^y_t-b^{\bar{y}}_t) \bar{\eta}_t -b^x_t-b^{\bar{x}}_t&=0, \quad \bar{\eta}_T=c^x+c^{\bar{x}}, \\
+    \dot{\bar{\chi}}_t+(\bar{\eta}_t(a^y_t+a^{\bar{y}}_t)-b^y_t-b^{\bar{y}}_t)\bar{\chi}_t &=0, \quad \bar{\chi}_T=0.
 \end{split}
 \end{equation*}
 The first equation is a Riccati equation. Note that $\bar{\chi}_t$ solves a first order homogeneous linear equation. Thus $\bar{\chi}_t=0$, $\forall t\in[0,T]$. Once the equation for $\bar{\eta}_t$ is solved, we can compute $\bar{x}_t$ by solving the linear ODE:
 \begin{equation*}
 \begin{split}
-    \dot{\bar{x}}_t&=(a^x_t+a^{\bar{x}}_t+(a^y_t+a^{\bar{y}}_t)\bar{\eta}_t)\bar{x}_t \\
-    \bar{x}_0&=\mathbb{E}(\xi),
+    \dot{\bar{x}}_t&=(a^x_t+a^{\bar{x}}_t+(a^y_t+a^{\bar{y}}_t)\bar{\eta}_t)\bar{x}_t, \quad \bar{x}_0=\mathbb{E}(\xi),
 \end{split}
 \end{equation*}
 and thus,
@@ -1530,27 +1523,21 @@ and thus,
 Once we have computed $(\bar{x}_t)_{0\leq t\leq T}$, we can rewrite the original FBSDE system:
 \begin{equation*}
 \begin{split}
-        dX_t&=\left(a^x_tX_t+a^y_tY_t+a^0_t\right)dt+\sigma dW_t \\
-        X_0&=\xi \\
-        dY_t&=\left(b^x_tX_t+b^y_tY_t+b^0_t\right)dt +Z_t dW_t \\
-        Y_T&=c^xX_T+c^0,
+        dX_t&=\left(a^x_tX_t+a^y_tY_t+a^0_t\right)dt+\sigma dW_t, \quad X_0=\xi, \\
+        dY_t&=\left(b^x_tX_t+b^y_tY_t+b^0_t\right)dt +Z_t dW_t, \quad Y_T=c^xX_T+c^0,
 \end{split}
 \end{equation*}
 with:
 \begin{equation*}
 \begin{split}
-    a^0_t&=(a^{\bar{x}}_t+a^{\bar{y}}_t \bar{\eta}_t)\bar{x}_t \\
-    b^0_t&=(b^{\bar{x}}_t+b^{\bar{y}}_t \bar{\eta}_t)\bar{x}_t\\
-    c^0&=c^{\bar{x}}\bar{x}_T.
+    a^0_t=(a^{\bar{x}}_t+a^{\bar{y}}_t \bar{\eta}_t)\bar{x}_t, \quad b^0_t=(b^{\bar{x}}_t+b^{\bar{y}}_t \bar{\eta}_t)\bar{x}_t, \quad c^0=c^{\bar{x}}\bar{x}_T.
 \end{split}
 \end{equation*}
 Now we make the ansatz: $Y_t=\eta_t X_t+\chi_t$, which reduces the problem to the ODE system:
 \begin{equation*}
 \begin{split}
-    \dot{\eta}_t+a^y_t\eta_t^2+(a^x_t-b^y_t)\eta_t-b^x_t&=0 \\
-    \eta_T&=c^x, \\
-    \dot{\chi}_t+(-b^y_t+a^y_t\eta_t)\chi_t+a^0_t\eta_t-b^0_t&=0, \\
-    \chi_T&=c^0, \\
+    \dot{\eta}_t+a^y_t\eta_t^2+(a^x_t-b^y_t)\eta_t-b^x_t&=0, \quad \eta_T=c^x, \\
+    \dot{\chi}_t+(-b^y_t+a^y_t\eta_t)\chi_t+a^0_t\eta_t-b^0_t&=0, \quad \chi_T=c^0, \\
     Z_t&=\sigma \eta_t.
 \end{split}
 \end{equation*}
@@ -1559,15 +1546,12 @@ Again, the first equation is a Riccati equation. Note that it is not necessary t
     \bar{\eta}_t\bar{x}_t=\bar{y}_t=\mathbb{E}(Y_t)=\mathbb{E}(\eta_t X_t+\chi_t)=\eta_t \bar{x}_t+\chi_t.
 \end{equation*}
 Thus,
-\begin{equation*}
-    \chi_t=(\bar{\eta}_t-\eta_t)\bar{x}_t.
-\end{equation*}
+$\chi_t=(\bar{\eta}_t-\eta_t)\bar{x}_t.$
 
 In summary, the solution to the linear FBSDE of McKean-Vlasov type is reduced to solving linear ODEs and Riccati equations. It will also be useful to compute $Var(X_t)$, which we denote by $v_t$. After we have solved the above equations, we have:
 \begin{equation*}
 \begin{split}
-        dX_t&=\left((a^x_t+a^y_t \eta_t)X_t+a^y_t \chi_t+a^0_t\right)dt+\sigma dW_t \\
-        X_0&=\xi.
+        dX_t&=\left((a^x_t+a^y_t \eta_t)X_t+a^y_t \chi_t+a^0_t\right)dt+\sigma dW_t, \quad X_0=\xi.
 \end{split}
 \end{equation*}
 Thus,
@@ -1576,25 +1560,25 @@ Thus,
 \end{equation*}
 In the case where the coefficients are time-independent, the Riccati equations for $\bar{\eta}_t$ and $\eta_t$ can be solved explicitly.
 
-\subsection*{\textbf{Scalar Riccati Equation}} If the scalar Riccati equation 
+\subsection*{\textbf{Scalar Riccati Equation}} If the scalar Riccati equation: 
 	\begin{equation*}
-		\dot{\rho}_t - B \rho_t^2 - 2A \rho_t  + C = 0 
+		\dot{\rho}_t - B \rho_t^2 - 2A \rho_t  + C = 0, 
 	\end{equation*}
 	with terminal condition $\rho_T = D$ satisfies:
 	\begin{equation}
-		B \neq 0, BD \geq 0, BC>0,
+		B \neq 0,\ BD \geq 0,\ BC>0,
 	\label{eq:Riccati_assumptions}
 	\end{equation}
 	then it has a unique solution:
 \begin{equation}
-		\rho_t= \frac{C(1-e^{-(\delta^+ - \delta^-)(T-t)})+D( \delta^+ -\delta^-e^{-(\delta^+ - \delta^-)(T-t)}) }{BD(1-e^{-(\delta^+ - \delta^-)(T-t)})+ \delta^+e^{-(\delta^+ - \delta^-)(T-t)}  -\delta^- }
+		\rho_t= \frac{C(1-e^{-(\delta^+ - \delta^-)(T-t)})+D( \delta^+ -\delta^-e^{-(\delta^+ - \delta^-)(T-t)}) }{BD(1-e^{-(\delta^+ - \delta^-)(T-t)})+ \delta^+e^{-(\delta^+ - \delta^-)(T-t)}  -\delta^- },
 	\label{eq:riccati_ut_sol_app}
 \end{equation}
-	where $\delta^\pm = -A \pm \sqrt{(A)^2 + B C}$.
+	with $\delta^\pm = -A \pm \sqrt{(A)^2 + B C}$.
 	
 	Furthermore, if $B \to 0$ and $A\neq 0$, we can deduce that the limiting solution of the scalar Riccati equation coincides with the linear first-order differential equation:
 	\begin{equation*}
-		\dot{\rho}_t - 2A \rho_t +C = 0 
+		\dot{\rho}_t - 2A \rho_t +C = 0,
 	\end{equation*}
 	with terminal condition $\rho_T = D$, namely:
 	\begin{equation*}
@@ -1611,47 +1595,25 @@ In the case where the coefficients are time-independent, the Riccati equations f
 	\end{equation*}\\
 Hence, returning to the linear FBSDE (\ref{eq:FBSDE_general}), for $\bar{\eta}_t$, we use:
 \begin{equation*}
-	\left\{
 	\begin{array}{rl}
 		A=&-\frac{1}{2}(a^x+a^{\bar{x}}-b^y-b^{\bar{y}}) \\
 		B=&-(a^y+a^{\bar{y}}) \\
 		C=&-(b^x+b^{\bar{x}}) \\
 		D=&\ c^x+c^{\bar{x}}.
 	\end{array}
-	\right.
 \end{equation*}
-The conditions (\ref{eq:Riccati_assumptions}) are satisfied if:
-\begin{equation*}
-	\left\{
-	\begin{array}{rl}
-		-(a^y+a^{\bar{y}})&>0 \\
-		-(b^x+b^{\bar{x}})&>0 \\
-		c^x+c^{\bar{x}}& \geq 0.
-	\end{array}
-	\right.
-\end{equation*}
+The conditions (\ref{eq:Riccati_assumptions}) are satisfied if $-(a^y+a^{\bar{y}})>0$, $-(b^x+b^{\bar{x}})>0$, and $c^x+c^{\bar{x}} \geq 0$.
+
 For $\eta_t$, we use:
 \begin{equation*}
-	\left\{
 	\begin{array}{rl}
 		A=&-\frac{1}{2}(a^x-b^y) \\
 		B=&-a^y \\
 		C=&-b^x \\
 		D=&\ c^x.
 	\end{array}
-	\right.
 \end{equation*}
-The conditions (\ref{eq:Riccati_assumptions}) are satisfied if:
-\begin{equation*}
-	\left\{
-	\begin{array}{rl}
-		-a^y&>0 \\
-		-b^x&>0 \\
-		c^x& \geq0.
-	\end{array}
-	\right.
-\end{equation*}
-Returning to the LGEMFG and LGEMKV problems, if we assume the coefficients are nonnegative, we see that these conditions are exactly assumption (\ref{eq:assumptions}).
+The conditions (\ref{eq:Riccati_assumptions}) are satisfied if $-a^y>0$, $-b^x>0$, and $c^x \geq0$. Returning to the LGEMFG and LGEMKV problems, if we assume the coefficients are nonnegative, we see that these conditions are exactly assumption (\ref{eq:assumptions}).
 
 \end{appendices}
 
