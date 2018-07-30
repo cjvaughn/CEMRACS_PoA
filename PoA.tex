@@ -132,9 +132,9 @@ We would like to evaluate $SC(\phi)$ in the $N=\infty$ regime directly, without 
     dX^{\phi}_t=b(t,X^{\phi}_t,\cL(X^{\phi}_t),\phi(t,X^{\phi}_t),\cL(\phi(t,X^{\phi}_t))dt+\sigma dW_t
 \label{eq:X}
 \end{equation}
-controlled by $\phi$. Then we can identify $\bmu$ as the law of a representative agent using the feedback function $\phi$, i.e. $\mu_t=\cL(X^{\phi}_t)$, and similarly, we can identify $\bnu$ as the law of the control, such that $\nu_t=\cL(\phi(t,X^{\phi}_t))$. Thus, in the $N=\infty$ regime, we rewrite the social cost as
+controlled by $\phi$. Then we can identify $\bmu$ as the law of a representative agent using the feedback function $\phi$, i.e. $\mu_t=\cL(X^{\phi}_t)$, and similarly, we can identify $\bnu$ as the law of the control, such that $\nu_t=\cL(\phi(t,X^{\phi}_t))$. Thus, in the $N=\infty$ regime, we rewrite the social cost as:
 \begin{equation*}
-SC(\phi)=\int_0^T<f(t,\,\cdot\,,\cL(X^{\phi}_t),\phi(t,\,\cdot\,),\cL(\phi(t,X^{\phi}_t))),\cL(X^{\phi}_t)>\,dt+<g(\,\cdot\,,\cL(X^{\phi}_T)),\cL(X^{\phi}_T)>
+SC(\phi)=\int_0^T<f(t,\,\cdot\,,\cL(X^{\phi}_t),\phi(t,\,\cdot\,),\cL(\phi(t,X^{\phi}_t))),\cL(X^{\phi}_t)>\,dt+<g(\,\cdot\,,\cL(X^{\phi}_T)),\cL(X^{\phi}_T)>,
 \end{equation*}
 where $\boldsymbol{X^{\phi}}$ satisfies equation (\ref{eq:X}). For the remainder of the paper, we work in the $N=\infty$ regime. As mentioned earlier, $\phi$ should be identified by solving an optimal control problem. We consider two distinct problems:
 \begin{itemize}\itemsep=-2pt
@@ -238,7 +238,7 @@ According to the Pontryagin stochastic maximum principle, a sufficient condition
 \end{equation*}
 and use the control $\hat{\alpha}_t=\hat{\alpha}(t,X_t,\bar{\mu},\bar{\nu},Y_t)$. When solving the fixed point step, we identify $\bar{\nu}_t=\mathbb{E}(\hat{\alpha}_t)$. By taking the expectation, we find:
 \begin{equation*}
-    \mathbb{E}(\hat{\alpha}_t)=c^{MFG}(t)\mathbb{E}(Y_t)
+    \mathbb{E}(\hat{\alpha}_t)=c^{MFG}(t)\mathbb{E}(Y_t),
 \end{equation*}
 with:
 \begin{equation*}
@@ -246,7 +246,7 @@ with:
 \end{equation*}
 Thus, necessarily we must have:
 \begin{equation*}
-    \hat{\alpha}_t=a^{MFG}(t) Y_t+b^{MFG}(t)\mathbb{E}(Y_t)
+    \hat{\alpha}_t=a^{MFG}(t) Y_t+b^{MFG}(t)\mathbb{E}(Y_t),
 \end{equation*}
 with:
 \begin{equation*}
@@ -260,7 +260,7 @@ Note that $c^{MFG}(t)=a^{MFG}(t)+b^{MFG}(t)$. The solution of the mean field gam
 \begin{equation}
 \begin{split}
         dX_t&=\left(b_1(t)X_t+\bar{b}_1(t) \mathbb{E}X_t+a^{MFG}(t)b_2(t)Y_t+(b^{MFG}(t)b_2(t)+c^{MFG}(t)\bar{b}_2(t))\mathbb{E}Y_t\right)dt+\sigma dW_t \\
-        dY_t&=-\left((q(t)+\bar{q}(t))X_t-\bar{q}(t)s(t)\mathbb{E}X_t+b_1(t)Y_t \right)dt +Z_t dW_t
+        dY_t&=-\left((q(t)+\bar{q}(t))X_t-\bar{q}(t)s(t)\mathbb{E}X_t+b_1(t)Y_t \right)dt +Z_t dW_t,
 \end{split}
 \label{eq:FBSDE_EMFG}
 \end{equation}
@@ -357,7 +357,7 @@ So the solution of the optimal control problem of McKean-Vlasov type is given by
 \begin{equation}
 \begin{split}
         dX_t=&\left(b_1(t)X_t+\bar{b}_1(t) \mathbb{E}X_t+a^{MKV}(t)b_2(t)Y_t+(b^{MKV}(t)b_2(t)+c^{MKV}(t)\bar{b}_2(t))\mathbb{E}Y_t\right)dt+\sigma dW_t \\
-        dY_t=&-\left((q(t)+\bar{q}(t))X_t+s(t)\bar{q}(t)(s(t)-2)\mathbb{E}X_t+b_1(t)Y_t+\bar{b}_1(t)\mathbb{E}Y_t\right)dt +Z_t dW_t
+        dY_t=&-\left((q(t)+\bar{q}(t))X_t+s(t)\bar{q}(t)(s(t)-2)\mathbb{E}X_t+b_1(t)Y_t+\bar{b}_1(t)\mathbb{E}Y_t\right)dt +Z_t dW_t,
 \end{split}
 \label{eq:FBSDE_EMKV}
 \end{equation}
@@ -416,7 +416,7 @@ and:
 \subsection{\textbf{Theoretical Results}}
 For the remainder of the paper, we assume the coefficients are independent of time and nonnegative:
 \begin{equation*}
-    (b_1(t), \bar{b}_1(t),b_2(t),\bar{b}_2(t),q(t),\bar{q}(t),r(t),\bar{r}(t),s(t),\bar{s}(t))=(b_1,\bar{b}_1,b_2,\bar{b}_2,q,\bar{q},r,\bar{r},s,\bar{s})\in (\mathbb{R}^+)^{10}
+    (b_1(t), \bar{b}_1(t),b_2(t),\bar{b}_2(t),q(t),\bar{q}(t),r(t),\bar{r}(t),s(t),\bar{s}(t))=(b_1,\bar{b}_1,b_2,\bar{b}_2,q,\bar{q},r,\bar{r},s,\bar{s})\in (\mathbb{R}^+)^{10},
 \end{equation*}
 and therefore,
 \begin{equation*}
@@ -433,11 +433,11 @@ Assume the following:
     b_2 &>& 0 & & b_2 + \bar{b}_2 &>& 0 & & \\
     r+\bar{r} &>&0 &&  r+\bar{r}(1-\bar{s}) &>&0 & & r+\bar{r}(1-\bar{s})^2 &>& 0 \\
     q+\bar{q} &>& 0 && q + \bar{q}(1-s) &>& 0 & & q+ \bar{q}(1-s)^2 &>& 0 \\
-    q_T + \bar{q}_T &\geq& 0 & \quad & q_T + \bar{q}_T(1-s_T) &\geq& 0 & \quad & q_T + \bar{q}_T(1-s_T)^2 &\geq& 0
+    q_T + \bar{q}_T &\geq& 0 & \quad & q_T + \bar{q}_T(1-s_T) &\geq& 0 & \quad & q_T + \bar{q}_T(1-s_T)^2 &\geq& 0.
 \end{array}
 \label{eq:assumptions}
 \end{equation}
-then there exists a unique solution to the LQEMFG problem, and there exists a unique solution to the LQEMKV problem. And therefore, $PoA=\frac{SC^{MFG}}{SC^{MKV}}$ where $SC^{MFG}:=SC(\phi)$ for $\phi$ given by the explicit solution constructed in Appendix \ref{appendix_solving_fbsdes}.
+Then there exists a unique solution to the LQEMFG problem, and there exists a unique solution to the LQEMKV problem. And therefore, $PoA=\frac{SC^{MFG}}{SC^{MKV}}$ where $SC^{MFG}:=SC(\phi)$ for $\phi$ given by the explicit solution constructed in Appendix \ref{appendix_solving_fbsdes}.
 \end{theorem}
 
 \begin{remark}
@@ -447,9 +447,9 @@ then there exists a unique solution to the LQEMFG problem, and there exists a un
 To compute the price of anarchy, it is useful to make the following observations:
 \begin{equation*}
 \begin{split}
-    a^{MFG}&=a^{MKV}=:a \\
-    \eta_t^{MFG}&=\eta_t^{MKV}=:\eta_t \\
-    v_t^{MFG}&=v_t^{MKV}=:v_t
+    a^{MFG}&=a^{MKV}=:a, \\
+    \eta_t^{MFG}&=\eta_t^{MKV}=:\eta_t, \\
+    v_t^{MFG}&=v_t^{MKV}=:v_t.
 \end{split}
 \end{equation*}
 
@@ -526,9 +526,10 @@ Finally, we solve:
 \end{split}
 \end{equation*}
 If we denote:
-\begin{equation*}
+\begin{equation}
 \lambda := \frac{c^{MFG}}{c^{MKV}} = \frac{b_2}{b_2 + \bar{b}_2}\cdot \frac{ r + \bar{r}(1-\bar{s})^2 }{r + \bar{r}(1-\bar{s})},
-\end{equation*}
+\label{eq:lambda}
+\end{equation}
 \begin{equation*}
 h_{var}: = \frac{1}{2}\int_0^T (q+\bar{q}+(r+\bar{r})(a\eta_t)^2)v_tdt + \frac{1}{2}(q_T+\bar{q}_T)v_T,
 \end{equation*}
@@ -572,22 +573,19 @@ Let's denote the (weighted) difference between the solutions of the Riccati equa
 	The solutions $\bar{\eta}^{MFG}_t$ and $\bar{\eta}^{MKV}_t$ for the Riccati equations (\ref{eq:eta_bar_MFG}) and (\ref{eq:eta_bar_MKV}), respectively, are well defined under assumption (\ref{eq:assumptions}) (see Appendix \ref{appendix_solving_fbsdes}). We notice that $\Delta\bar{\eta}_t$ defined in (\ref{eq:delta_eta}) satisfies the following linear first-order differential equation:
 	\begin{equation*}
 		\frac{d( \Delta{\bar{\eta}}_t)}{dt} = \gamma_t \Delta\bar{\eta}_t + \beta_t,
-		\qquad \Delta{\bar{\eta}}_T = \lambda \bar{\eta}_T^{MFG} - \bar{\eta}_T^{MKV}
+		\qquad \Delta{\bar{\eta}}_T = \lambda \bar{\eta}_T^{MFG} - \bar{\eta}_T^{MKV},
 	\end{equation*}
 	with coefficients:
 	\begin{equation*}
-	\left\{
 		\begin{array}{rcl}
 			\gamma_t &=& \displaystyle -2 b_1 - 2\bar{b}_1 + \frac{(b_2 + \bar{b}_2)^2}{r + \bar{r}(1-\bar{s})^2} \left(\lambda \bar{\eta}_t^{MFG} + \bar{\eta}_t^{MKV} \right),\\
 			\beta_t &=& \bar{b}_1 \lambda \bar{\eta}_t^{MFG} + (q + \bar{q}(1-s)^2) - \lambda (q + \bar{q}(1-s)).
 		\end{array}
-	\right.
 	\end{equation*} 
 	Since $q_T + \bar{q}_T(1-s_T) = \bar{\eta}_T^{MFG}$, $q_T + \bar{q}_T(1-s_T)^2 = \bar{\eta}_T^{MKV}$ and $\lambda \bar{\eta}_0^{MFG} - \bar{\eta}_0^{MKV} = \Delta\bar{\eta}_0$, we deduce from equations (\ref{eq:SC_MFG_2}) and (\ref{eq:SC_MKV_2}) that:
 	\begin{equation*}
 		\begin{split}
-			& SC^{MFG} - SC^{MKV}\\
-			&= \frac{1}{2} \left[ \Delta\bar{\eta}_0 (\mathbb{E}(\xi))^2 - \Delta\bar{\eta}_T (\bar{x}_T^{MFG})^2 + \int_0^T \beta_t (\bar{x}_t^{MFG})^2 dt \right] \\
+			SC^{MFG} - SC^{MKV}&= \frac{1}{2} \left[ \Delta\bar{\eta}_0 (\mathbb{E}(\xi))^2 - \Delta\bar{\eta}_T (\bar{x}_T^{MFG})^2 + \int_0^T \beta_t (\bar{x}_t^{MFG})^2 dt \right] \\
 			&= \frac{1}{2} \int_0^T \left[ - \frac{d (\Delta\bar{\eta}_t (\bar{x}_t^{MFG})^2) }{dt}  + \left( 	\frac{d( \Delta{\bar{\eta}}_t)}{dt} - \gamma_t \Delta\bar{\eta}_t  \right)(\bar{x}_t^{MFG})^2 \right] dt\\
 			&= \frac{1}{2}\int_0^T \left[- 2\Delta{\bar{\eta}}_t \bar{x}_t^{MFG} \dot{\bar{x}}_t^{MFG} - \gamma_t \Delta{\bar{\eta}}_t (\bar{x}_t^{MFG})^2 \right]dt \\
 			&= \frac{1}{2} \int_0^T \Delta{\bar{\eta}}_t (\bar{x}_t^{MFG})^2 \left[-2\left(b_1 + \bar{b}_1 - \frac{(b_2+\bar{b}_2)^2}{r + \bar{r}(1-\bar{s})^2} \lambda \bar{\eta}_t^{MFG}\right) - \gamma_t\right] dt\\
@@ -618,18 +616,18 @@ PoA =1+ \frac{\Delta SC}{SC^{MKV}}= 1 +  \frac{ \displaystyle   \frac{(b_2 + \ba
 
 We study in the following the variation of $PoA$ by letting one of the coefficients tend to zero or to infinity. It will be useful for us to note here the scalar Riccati equations associated with $u_t := \lambda \bar{\eta}_t^{MFG}$, $w_t := \bar{\eta}_t^{MKV}$ and $\eta_t$:
     \begin{equation}
-		\dot{u}_t - 2A^u u_t - B u_t^2 + C^u =0 \qquad u_T = D^u
+		\dot{u}_t - 2A^u u_t - B u_t^2 + C^u =0, \qquad u_T = D^u,
 		\label{eq:riccati_ut}
 	\end{equation}	
 	\begin{equation}
-	    \dot{w}_t - 2A^w w_t - B w_t^2 + C^w =0 \qquad w_T = D^w
+	    \dot{w}_t - 2A^w w_t - B w_t^2 + C^w =0, \qquad w_T = D^w,
 	\label{eq:riccati_wt}
 	\end{equation}
 	\begin{equation}
-	    \dot{\eta}_t - 2A^\eta \eta_t - B^\eta \eta_t^2 + C^\eta =0 \qquad \eta_T = D^\eta
+	    \dot{\eta}_t - 2A^\eta \eta_t - B^\eta \eta_t^2 + C^\eta =0, \qquad \eta_T = D^\eta,
 	\label{eq:riccati_etat}
 	\end{equation}
-	where:
+	with:
 	\begin{IEEEeqnarray*}{rClcrClcrCl}
 		A^u &=& - \left(b_1 + \frac{\bar{b}_1}{2}\right), & \qquad & 
 		A^w &=& - (b_1 + \bar{b}_1), & \qquad & 
@@ -664,7 +662,7 @@ PoA =1+ \frac{\Delta SC}{SC^{MKV}}= 1 +  \frac{ \displaystyle B\int_0^T (u_t-w_t
 v_t=Var(\xi)e^{\int_0^t 2(b_1-B^{\eta} \eta_s)ds}+\sigma^2 \int_0^t e^{2 \int_s^t (b_1-B^{\eta}\eta_u) du}ds.
 \label{eq:v_t_new_notation}
 \end{equation}
-Also for convenience, recall the definition:
+Also for convenience, recall the definition from equation (\ref{eq:lambda}):
 \begin{equation*}
 \lambda = \frac{b_2}{b_2 + \bar{b}_2}\cdot \frac{ r + \bar{r}(1-\bar{s})^2 }{r + \bar{r}(1-\bar{s})}.
 \end{equation*}
@@ -713,7 +711,7 @@ In the following propositions, we utilize the following assumption.
 	\begin{equation*}
 	u_t^{r \to \infty} = \left(D^{r \to \infty}_u - \frac{C^{r \to \infty}_u}{2A^u} \right) e^{-2A^u (T-t)} +  \frac{C^{r \to \infty}_u}{2A^u}.
 	\end{equation*}
-	It is easy to show directly from their explicit solutions that for every time $t\in [0,T]$, $$\lim_{r \to \infty}u^r_t=u^{r \to \infty}_t \quad \text{and thus,} \quad \lim_{r \to \infty}B^ru^r_t=0.$$
+	It is easy to show directly from their explicit solutions that for every time $t\in [0,T]$, $$\lim_{r \to \infty}u^r_t=u^{r \to \infty}_t, \quad \text{and thus,} \quad \lim_{r \to \infty}B^ru^r_t=0.$$
 	
 	Next, our goal is to bound the $u^r_t$ uniformly over $t \in [0,T]$ for large $r$.
 	Note that  $A^u < 0$, $B^r$, $C^{u,r}$, $\lambda^{r\to \infty}$, $C^{r \to \infty}_u$, $D^{u,r}$, $D^{r \to \infty}_u> 0$, and $\delta^{-,r}_u < 0 < \delta^{+,r}_u$. Let $\epsilon>0$. Then there exists $r^*>0$ such that $\max\{ B^{r}, C^{u,r}, D^{u,r} \} \leq \max\{C^{r \to \infty}_u,D^{r \to \infty}_u \}+\epsilon=: c_1$ for $r \geq r^*$. Thus, we can deduce that for $r \geq r^*$, and for every $t \in [0,T]$:
@@ -727,7 +725,7 @@ In the following propositions, we utilize the following assumption.
 	\end{equation*}
 	Moreover, $\bar{x}_t^{MFG,r}$ is uniformly bounded for $t \in [0,T]$. From the non-negativity of $u^r_t$, we have:
 	$$ \left\vert \bar{x}^{MFG,r}_t \right\vert \leq \vert \mathbb{E}(\xi) \vert e^{ (b_1 + \bar{b}_1 ) T }, \quad \forall t \in [0,T]. $$  	
-	Similarly, for every $t\in [0,T]$,
+	Similarly, for every $t\in [0,T]$:
 	$$\lim_{r\to \infty}w^r_t =: w_t^{r\to \infty},\qquad \lim_{r\to \infty} \eta^r_t =: \eta_t^{r\to \infty},$$
 	and the functions $w^{r}_t$ and $\eta^{r}_t$ are uniformly bounded over $t \in[0,T]$ and large $r$. By the bounded convergence theorem we have for every $t \in [0,T]$:
 	\begin{equation*}
@@ -745,7 +743,7 @@ In the following propositions, we utilize the following assumption.
 	\begin{equation*}
 		\lim_{r \to \infty} SC^{MKV,r} = \frac{1}{2} \left( \int_0^T (q+\bar{q}) v^{r \to \infty}_t dt + (q_T + \bar{q}_T) v^{r\to \infty}_T + w^{r \to \infty}_0 (\mathbb{E}(\xi))^2 \right)  >0.
 	\end{equation*}
-	Therefore, from equation (\ref{eq:PoA_LQ_new_notation}), we have 
+	Therefore, from equation (\ref{eq:PoA_LQ_new_notation}), we have: 
 	$$\displaystyle \lim_{r \to \infty} PoA^r = 1.$$
 	
 	By replacing $\lambda^{r \to \infty}$ with $\lambda^{\bar{r} \to \infty}: = \frac{b_2}{b_2 + \bar{b}_2} (1 - \bar{s})$, the proof can be repeated, and we obtain $\displaystyle \lim_{\bar{r} \to \infty} PoA^{\bar{r}} = 1$.
@@ -754,11 +752,11 @@ In the following propositions, we utilize the following assumption.
 
 % proposition b_2 to \infty
 \begin{proposition}
-	Assuming assumption \ref{assumption}, and if
+	Assuming assumption \ref{assumption}, and if:
 	\begin{equation*}
 	\frac{q+\bar{q}(1-s)}{r+\bar{r}(1-\bar{s})} =\frac{q+\bar{q}(1-s)^2}{r+\bar{r}(1-\bar{s})^2},
 	\end{equation*}
-	then
+	then:
 	$$ \lim_{b_2 \to \infty} PoA = 1.$$	
 \label{prop:b2_to_infty}
 \end{proposition}
@@ -784,22 +782,22 @@ In the following propositions, we utilize the following assumption.
 		&\xrightarrow[b_2 \to \infty]{} \quad (r + \bar{r}(1-\bar{s})^2) \cdot c_{\delta_u^{b_2 \to \infty}}  =: c_u.
 	\end{split}
 	\end{equation*}
-	Similarly, for all $t \in [0,T)$,
+	Similarly, for all $t \in [0,T)$:
 	$$\lim_{b_2 \to \infty} (b_2 + \bar{b}_2) w_t^{b_2} =  (r + \bar{r}(1-\bar{s})^2) \cdot c_{\delta_w^{b_2 \to \infty}} =: c_w,\qquad \text{with } \quad c_{\delta_w^{b_2 \to \infty}} := \sqrt{ \frac{q + \bar{q}(1-s)^2}{r + \bar{r}(1-\bar{s})^2} },$$
 	and
 	$$ \lim_{b_2 \to \infty}b_2 \eta_t^{b_2} = (r + \bar{r}) \cdot c_{\delta_{\eta}^{b_2 \to \infty}} =: c_\eta, \qquad \text{with } \quad c_{\delta_\eta^{b_2 \to \infty}} := \sqrt{ \frac{q + \bar{q}}{r +\bar{r}} }.$$
 	
-	Next, we derive a strictly positive uniform lower bound for $(b_2 + \bar{b}_2) u_t^{b_2}$ over $[0,T]$ and large $b_2$. Let $\zeta_1 :=\frac{1}{2} \min \left\{ c_{\delta_u^{b_2 \to \infty}}, D^{u,b_2 \to \infty} \right\}$. Then there exists $b_2^{*,u,lower}>0$ such that for all $b_2 \geq b_2^{*,u,lower}$,
+	Next, we derive a strictly positive uniform lower bound for $(b_2 + \bar{b}_2) u_t^{b_2}$ over $[0,T]$ and large $b_2$. Let $\zeta_1 :=\frac{1}{2} \min \left\{ c_{\delta_u^{b_2 \to \infty}}, D^{u,b_2 \to \infty} \right\}$. Then there exists $b_2^{*,u,lower}>0$ such that for all $b_2 \geq b_2^{*,u,lower}$:
 	$$ 
 	\max \left\{  \left\vert \frac{\delta_u^{+,b_2}}{b_2 + \bar{b}_2}  - c_{\delta_u^{b_2 \to \infty}} \right\vert, \   \left\vert \frac{\delta_u^{-,b_2}}{b_2 + \bar{b}_2}  - \left(-c_{\delta_u^{b_2 \to \infty}}\right) \right\vert, \vert D^{u,b_2} - D^{u,b_2\to \infty} \vert,  \left\vert \frac{1}{b_2 + \bar{b}_2} \right\vert  \right\} \leq \zeta_1,
 	$$ 
-	and thus for all $t \in [0,T]$,
+	and thus for all $t \in [0,T]$:
 	\begin{IEEEeqnarray}{rCl}
 		(b_2 + \bar{b}_2) u_t^{b_2} &\geq&  (b_2 + \bar{b}_2) \frac{D^{u,b_2} \delta_u^{+, b_2} }{ (\delta_u^{+,b_2} - \delta_u^{-,b_2}) + B^{b_2}D^{u,b_2} } \nonumber \\
 		&\geq& \frac{(D^{u,b_2 \to \infty} - \zeta_1 ) \cdot (c_{\delta_u^{b_2 \to \infty}} - \zeta_1) }{ \zeta_1 \cdot (2 c_{\delta_u^{b_2 \to \infty}} + 2 \zeta_1) + (D^{u,b_2 \to \infty} + \zeta_1) / (r+ \bar{r}(1-\bar{s})^2) } =: m_u>0.
 	\label{eq:ut_uniform_lower_bound_b2_infinity}
 	\end{IEEEeqnarray}
-	Then, by the same technique in inequality (\ref{eq:ut_uniform_lower_bound_b2_infinity}), there exists $b_2^{*,\eta, lower} > 0$ and $m_\eta >0$ such that for all $b_2 \geq b_2^{*,\eta,lower}$,
+	Then, by the same technique in inequality (\ref{eq:ut_uniform_lower_bound_b2_infinity}), there exists $b_2^{*,\eta, lower} > 0$ and $m_\eta >0$ such that for all $b_2 \geq b_2^{*,\eta,lower}$:
 	\begin{equation*}
 	   b_2 \eta_t^{b_2} \geq m_\eta.
 	\end{equation*}
@@ -832,7 +830,7 @@ In the following propositions, we utilize the following assumption.
 	\end{split}
 	\label{eq:I_1_plus_I_2}
 	\end{equation}
-	where:
+	with:
 	\begin{IEEEeqnarray*}{rCl}
 	I_1^{b_2} &=& \frac{(b_2 + \bar{b}_2)^3}{r + \bar{r}(1-\bar{s})^2}  \int_0^{\frac{T}{2}} (u_t^{b_2} - w_t^{b_2})^2 e^{2(b_1 + \bar{b}_1)t} \exp \left( -2B^{b_2} \int_0^{t} u_s^{b_2} ds 
 	\right) dt \\
@@ -843,8 +841,8 @@ In the following propositions, we utilize the following assumption.
 		I_2^{b_2} = \frac{(b_2 + \bar{b}_2)^3}{r + \bar{r}(1-\bar{s})^2}  \int_{\frac{T}{2}}^T (u_t^{b_2} - w_t^{b_2})^2 e^{2(b_1 + \bar{b}_1)t} \exp \left( -\frac{2 (b_2 + \bar{b}_2)}{r + \bar{r}(1-\bar{s})^2} \int_0^{t} h_u(b_2,s) ds \right) dt.
 	$$
 	
-	Fix $\epsilon>0$. In the following, we show that $I_1^{b_2} \leq \epsilon$ and $I_2^{b_2} \leq \epsilon$ for large $b_2$. First, consider $I_1^{b_2}$. Recall that for $t \in[0,T/2]$, we have $\lim_{b_2 \to \infty}h_u(b_2,t) = \lim_{b_2 \to \infty}h_w(b_2,t) = c$, and for all $b_2 \geq b_2^{*,upper}$, the functions $[0,T/2] \ni s \mapsto u_s^{b_2}$ and $[0,T/2] \ni s \mapsto w_s^{b_2}$ are increasing, and thus, $[0,T/2] \ni s \mapsto h_u(b_2,t)$ and $[0,T/2] \ni s \mapsto h_w(b_2,t)$ are increasing. (Note that $T/2<T$ is chosen arbitrarily, since the above limits do not hold at $T$.) Let 
-	$$ \zeta_2: = \min \left\{ \frac{c}{2},  \frac{1}{2} e^{-T(b_1+\bar{b}_2)} \sqrt{\epsilon c} \right\}.$$
+	Fix $\epsilon>0$. In the following, we show that $I_1^{b_2} \leq \epsilon$ and $I_2^{b_2} \leq \epsilon$ for large $b_2$. First, consider $I_1^{b_2}$. Recall that for $t \in[0,T/2]$, we have $\lim_{b_2 \to \infty}h_u(b_2,t) = \lim_{b_2 \to \infty}h_w(b_2,t) = c$, and for all $b_2 \geq b_2^{*,upper}$, the functions $[0,T/2] \ni s \mapsto u_s^{b_2}$ and $[0,T/2] \ni s \mapsto w_s^{b_2}$ are increasing, and thus, $[0,T/2] \ni s \mapsto h_u(b_2,t)$ and $[0,T/2] \ni s \mapsto h_w(b_2,t)$ are increasing. (Note that $T/2<T$ is chosen arbitrarily, since the above limits do not hold at $T$.) Let
+	$ \zeta_2: = \min \left\{ \frac{c}{2},  \frac{1}{2} e^{-T(b_1+\bar{b}_2)} \sqrt{\epsilon c} \right\}.$
 	Then there exists $b_2^{*,I_1}  \geq b_2^{*,upper}$ such that for all $b_2 \geq b_2^{*,I_1}$ and all $s\in [0, T/2]$ we have:
 	\begin{equation*}
 	\begin{array}{lclclclcl}
@@ -1078,7 +1076,7 @@ In the following propositions, we utilize the following assumption.
 	\end{equation*}	
 	
 	Meanwhile, $\eta_t$ does not depend on $\bar{b}_2$, and therefore the variance $v_t$ also does not depend on $\bar{b}_2$. Clearly $0<v_t<\infty$ for $t>0$ and $0 \leq w^{\bar{b}_2 \to 0}_0 < \infty$, and thus,
-	$$ 0<\lim_{\bar{b}_2 \to 0}SC^{MKV,\bar{b}_2} <\infty.$$
+	$ 0<\lim_{\bar{b}_2 \to 0}SC^{MKV,\bar{b}_2} <\infty.$
 	Hence, we deduce:
 	$$ \lim_{\bar{b}_2 \to 0} PoA^{\bar{b}_2} > 1. $$
 \end{proof}
@@ -1245,7 +1243,7 @@ In the following propositions, we utilize the following assumption.
 	\lim_{\bar{b}_1 \to \infty}\frac{\Delta SC^{\bar{b}_1}}{SC^{MKV,\bar{b}_1}}=\lim_{\bar{b}_1 \to \infty}\frac{\frac{1}{\bar{b}_1^2}\Delta SC^{\bar{b}_1}}{\frac{1}{\bar{b}_1^2}SC^{MKV,\bar{b}_1}}=\infty.
 	\end{split}
 	\end{equation*}
-	We conclude:
+	We conclude
 	$
 	\lim_{\bar{b}_1 \to \infty} PoA^{\bar{b}_1}=\infty.
 	$
