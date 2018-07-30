@@ -713,7 +713,7 @@ In the following propositions, we utilize the following assumption.
 	\begin{equation*}
 	u_t^{r \to \infty} = \left(D^{r \to \infty}_u - \frac{C^{r \to \infty}_u}{2A^u} \right) e^{-2A^u (T-t)} +  \frac{C^{r \to \infty}_u}{2A^u}.
 	\end{equation*}
-	It is easy to show that for every time $t\in [0,T]$, $\lim_{r \to \infty}u^r_t=u^{r \to \infty}_t$, and thus, $\lim_{r \to \infty}B^ru^r_t=0$. 
+	It is easy to show directly from their explicit solutions that for every time $t\in [0,T]$, $\lim_{r \to \infty}u^r_t=u^{r \to \infty}_t$, and thus, $\lim_{r \to \infty}B^ru^r_t=0$. 
 	
 	Next, our goal is to bound the $u^r_t$ uniformly over $t \in [0,T]$ for large $r$.
 	Note that  $A^u < 0$, $B^r$, $C^{u,r}$, $\lambda^{r\to \infty}$, $C^{r \to \infty}_u$, $D^{u,r}$, $D^{r \to \infty}_u> 0$, and $\delta^{-,r}_u < 0 < \delta^{+,r}_u$. Let $\epsilon>0$. Then there exists $r^*>0$ such that $\max\{ B^{r}, C^{u,r}, D^{u,r} \} \leq \max\{C^{r \to \infty}_u,D^{r \to \infty}_u \}+\epsilon=: c_1$ for $r \geq r^*$. Thus, we can deduce that for $r \geq r^*$, and for every $t \in [0,T]$:
@@ -1050,7 +1050,7 @@ In the following propositions, we utilize the following assumption.
 	\left({u}^{{\bar{b}_2 \to 0}}_t\right)' - 2A^u u_t^{\bar{b}_2 \to 0} -B^{\bar{b}_2 \to 0} (u_t^{\bar{b}_2 \to 0})^2+ C^{\bar{b}_2 \to 0}_u = 0, \qquad u_T^{\bar{b}_2 \to 0} = D^{\bar{b}_2 \to 0}_u,
 	\label{eq:riccati_limiting_u}
 	\end{equation}
-	which we recall has an explicit solution. It is easy to show that for every time $t\in [0,T]$, $\lim_{\bar{b}_2 \to 0}u^{\bar{b}_2}_t=u^{\bar{b}_2 \to 0}_t$. Next, our goal is to bound $u^{\bar{b}_2}_t$ uniformly over $t \in [0,T]$ for small $\bar{b}_2$, following the methodology of the proof of Proposition \ref{prop:r_bar_r}. For any $\epsilon>0$, there exists a $\bar{b}^*_2>0$ such that $\max\{ B^{\bar{b}_2},C^{u,\bar{b}_2},D^{u,\bar{b}_2} \}<\max \{B^{\bar{b}_2 \to 0},C^{\bar{b}_2 \to 0}_u,D^{\bar{b}_2 \to 0}_u \}+\epsilon=:c_1$ for all $\bar{b}_2 \leq \bar{b}^*_2$. Thus, for all $\bar{b}_2\leq \bar{b}^*_2$ and for every $t \in [0,T]$:
+	which we recall has an explicit solution. It is easy to show directly from the explicit solutions that for every time $t\in [0,T]$, $\lim_{\bar{b}_2 \to 0}u^{\bar{b}_2}_t=u^{\bar{b}_2 \to 0}_t$. Next, our goal is to bound $u^{\bar{b}_2}_t$ uniformly over $t \in [0,T]$ for small $\bar{b}_2$, following the methodology of the proof of Proposition \ref{prop:r_bar_r}. For any $\epsilon>0$, there exists a $\bar{b}^*_2>0$ such that $\max\{ B^{\bar{b}_2},C^{u,\bar{b}_2},D^{u,\bar{b}_2} \}<\max \{B^{\bar{b}_2 \to 0},C^{\bar{b}_2 \to 0}_u,D^{\bar{b}_2 \to 0}_u \}+\epsilon=:c_1$ for all $\bar{b}_2 \leq \bar{b}^*_2$. Thus, for all $\bar{b}_2\leq \bar{b}^*_2$ and for every $t \in [0,T]$:
 	\begin{equation*}
 		\left \vert u_t^{\bar{b}_2} \right\vert \leq \frac{c_1 + 2 c_1 \sqrt{(A^u)^2 + c_1^2}}{-2A^u e^{-2T \sqrt{(A^u)^2 + c_1^2}}}.
 	\end{equation*}
@@ -1069,7 +1069,7 @@ In the following propositions, we utilize the following assumption.
 	\lim_{\bar{b}_2 \to 0} \Delta SC^{\bar{b}_2} = \frac{1}{2} B^{\bar{b}_2 \to 0} \int_0^T \left( (u_t^{\bar{b}_2 \to 0} - w_t^{\bar{b}_2 \to 0}\right)^2 \left (\bar{x}_t^{MFG,\bar{b}_2 \to 0} \right)^2 dt \  > 0. 
 	\end{equation*}	
 	
-	Meanwhile, $\eta_t$ does not depend on $\bar{b}_2$, and therefore the variance $v_t$ also does not depend on $\bar{b}_2$. It is easy to check that $0<v_t<\infty$ for $t>0$ and $0 \leq w^{\bar{b}_2 \to 0}_0 < \infty$, and thus,
+	Meanwhile, $\eta_t$ does not depend on $\bar{b}_2$, and therefore the variance $v_t$ also does not depend on $\bar{b}_2$. Clearly $0<v_t<\infty$ for $t>0$ and $0 \leq w^{\bar{b}_2 \to 0}_0 < \infty$, and thus,
 	$$ 0<\lim_{\bar{b}_2 \to 0}SC^{MKV,\bar{b}_2} <\infty.$$
 	Hence, we deduce:
 	$$ \lim_{\bar{b}_2 \to 0} PoA^{\bar{b}_2} > 1. $$
