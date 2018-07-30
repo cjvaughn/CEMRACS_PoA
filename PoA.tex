@@ -85,7 +85,7 @@ The concept of the `price of anarchy' was introduced to quantify the inefficienc
 
 In this report, the goal is to define the price of anarchy in the context of mean field games, and to compute it for a class of linear quadratic mean field game models, which can be solved explicitly. In fact, we consider an even more general class of games by allowing for interaction between the players through their controls, in addition to interaction through their states. This is often referred in the literature as extended mean field game, or mean field game of control. We compare the social cost of a mean field game equilibrium to the cost incurred when the players execute a strategy computed centrally.
 
-We consider a system of $N$ players whose private states are denoted at time $t$ by $X^1_t$, $X^2_t$, $\cdots$, $X^N_t$. To keep the presentations simple, we assume the state space is $\mathbb{R}$. We denote by $\mu^N_t$ the empirical distribution of the states, namely
+We consider a system of $N$ players whose private states are denoted at time $t$ by $X^1_t$, $X^2_t$, $\cdots$, $X^N_t$. To keep the presentations simple, we assume the state space is $\mathbb{R}$. We denote by $\mu^N_t$ the empirical distribution of the states, namely:
 \begin{equation*}
 \mu^N_t=\frac1N\sum_{i=1}^N\delta_{X^i_t}.
 \end{equation*}
@@ -208,8 +208,8 @@ To begin, we need to describe in more detail the two problems that will be used 
 where $\bar{\mu}$ denotes the mean of the measure $\mu$, namely, $\bar{\mu}=\int_{\mathbb{R}}xd\mu(x)$, and similarly for $\bar{\nu}$. We take the running and terminal costs to be quadratic:
 \begin{equation*}
 \begin{split}
-    f(t,x,\mu,\alpha,\nu)&=\frac{1}{2}\left(q(t)x^2+\bar{q}(t)(x-s(t)\bar{\mu})^2 +r(t)\alpha^2+\bar{r}(t)(\alpha-\bar{s}(t)\bar{\nu})^2\right), \\
-    g(x,\mu)&=\frac{1}{2}\left(q_T x^2+\bar{q}_T (x-s_T \bar{\mu})^2\right).
+    f(t,x,\mu,\alpha,\nu)&=\frac{1}{2}\left[q(t)x^2+\bar{q}(t)(x-s(t)\bar{\mu})^2 +r(t)\alpha^2+\bar{r}(t)(\alpha-\bar{s}(t)\bar{\nu})^2\right], \\
+    g(x,\mu)&=\frac{1}{2}\left[q_T x^2+\bar{q}_T (x-s_T \bar{\mu})^2\right].
 \end{split}
 \end{equation*}
 \begin{remark}
@@ -220,8 +220,8 @@ If $\bar{b}_2(t)\equiv0$ and $\bar{r}(t)\equiv0$, then we have the standard mean
 To solve the linear quadratic extended mean field game (LQEMFG), we begin by considering the reduced Hamiltonian for this problem:
 \begin{equation*}
 \begin{split}
-    H(t,x,\bar{\mu},\alpha,\bar{\nu},y)=&(b_1(t)x+\bar{b}_1(t)\bar{\mu}+b_2(t) \alpha+\bar{b}_2(t)\bar{\nu})y \\
-    &+\frac{1}{2}\left(q(t)x^2+\bar{q}(t)(x-s(t)\bar{\mu})^2 +r(t)\alpha^2+\bar{r}(t)(\alpha-\bar{s}(t)\bar{\nu})^2\right),
+    H(t,x,\bar{\mu},\alpha,\bar{\nu},y)=&\left[b_1(t)x+\bar{b}_1(t)\bar{\mu}+b_2(t) \alpha+\bar{b}_2(t)\bar{\nu}\right]y \\
+    &+\frac{1}{2}\left[q(t)x^2+\bar{q}(t)(x-s(t)\bar{\mu})^2 +r(t)\alpha^2+\bar{r}(t)(\alpha-\bar{s}(t)\bar{\nu})^2\right],
 \end{split}
 \end{equation*}
 and whenever the flows $\bmubar=(\bar{\mu}_t)_{0\leq t\leq T}$ and $\bnubar=(\bar{\nu}_t)_{0\leq t\leq T}$ are fixed, we consider for each control process $\balpha=(\alpha_t)_{0\leq t\leq T}$ the adjoint equation:
@@ -259,8 +259,8 @@ and:
 Note that $c^{MFG}(t)=a^{MFG}(t)+b^{MFG}(t)$. The solution of the mean field game equilibrium problem is given by the solution to the FBSDE system:
 \begin{equation}
 \begin{split}
-        dX_t&=\left(b_1(t)X_t+\bar{b}_1(t) \mathbb{E}X_t+a^{MFG}(t)b_2(t)Y_t+(b^{MFG}(t)b_2(t)+c^{MFG}(t)\bar{b}_2(t))\mathbb{E}Y_t\right)dt+\sigma dW_t \\
-        dY_t&=-\left((q(t)+\bar{q}(t))X_t-\bar{q}(t)s(t)\mathbb{E}X_t+b_1(t)Y_t \right)dt +Z_t dW_t,
+        dX_t&=\left[b_1(t)X_t+\bar{b}_1(t) \mathbb{E}X_t+a^{MFG}(t)b_2(t)Y_t+(b^{MFG}(t)b_2(t)+c^{MFG}(t)\bar{b}_2(t))\mathbb{E}Y_t\right]dt+\sigma dW_t \\
+        dY_t&=-\left[(q(t)+\bar{q}(t))X_t-\bar{q}(t)s(t)\mathbb{E}X_t+b_1(t)Y_t \right]dt +Z_t dW_t,
 \end{split}
 \label{eq:FBSDE_EMFG}
 \end{equation}
@@ -282,30 +282,30 @@ This is a linear FBSDE of McKean-Vlasov type, which can be solved explicitly und
 \end{equation}
 \begin{equation}
 \begin{split}
-\dot{\bar{x}}^{MFG}_t&=(b_1(t)+\bar{b}_1(t)+c^{MFG}(t)(b_2(t)+\bar{b}_2(t))\bar{\eta}^{MFG}_t)\bar{x}^{MFG}_t, \\
+\dot{\bar{x}}^{MFG}_t&=\left[b_1(t)+\bar{b}_1(t)+c^{MFG}(t)(b_2(t)+\bar{b}_2(t))\bar{\eta}^{MFG}_t\right]\bar{x}^{MFG}_t, \\
 \bar{x}^{MFG}_0&=\mathbb{E}(\xi),
 \end{split}
 \label{eq:x_bar_MFG}
 \end{equation}
 where the dot is the standard ODE notation for a derivative. And thus,
 \begin{equation}
-\bar{x}^{MFG}_t=\mathbb{E}(\xi) e^{\int_0^t(b_1(u)+\bar{b}_1(u)+c^{MFG}(u)(b_2(u)+\bar{b}_2(u))\bar{\eta}^{MFG}_u)du},
+\bar{x}^{MFG}_t=\mathbb{E}(\xi) e^{\int_0^t\left[b_1(u)+\bar{b}_1(u)+c^{MFG}(u)(b_2(u)+\bar{b}_2(u))\bar{\eta}^{MFG}_u\right]du},
 \label{eq:x_bar_MFG_explicit}
 \end{equation}
 \begin{equation}
-v^{MFG}_t=Var(\xi)e^{\int_0^t 2(b_1(s)+a^{MFG}(s)b_2(s)\eta^{MFG}_s)ds}+\sigma^2 \int_0^t e^{2 \int_s^t (b_1(u)+a^{MFG}(u)b_2(u)\eta^{MFG}_u) du}ds.
+v^{MFG}_t=Var(\xi)e^{\int_0^t 2\left[b_1(s)+a^{MFG}(s)b_2(s)\eta^{MFG}_s\right]ds}+\sigma^2 \int_0^t e^{2 \int_s^t \left[b_1(u)+a^{MFG}(u)b_2(u)\eta^{MFG}_u\right] du}ds.
 \label{eq:v_t}
 \end{equation}
 Let $SC^{MFG}:=SC(\phi)$ for the feedback function specified by this solution, i.e.
 \begin{equation*}
-    \phi(t,x)=a^{MFG}(t)\eta_t^{MFG}x+\left(a^{MFG}(t)(\bar{\eta}_t^{MFG}-\eta_t^{MFG})+b^{MFG}(t)\bar{\eta}_t^{MFG} \right)\bar{x}_t^{MFG}.
+    \phi(t,x)=a^{MFG}(t)\eta_t^{MFG}x+\left[a^{MFG}(t)(\bar{\eta}_t^{MFG}-\eta_t^{MFG})+b^{MFG}(t)\bar{\eta}_t^{MFG} \right]\bar{x}_t^{MFG}.
 \end{equation*}
 Then we can compute the social cost as described in Section \ref{sub:MFG_formulation}:
 \begin{equation*}
 \begin{split}
-    SC^{MFG}=&\frac{1}{2}[(q_T+\bar{q}_T)v_T^{MFG}+(q_T+\bar{q}_T(1-s_T)^2)(\bar{x}_T^{MFG})^2\\
-    &+\int_0^T (q(t)+\bar{q}(t)+(r(t)+\bar{r}(t))(a^{MFG}(t)\eta_t^{MFG})^2)v_t^{MFG}\\
-    &+(q(t)+\bar{q}(t)(1-s(t))^2+(r(t)+\bar{r}(t)(1-\bar{s}(t))^2)(c^{MFG}(t)\bar{\eta}_t^{MFG})^2)(\bar{x}_t^{MFG})^2dt],
+    SC^{MFG}=&\frac{1}{2}\Big[(q_T+\bar{q}_T)v_T^{MFG}+(q_T+\bar{q}_T(1-s_T)^2)(\bar{x}_T^{MFG})^2\\
+    &+\int_0^T \left[q(t)+\bar{q}(t)+(r(t)+\bar{r}(t))(a^{MFG}(t)\eta_t^{MFG})^2\right]v_t^{MFG}dt\\
+    &+\int_0^T\left[q(t)+\bar{q}(t)(1-s(t))^2+(r(t)+\bar{r}(t)(1-\bar{s}(t))^2)(c^{MFG}(t)\bar{\eta}_t^{MFG})^2\right](\bar{x}_t^{MFG})^2dt\Big],
 \end{split}
 \end{equation*}
 where we have used the fact that:
@@ -321,8 +321,8 @@ and:
 To solve the linear quadratic optimal control problem of McKean-Vlasov type involving the law of the control (LQEMKV), we begin with the reduced Hamiltonian, which is the same as in the LQEMFG problem:
 \begin{equation*}
 \begin{split}
-    H(t,x,\bar{\mu},\alpha,\bar{\nu},y)=&(b_1(t)x+\bar{b}_1(t)\bar{\mu}+b_2(t) \alpha+\bar{b}_2(t)\bar{\nu})y\\
-    &+\frac{1}{2}\left(q(t)x^2+\bar{q}(t)(x-s(t)\bar{\mu})^2 +r(t)\alpha^2+\bar{r}(t)(\alpha-\bar{s}(t)\bar{\nu})^2\right).
+    H(t,x,\bar{\mu},\alpha,\bar{\nu},y)=&\left[b_1(t)x+\bar{b}_1(t)\bar{\mu}+b_2(t) \alpha+\bar{b}_2(t)\bar{\nu}\right]y\\
+    &+\frac{1}{2}\left[q(t)x^2+\bar{q}(t)(x-s(t)\bar{\mu})^2 +r(t)\alpha^2+\bar{r}(t)(\alpha-\bar{s}(t)\bar{\nu})^2\right].
 \end{split}
 \end{equation*}
 Since we require $\bar{\nu}_t$ to be equal to $\mathbb{E}(\alpha_t)$ throughout the optimization, it is not sufficient to minimize the Hamiltonian with respect to the $\alpha$ input alone in order to guarantee optimality. A sufficient condition for control problems of McKean-Vlasov type involving the law of the control is derived in \cite{carmona_acciaio}. Since we consider a Hamiltonian that depends on the means of $\bar{\mu}$ and $\bar{\nu}$ instead of the full distributions, the sufficient condition reduces to the following (see section 4 in \cite{carmona_acciaio}):
@@ -356,8 +356,8 @@ with:
 So the solution of the optimal control problem of McKean-Vlasov type is given by the solution to the FBSDE system:
 \begin{equation}
 \begin{split}
-        dX_t=&\left(b_1(t)X_t+\bar{b}_1(t) \mathbb{E}X_t+a^{MKV}(t)b_2(t)Y_t+(b^{MKV}(t)b_2(t)+c^{MKV}(t)\bar{b}_2(t))\mathbb{E}Y_t\right)dt+\sigma dW_t \\
-        dY_t=&-\left((q(t)+\bar{q}(t))X_t+s(t)\bar{q}(t)(s(t)-2)\mathbb{E}X_t+b_1(t)Y_t+\bar{b}_1(t)\mathbb{E}Y_t\right)dt +Z_t dW_t,
+        dX_t=&\left[b_1(t)X_t+\bar{b}_1(t) \mathbb{E}X_t+a^{MKV}(t)b_2(t)Y_t+(b^{MKV}(t)b_2(t)+c^{MKV}(t)\bar{b}_2(t))\mathbb{E}Y_t\right]dt+\sigma dW_t \\
+        dY_t=&-\left[(q(t)+\bar{q}(t))X_t+s(t)\bar{q}(t)(s(t)-2)\mathbb{E}X_t+b_1(t)Y_t+\bar{b}_1(t)\mathbb{E}Y_t\right]dt +Z_t dW_t,
 \end{split}
 \label{eq:FBSDE_EMKV}
 \end{equation}
@@ -379,29 +379,29 @@ As in the previous section, this is a linear FBSDE of McKean-Vlasov type, which 
 \end{equation}
 \begin{equation}
 \begin{split}
-\dot{\bar{x}}^{MKV}_t&=(b_1(t)+\bar{b}_1(t)+c^{MKV}(t)(b_2(t)+\bar{b}_2(t))\bar{\eta}^{MKV}_t)\bar{x}^{MKV}_t, \\
+\dot{\bar{x}}^{MKV}_t&=\left[b_1(t)+\bar{b}_1(t)+c^{MKV}(t)(b_2(t)+\bar{b}_2(t))\bar{\eta}^{MKV}_t\right]\bar{x}^{MKV}_t, \\
 \bar{x}^{MKV}_0&=\mathbb{E}(\xi).
 \end{split}
 \label{eq:x_bar_MKV}
 \end{equation}
 And thus,
 \begin{equation}
-\bar{x}^{MKV}_t=\mathbb{E}(\xi) e^{\int_0^t(b_1(u)+\bar{b}_1(u)+c^{MKV}(u)(b_2(u)+\bar{b}_2(u)\bar{\eta}^{MKV}_u)du},
+\bar{x}^{MKV}_t=\mathbb{E}(\xi) e^{\int_0^t\left[b_1(u)+\bar{b}_1(u)+c^{MKV}(u)(b_2(u)+\bar{b}_2(u)\bar{\eta}^{MKV}_u)\right]du},
 \end{equation}
 \begin{equation}
-v^{MKV}_t=Var(\xi)e^{\int_0^t 2(b_1(s)+a^{MKV}(s)b_2(s)\eta^{MKV}_s)ds}+\sigma^2 \int_0^t e^{2 \int_s^t (b_1(u)+a^{MKV}(u)b_2(u)\eta^{MKV}_u) du}ds.
+v^{MKV}_t=Var(\xi)e^{\int_0^t 2\left[b_1(s)+a^{MKV}(s)b_2(s)\eta^{MKV}_s\right]ds}+\sigma^2 \int_0^t e^{2 \int_s^t \left[b_1(u)+a^{MKV}(u)b_2(u)\eta^{MKV}_u\right] du}ds.
 \label{eq:v_t_MKV}
 \end{equation}
 Then $SC^{MKV}=SC(\phi)$ where $\phi$ is the feedback function specified by this solution, i.e.
 \begin{equation*}
-    \phi(t,x)=a^{MKV}(t)\eta_t^{MKV}x+\left(a^{MKV}(t)(\bar{\eta}_t^{MKV}-\eta_t^{MKV})+b^{MKV}(t)\bar{\eta}_t^{MKV} \right)\bar{x}_t^{MKV}.
+    \phi(t,x)=a^{MKV}(t)\eta_t^{MKV}x+\left[a^{MKV}(t)(\bar{\eta}_t^{MKV}-\eta_t^{MKV})+b^{MKV}(t)\bar{\eta}_t^{MKV} \right]\bar{x}_t^{MKV}.
 \end{equation*}
 Then we can compute the social cost, denoted $SC^{MKV}$, as described in Section \ref{sub:MKV_formulation}:
 \begin{equation*}
 \begin{split}
-    SC^{MKV}=&\frac{1}{2}[(q_T+\bar{q}_T)v_T^{MKV}+(q_T+\bar{q}_T(1-s_T)^2)(\bar{x}_T^{MKV})^2\\
-    &+\int_0^T (q(t)+\bar{q}(t)+(r(t)+\bar{r}(t))(a^{MKV}(t)\eta_t^{MKV})^2)v_t^{MKV}dt \\
-    &+\int_0^T(q(t)+\bar{q}(t)(1-s(t))^2+(r(t)+\bar{r}(t)(1-\bar{s}(t))^2)(c^{MKV}(t)\bar{\eta}_t^{MKV})^2)(\bar{x}_t^{MKV})^2dt],
+    SC^{MKV}=&\frac{1}{2}\Big[(q_T+\bar{q}_T)v_T^{MKV}+(q_T+\bar{q}_T(1-s_T)^2)(\bar{x}_T^{MKV})^2\\
+    &+\int_0^T \left[q(t)+\bar{q}(t)+(r(t)+\bar{r}(t))(a^{MKV}(t)\eta_t^{MKV})^2\right]v_t^{MKV}dt \\
+    &+\int_0^T\left[q(t)+\bar{q}(t)(1-s(t))^2+(r(t)+\bar{r}(t)(1-\bar{s}(t))^2)(c^{MKV}(t)\bar{\eta}_t^{MKV})^2\right](\bar{x}_t^{MKV})^2dt\Big],
 \end{split}
 \end{equation*}
 where we have used the fact that:
@@ -457,7 +457,7 @@ To compute the price of anarchy, it is useful to make the following observations
 Assuming (\ref{eq:assumptions}), if furthermore,
 \begin{equation*}
 \begin{split}
-    \left(s\bar{q}(s-1)+\bar{b}_1\bar{\eta}_t^{MKV}\right)\bar{x}_t^{MKV}&=0,\ \forall t \in [0,T] \\
+    \left[s\bar{q}(s-1)+\bar{b}_1\bar{\eta}_t^{MKV}\right]\bar{x}_t^{MKV}&=0,\ \forall t \in [0,T] \\
     \bar{\eta}_t^{MKV}\bar{x}_t^{MKV}\left[(b^{MFG}-b^{MKV})b_2+(c^{MFG}-c^{MKV})\bar{b}_2\right]&=0,\ \forall t \in [0,T] \\
     s_T\bar{q}_T(s_T-1)\bar{x}_T^{MKV}&=0,
 \end{split}
@@ -483,7 +483,7 @@ The only result similar to Proposition \ref{eq:lq_prop} that we are aware of is 
 Using the above observations, we can rewrite:
 \begin{equation}
 \begin{split}
-    SC^{MFG}=&\frac{1}{2}(q_T+\bar{q}_T)v_T+\frac{1}{2}\left(q_T+\bar{q}_T(1-s_T)^2\right)(\bar{x}_T^{MFG})^2+\frac{1}{2}\int_0^T (q+\bar{q}+(r+\bar{r})(a\eta_t)^2)v_tdt\\
+    SC^{MFG}=&\frac{1}{2}(q_T+\bar{q}_T)v_T+\frac{1}{2}\left(q_T+\bar{q}_T(1-s_T)^2\right)(\bar{x}_T^{MFG})^2+\frac{1}{2}\int_0^T \left[q+\bar{q}+(r+\bar{r})(a\eta_t)^2\right]v_tdt\\
     &+\frac{1}{2}\int_0^T\left[q+\bar{q}(1-s)^2+(r+\bar{r}(1-\bar{s})^2)(c^{MFG}\bar{\eta}_t^{MFG})^2\right](\bar{x}_t^{MFG})^2dt,
 \end{split}
 \label{eq:SC_MFG_1}
@@ -491,7 +491,7 @@ Using the above observations, we can rewrite:
 and:
 \begin{equation}
 \begin{split}
-    SC^{MKV}=&\frac{1}{2}(q_T+\bar{q}_T)v_T+\frac{1}{2}\left(q_T+\bar{q}_T(1-s_T)^2\right)(\bar{x}_T^{MKV})^2+ \frac{1}{2}\int_0^T (q+\bar{q}+(r+\bar{r})(a\eta_t)^2)v_tdt \\
+    SC^{MKV}=&\frac{1}{2}(q_T+\bar{q}_T)v_T+\frac{1}{2}\left(q_T+\bar{q}_T(1-s_T)^2\right)(\bar{x}_T^{MKV})^2+ \frac{1}{2}\int_0^T \left[q+\bar{q}+(r+\bar{r})(a\eta_t)^2\right]v_tdt \\
     &+\frac{1}{2}\int_0^T\left[q+\bar{q}(1-s)^2+(r+\bar{r}(1-\bar{s})^2)(c^{MKV}\bar{\eta}_t^{MKV})^2\right)](\bar{x}_t^{MKV})^2dt.
 \end{split}
 \label{eq:SC_MKV_1}
@@ -531,13 +531,13 @@ If we denote:
 \label{eq:lambda}
 \end{equation}
 \begin{equation*}
-h_{var}: = \frac{1}{2}\int_0^T (q+\bar{q}+(r+\bar{r})(a\eta_t)^2)v_tdt + \frac{1}{2}(q_T+\bar{q}_T)v_T,
+h_{var}: = \frac{1}{2}\int_0^T \left[q+\bar{q}+(r+\bar{r})(a\eta_t)^2\right]v_tdt + \frac{1}{2}(q_T+\bar{q}_T)v_T,
 \end{equation*}
 and use the terminal condition for $\bar{\eta}^{MFG}_T$, then equation (\ref{eq:SC_MFG_1}) can be rewritten as:
 \begin{equation}
 \begin{split}
 SC^{MFG} = & h_{var} +  \frac{1}{2} \int_0^T \left[ \bar{b}_1 \lambda \bar{\eta}_t^{MFG} + (q+ \bar{q}(1-s)^2) - \lambda (q + \bar{q}(1-s)) \right] (\bar{x}_t^{MFG})^2 dt, \\
-& + \frac{1}{2} \lambda \left( \bar{\eta}^{MFG}_0 (\mathbb{E}(\xi))^2 - (q_T+\bar{q}_T(1-s_T)) (\bar{x}_T^{MFG})^2 \right) + \frac{1}{2} (q_T+\bar{q}_T(1-s_T)^2)(\bar{x}_T^{MFG})^2.
+& + \frac{1}{2} \lambda \left[ \bar{\eta}^{MFG}_0 (\mathbb{E}(\xi))^2 - (q_T+\bar{q}_T(1-s_T)) (\bar{x}_T^{MFG})^2 \right] + \frac{1}{2} (q_T+\bar{q}_T(1-s_T)^2)(\bar{x}_T^{MFG})^2.
 \end{split}
 \label{eq:SC_MFG_2}
 \end{equation}
@@ -779,22 +779,22 @@ In the following propositions, we utilize the following assumption.
 		(b_2 + \bar{b}_2) u^{b_2}_t &= \frac{ \displaystyle  \left(\frac{C^{u,b_2}}{b_2 + \bar{b}_2} + D^{u,b_2} \cdot \frac{\delta^{+,b_2}_u}{b_2 + \bar{b}_2}\right) - \left(\frac{C^{u,b_2}}{b_2 + \bar{b}_2} + D^{u,b_2} \cdot \frac{\delta^{-,b_2}_u}{b_2 + \bar{b}_2}\right)e^{- (\delta^{+,b_2}_u - \delta^{-,b_2}_u)(T-t)} }
 		{\displaystyle \left(\frac{- \delta^{-,b_2}_u}{(b_2 + \bar{b}_2)^2} + \frac{D^{u,b_2}}{r + \bar{r}(1-\bar{s})^2} \right) + \left(\frac{\delta^{+,b_2}_u}{(b_2 + \bar{b}_2)^2} - \frac{D^{u,b_2} }{r + \bar{r}(1-\bar{s})^2} \right)e^{- (\delta^{+,b_2}_u - \delta^{-,b_2}_u)(T-t)}  } \nonumber \\
 		\\
-		&\xrightarrow[b_2 \to \infty]{} \quad (r + \bar{r}(1-\bar{s})^2) \cdot c_{\delta_u^{b_2 \to \infty}}  =: c_u.
+		&\xrightarrow[b_2 \to \infty]{} \quad (r + \bar{r}(1-\bar{s})^2) c_{\delta_u^{b_2 \to \infty}}  =: c_u.
 	\end{split}
 	\end{equation*}
 	Similarly, for all $t \in [0,T)$:
-	$$\lim_{b_2 \to \infty} (b_2 + \bar{b}_2) w_t^{b_2} =  (r + \bar{r}(1-\bar{s})^2) \cdot c_{\delta_w^{b_2 \to \infty}} =: c_w,\qquad \text{with } \quad c_{\delta_w^{b_2 \to \infty}} := \sqrt{ \frac{q + \bar{q}(1-s)^2}{r + \bar{r}(1-\bar{s})^2} },$$
+	$$\lim_{b_2 \to \infty} (b_2 + \bar{b}_2) w_t^{b_2} =  (r + \bar{r}(1-\bar{s})^2) c_{\delta_w^{b_2 \to \infty}} =: c_w,\qquad \text{with } \quad c_{\delta_w^{b_2 \to \infty}} := \sqrt{ \frac{q + \bar{q}(1-s)^2}{r + \bar{r}(1-\bar{s})^2} },$$
 	and
-	$$ \lim_{b_2 \to \infty}b_2 \eta_t^{b_2} = (r + \bar{r}) \cdot c_{\delta_{\eta}^{b_2 \to \infty}} =: c_\eta, \qquad \text{with } \quad c_{\delta_\eta^{b_2 \to \infty}} := \sqrt{ \frac{q + \bar{q}}{r +\bar{r}} }.$$
+	$$ \lim_{b_2 \to \infty}b_2 \eta_t^{b_2} = (r + \bar{r}) c_{\delta_{\eta}^{b_2 \to \infty}} =: c_\eta, \qquad \text{with } \quad c_{\delta_\eta^{b_2 \to \infty}} := \sqrt{ \frac{q + \bar{q}}{r +\bar{r}} }.$$
 	
 	Next, we derive a strictly positive uniform lower bound for $(b_2 + \bar{b}_2) u_t^{b_2}$ over $[0,T]$ and large $b_2$. Let $\zeta_1 :=\frac{1}{2} \min \left\{ c_{\delta_u^{b_2 \to \infty}}, D^{u,b_2 \to \infty} \right\}$. Then there exists $b_2^{*,u,lower}>0$ such that for all $b_2 \geq b_2^{*,u,lower}$:
 	$$ 
-	\max \left\{  \left\vert \frac{\delta_u^{+,b_2}}{b_2 + \bar{b}_2}  - c_{\delta_u^{b_2 \to \infty}} \right\vert, \   \left\vert \frac{\delta_u^{-,b_2}}{b_2 + \bar{b}_2}  - \left(-c_{\delta_u^{b_2 \to \infty}}\right) \right\vert, \vert D^{u,b_2} - D^{u,b_2\to \infty} \vert,  \left\vert \frac{1}{b_2 + \bar{b}_2} \right\vert  \right\} \leq \zeta_1,
+	\max \left\{  \left\vert \frac{\delta_u^{+,b_2}}{b_2 + \bar{b}_2}  - c_{\delta_u^{b_2 \to \infty}} \right\vert, \   \left\vert \frac{\delta_u^{-,b_2}}{b_2 + \bar{b}_2}  - \left(-c_{\delta_u^{b_2 \to \infty}}\right) \right\vert, \left\vert D^{u,b_2} - D^{u,b_2\to \infty} \right\vert,  \left\vert \frac{1}{b_2 + \bar{b}_2} \right\vert  \right\} \leq \zeta_1,
 	$$ 
 	and thus for all $t \in [0,T]$:
 	\begin{IEEEeqnarray}{rCl}
 		(b_2 + \bar{b}_2) u_t^{b_2} &\geq&  (b_2 + \bar{b}_2) \frac{D^{u,b_2} \delta_u^{+, b_2} }{ (\delta_u^{+,b_2} - \delta_u^{-,b_2}) + B^{b_2}D^{u,b_2} } \nonumber \\
-		&\geq& \frac{(D^{u,b_2 \to \infty} - \zeta_1 ) \cdot (c_{\delta_u^{b_2 \to \infty}} - \zeta_1) }{ \zeta_1 \cdot (2 c_{\delta_u^{b_2 \to \infty}} + 2 \zeta_1) + (D^{u,b_2 \to \infty} + \zeta_1) / (r+ \bar{r}(1-\bar{s})^2) } =: m_u>0.
+		&\geq& \frac{(D^{u,b_2 \to \infty} - \zeta_1 )(c_{\delta_u^{b_2 \to \infty}} - \zeta_1) }{ \zeta_1  (2 c_{\delta_u^{b_2 \to \infty}} + 2 \zeta_1) + (D^{u,b_2 \to \infty} + \zeta_1) / (r+ \bar{r}(1-\bar{s})^2) } =: m_u>0.
 	\label{eq:ut_uniform_lower_bound_b2_infinity}
 	\end{IEEEeqnarray}
 	Then, by the same technique in inequality (\ref{eq:ut_uniform_lower_bound_b2_infinity}), there exists $b_2^{*,\eta, lower} > 0$ and $m_\eta >0$ such that for all $b_2 \geq b_2^{*,\eta,lower}$:
@@ -811,7 +811,7 @@ In the following propositions, we utilize the following assumption.
 	\end{equation*}
 	By the same argument for $w_t^{b_2}$ and $\eta_t^{b_2}$, there exists $b_2^{*,upper} \geq b_2^{*,u,upper}$ such that:
 	\begin{equation}
-	\max \left\{ \vert u_t^{b_2} \vert , \vert w_t^{b_2} \vert, \vert \eta_t^{b_2} \vert \right\} \leq M, \quad \forall \  t\in[0,T],\ b_2 \geq b_2^{*,upper},
+	\max \left\{ \left\vert u_t^{b_2} \right\vert , \left\vert w_t^{b_2} \right\vert, \left\vert \eta_t^{b_2} \right\vert \right\} \leq M, \quad \forall \  t\in[0,T],\ b_2 \geq b_2^{*,upper},
 	\label{eq:ut_wt_upper_bound_b2_infty}
 	\end{equation}
 	and such that the functions $t \mapsto u_t^{b_2}$, $t \mapsto w_t^{b_2}$ and $t \mapsto \eta_t^{b_2}$ are increasing on $[0,T]$. 
@@ -850,27 +850,27 @@ In the following propositions, we utilize the following assumption.
 		c - \zeta_2 &\leq& h_w(b_2,0) &\leq& h_w(b_2,s) &\leq& h_w(b_2, T/2 ) &\leq& c + \zeta_2.
 	\end{array}
 	\end{equation*}
-	Thus, for any $t \in [0,\frac{T}{2}]$ and $b_2 \geq b_2^{*,I_1}$, we have:
+	Thus, for any $t \in [0,T/2]$ and $b_2 \geq b_2^{*,I_1}$, we have:
 	$$
-		\vert h_u(b_2, t) - h_w(b_2,t) \vert^2 \leq  4 \zeta_2^2 \quad \text{and} \quad \int_0^t h_u(b_2,s)ds \geq (c - \zeta_2) t \geq \frac{c}{2}\cdot t.
+		\left\vert h_u(b_2, t) - h_w(b_2,t) \right\vert^2 \leq  4 \zeta_2^2 \quad \text{and} \quad \int_0^t h_u(b_2,s)ds \geq (c - \zeta_2) t \geq \frac{c}{2}\cdot t.
 	$$
 	Therefore,
 	\begin{IEEEeqnarray}{rCl}
 		I_1^{b_2} &\leq& 4\zeta_2^2e^{2T(b_1 + \bar{b}_1)} \cdot\frac{(b_2 + \bar{b}_2)}{r+ \bar{r}(1-\bar{s})^2} \int_0^{\frac{T}{2}} \exp \left(  - \frac{2 (b_2 + \bar{b}_2)}{r + \bar{r}(1-\bar{s})^2} \cdot \frac{c}{2}\cdot t \right) dt \nonumber \\
-		&=& \frac{4e^{2T(b_1 + \bar{b}_1)}}{c}\cdot  \left( 1 - e^{ - \frac{(b_2 + \bar{b}_2) c}{r + \bar{r}(1-\bar{s})^2}  \frac{T}{2} } \right) \cdot \zeta_2^2 \leq \epsilon, 
+		&=& \frac{4e^{2T(b_1 + \bar{b}_1)}}{c} \left( 1 - e^{ - \frac{(b_2 + \bar{b}_2) c}{r + \bar{r}(1-\bar{s})^2}  \frac{T}{2} } \right)\zeta_2^2 \leq \epsilon, 
 	\label{eq:I1_ineq_b2_infinity}
 	\end{IEEEeqnarray}
 	where the last inequality comes from the definition of $\zeta_2$.
 	
 	Next, consider $I_2^{b_2}$. Since $u_t^{b_2}$ is positive over $[0,T]$, we know from the inequalities (\ref{eq:ut_uniform_lower_bound_b2_infinity}) and (\ref{eq:ut_wt_upper_bound_b2_infty}) that for all $b_2 \geq \max\{ b_2^{*,upper}, b_2^{*,u,lower} \}$ and all $t \in [T/2,T]$:
 	\begin{equation*}
-		\vert u_t^{b_2} - w_t^{b_2} \vert \leq \sup_{0 \leq s \leq T} \vert u_s^{b_2} \vert + \vert w_s^{b_2} \vert  \leq 2M,
+		\left\vert u_t^{b_2} - w_t^{b_2} \right\vert \leq \sup_{0 \leq s \leq T} \left\vert u_s^{b_2} \right\vert + \left\vert w_s^{b_2} \right\vert  \leq 2M,
 		\qquad \text{and} \qquad
 		\int_0^{t} h_u(b_2,s) ds \geq \int_0^{\frac{T}{2}} h_u(b_2,s) ds \geq \frac{T}{2} m_u >0.
 	\end{equation*}
 	Hence, there exists $b_2^{*,I_2} \geq \max \{ b_2^{*,upper}, b_2^{*,u,lower} \}$ such that for all $b_2 \geq b_2^{*,I_2}$:
 	\begin{IEEEeqnarray}{rCl}
-		I_2^{b_2} &\leq&  \frac{(b_2+ \bar{b}_2)^3}{r + \bar{r}(1- \bar{s})^2} \cdot 4M^2 \cdot e^{2(b_1 + \bar{b}_1) T} \int_{\frac{T}{2}}^{T} \exp\left( - \frac{T(b_2 + \bar{b}_2)}{r + \bar{r}(1-\bar{s})^2} \cdot m_u \right) dt \nonumber\\	
+		I_2^{b_2} &\leq&  \frac{(b_2+ \bar{b}_2)^3}{r + \bar{r}(1- \bar{s})^2} \cdot 4M^2 e^{2(b_1 + \bar{b}_1) T} \int_{\frac{T}{2}}^{T} \exp\left( - \frac{T(b_2 + \bar{b}_2)}{r + \bar{r}(1-\bar{s})^2} \cdot m_u \right) dt \nonumber\\	
 		&=& \kappa_3 (b_2 + \bar{b}_2)^3 e^{- \kappa_4 (b_2 + \bar{b}_2)} \leq \epsilon,
 	\label{eq:I2_b2_infty}
 	\end{IEEEeqnarray}
@@ -878,7 +878,7 @@ In the following propositions, we utilize the following assumption.
 	
 	Let $b_2^* := \max \{ b_2^{*,I_1}, b_2^{*,I_2}\}$. Then inequalities (\ref{eq:I_1_plus_I_2}), (\ref{eq:I1_ineq_b2_infinity}) and (\ref{eq:I2_b2_infty}) give for $b_2 \geq b_2^*$:
 	\begin{equation*}
-		\frac{\Delta SC^{b_2}}{SC^{MKV,b_2}} \leq \frac{I_1^{b_2} + I_2^{b_2}}{(b_2 + \bar{b}_2) w_0^{b_2}} \leq \frac{ \epsilon + \epsilon }{h_w(b_2,0)} \leq \frac{2\epsilon}{c/2}=\frac{4}{c}\epsilon.
+		\frac{\Delta SC^{b_2}}{SC^{MKV,b_2}} \leq \frac{I_1^{b_2} + I_2^{b_2}}{(b_2 + \bar{b}_2) w_0^{b_2}} \leq \frac{ \epsilon + \epsilon }{h_w(b_2,0)} \leq \frac{2\epsilon}{c/2}=\frac{4\epsilon}{c}.
 	\end{equation*}
 	Since the proof holds for arbitrary $\epsilon>0$, and $c=\sqrt{(q+\bar{q}(1-s)^2)(r+\bar{r}(1-\bar{s})^2)}>0$ is independent of $b_2$ and $\epsilon$, we conclude:
 	\begin{equation*}
@@ -920,7 +920,7 @@ In the following propositions, we utilize the following assumption.
 	Thus, from equation (\ref{eq:riccati_ut_sol}) we deduce that for every fixed time $t \in [0,T]$, $\lim_{b_2 \to 0}u^{b_2}_t = 0.$
 	
 	Similar to Proposition \ref{prop:r_bar_r}, we can derive a uniform bound for $u_t^{b_2}$ over $[0,T]$ for small $b_2$. Indeed, for any fixed $\epsilon >0$ there exists $b_2^* >0$ such that for any $b_2 \leq b_2^*$, we have:
-	$$\max \{B^{b_2}, C^{u,b_2}, D^{u,b_2} \} \leq B^{b_2 \to \infty} + \epsilon =: c_1, \quad \text{and thus,} \quad
+	$$\max \left\{B^{b_2}, C^{u,b_2}, D^{u,b_2} \right\} \leq B^{b_2 \to \infty} + \epsilon =: c_1, \quad \text{and thus,} \quad
 	\vert u_t^{b_2} \vert \leq \frac{c_1 + 2 \epsilon \sqrt{(A^u)^2 + c_1^2} }{- 2 A^u e^{-2T \sqrt{(A^u)^2 + c_1^2} } } ,\ \forall  \  t \in [0,T].$$
 	
 	From equation (\ref{eq:x_bar_MFG_explicit_new_notation}), the assumption $\mathbb{E}(\xi)\neq 0$, and by the bounded convergence theorem, we derive that for any fixed $t \in [0,T]$:
@@ -970,8 +970,8 @@ In the following propositions, we utilize the following assumption.
 	and, for all $t \in [0,T)$:
 	\begin{equation*}
 	\begin{array}{l}
-	\lim_{\bar{b}_2 \to \infty}(b_2 + \bar{b}_2)^{\frac{3}{2}}\cdot u^{\bar{b}_2}_t = (r + \bar{r}(1-\bar{s})^2) \cdot c_{\delta^{\bar{b}_2 \to \infty}_u} =: c_u, \\
-	\lim_{\bar{b}_2 \to \infty}(b_2 + \bar{b}_2) w_t^{\bar{b}_2} = (r + \bar{r}(1-\bar{s}^2) ) \cdot c_{\delta_w^{\bar{b}_2\to \infty}} =: c_w.
+	\lim_{\bar{b}_2 \to \infty}(b_2 + \bar{b}_2)^{\frac{3}{2}} u^{\bar{b}_2}_t = (r + \bar{r}(1-\bar{s})^2) c_{\delta^{\bar{b}_2 \to \infty}_u} =: c_u, \\
+	\lim_{\bar{b}_2 \to \infty}(b_2 + \bar{b}_2) w_t^{\bar{b}_2} = (r + \bar{r}(1-\bar{s}^2) ) c_{\delta_w^{\bar{b}_2\to \infty}} =: c_w.
 	\end{array}
 	\end{equation*}
 	
@@ -988,7 +988,7 @@ In the following propositions, we utilize the following assumption.
 	\end{equation}
 	By the same argument for $w_t^{b_2}$ and together with inequality (\ref{eq:ut_uniform_upper_bound_b2_bar_infinity}), there exists $\bar{b}_2^{*,upper} \geq \bar{b}_2^{*,u}$ and $M>0$ such that:
 	\begin{equation}
-	\max \left\{ \vert u_t^{\bar{b}_2}\vert, \vert w_t^{\bar{b}_2} \vert \right\} \leq M, \quad \forall t \in[0,T],\ \bar{b}_2 \geq \bar{b}_2^{*,upper} .
+	\max \left\{ \left\vert u_t^{\bar{b}_2}\right\vert, \left\vert w_t^{\bar{b}_2} \right\vert \right\} \leq M, \quad \forall t \in[0,T],\ \bar{b}_2 \geq \bar{b}_2^{*,upper} .
 	\label{eq:ut_wt_uniform_upper_bound_b2_bar_infty}
 	\end{equation}
 	
@@ -996,8 +996,8 @@ In the following propositions, we utilize the following assumption.
 	
 	\hspace{-7mm}Denote $\zeta_2: = \frac{b_2 (r + \bar{r}(1-\bar{s})^2) (q_T + \bar{q}_T(1-s_T))}{r + \bar{r}(1-s)}$. Then for all $t \in [0,T]$ and $\bar{b}_2 \geq \bar{b}_2^{*,u}$ we have:
 	\begin{equation}
-	\left\vert (b_2 + \bar{b}_2)^{\frac{3}{2}} u_t^{\bar{b}_2} \right\vert \geq    \frac{ (b_2 + \bar{b}_2)^{\frac{3}{2}} \cdot D^{u,\bar{b}_2} \delta_u^{+,\bar{b}_2}}{(\delta_u^{+,\bar{b}_2} - \delta_u^{-,\bar{b}_2}) + B^{\bar{b}_2} D^{u,\bar{b}_2} } 
-	\geq  \frac{\zeta_2 (c_{\delta_u^{\bar{b}_2 \to \infty}} - \zeta_1)}{ \zeta_1 (2 c_{\delta_u^{\bar{b}_2 \to \infty}} + 2 \zeta_1) + \zeta_2 / (r+ \bar{r}(1-\bar{s})^2) } =: m_u.
+	\left\vert (b_2 + \bar{b}_2)^{\frac{3}{2}} u_t^{\bar{b}_2} \right\vert \geq    \frac{ (b_2 + \bar{b}_2)^{\frac{3}{2}} D^{u,\bar{b}_2} \delta_u^{+,\bar{b}_2}}{(\delta_u^{+,\bar{b}_2} - \delta_u^{-,\bar{b}_2}) + B^{\bar{b}_2} D^{u,\bar{b}_2} } 
+	\geq  \frac{\zeta_2 \left(c_{\delta_u^{\bar{b}_2 \to \infty}} - \zeta_1\right)}{ \zeta_1 \left(2 c_{\delta_u^{\bar{b}_2 \to \infty}} + 2 \zeta_1\right) + \zeta_2 / (r+ \bar{r}(1-\bar{s})^2) } =: m_u.
 	\label{eq:ut_lower_bound_b2_bar_infty}
 	\end{equation}
 	
@@ -1020,7 +1020,7 @@ In the following propositions, we utilize the following assumption.
 	
 	Now, we consider the quantity $I^{\bar{b}_2}_2$. Since $u_t^{\bar{b}_2}$ is positive over $[0,T]$ and from inequalities (\ref{eq:ut_wt_uniform_upper_bound_b2_bar_infty}) and (\ref{eq:ut_lower_bound_b2_bar_infty}), we know that for all $\bar{b}_2 \geq \bar{b}_2^{*,upper} \geq \bar{b}_2^{*,u}$ and $t \in [T/2,T]$,
 	\begin{equation*}
-	\vert u_t^{\bar{b}_2} - w_t^{\bar{b}_2} \vert \leq 2M,\qquad \text{and} \qquad \int_0^t (b_2 + \bar{b}_2)^{\frac{3}{2}} u_s^{\bar{b}_2} ds \geq m_u \cdot \frac{T}{2}.
+	\left\vert u_t^{\bar{b}_2} - w_t^{\bar{b}_2} \right\vert \leq 2M,\qquad \text{and} \qquad \int_0^t (b_2 + \bar{b}_2)^{\frac{3}{2}} u_s^{\bar{b}_2} ds \geq \frac{T}{2}m_u.
 	\end{equation*}
 	Thus, similar to inequality (\ref{eq:I2_b2_infty}), there exists $\bar{b}_2^{*,I_2} \geq \bar{b}_2^{*,upper}$ such that for all $\bar{b}_2 \geq \bar{b}_2^{*,I_2}$:
 	\begin{equation*}
@@ -1178,7 +1178,7 @@ In the following propositions, we utilize the following assumption.
 	\delta^{+,\bar{b}_1}_u-\delta^{-,\bar{b}_1}_u=2 \sqrt{(A^{u,\bar{b}_1})^2+BC^u} \xrightarrow[\bar{b}_1 \to \infty]{}\infty, \quad -\delta^{-,\bar{b}_1}_u=A^{u,\bar{b}_1}+\sqrt{(A^{u,\bar{b}_1})^2+BC^u}\xrightarrow[\bar{b}_1 \to \infty]{}0,
 	\end{equation*}
 	\begin{equation*}
-	\frac{\delta^{+,\bar{b}_1}_u}{\bar{b}_1}=\frac{b_1+\frac{\bar{b}_1}{2}}{\bar{b}_1} \frac{\sqrt{\left(\frac{\bar{b}_1}{2}\right)^2+BC^u}}{\bar{b}_1}\xrightarrow[\bar{b}_1 \to \infty]{} \frac{1}{2}+\frac{1}{2}=1.
+	\frac{\delta^{+,\bar{b}_1}_u}{\bar{b}_1}=\frac{b_1+\frac{\bar{b}_1}{2}}{\bar{b}_1} +\frac{\sqrt{\left(b_1+\frac{\bar{b}_1}{2}\right)^2+BC^u}}{\bar{b}_1}\xrightarrow[\bar{b}_1 \to \infty]{} \frac{1}{2}+\frac{1}{2}=1.
 	\end{equation*}
 	We also have for $t\in [0,T)$:
 	$$\delta^{+,\bar{b}_1}_ue^{-(\delta^{+,\bar{b}_1}_u-\delta^{-,\bar{b}_1}_u)(T-t)}\leq(\delta^{+,\bar{b}_1}_u-\delta^{-,\bar{b}_1}_u)e^{-(\delta^{+,\bar{b}_1}_u-\delta^{-,\bar{b}_1}_u)(T-t)}
@@ -1212,7 +1212,6 @@ In the following propositions, we utilize the following assumption.
 	\frac{1}{\bar{b}_1^2}\Delta SC^{\bar{b}_1}\geq \frac{B}{2}(\mathbb{E}(\xi))^2\int_{0}^{\frac{T}{2}} \left(\frac{u_t^{\bar{b}_1}}{\bar{b}_1} - \frac{w_t^{\bar{b}_1}}{\bar{b}_1}\right)^2 e^{2\int_0^t (b_1+\bar{b}_1-B u_s^{\bar{b}_1})ds} dt.
 	\label{eq:prop_7_case_4_numerator}
 	\end{equation}
-	
 	Since $u^{\bar{b}_1}_t$ is decreasing for $\bar{b}_1 \geq \bar{b}_1^{*,lower}$, we have $\bar{b}_1-B u_t^{\bar{b}_1} \geq \bar{b}_1-B u_0^{\bar{b}_1}$. We have the following limits for $t\in[0,T)$:
 	\begin{equation*}
 	\lim_{\bar{b}_1 \to \infty}\bar{b}_1-\delta^{+,\bar{b}_1}_u=-2b_1, \quad \lim_{\bar{b}_1 \to \infty}-\delta^{-,\bar{b}_1}_u\bar{b}_1=BC^u,
@@ -1227,7 +1226,6 @@ In the following propositions, we utilize the following assumption.
 	&\xrightarrow[\bar{b}_1 \to \infty]{} -2b_1 .
 	\end{split}
 	\end{equation*}
-	
 	Since $\lim_{\bar{b}_1 \to \infty}(\bar{b}_1-B u_0^{\bar{b}_1}) = -2b_1 < 0$, there exists $\bar{b}_1^{*}\geq\bar{b}_1^{*,lower}$, such that for $\bar{b}_1 \geq \bar{b}_1^{*}$, $(\bar{b}_1-B u_0^{\bar{b}_1}) \geq -3b_1$. Returning to inequality (\ref{eq:prop_7_case_4_numerator}), and using inequality (\ref{eq:lower_bound_u_w}) we have for $\bar{b}_1 \geq \bar{b}^*_1$:
 	\begin{equation*}
 	\frac{1}{\bar{b}_1^2}\Delta SC^{\bar{b}_1}
