@@ -715,9 +715,6 @@ In the following propositions, we utilize the following assumption.
 	\end{equation*}
 	It is easy to show that for every time $t\in [0,T]$, $\lim_{r \to \infty}u^r_t=u^{r \to \infty}_t$, and thus, $\lim_{r \to \infty}B^ru^r_t=0$. 
 	
-	
-%	Note that $D^{r \to \infty}_u > 0$ and $\lim_{r \to \infty} B^{r}(D^{r,u})^2 + 2 A^u D^{u,r} - C^{u,r} = \infty$, from equation (\ref{eq:riccati_ut_sol_deriv}) we know that for all large $r$, the function $ t \mapsto u_t^{r}$ is increasing. Moreover, there exists $r^*>0$ such that for all $r \geq r^*$ and all $t \in [0,T]$,
-%	$$ 0 \leq u_t^{r} \leq u_T^{r}  = D^{u,r} \leq D^{r\to \infty}_u + 1.$$
 	Next, our goal is to bound the $u^r_t$ uniformly over $t \in [0,T]$ for large $r$.
 	Note that  $A^u < 0$, $B^r$, $C^{u,r}$, $\lambda^{r\to \infty}$, $C^{r \to \infty}_u$, $D^{u,r}$, $D^{r \to \infty}_u> 0$, and $\delta^{-,r}_u < 0 < \delta^{+,r}_u$. Let $\epsilon>0$. Then there exists $r^*>0$ such that $\max\{ B^{r}, C^{u,r}, D^{u,r} \} \leq \max\{C^{r \to \infty}_u,D^{r \to \infty}_u \}+\epsilon=: c_1$ for $r \geq r^*$. Thus, we can deduce that for $r \geq r^*$, and for every $t \in [0,T]$:
 	\begin{equation*}
@@ -819,7 +816,6 @@ In the following propositions, we utilize the following assumption.
 	\end{equation}
 	and such that the functions $t \mapsto u_t^{b_2}$, $t \mapsto w_t^{b_2}$ and $t \mapsto \eta_t^{b_2}$ are increasing on $[0,T]$. 
 	
-	%\textbf{Case 1:} when
 	From the assumption:
 	\begin{equation*}
 	\frac{q+\bar{q}(1-s)}{r+\bar{r}(1-\bar{s})}=\frac{q+\bar{q}(1-s)^2}{r+\bar{r}(1-\bar{s})^2},
@@ -890,10 +886,6 @@ In the following propositions, we utilize the following assumption.
 	\end{equation*}
 	and thus,
 	$ \lim_{b_2 \to \infty} PoA^{b_2} = 1.$
-	%Todo: 
-	%\textbf{Case 2}: when \begin{equation*}
-	%\frac{q+\bar{q}(1-s)}{r+\bar{r}(1-\bar{s})} \neq %\frac{q+\bar{q}(1-s)^2}{r+\bar{r}(1-\bar{s})^2}
-	%\end{equation*}
 \end{proof}
 
 %proposition b_2 \to 0
@@ -963,7 +955,6 @@ In the following propositions, we utilize the following assumption.
 \end{proposition}
 
 \begin{proof}
-	% case when b2 bar \to infty
 	\textbf{Case 1:} When $\bar{b}_2 \to \infty$,  we have:
 	\begin{equation*}
 	\begin{array}{l}
@@ -1132,8 +1123,6 @@ In the following propositions, we utilize the following assumption.
     Therefore, $\lim_{b_1 \to 0} PoA^{b_1} > 1$. The proof can be repeated to show $\lim_{\bar{b}_1 \to 0} PoA^{\bar{b}_1}  > 1$.\\
     
 
-	
-	% case 3: b1 to infinity
 	\textbf{Case 3:} Consider $b_1 \to \infty$. Since $\lim_{b_1 \to \infty} A^{u,b_1} = \lim_{b_1 \to \infty} A^{w,b_1} = - \infty$ we have 
 	$\lim_{b_1 \to \infty}B (D^{u})^2 + 2 A^{u,b_1} D^{u} - C^{u} = \lim_{b_1 \to \infty}B (D^{w})^2 + 2 A^{w,b_1} D^{w} - C^{w}=-\infty$. Denote $h_u(b_1,t): = B \frac{u_t^{b_1}}{b_1}$ and $h_w(b_1,t) := B \frac{w_t^{b_1}}{b_1}$. We have the following limits, for all $t \in [0,T)$:
 	\begin{equation}
@@ -1176,10 +1165,6 @@ In the following propositions, we utilize the following assumption.
 	Since the proof holds for arbitrary $\epsilon>0$, and $\kappa_1 = \frac{3}{4} e^{\frac{3\bar{b}_1 T}{2} }$ is independent of $b_1$ and $\epsilon$, we conclude that:
 	$$ \lim_{b_1 \to \infty} PoA^{b_1} = 1.$$ \\
 	
-	
-	
-	
-	% case 4: b1 bar to infinity
 	\textbf{Case 4:} Now, consider $\bar{b}_1 \to \infty$.
 	Since $A^{u,\bar{b}_1}<0$ and $\lim_{\bar{b}_1 \to \infty} |A^{u,\bar{b}_1}|=\infty$, we have the following limits:
 	\begin{equation*}
