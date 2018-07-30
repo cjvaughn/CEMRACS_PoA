@@ -646,7 +646,7 @@ We study in the following the variation of $PoA$ by letting one of the coefficie
 	\end{IEEEeqnarray*}
 If $B^u\neq 0$, $B^u D^u \geq 0$ and $B^uC^u >0$, we have (see equation (\ref{eq:riccati_ut_sol_app}) in Appendix A) the existence and uniqueness for $u_t$ which can be expressed by:
 \begin{equation}
-		u_t= \frac{C^u(1-e^{-(\delta_u^+ - \delta_u^-)(T-t)})+D^u(\delta^+_u -\delta^-_ue^{-(\delta_u^+ - \delta_u^-)(T-t)} )}{D^u B^u(1-e^{-(\delta_u^+ - \delta_u^-)(T-t)})+ \delta^+_ue^{-(\delta_u^+ - \delta_u^-)(T-t)} -\delta^-_u  },
+		u_t= \frac{C^u(1-e^{-(\delta_u^+ - \delta_u^-)(T-t)})+D^u(\delta^+_u -\delta^-_ue^{-(\delta_u^+ - \delta_u^-)(T-t)} )}{B^uD^u(1-e^{-(\delta_u^+ - \delta_u^-)(T-t)})+ \delta^+_ue^{-(\delta_u^+ - \delta_u^-)(T-t)} -\delta^-_u  },
 	\label{eq:riccati_ut_sol}
 \end{equation}
 where $\delta^\pm_u = -A^u \pm \sqrt{(A^u)^2 + B^u C^u}$. Under assumption (\ref{eq:assumptions}), the above conditions on $B^u$, $C^u$, and $D^u$ are satisfied, and we have $\delta^-_u<0<\delta^+_u$, $u_t > 0$ for all $t\in[0,T)$, and $u_T \geq 0$. We have analogous expressions for $w_t$ and $\eta_t$, in terms of $\delta^\pm_w$ and $\delta^\pm_{\eta}$, respectively. Note that $B^u=B^w=:B$.
@@ -1595,7 +1595,7 @@ In the case where the coefficients are time-independent, the Riccati equations f
 	\end{equation}
 	then it has a unique solution:
 \begin{equation}
-		\rho_t= \frac{C(1-e^{-(\delta^+ - \delta^-)(T-t)})+D( \delta^+ -\delta^-e^{-(\delta^+ - \delta^-)(T-t)}) }{D B(1-e^{-(\delta^+ - \delta^-)(T-t)})+ \delta^+e^{-(\delta^+ - \delta^-)(T-t)}  -\delta^- }
+		\rho_t= \frac{C(1-e^{-(\delta^+ - \delta^-)(T-t)})+D( \delta^+ -\delta^-e^{-(\delta^+ - \delta^-)(T-t)}) }{BD(1-e^{-(\delta^+ - \delta^-)(T-t)})+ \delta^+e^{-(\delta^+ - \delta^-)(T-t)}  -\delta^- }
 	\label{eq:riccati_ut_sol_app}
 \end{equation}
 	where $\delta^\pm = -A \pm \sqrt{(A)^2 + B C}$.
