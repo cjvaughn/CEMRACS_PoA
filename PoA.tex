@@ -100,7 +100,7 @@ We also assume that if and when interactions between these states and controls a
 We work over the interval $[0,T]$ limited by a finite time horizon $T \in \mathbb{R}^+$. We assume the drift function $b:[0,T] \times \mathbb{R} \times \cP(\mathbb{R}) \times \mathbb{A} \times \cP(\mathbb{A}) \ni (t,x,\mu,\alpha,\nu)  \rightarrow \mathbb{R}$ is Lipschitz in each of it's inputs. For the sake of simplicity, we assume that the volatility, $\sigma$, is a positive constant.
 
 \subsubsection*{\textbf{Cost Functionals}}
-We assume that we are given two functions $f:[0,T] \times \mathbb{R} \times \cP(\mathbb{R}) \times \mathbb{A} \times \cP(\mathbb{A}) \ni (t,x,\mu,\alpha, \nu) \rightarrow \mathbb{R}$ and $g:\mathbb{R}\times \cP(\mathbb{R}) \ni (x,\mu) \rightarrow \mathbb{R}$ which we call running and terminal cost functions, respectively. We assume $f$ and $g$ are Lipschitz in each of their arguments. The goal of player $i$ is to minimize its expected cost as given by:
+We assume that we are given two functions $f:[0,T] \times \mathbb{R} \times \cP(\mathbb{R}) \times \mathbb{A} \times \cP(\mathbb{A}) \ni (t,x,\mu,\alpha, \nu) \rightarrow \mathbb{R}$ and $g:\mathbb{R}\times \cP(\mathbb{R}) \ni (x,\mu) \rightarrow \mathbb{R}$ which we call running and terminal cost functions, respectively. We assume $f$ and $g$ are Lipschitz in each of their arguments. The goal of player $i$ is to minimize their expected cost as given by:
 \begin{equation*}
 J^i(\balpha^1,\cdots,\balpha^N)=\EE\bigg[\int_0^Tf(t,X^i_t,\mu^N_{t},\alpha^i_t,\nu^N_{t})\,dt +g(X^i_T,\mu^{N}_{T})\bigg].
 \end{equation*}
@@ -353,7 +353,7 @@ with:
     c^{MKV}(t)&=-\frac{b_2(t)+\bar{b}_2(t)}{r(t)+\bar{r}(t)(1-\bar{s}(t))^2}.
 \end{split}
 \end{equation*}
-So the solution of the optimal control problem of McKean-Vlasov type is given by the solution to the FBSDE system:
+Note that $c^{MKV}(t)=a^{MKV}(t)+b^{MKV}(t)$. So the solution of the optimal control problem of McKean-Vlasov type is given by the solution to the FBSDE system:
 \begin{equation}
 \begin{split}
         dX_t=&\left[b_1(t)X_t+\bar{b}_1(t) \mathbb{E}X_t+a^{MKV}(t)b_2(t)Y_t+(b^{MKV}(t)b_2(t)+c^{MKV}(t)\bar{b}_2(t))\mathbb{E}Y_t\right]dt+\sigma dW_t \\
@@ -534,7 +534,7 @@ If we denote:
 \begin{equation*}
 h_{var}: = \frac{1}{2}\int_0^T \left[q+\bar{q}+(r+\bar{r})(a\eta_t)^2\right]v_tdt + \frac{1}{2}(q_T+\bar{q}_T)v_T,
 \end{equation*}
-and use the terminal condition for $\bar{\eta}^{MFG}_T$, then equation (\ref{eq:SC_MFG_1}) can be rewritten as:
+and use the terminal condition for $\bar{\eta}^{MFG}_T$ (see equation (\ref{eq:eta_bar_MFG})), then equation (\ref{eq:SC_MFG_1}) can be rewritten as:
 \begin{equation}
 \begin{split}
 SC^{MFG} = & h_{var} +  \frac{1}{2} \int_0^T \left[ \bar{b}_1 \lambda \bar{\eta}_t^{MFG} + (q+ \bar{q}(1-s)^2) - \lambda (q + \bar{q}(1-s)) \right] (\bar{x}_t^{MFG})^2 dt, \\
@@ -549,7 +549,7 @@ Repeating the calculation for $\int_0^T (\bar{\eta}^{MFG}_t)^2 (\bar{x}^{MFG}_t)
 &+ \int_0^T (q+\bar{q}(1-s)^2) (\bar{x}^{MKV}_t)^2 dt \Bigg].
 \end{split}
 \end{equation*}
-Using the terminal condition for $\bar{\eta}^{MKV}_T$, equation (\ref{eq:SC_MKV_1}) can be rewritten as:
+Using the terminal condition for $\bar{\eta}^{MKV}_T$ (see equation (\ref{eq:eta_bar_MKV})), equation (\ref{eq:SC_MKV_1}) can be rewritten as:
 \begin{equation}
 SC^{MKV} = h_{var} + \frac{1}{2} \bar{\eta}^{MKV}_0 (\mathbb{E}(\xi))^2.
 \label{eq:SC_MKV_2}
@@ -1252,7 +1252,7 @@ In the following propositions, we utilize the following assumption.
 
 
 \subsection{\textbf{Numerical Results}}
-The solutions to the problems we have considered are given by the formulas derived in Appendix \ref{appendix_solving_fbsdes}, which are explicit up to evaluating integrals. Using the simple rectangle rule to evaluate integrals, we numerically compute the price of anarchy when the coefficients are time-independent, non-negative, and satisfy assumption \ref{assumption}. In particular, when we allow for full interaction (i.e. through the states and the controls), we choose the following default values:
+The solutions to the problems we have considered are given by the formulas derived in Appendix \ref{appendix_solving_fbsdes}, which are explicit up to evaluating integrals. Using the simple rectangle rule to estimate integrals, we numerically compute the price of anarchy when the coefficients are time-independent, non-negative, and satisfy assumption \ref{assumption}. In particular, when we allow for full interaction (i.e. through the states and the controls), we choose the following default values:
 
 \begin{equation*}
 \begin{split}
