@@ -1086,7 +1086,7 @@ In the following propositions, we utilize the following assumption.
 	Consider assumption \ref{assumption} and the case when $\bar{b}_2$ tends to zero. We have $0< SC^{MKV, \bar{b}_2 \to 0} < \infty$, and therefore, $\lim_{\bar{b}_2 \to 0} PoA^{\bar{b}_2 } =1$ implies $\lim_{\bar{b}_2 \to 0} \Delta SC^{\bar{b}_2} = 0$. Hence, from equation (\ref{eq:x_bar_neq_0}) and Proposition \ref{prop:diff_SC}, if $\lim_{\bar{b}_2 \to 0} PoA^{\bar{b}_2 } =1$, then for all $t \in [0,T]$:
 	$$u_t^{\bar{b}_2 \to 0} = w_t^{\bar{b}_2 \to 0}.$$
 	From equation (\ref{eq:riccati_limiting_u}) and an analogous Riccati equation for $w_t^{\bar{b}_2 \to 0}$, the above equality is equivalent to:
-	$$D^{u,\bar{b}_2 \to \infty} = D^w=:D \quad \text{and} \quad B^{\bar{b}_2 \to 0} D^2 + 2 A^{u}D^{u,\bar{b}_2 \to 0} - C^{u,\bar{b}_2 \to 0} = B^{\bar{b}_2 \to 0} D^2 + 2 A^{w} D^w - C^w  = 0.$$
+	$$D^{u,\bar{b}_2 \to \infty} = D^w=:D \quad \text{and} \quad B^{\bar{b}_2 \to 0} D^2 + 2 A^{u}D - C^{u,\bar{b}_2 \to 0} = B^{\bar{b}_2 \to 0} D^2 + 2 A^{w} D - C^w  = 0.$$
 	In other words, the following three equations together imply $\lim_{\bar{b}_2 \to 0} PoA^{\bar{b}_2 } =1$:
 	$$	\frac{r + \bar{r}(1- \bar{s})^2}{r + \bar{r}(1-\bar{s})} = \frac{q_T+\bar{q}_T(1-s_T)^2}{q_T+\bar{q}_T(1-s_T)},
 	\qquad
@@ -1193,7 +1193,7 @@ In the following propositions, we utilize the following assumption.
 	$\lim_{\bar{b}_1 \to \infty}\frac{u^{\bar{b}_1}_t}{\bar{b}_1}=\frac{1}{B}$. By the same argument, we have for $t \in [0,T)$: $\lim_{\bar{b}_1 \to \infty}\frac{w^{\bar{b}_1}_t}{\bar{b}_1}=\frac{2}{B}$.
 
 	Since $\lim_{\bar{b}_1 \to \infty}B (D^{u})^2 + 2 A^{u,\bar{b}_1} D^{u} - C^{u}=-\infty$ and $\lim_{\bar{b}_1 \to \infty}B (D^{w})^2 + 2 A^{w,\bar{b}_1} D^{w} - C^{w}=-\infty$,   from equation (\ref{eq:riccati_ut_sol_deriv}) there exists a $\bar{b}_1^{*,lower}$ such that for $\bar{b}_1 \geq \bar{b}_1^{*,lower}$, we have:
-	$$\max \left\{ \left|\frac{u^{\bar{b}_1}_0}{\bar{b}_1}-\frac{1}{B} \right|,\left|\frac{w^{\bar{b}_1}_{T/2}}{\bar{b}_1}-\frac{2}{B} \right| \right\} <\frac{1}{4B},$$
+	$$\max \left\{ \left|\frac{u^{\bar{b}_1}_0}{\bar{b}_1}-\frac{1}{B} \right|,\left|\frac{w^{\bar{b}_1}_{T/2}}{\bar{b}_1}-\frac{2}{B} \right| \right\} \leq \frac{1}{4B},$$
 	and such that the functions $t \mapsto u_t^{\bar{b}_1}$ and $ t \mapsto w_t^{\bar{b}_1}$ are decreasing. Thus, for all $t \in [0, T/2]$ we have:
 	\begin{equation*}
 	    0< \frac{u_t^{\bar{b}_1}}{\bar{b}_1} \leq \frac{u_0^{\bar{b}_1}}{\bar{b}_1} \leq \frac{1}{B} + \frac{1}{4B}  \leq \frac{2}{B} - \frac{1}{4 B} \leq \frac{w_{T/2}^{\bar{b}_1}}{ \bar{b}_1} \leq \frac{w_t^{\bar{b}_1}}{\bar{b}_1}. 
