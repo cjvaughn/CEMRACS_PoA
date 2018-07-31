@@ -100,7 +100,7 @@ We also assume that if and when interactions between these states and controls a
 We work over the interval $[0,T]$ limited by a finite time horizon $T \in \mathbb{R}^+$. We assume the drift function $b:[0,T] \times \mathbb{R} \times \cP(\mathbb{R}) \times \mathbb{A} \times \cP(\mathbb{A}) \ni (t,x,\mu,\alpha,\nu)  \rightarrow \mathbb{R}$ is Lipschitz in each of it's inputs. For the sake of simplicity, we assume that the volatility, $\sigma$, is a positive constant.
 
 \subsubsection*{\textbf{Cost Functionals}}
-We assume that we are given two functions $f:[0,T] \times \mathbb{R} \times \cP(\mathbb{R}) \times \mathbb{A} \times \cP(\mathbb{A}) \ni (t,x,\mu,\alpha, \nu) \rightarrow \mathbb{R}$ and $g:\mathbb{R}\times \cP(\mathbb{R}) \ni (x,\mu) \rightarrow \mathbb{R}$ which we call running and terminal cost functions, respectively. We assume $f$ and $g$ are Lipschitz in each of their arguments. The goal of player $i$ is to minimize its expected cost as given by:
+We assume that we are given two functions $f:[0,T] \times \mathbb{R} \times \cP(\mathbb{R}) \times \mathbb{A} \times \cP(\mathbb{A}) \ni (t,x,\mu,\alpha, \nu) \rightarrow \mathbb{R}$ and $g:\mathbb{R}\times \cP(\mathbb{R}) \ni (x,\mu) \rightarrow \mathbb{R}$ which we call running and terminal cost functions, respectively. We assume $f$ and $g$ are Lipschitz in each of their arguments. The goal of player $i$ is to minimize their expected cost as given by:
 \begin{equation*}
 J^i(\balpha^1,\cdots,\balpha^N)=\EE\bigg[\int_0^Tf(t,X^i_t,\mu^N_{t},\alpha^i_t,\nu^N_{t})\,dt +g(X^i_T,\mu^{N}_{T})\bigg].
 \end{equation*}
@@ -353,7 +353,7 @@ with:
     c^{MKV}(t)&=-\frac{b_2(t)+\bar{b}_2(t)}{r(t)+\bar{r}(t)(1-\bar{s}(t))^2}.
 \end{split}
 \end{equation*}
-So the solution of the optimal control problem of McKean-Vlasov type is given by the solution to the FBSDE system:
+Note that $c^{MKV}(t)=a^{MKV}(t)+b^{MKV}(t)$. So the solution of the optimal control problem of McKean-Vlasov type is given by the solution to the FBSDE system:
 \begin{equation}
 \begin{split}
         dX_t=&\left[b_1(t)X_t+\bar{b}_1(t) \mathbb{E}X_t+a^{MKV}(t)b_2(t)Y_t+(b^{MKV}(t)b_2(t)+c^{MKV}(t)\bar{b}_2(t))\mathbb{E}Y_t\right]dt+\sigma dW_t \\
