@@ -958,38 +958,38 @@ In the following propositions, we utilize the following assumption.
 	\end{equation*}
 	Then $c_u \neq c_w$. We want to show that $\lim_{b_2 \to \infty}PoA^{b_2}>1$. To do so, we will show that $(b_2 + \bar{b_2}) \Delta SC^{b_2}\geq c_{num}>0$ and $b_2 SC^{MKV,b_2} \leq M_{den}<\infty$ for large $b_2$, where $c_{num}$ and $M_{den}$ are two constants independent of $b_2$.
 	
-	We assume in the following that $b_2 \geq b_2^{*,basic} := \max \{b_2^{*,u,lower}, b_2^{*,\eta,lower}, b_2^{*,upper} \}$, as defined prior to Case 1. Therefore, $s \mapsto u_s^{b_2}$, $s \mapsto w_s^{b_2}$ and $s \mapsto \eta_s^{\eta}$ are increasing functions. Moreover, from inequalities (\ref{eq:ut_uniform_lower_bound_b2_infinity})-(\ref{eq:ut_wt_upper_bound_b2_infty}), we have $b_2 u_t^{b_2} \geq m_u$, $b_2 \eta_t^{b_2} \geq m_\eta$, and $\eta_t^{b_2} \leq M$, for all $t\in[0,T]$.\\
+	We assume in the following that $b_2 \geq b_2^{*,basic} := \max \{b_2^{*,u,lower}, b_2^{*,\eta,lower}, b_2^{*,upper} \}$, as defined prior to Case 1. Therefore, $s \mapsto u_s^{b_2}$, $s \mapsto w_s^{b_2}$ and $s \mapsto \eta_s^{\eta}$ are increasing functions. Moreover, from inequalities (\ref{eq:ut_uniform_lower_bound_b2_infinity})-(\ref{eq:ut_wt_upper_bound_b2_infty}), we have $b_2 u_t^{b_2} \geq m_u>0$, $b_2 \eta_t^{b_2} \geq m_\eta>0$, and $\eta_t^{b_2} \leq M<\infty$, for all $t\in[0,T]$.\\
 	
-	Step 1: We derive a lower bound for $\Delta SC^{b_2}$ by adapting the techniques used in inequality (\ref{eq:I1_ineq_b2_infinity}).  It has been shown that for every $0 \leq t <T$,  $h_u(b_2, t) \xrightarrow[b_2 \to \infty]{} c_u$ and $h_w(b_2, t) \xrightarrow[b_2 \to \infty]{} c_w$. Let $c_3 = \ln(2) \frac{r + \bar{r}(1-\bar{s})^2}{T (c_u + \vert c_u - c_w \vert / 4)} - \bar{b}_2$. Then, there exists $b_2^{*,numerator} \geq \max \{ b_2^{*,basic}, c_3 \}$ such that for all $b_2 \geq b_2^{*,numerator}$ and all $s \in [0, T/2]$ we have:
+	Step 1: We derive a lower bound for $(b_2+\bar{b}_2)\Delta SC^{b_2}$ by adapting the techniques used in inequality (\ref{eq:I1_ineq_b2_infinity}).  We have shown that every $t \in[0,T]$,  $\lim_{b_2 \to \infty} h_u(b_2, t)= c_u$ and $\lim_{b_2 \to \infty} h_w(b_2, t)= c_w$. Let $c_3 = \ln(2) \frac{r + \bar{r}(1-\bar{s})^2}{T (c_u + \vert c_u - c_w \vert / 4)} - \bar{b}_2$. Then, there exists $b_2^{*,numerator} \geq \max \{ b_2^{*,basic}, c_3 \}$ such that for all $b_2 \geq b_2^{*,numerator}$ and all $s \in [0, T/2]$, we have:
 	\begin{equation*}
 	\begin{array}{lclclclcl}
 		c_u - \left\vert c_u - c_w  \right\vert /4 &\leq& h_u(b_2, 0) &\leq& h_u(b_2,s) &\leq& h_u(b_2, T/2) &\leq& c_u + \left\vert c_u - c_w \right\vert /4, \\
 		c_w -  \left\vert c_u - c_w  \right\vert /4 &\leq& h_w(b_2, 0) &\leq& h_w(b_2,s) &\leq& h_w(b_2, T/2) &\leq& c_w + \left\vert c_u - c_w  \right\vert /4,
 	\end{array}
 	\end{equation*}
-	which implies that for all $t \in [0,T/2]$
-	$$ \left\vert h_u(b_2, t) - h_w(b_2,t)\right\vert \geq \frac{1}{2} \left\vert c_u - c_w \right\vert, \qquad \int_0^t h_u(b_2, s) ds \leq \left( c_u + \frac{1}{4} \left\vert c_u - c_w \right\vert \right) \cdot t.
+	which implies that for all $t \in [0,T/2]$:
+	$$ \left\vert h_u(b_2, t) - h_w(b_2,t)\right\vert \geq \frac{1}{2} \left\vert c_u - c_w \right\vert, \qquad \int_0^t h_u(b_2, s) ds \leq \left( c_u + \frac{1}{4} \left\vert c_u - c_w \right\vert \right) t.
 	$$
-	Thus, similar to inequality (\ref{eq:I1_ineq_b2_infinity}), for all $b_2 \geq b_2^{*,numerator}$ we deduce
+	Thus, similar to inequality (\ref{eq:I1_ineq_b2_infinity}), for all $b_2 \geq b_2^{*,numerator}$, we deduce:
 	\begin{IEEEeqnarray}{rCl}
-		(b_2 + \bar{b}_2) \Delta SC ^{b_2} &\geq & \frac{b_2 + \bar{b}_2}{2} B \int_0^{\frac{T}{2}} (u_t - w_t)^2 (\bar{x}^{MFG, b_2})^2 dt \nonumber \\
-		&\geq& \frac{\left\vert c_u - c_w \right\vert^2 (\mathbb{E}(\xi))^2}{8 (r+ \bar{r}(1-\bar{s})^2 )} \cdot (b_2 + \bar{b}_2) \int_0^{\frac{T}{2}} \exp \left( - \frac{2 (b_2 + \bar{b}_2)}{r +\bar{r}(1-\bar{s})^2} \cdot \left( c_u + \frac{1}{4} \left\vert c_u - c_w \right\vert \right) \cdot t \right) dt \nonumber \\
-		&\geq & \frac{\left\vert c_u - c_w \right\vert^2 (\mathbb{E}(\xi))^2}{16 (c_u +  \vert c_u - c_w \vert / 4)} \left( 1- e^{- \frac{T (c_u + \frac{1}{4} \vert c_u - c_w \vert )}{r+\bar{r}(1-\bar{s})^2}\cdot (b_2 + \bar{b}_2)} \right) \nonumber \\
-		&\geq & (2 c_{num} ) \cdot \frac{1}{2} = c_{num}
+		(b_2 + \bar{b}_2) \Delta SC ^{b_2} &\geq & \frac{b_2 + \bar{b}_2}{2} B^{b_2} \int_0^{\frac{T}{2}} (u^{b_2}_t - w^{b_2}_t)^2 (\bar{x}^{MFG, b_2})^2 dt \nonumber \\
+		&\geq& \frac{\left\vert c_u - c_w \right\vert^2 (\mathbb{E}(\xi))^2}{8 (r+ \bar{r}(1-\bar{s})^2 )} \cdot (b_2 + \bar{b}_2) \int_0^{\frac{T}{2}} \exp \left[- \frac{2 (b_2 + \bar{b}_2)}{r +\bar{r}(1-\bar{s})^2} \left( c_u + \frac{1}{4} \left\vert c_u - c_w \right\vert \right) t \right] dt \nonumber \\
+		&\geq & \frac{\left\vert c_u - c_w \right\vert^2 (\mathbb{E}(\xi))^2}{16 (c_u +  \vert c_u - c_w \vert / 4)} \left( 1- e^{- \frac{T (c_u + \vert c_u - c_w \vert/4 )}{r+\bar{r}(1-\bar{s})^2}(b_2 + \bar{b}_2)} \right) \nonumber \\
+		&\geq & (2 c_{num} ) \cdot \frac{1}{2} = c_{num},
 	\label{eq:numerator_ineq_b2_infinity}	
 	\end{IEEEeqnarray}
-	where $c_{num} =  \frac{\left\vert c_u - c_w \right\vert^2 (\mathbb{E}(\xi))^2}{32 (c_u +  \vert c_u - c_w \vert / 4)}$ and the last inequality is justified by the choice of $b_2 \geq c_3$. \\
+	with $c_{num} =  \frac{\left\vert c_u - c_w \right\vert^2 (\mathbb{E}(\xi))^2}{32 (c_u +  \vert c_u - c_w \vert / 4)}$ and the last inequality is justified because $b_2 \geq c_3$. \\
 	
 	
-	Step 2: We would like to provide an upper bound for $b_2\cdot SC^{MKV,b_2}$. From formula (\ref{eq:SC_MKV_2}), we have 
+	Step 2: We derive an upper bound for $b_2 SC^{MKV,b_2}$. From equation (\ref{eq:SC_MKV_2}), we have: 
 	\begin{equation}
-	b_2 \cdot SC^{MKV,b_2} 	=  \underbrace{ \left[ \frac{q + \bar{q}}{2} \int_0^T b_2 v_t dt + \frac{q_T + \bar{q}_T}{2} b_2 v_T + b_2 w_0^{b_2} (\mathbb{E}(\xi) )^2 \right] }_\text{\large{:= $J_1$}}  + \underbrace{ \frac{1}{2} \int_{0}^T  B^{\eta,b_2} (\eta_t^{b_2})^2 \cdot b_2 v_t dt }_\text{\large{:= $J_2$}}
+	b_2 SC^{MKV,b_2} 	=  \underbrace{ \left[ \frac{q + \bar{q}}{2} \int_0^T b_2 v_t dt + \frac{q_T + \bar{q}_T}{2} b_2 v_T + \frac{b_2}{2} w_0^{b_2} (\mathbb{E}(\xi) )^2 \right] }_\text{\large{$=:J_1$}}  + \underbrace{ \frac{1}{2} \int_{0}^T  B^{\eta,b_2} (\eta_t^{b_2})^2 \cdot b_2 v_t dt }_\text{\large{$=:J_2$}}
 	\label{eq:J1_plus_J2_b2_infinity}
 	\end{equation}	
 	We also notice the following two technical results which are useful for deriving upper bounds for $J_1$ and $J_2$.	
-	Let $\kappa_5 = \frac{2 m_{\eta}}{r + \bar{r}}$ and $\displaystyle l(t) = \int_0^t e^{- 2 B^{\eta,b_2} \int_s^t \eta_u du} ds$. Because for all $b_2 \geq b_2^{*,basic}$ we have $b_2 \eta_t \geq m_\eta$ for all $t \in [0,T]$, then
+	Let $\kappa_5 := \frac{2 m_{\eta}}{r + \bar{r}}>0$ and $\displaystyle l(b_2,t): = \int_0^t e^{- 2 B^{\eta,b_2} \int_s^t \eta^{b_2}_u du} ds$. Since $b_2 \eta_t \geq m_\eta$ for all $t \in [0,T]$, we have:
 	\begin{equation}
-		b_2 \cdot l(t) \leq b_2 \int_0^t \exp \left(- 2 \frac{b_2}{r + \bar{r}} m_\eta \cdot (t- s) \right) ds = \frac{1}{\kappa_5} (1 - e^{- \kappa b_2 t}) \leq \frac{1}{\kappa_5}, \quad \forall \  t \in [0,T].
+		b_2 \cdot l(b_2,t) \leq b_2 \int_0^t \exp \left(- 2 \frac{b_2}{r + \bar{r}} m_\eta \cdot (t- s) \right) ds = \frac{1}{\kappa_5} (1 - e^{- \kappa_5 b_2 t}) \leq \frac{1}{\kappa_5}, \quad \forall \  t \in [0,T].
 	\label{eq:l(t)_upper_bound_b2_infinity}
 	\end{equation}
 	Besides, with Riccati equation (\ref{eq:riccati_etat}) of $\eta_t^{b_2}$ and the formula of integration by parts, we deduce:
