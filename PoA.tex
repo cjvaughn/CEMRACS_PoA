@@ -904,25 +904,25 @@ In the following propositions, we utilize the following assumption.
 	
 	We assume in the following that $b_2 \geq b_2^{*,basic} := \max \{b_2^{*,u,lower}, b_2^{*,\eta,lower}, b_2^{*,upper} \}$, as defined prior to Case 1. Therefore, $s \mapsto u_s^{b_2}$, $s \mapsto w_s^{b_2}$ and $s \mapsto \eta_s^{\eta}$ are increasing functions. Moreover, from inequalities (\ref{eq:ut_uniform_lower_bound_b2_infinity})-(\ref{eq:ut_wt_upper_bound_b2_infty}), we have $b_2 u_t^{b_2} \geq m_u$, $b_2 \eta_t^{b_2} \geq m_\eta$, and $\eta_t^{b_2} \leq M$, for all $t\in[0,T]$.\\
 	
-	Step 1: We derive a lower bound for $\Delta SC^{b_2}$ by adapting the techniques used in inequality (\ref{eq:I1_ineq_b2_infinity}).  It has been shown that for every $0 \leq t <T$,  $h_u(b_2, t) \xrightarrow[b_2 \to \infty]{} c_u$ and $h_w(b_2, t) \xrightarrow[b_2 \to \infty]{} c_w$. Let $c_3 = \ln(2) \frac{r + \bar{r}(1-\bar{s})^2}{T (c_u + \vert c_u - c_w \vert / 4)} - \bar{b}_2$. Then, there exists $b_2^{*,numerator} \geq \max \{ b_2^{*,basic}, c_3 \}$ such that for all $b_2 \geq b_2^{*,numerator}$ and all $s \in [0, T/2]$ we have:
+	Step 1: We derive a lower bound for $\Delta SC^{b_2}$ by adapting the techniques used in inequality (\ref{eq:I1_ineq_b2_infinity}).  We have shown that every $t \in[0,T]$,  $\lim_{b_2 \to \infty} h_u(b_2, t)= c_u$ and $\lim_{b_2 \to \infty} h_w(b_2, t)= c_w$. Let $c_3 = \ln(2) \frac{r + \bar{r}(1-\bar{s})^2}{T (c_u + \vert c_u - c_w \vert / 4)} - \bar{b}_2$. Then, there exists $b_2^{*,numerator} \geq \max \{ b_2^{*,basic}, c_3 \}$ such that for all $b_2 \geq b_2^{*,numerator}$ and all $s \in [0, T/2]$, we have:
 	\begin{equation*}
 	\begin{array}{lclclclcl}
 		c_u - \left\vert c_u - c_w  \right\vert /4 &\leq& h_u(b_2, 0) &\leq& h_u(b_2,s) &\leq& h_u(b_2, T/2) &\leq& c_u + \left\vert c_u - c_w \right\vert /4, \\
 		c_w -  \left\vert c_u - c_w  \right\vert /4 &\leq& h_w(b_2, 0) &\leq& h_w(b_2,s) &\leq& h_w(b_2, T/2) &\leq& c_w + \left\vert c_u - c_w  \right\vert /4,
 	\end{array}
 	\end{equation*}
-	which implies that for all $t \in [0,T/2]$
-	$$ \left\vert h_u(b_2, t) - h_w(b_2,t)\right\vert \geq \frac{1}{2} \left\vert c_u - c_w \right\vert, \qquad \int_0^t h_u(b_2, s) ds \leq \left( c_u + \frac{1}{4} \left\vert c_u - c_w \right\vert \right) \cdot t.
+	which implies that for all $t \in [0,T/2]$:
+	$$ \left\vert h_u(b_2, t) - h_w(b_2,t)\right\vert \geq \frac{1}{2} \left\vert c_u - c_w \right\vert, \qquad \int_0^t h_u(b_2, s) ds \leq \left( c_u + \frac{1}{4} \left\vert c_u - c_w \right\vert \right) t.
 	$$
-	Thus, similar to inequality (\ref{eq:I1_ineq_b2_infinity}), for all $b_2 \geq b_2^{*,numerator}$ we deduce
+	Thus, similar to inequality (\ref{eq:I1_ineq_b2_infinity}), for all $b_2 \geq b_2^{*,numerator}$, we deduce:
 	\begin{IEEEeqnarray}{rCl}
-		(b_2 + \bar{b}_2) \Delta SC ^{b_2} &\geq & \frac{b_2 + \bar{b}_2}{2} B \int_0^{\frac{T}{2}} (u_t - w_t)^2 (\bar{x}^{MFG, b_2})^2 dt \nonumber \\
-		&\geq& \frac{\left\vert c_u - c_w \right\vert^2 (\mathbb{E}(\xi))^2}{8 (r+ \bar{r}(1-\bar{s})^2 )} \cdot (b_2 + \bar{b}_2) \int_0^{\frac{T}{2}} \exp \left( - \frac{2 (b_2 + \bar{b}_2)}{r +\bar{r}(1-\bar{s})^2} \cdot \left( c_u + \frac{1}{4} \left\vert c_u - c_w \right\vert \right) \cdot t \right) dt \nonumber \\
-		&\geq & \frac{\left\vert c_u - c_w \right\vert^2 (\mathbb{E}(\xi))^2}{16 (c_u +  \vert c_u - c_w \vert / 4)} \left( 1- e^{- \frac{T (c_u + \frac{1}{4} \vert c_u - c_w \vert )}{r+\bar{r}(1-\bar{s})^2}\cdot (b_2 + \bar{b}_2)} \right) \nonumber \\
-		&\geq & (2 c_{num} ) \cdot \frac{1}{2} = c_{num}
+		(b_2 + \bar{b}_2) \Delta SC ^{b_2} &\geq & \frac{b_2 + \bar{b}_2}{2} B^{b_2} \int_0^{\frac{T}{2}} (u^{b_2}_t - w^{b_2}_t)^2 (\bar{x}^{MFG, b_2})^2 dt \nonumber \\
+		&\geq& \frac{\left\vert c_u - c_w \right\vert^2 (\mathbb{E}(\xi))^2}{8 (r+ \bar{r}(1-\bar{s})^2 )} \cdot (b_2 + \bar{b}_2) \int_0^{\frac{T}{2}} \exp \left[- \frac{2 (b_2 + \bar{b}_2)}{r +\bar{r}(1-\bar{s})^2} \left( c_u + \frac{1}{4} \left\vert c_u - c_w \right\vert \right) t \right] dt \nonumber \\
+		&\geq & \frac{\left\vert c_u - c_w \right\vert^2 (\mathbb{E}(\xi))^2}{16 (c_u +  \vert c_u - c_w \vert / 4)} \left( 1- e^{- \frac{T (c_u + \vert c_u - c_w \vert/4 )}{r+\bar{r}(1-\bar{s})^2}(b_2 + \bar{b}_2)} \right) \nonumber \\
+		&\geq & (2 c_{num} ) \cdot \frac{1}{2} = c_{num},
 	\label{eq:numerator_ineq_b2_infinity}	
 	\end{IEEEeqnarray}
-	where $c_{num} =  \frac{\left\vert c_u - c_w \right\vert^2 (\mathbb{E}(\xi))^2}{32 (c_u +  \vert c_u - c_w \vert / 4)}$ and the last inequality is justified by the choice of $b_2 \geq c_3$. \\
+	with $c_{num} =  \frac{\left\vert c_u - c_w \right\vert^2 (\mathbb{E}(\xi))^2}{32 (c_u +  \vert c_u - c_w \vert / 4)}$ and the last inequality is justified because $b_2 \geq c_3$. \\
 	
 	
 	Step 2: We would like to provide an upper bound for $b_2\cdot SC^{MKV,b_2}$. From formula (\ref{eq:SC_MKV_2}), we have 
