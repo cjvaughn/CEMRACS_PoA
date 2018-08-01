@@ -682,7 +682,7 @@ In the following propositions, we utilize the following assumption.
 
 % proposition r to infty
 \begin{proposition}
-	Assuming assumption \ref{assumption}, then:
+	Assuming Assumption \ref{assumption}, then:
 	\begin{equation*}
 			\lim_{r \to \infty} PoA = 1 \qquad \text{and} \qquad
 			\lim_{\bar{r} \to \infty} PoA = 1.
@@ -750,15 +750,73 @@ In the following propositions, we utilize the following assumption.
 	By replacing $\lambda^{r \to \infty}$ with $\lambda^{\bar{r} \to \infty}: = \frac{b_2}{b_2 + \bar{b}_2} (1 - \bar{s})$, the proof can be repeated, and we obtain $\displaystyle \lim_{\bar{r} \to \infty} PoA^{\bar{r}} = 1$.
 \end{proof}
 
+The following lemma will be used in Proposition \ref{prop:b2_to_infty}.
+\begin{lemma}
+	There exists a $b_2^{*,l}>0$ and $M>0$, such that for all $b_2 \geq b_2^{*,l}$:
+	$$\int_0^T b_2 \eta^{b_2}_t dt \leq M.$$
+\end{lemma}
+
+\begin{proof}
+	First, we show that for $t\in[0,T)$: (ToDo: This is already stated in Proposition 4.)
+	$$\lim_{b_2 \to \infty}b_2\eta^{b_2}_t=(r + \bar{r}) c_{\delta_{\eta}^{b_2 \to \infty}}=\sqrt{(r+\bar{r})(q+\bar{q})} =: c_\eta.$$
+	And thus, there exists $b_2^{*,1}$ such that for $b_2 \geq b_2^{*,1}$:
+	$$b_2\eta^{b_2}_0 \leq c_\eta+\frac{1}{2}.$$
+	Clearly there exists $b_2^{*,2}$ such that for $b_2 \geq b_2^{*,2}$:
+	$$b_2\eta^{b_2}_T=b_2D^\eta=b_2(q_T+\bar{q}_T)\geq c_\eta+2.$$
+	Since $\lim_{b_2 \to \infty} B^\eta (D^\eta)^2+2A^\eta D^\eta-C^\eta=\infty$, from equation (\ref{eq:riccati_ut_sol_deriv}) there exists $b_2^{*,3}$ such that for $b_2 \geq b_2^{*,3}$, the function $t \mapsto b_2 \eta^{b_2}_t$ is increasing. Since for any $b_2$, the function $t \mapsto b_2 \eta^{b_2}_t$ is continuous, by the intermediate value theorem we have for $b_2 \geq \max \{b_2^{*,1},b_2^{*,2},b_2^{*,3} \}$, there exists a $t^*_{b_2}\in[0,T]$ such that:
+	$$b_2 \eta^{b_2}_{t^*_{b_2}} =c_\eta+1$$
+	and:
+	$$b_2 \eta^{b_2}_t \leq c_\eta+1,\ \forall t\leq t^*_{b_2}.$$
+	Thus,
+	$$1=b_2\eta^{b_2}_{t^*_{b_2}}-c_\eta=\frac{\frac{1}{b_2} \left[ToDO \right]}{\frac{1}{b_2^2} \left[ToDo \right]}-c_\eta=\frac{ToDo}{ToDo}.$$
+	After rearranging terms:
+	\begin{equation}
+	\begin{split}
+	\frac{D}{r+\bar{r}}-&\left[\frac{\delta^{-,b_2}_\eta}{b_2^2}+\frac{C^\eta}{b_2}+\frac{\delta^{-,b_2}_\eta c_\eta}{b_2^2}+D^\eta \left(\frac{\delta^{+,b_2}_\eta}{b_2}+c_{\delta^{b_2 \to \infty}_\eta} \right)\right] \\
+	&= \left[-\frac{\delta^{-,b_2}_\eta D^\eta}{b_2}+\frac{D^\eta}{r+\bar{r}}(1+c_\eta)+ToDo \right] e^{-\left(\delta^{+,b_2}_\eta -\delta^{-,b_2}_\eta\right)(T-t)} \\
+	&\leq  \left[-\frac{\delta^{-,b_2}_\eta D^\eta}{b_2}+\frac{D^\eta}{r+\bar{r}}(1+c_\eta) \right] e^{-\left(\delta^{+,b_2}_\eta -\delta^{-,b_2}_\eta\right)(T-t)}.
+	\end{split}
+	\label{eq:lemma_1}
+	\end{equation}
+	Since we have: (ToDo: show these limits)
+	$$\lim_{b_2 \to \infty}\frac{\delta^{-,b_2}_\eta}{b_2^2}=\lim_{b_2 \to \infty}\frac{C^\eta}{b_2}=\lim_{b_2 \to \infty}\frac{\delta^{-,b_2}_\eta c_\eta}{b_2^2}=\lim_{b_2 \to \infty}\left(\frac{\delta^{+,b_2}_\eta}{b_2}+c_{\delta^{b_2 \to \infty}_\eta} \right) =0,$$
+	there exists $b_2^{*,4}$ such that for $b_2 \geq b_2^{*,4}$, we have:
+	$$\left[\frac{\delta^{-,b_2}_\eta}{b_2^2}+\frac{C^\eta}{b_2}+\frac{\delta^{-,b_2}_\eta c_\eta}{b_2^2}+D^\eta \left(\frac{\delta^{+,b_2}_\eta}{b_2}+c_{\delta^{b_2 \to \infty}_\eta} \right)\right] \leq \frac{D^\eta}{2(r+\bar{r})},$$
+	and thus returning to inequality (\ref{eq:lemma_1}), for $b_2 \geq \max \{b_2^{*,1},b_2^{*,2},b_2^{*,3},b_2^{*,4} \}$:
+	$$\frac{D^\eta}{2(r+\bar{r})}\leq \left[-\frac{\delta^{-,b_2}_\eta D^\eta}{b_2}+\frac{D^\eta}{r+\bar{r}}(1+c_\eta) \right] e^{-\left(\delta^{+,b_2}_\eta -\delta^{-,b_2}_\eta\right)(T-t^*_{b_2})}, $$
+	$$e^{\left(\delta^{+,b_2}_\eta -\delta^{-,b_2}_\eta\right)(T-t^*_{b_2})}\leq -\frac{2\delta^{-,b_2}_\eta(r+\bar{r})}{b_2}+2(1+c_\eta) , $$
+	$$\left(\delta^{+,b_2}_\eta -\delta^{-,b_2}_\eta\right)(T-t^*_{b_2})\leq ln \left( -\frac{2\delta^{-,b_2}_\eta(r+\bar{r})}{b_2}+2(1+c_\eta) \right) , $$
+	\begin{equation}
+	b_2(T-t^*_{b_2})\leq \frac{1}{\frac{\left(\delta^{+,b_2}_\eta -\delta^{-,b_2}_\eta\right)}{b_2}} ln \left( -\frac{2\delta^{-,b_2}_\eta(r+\bar{r})}{b_2}+2(1+c_\eta) \right).
+	\label{eq:lemma_2}
+	\end{equation}
+	Since $\lim_{b_2 \to \infty}\frac{\delta^{+,b_2}_\eta}{b_2}=c_{\delta_\eta^{b_2 \to \infty}}=-\lim_{b_2 \to \infty}\frac{\delta^{-,b_2}_\eta}{b_2}$, there exists $b_2^{*,5}$ such that for $b_2 \geq b_2^{*,5}$:
+	$$\frac{c_{\delta_\eta^{b_2 \to \infty}}}{2} \leq \frac{\delta^{+,b_2}_\eta}{b_2} \leq \frac{3c_{\delta_\eta^{b_2 \to \infty}}}{2}, $$
+	$$\frac{c_{\delta_\eta^{b_2 \to \infty}}}{2} \leq \frac{-\delta^{-,b_2}_\eta}{b_2} \leq \frac{3c_{\delta_\eta^{b_2 \to \infty}}}{2},$$
+	and thus,
+	$$c_{\delta_\eta^{b_2 \to \infty}} \leq \frac{\delta^{+,b_2}_\eta-\delta^{-,b_2}_\eta}{b_2} \leq 3c_{\delta_\eta^{b_2 \to \infty}}.$$	
+	Returning to equation (\ref{eq:lemma_2}), for $b_2 \geq b_2^{*,l}:=\max \{b_2^{*,1},b_2^{*,2},b_2^{*,3},b_2^{*,4},b_2^{*,5}\}$:
+	$$ b_2(T-t^*_{b_2})\leq \frac{1}{c_{\delta_\eta^{b_2 \to \infty}}} ln \left(3 (r+\bar{r})c_{\delta_\eta^{b_2 \to \infty}}+2(1+c_\eta) \right)=\frac{1}{c_{\delta_\eta^{b_2 \to \infty}}} ln \left( c_{\delta_\eta^{b_2 \to \infty}}+5c_\eta+2 \right).$$
+	Finally, for $b_2 \geq b_2^{*,l}$, we have:
+	\begin{equation*}
+	\begin{split}
+	\int_0^T b_2 \eta^{b_2}_t dt&=\int_0^{t^*_{b_2}} b_2 \eta^{b_2}_t dt+\int_{t^*_{b_2}}^T b_2 \eta^{b_2}_t dt \\
+	&\leq t^*_{b_2}(c_\eta+1)+b_2 (T-t^*_{b_2})D^\eta\\
+	&\leq T(c_\eta+1)+\frac{D^\eta}{c_{\delta_\eta^{b_2 \to \infty}}} ln \left( c_{\delta_\eta^{b_2 \to \infty}}+5c_\eta+2 \right)=:M.	
+	\end{split}
+	\end{equation*}
+\end{proof}
 
 % proposition b_2 to \infty
 \begin{proposition}
-	Assuming assumption \ref{assumption}, and if:
+	Assume Assumption \ref{assumption}. If:
 	\begin{equation*}
 	\frac{q+\bar{q}(1-s)}{r+\bar{r}(1-\bar{s})} =\frac{q+\bar{q}(1-s)^2}{r+\bar{r}(1-\bar{s})^2},
 	\end{equation*}
 	then:
-	$$ \lim_{b_2 \to \infty} PoA = 1.$$	
+	$$ \lim_{b_2 \to \infty} PoA = 1.$$
+	Otherwise,
+	$$ \lim_{b_2 \to \infty} PoA > 1.$$
 \label{prop:b2_to_infty}
 \end{proposition}
 \begin{proof}
@@ -815,9 +873,9 @@ In the following propositions, we utilize the following assumption.
 	\max \left\{ \left\vert u_t^{b_2} \right\vert , \left\vert w_t^{b_2} \right\vert, \left\vert \eta_t^{b_2} \right\vert \right\} \leq M, \quad \forall \  t\in[0,T],\ b_2 \geq b_2^{*,upper},
 	\label{eq:ut_wt_upper_bound_b2_infty}
 	\end{equation}
-	and such that the functions $t \mapsto u_t^{b_2}$, $t \mapsto w_t^{b_2}$ and $t \mapsto \eta_t^{b_2}$ are increasing on $[0,T]$. 
+	and such that the functions $t \mapsto u_t^{b_2}$, $t \mapsto w_t^{b_2}$ and $t \mapsto \eta_t^{b_2}$ are increasing on $[0,T]$. \\
 	
-	From the assumption:
+	\textbf{Case 1:} When:
 	\begin{equation*}
 	\frac{q+\bar{q}(1-s)}{r+\bar{r}(1-\bar{s})}=\frac{q+\bar{q}(1-s)^2}{r+\bar{r}(1-\bar{s})^2},
 	\end{equation*}
@@ -886,12 +944,19 @@ In the following propositions, we utilize the following assumption.
 		\lim_{b_2 \to \infty} \frac{\Delta SC^{b_2}}{SC^{MKV,b_2}} = 0, 
 	\end{equation*}
 	and thus,
-	$ \lim_{b_2 \to \infty} PoA^{b_2} = 1.$
+	$ \lim_{b_2 \to \infty} PoA^{b_2} = 1.$\\
+	
+	%Todo: 
+	\textbf{Case 2}: When:
+	\begin{equation*}
+	\frac{q+\bar{q}(1-s)}{r+\bar{r}(1-\bar{s})} \neq \frac{q+\bar{q}(1-s)^2}{r+\bar{r}(1-\bar{s})^2}
+	\end{equation*}
+	
 \end{proof}
 
 %proposition b_2 \to 0
 \begin{proposition}
-	Assume assumption \ref{assumption}. If $\bar{b}_2= 0$, then:
+	Assume Assumption \ref{assumption}. If $\bar{b}_2= 0$, then:
 	\begin{equation*}
 	\lim_{b_2 \to 0} PoA = 1,
 	\end{equation*}
@@ -947,7 +1012,7 @@ In the following propositions, we utilize the following assumption.
 
 % proposition b2 bar infinity
 \begin{proposition}
-	Assuming assumption \ref{assumption}, then:
+	Assuming Assumption \ref{assumption}, then:
 	$$ \qquad\lim_{\bar{b}_2 \to \infty} PoA = 1.$$
 	Furthermore, if	$\frac{r + \bar{r}(1- \bar{s})^2}{r + \bar{r}(1-\bar{s})} \neq \frac{q_T+\bar{q}_T(1-s_T)^2}{q_T+\bar{q}_T(1-s_T)}$ then:
 	\begin{equation*}
@@ -1005,7 +1070,7 @@ In the following propositions, we utilize the following assumption.
 	Now, we adapt the method used in Proposition \ref{prop:b2_to_infty} to prove $\lim_{\bar{b}_2 \to \infty} \Delta SC^{\bar{b}_2} = 0$. Consider the two quantities:
 	$$ I^{\bar{b}_2}_1 := \frac{1}{2} B^{\bar{b}_2} \int_{0}^{\frac{T}{2}} (u^{\bar{b}_2}_s- w^{\bar{b}_2}_s)^2 (\bar{x}_s^{MFG, \bar{b}_2} )^2 ds \quad \text{ and } \quad I^{\bar{b}_2}_2: = \frac{1}{2} B^{\bar{b}_2} \int_{\frac{T}{2}}^T (u^{\bar{b}_2}_s- w^{\bar{b}_2}_s)^2 (\bar{x}_s^{MFG, \bar{b}_2} )^2 ds. $$
 	
-	Fix $\epsilon>0$. In the following, we will show that $\Delta SC^{\bar{b}_2} = I^{\bar{b}_2}_1 + I^{\bar{b}_2}_2 \leq 2\epsilon$ for large $\bar{b}_2$. First, consider $I^{\bar{b}_2}_1$. Let $\zeta_3 := c_u / 2$. Because $ \lim_{\bar{b}_2 \to \infty} B^{\bar{b}_2} (D^{u,\bar{b}_2})^2+ 2 A^{u} D^{u,\bar{b}_2} - C^{u,\bar{b}_2} >0$, there exists $\bar{b}_2^{*,0} \geq \bar{b}_2^{*,upper}$ so that for all $\bar{b}_2 \geq \bar{b}_2^{*,0}$, the functions $s \mapsto u_s^{\bar{b}_2}$ and $s \mapsto w_s^{\bar{b}_2}$ are increasing, and so that for all $s \in [0, T/2]$:
+	Fix $\epsilon>0$. In the following, we will show that $\Delta SC^{\bar{b}_2} = I^{\bar{b}_2}_1 + I^{\bar{b}_2}_2 \leq 2\epsilon$ for large $\bar{b}_2$. First, consider $I^{\bar{b}_2}_1$. Let $\zeta_3 := c_u / 2$. Because $ \lim_{\bar{b}_2 \to \infty} B^{\bar{b}_2} (D^{u,\bar{b}_2})^2+ 2 A^{u} D^{u,\bar{b}_2} - C^{u,\bar{b}_2} >0$, from equation (\ref{eq:riccati_ut_sol_deriv}), there exists $\bar{b}_2^{*,0} \geq \bar{b}_2^{*,upper}$ so that for all $\bar{b}_2 \geq \bar{b}_2^{*,0}$, the functions $s \mapsto u_s^{\bar{b}_2}$ and $s \mapsto w_s^{\bar{b}_2}$ are increasing, and so that for all $s \in [0, T/2]$:
 	\begin{IEEEeqnarray*}{c}
 		c_u - \zeta_3 \leq (b_2 + \bar{b}_2)^{\frac{3}{2}} u_0^{\bar{b}_2} \leq  (b_2 + \bar{b}_2)^{\frac{3}{2}} u_s^{\bar{b}_2} \leq (b_2 + \bar{b}_2)^{\frac{3}{2}} u_{\frac{T}{2}}^{\bar{b}_2} \leq c_u + \zeta_3,\\
 		\left\vert (b_2 + \bar{b}_2) u_s^{\bar{b}_2} \right\vert \leq \left\vert (b_2 + \bar{b}_2) u_{\frac{T}{2}}^{\bar{b}_2} \right\vert \leq  \zeta_3, \quad \text{and} \quad 
@@ -1083,7 +1148,7 @@ In the following propositions, we utilize the following assumption.
 \end{proof}
 
 \begin{remark}
-	Consider assumption \ref{assumption} and the case when $\bar{b}_2$ tends to zero. We have $0< SC^{MKV, \bar{b}_2 \to 0} < \infty$, and therefore, $\lim_{\bar{b}_2 \to 0} PoA^{\bar{b}_2 } =1$ implies $\lim_{\bar{b}_2 \to 0} \Delta SC^{\bar{b}_2} = 0$. Hence, from equation (\ref{eq:x_bar_neq_0}) and Proposition \ref{prop:diff_SC}, if $\lim_{\bar{b}_2 \to 0} PoA^{\bar{b}_2 } =1$, then for all $t \in [0,T]$:
+	Consider Assumption \ref{assumption} and the case when $\bar{b}_2$ tends to zero. We have $0< SC^{MKV, \bar{b}_2 \to 0} < \infty$, and therefore, $\lim_{\bar{b}_2 \to 0} PoA^{\bar{b}_2 } =1$ implies $\lim_{\bar{b}_2 \to 0} \Delta SC^{\bar{b}_2} = 0$. Hence, from equation (\ref{eq:x_bar_neq_0}) and Proposition \ref{prop:diff_SC}, if $\lim_{\bar{b}_2 \to 0} PoA^{\bar{b}_2 } =1$, then for all $t \in [0,T]$:
 	$$u_t^{\bar{b}_2 \to 0} = w_t^{\bar{b}_2 \to 0}.$$
 	From equation (\ref{eq:riccati_limiting_u}) and an analogous Riccati equation for $w_t^{\bar{b}_2 \to 0}$, the above equality is equivalent to:
 	$$D^{u,\bar{b}_2 \to \infty} = D^w=:D \quad \text{and} \quad B^{\bar{b}_2 \to 0} D^2 + 2 A^{u}D^{u,\bar{b}_2 \to 0} - C^{u,\bar{b}_2 \to 0} = B^{\bar{b}_2 \to 0} D^2 + 2 A^{w} D^w - C^w  = 0.$$
@@ -1100,7 +1165,7 @@ In the following propositions, we utilize the following assumption.
 
 % proposition b1 and b1 bar
 \begin{proposition}\label{prop:b1_b1bar}
-	Assuming assumption \ref{assumption}, the initial condition satisfies $Var(\xi)>0$, and:
+	Assuming Assumption \ref{assumption}, the initial condition satisfies $Var(\xi)>0$, and:
 	\begin{equation*}
 	\frac{b_2}{b_2+\bar{b}_2}\cdot \frac{r + \bar{r}(1- \bar{s})^2}{r + \bar{r}(1-\bar{s})}\cdot (q_T+\bar{q}_T(1-s_T)) \neq q_T+\bar{q}_T(1-s_T)^2,
 	\end{equation*}
@@ -1252,7 +1317,7 @@ In the following propositions, we utilize the following assumption.
 
 
 \subsection{\textbf{Numerical Results}}
-The solutions to the problems we have considered are given by the formulas derived in Appendix \ref{appendix_solving_fbsdes}, which are explicit up to evaluating integrals. Using the simple rectangle rule to estimate integrals, we numerically compute the price of anarchy when the coefficients are time-independent, non-negative, and satisfy assumption \ref{assumption}. In particular, when we allow for full interaction (i.e. through the states and the controls), we choose the following default values:
+The solutions to the problems we have considered are given by the formulas derived in Appendix \ref{appendix_solving_fbsdes}, which are explicit up to evaluating integrals. Using the simple rectangle rule to estimate integrals, we numerically compute the price of anarchy when the coefficients are time-independent, non-negative, and satisfy Assumption \ref{assumption}. In particular, when we allow for full interaction (i.e. through the states and the controls), we choose the following default values:
 
 \begin{equation*}
 \begin{split}
