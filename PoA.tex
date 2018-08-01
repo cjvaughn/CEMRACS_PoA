@@ -1032,15 +1032,14 @@ The following lemma has been used in Proposition \ref{prop:b2_to_infty}.
 	\end{split}
 	\end{equation*}
 	$$
-	1=\frac{ \frac{C^\eta}{b_2}+D^\eta\frac{\delta^{+,b_2}_\eta}{b_2}-c_\eta \left(\frac{D^\eta}{r+\bar{r}} -\frac{\delta^{-,b_2}_\eta}{b_2^2}\right)+\left(-\frac{C^\eta}{b_2}-D^\eta\frac{\delta^{-,b_2}_\eta}{b_2} -c_\eta \left(\frac{\delta^{+,b_2}_\eta}{b_2^2} -\frac{D^\eta}{r+\bar{r}}\right)\right)e^{-(\delta^{+,b_2}_\eta-\delta^{-,b_2}_\eta)(T-t^*_{b_2})} }{ \frac{D^\eta}{r+\bar{r}} -\frac{\delta^{-,b_2}_\eta}{b_2^2} +\left(\frac{\delta^{+,b_2}_\eta}{b_2^2} -\frac{D^\eta}{r+\bar{r}}\right) e^{-(\delta^{+,b_2}_\eta-\delta^{-,b_2}_\eta)(T-t^*_{b_2})}}.
+	1=\frac{ \frac{C^\eta}{b_2}+D^\eta\frac{\delta^{+,b_2}_\eta}{b_2}-\frac{D^\eta}{r+\bar{r}}c_\eta +\frac{\delta^{-,b_2}_\eta}{b_2^2}c_\eta+\left(-\frac{C^\eta}{b_2}-D^\eta\frac{\delta^{-,b_2}_\eta}{b_2} -\frac{\delta^{+,b_2}_\eta}{b_2^2}c_\eta +\frac{D^\eta}{r+\bar{r}}c_\eta\right)e^{-(\delta^{+,b_2}_\eta-\delta^{-,b_2}_\eta)(T-t^*_{b_2})} }{ \frac{D^\eta}{r+\bar{r}} -\frac{\delta^{-,b_2}_\eta}{b_2^2} +\left(\frac{\delta^{+,b_2}_\eta}{b_2^2} -\frac{D^\eta}{r+\bar{r}}\right) e^{-(\delta^{+,b_2}_\eta-\delta^{-,b_2}_\eta)(T-t^*_{b_2})}}.
 	$$
-
 	After rearranging terms:
 	\begin{equation}
 	\begin{split}
-	\frac{D^\eta}{r+\bar{r}}-&\left[\frac{\delta^{-,b_2}_\eta}{b_2^2}+\frac{C^\eta}{b_2}+\frac{\delta^{-,b_2}_\eta c_\eta}{b_2^2}+D^\eta \left(\frac{\delta^{+,b_2}_\eta}{b_2}+c_{\delta^{b_2 \to \infty}_\eta} \right)\right] \\
-	&= \left[-\frac{\delta^{-,b_2}_\eta D^\eta}{b_2}+\frac{D^\eta}{r+\bar{r}}(1+c_\eta)+ToDo \right] e^{-\left(\delta^{+,b_2}_\eta -\delta^{-,b_2}_\eta\right)(T-t^*_{b_2})} \\
-	&\leq  \left[-\frac{\delta^{-,b_2}_\eta D^\eta}{b_2}+\frac{D^\eta}{r+\bar{r}}(1+c_\eta) \right] e^{-\left(\delta^{+,b_2}_\eta -\delta^{-,b_2}_\eta\right)(T-t^*_{b_2})}.
+	\frac{D^\eta}{r+\bar{r}}-&\left[\frac{\delta^{-,b_2}_\eta}{b_2^2}+\frac{C^\eta}{b_2}+\frac{\delta^{-,b_2}_\eta c_\eta}{b_2^2}+D^\eta \left(\frac{\delta^{+,b_2}_\eta}{b_2}-c_{\delta^{b_2 \to \infty}_\eta} \right)\right] \\
+	&= \left[-\frac{C^\eta}{b_2}-D^\eta\frac{\delta^{-,b_2}_\eta}{b_2} -\frac{\delta^{+,b_2}_\eta}{b_2^2}c_\eta +\frac{D^\eta}{r+\bar{r}}c_\eta -\frac{\delta^{+,b_2}_\eta}{b_2^2} +\frac{D^\eta}{r+\bar{r}} \right] e^{-\left(\delta^{+,b_2}_\eta -\delta^{-,b_2}_\eta\right)(T-t^*_{b_2})} \\
+	&\leq  \left[-D^\eta\frac{\delta^{-,b_2}_\eta }{b_2}+\frac{D^\eta}{r+\bar{r}}(1+c_\eta) \right] e^{-\left(\delta^{+,b_2}_\eta -\delta^{-,b_2}_\eta\right)(T-t^*_{b_2})}.
 	\end{split}
 	\label{eq:lemma_1}
 	\end{equation}
