@@ -1278,38 +1278,21 @@ The following lemma was used in Proposition \ref{prop:b2_to_infty}.
 
 % proposition b1 and b1 bar
 \begin{proposition}\label{prop:b1_b1bar}
-	Assuming Assumption \ref{assumption}, the initial condition satisfies $Var(\xi)>0$, and:
+	Assuming Assumption \ref{assumption}, then:
+	\begin{equation*}
+	\lim_{b_1 \to \infty} PoA = 1 \qquad \text{and} \qquad\lim_{\bar{b}_1 \to \infty} PoA =\infty.
+	\end{equation*}	
+	Furthermore, if:
 	\begin{equation*}
 	\frac{b_2}{b_2+\bar{b}_2}\cdot \frac{r + \bar{r}(1- \bar{s})^2}{r + \bar{r}(1-\bar{s})}\cdot (q_T+\bar{q}_T(1-s_T)) \neq q_T+\bar{q}_T(1-s_T)^2,
 	\end{equation*}
 	then:
 	\begin{equation*}
-	\begin{split}
-	    \lim_{b_1 \to 0} PoA > 1\qquad &\text{and} \qquad \lim_{\bar{b}_1 \to 0} PoA > 1,\\
-	    \lim_{b_1 \to \infty} PoA = 1 \qquad &\text{and} \qquad\lim_{\bar{b}_1 \to \infty} PoA =\infty.
-	\end{split}
+	    \lim_{b_1 \to 0} PoA > 1\qquad \text{and} \qquad \lim_{\bar{b}_1 \to 0} PoA > 1.
 	\end{equation*}
 \end{proposition}
 \begin{proof}
-	\textbf{Cases 1 and 2:} First, we consider $b_1 \to 0$. We have $A^{u,b_1} \to A^{b_1\to 0}_u$, $\delta^{+,b_1}_u \to \delta^{+,b_1\to 0}_u>0$, and $\delta^{-,b_1}_u \to \delta^{-,b_1\to 0}_u<0$, and similarly for $A^{w,b_1}$, $A^{\eta,b_1}$, $\delta^{\pm,b_1}_w$, and $\delta^{\pm,b_1}_\eta$. Clearly we have for each $t\in[0,T]$, $\lim_{b_1 \to 0}u^{b_1}_t=:u^{b_1\to 0}_t$, $\lim_{b_1 \to 0}w^{b_1}_t=:w^{b_1 \to 0}_t$, and $\lim_{b_1 \to 0}\eta^{b_1}_t=:\eta^{b_1 \to 0}_t$. Next, we show that the three sequences are uniformly bounded. Let $0<\epsilon<-\delta^{-,b_1\to 0}_u$. There exists a $b_1^*$ such that $\max \left \{\left| \delta^{+,b_1}_u-\delta^{+,b_1\to0}_u \right|,\left| \delta^{-,b_1}_u-\delta^{-,b_1\to0}_u \right| \right\}<\epsilon$ for each $b_1 \leq b_1^*$. Then for each $b_1 \leq b_1^*$ and $t\in[0,T]$, we have:
-	\begin{equation*}
-		\left|u^{b_1}_t\right| \leq \frac{C^u+D^u\left(\delta^{+,b_1}_u-\delta^{-,b_1}_u\right) }{-\delta^{-,b_1}_u} \\
-		\leq \frac{C^u+D^u\left(\delta^{+,b_1\to 0}_u-\delta^{-,b_1 \to 0}_u+2\epsilon\right) }{-\delta^{-,b_1\to 0}_u-\epsilon},
-	\end{equation*}
-	and similarly for $\left|w^{b_1}_t\right|$ and $\left|\eta^{b_1}_t\right|$. From the assumption $\frac{b_2}{b_2+\bar{b}_2}\cdot \frac{r + \bar{r}(1- \bar{s})^2}{r + \bar{r}(1-\bar{s})}\cdot q_T+\bar{q}_T(1-s_T) \neq q_T+\bar{q}_T(1-s_T)^2$, we have $D^{u} \neq D^{w}$ and thus by continuity, $u^{b_1\to 0}_t \neq w^{b_1\to 0}_t$ on a set of positive Lebesgue measure.
-	
-	From equation (\ref{eq:x_bar_MFG_explicit_new_notation}), the assumption $\mathbb{E}(\xi)\neq 0$, and by the bounded convergence theorem, we have for every $t \in [0,T]$:
-	\begin{equation*}
-	\lim_{b_1\to 0}\bar{x}_t^{MFG,b_1} = \mathbb{E}(\xi) e^{\int_0^t(\bar{b}_1-B u^{b_1\to 0}_s)ds} =: \bar{x}_t^{MFG,b_1\to 0}\neq 0.
-	\end{equation*}
-	Moreover, $\bar{x}_t^{MFG,b_1}$ is uniformly bounded over $b_1 \leq b_1^*$ and $t \in [0,T]$, i.e. 
-	$$ \left\vert \bar{x}^{MFG,b_1}_t \right\vert \leq \left\vert \mathbb{E}(\xi) \right\vert e^{ \bar{b}_1 T }, \quad \forall t \in [0,T],\ b_1 \leq b_1^*. $$ 
-	
-	Therefore, by Proposition \ref{prop:diff_SC}, and the bounded convergence theorem, $0<\lim_{b_1 \to 0} \Delta SC^{b_1}<\infty$. By the bounded convergence theorem, $\lim_{b_1 \to 0}v^{b_1}_t=:v_t^{b_1 \to 0}$, which is bounded over $t\in [0,T]$, and thus $0<\lim_{b_1 \to 0} SC^{MKV,b_1}<\infty.$
-    Therefore, $\lim_{b_1 \to 0} PoA^{b_1} > 1$. The proof can be repeated to show $\lim_{\bar{b}_1 \to 0} PoA^{\bar{b}_1}  > 1$.\\
-    
-
-	\textbf{Case 3:} Consider $b_1 \to \infty$. Since $\lim_{b_1 \to \infty} A^{u,b_1} = \lim_{b_1 \to \infty} A^{w,b_1} = - \infty$ we have:
+	\textbf{Case 1:} Consider $b_1 \to \infty$. Since $\lim_{b_1 \to \infty} A^{u,b_1} = \lim_{b_1 \to \infty} A^{w,b_1} = - \infty$ we have:
 	$$\lim_{b_1 \to \infty}B (D^{u})^2 + 2 A^{u,b_1} D^{u} - C^{u} = \lim_{b_1 \to \infty}B (D^{w})^2 + 2 A^{w,b_1} D^{w} - C^{w}=-\infty.$$
 	Denote $h_u(b_1,t): = B \frac{u_t^{b_1}}{b_1}$ and $h_w(b_1,t) := B \frac{w_t^{b_1}}{b_1}$. For all $t \in [0,T)$, we have the limits:
 	\begin{equation}
@@ -1352,7 +1335,7 @@ The following lemma was used in Proposition \ref{prop:b2_to_infty}.
 	Since the proof holds for arbitrary $\epsilon>0$, and $\kappa_1 = \frac{3}{4} e^{\frac{3\bar{b}_1 T}{2} }$ is independent of $b_1$ and $\epsilon$, we conclude that:
 	$$ \lim_{b_1 \to \infty} PoA^{b_1} = 1.$$ \\
 	
-	\textbf{Case 4:} Now, consider $\bar{b}_1 \to \infty$.
+	\textbf{Case 2:} Now, consider $\bar{b}_1 \to \infty$.
 	Since $A^{u,\bar{b}_1}<0$ and $\lim_{\bar{b}_1 \to \infty} |A^{u,\bar{b}_1}|=\infty$, we have the following limits:
 	\begin{equation*}
 	\delta^{+,\bar{b}_1}_u-\delta^{-,\bar{b}_1}_u=2 \sqrt{(A^{u,\bar{b}_1})^2+BC^u} \xrightarrow[\bar{b}_1 \to \infty]{}\infty, \quad -\delta^{-,\bar{b}_1}_u=A^{u,\bar{b}_1}+\sqrt{(A^{u,\bar{b}_1})^2+BC^u}\xrightarrow[\bar{b}_1 \to \infty]{}0,
@@ -1421,11 +1404,24 @@ The following lemma was used in Proposition \ref{prop:b2_to_infty}.
 	\lim_{\bar{b}_1 \to \infty}\frac{\Delta SC^{\bar{b}_1}}{SC^{MKV,\bar{b}_1}}=\lim_{\bar{b}_1 \to \infty}\frac{\frac{1}{\bar{b}_1^2}\Delta SC^{\bar{b}_1}}{\frac{1}{\bar{b}_1^2}SC^{MKV,\bar{b}_1}}=\infty.
 	\end{split}
 	\end{equation*}
-	We conclude
-	$
-	\lim_{\bar{b}_1 \to \infty} PoA^{\bar{b}_1}=\infty.
-	$
+	We conclude $\lim_{\bar{b}_1 \to \infty} PoA^{\bar{b}_1}=\infty.$\\
+
+	\textbf{Cases 3 and 4:} First, we consider $b_1 \to 0$. We have $A^{u,b_1} \to A^{b_1\to 0}_u$, $\delta^{+,b_1}_u \to \delta^{+,b_1\to 0}_u>0$, and $\delta^{-,b_1}_u \to \delta^{-,b_1\to 0}_u<0$, and similarly for $A^{w,b_1}$, $A^{\eta,b_1}$, $\delta^{\pm,b_1}_w$, and $\delta^{\pm,b_1}_\eta$. Clearly we have for each $t\in[0,T]$, $\lim_{b_1 \to 0}u^{b_1}_t=:u^{b_1\to 0}_t$, $\lim_{b_1 \to 0}w^{b_1}_t=:w^{b_1 \to 0}_t$, and $\lim_{b_1 \to 0}\eta^{b_1}_t=:\eta^{b_1 \to 0}_t$. Next, we show that the three sequences are uniformly bounded. Let $0<\epsilon<-\delta^{-,b_1\to 0}_u$. There exists a $b_1^*$ such that $\max \left \{\left| \delta^{+,b_1}_u-\delta^{+,b_1\to0}_u \right|,\left| \delta^{-,b_1}_u-\delta^{-,b_1\to0}_u \right| \right\}<\epsilon$ for each $b_1 \leq b_1^*$. Then for each $b_1 \leq b_1^*$ and $t\in[0,T]$, we have:
+	\begin{equation*}
+	\left|u^{b_1}_t\right| \leq \frac{C^u+D^u\left(\delta^{+,b_1}_u-\delta^{-,b_1}_u\right) }{-\delta^{-,b_1}_u} \\
+	\leq \frac{C^u+D^u\left(\delta^{+,b_1\to 0}_u-\delta^{-,b_1 \to 0}_u+2\epsilon\right) }{-\delta^{-,b_1\to 0}_u-\epsilon},
+	\end{equation*}
+	and similarly for $\left|w^{b_1}_t\right|$ and $\left|\eta^{b_1}_t\right|$. From the assumption $\frac{b_2}{b_2+\bar{b}_2}\cdot \frac{r + \bar{r}(1- \bar{s})^2}{r + \bar{r}(1-\bar{s})}\cdot q_T+\bar{q}_T(1-s_T) \neq q_T+\bar{q}_T(1-s_T)^2$, we have $D^{u} \neq D^{w}$ and thus by continuity, $u^{b_1\to 0}_t \neq w^{b_1\to 0}_t$ on a set of positive Lebesgue measure.
 	
+	From equation (\ref{eq:x_bar_MFG_explicit_new_notation}), the assumption $\mathbb{E}(\xi)\neq 0$, and by the bounded convergence theorem, we have for every $t \in [0,T]$:
+	\begin{equation*}
+	\lim_{b_1\to 0}\bar{x}_t^{MFG,b_1} = \mathbb{E}(\xi) e^{\int_0^t(\bar{b}_1-B u^{b_1\to 0}_s)ds} =: \bar{x}_t^{MFG,b_1\to 0}\neq 0.
+	\end{equation*}
+	Moreover, $\bar{x}_t^{MFG,b_1}$ is uniformly bounded over $b_1 \leq b_1^*$ and $t \in [0,T]$, i.e. 
+	$$ \left\vert \bar{x}^{MFG,b_1}_t \right\vert \leq \left\vert \mathbb{E}(\xi) \right\vert e^{ \bar{b}_1 T }, \quad \forall t \in [0,T],\ b_1 \leq b_1^*. $$ 
+	
+	Therefore, by Proposition \ref{prop:diff_SC}, and the bounded convergence theorem, $0<\lim_{b_1 \to 0} \Delta SC^{b_1}<\infty$. By the bounded convergence theorem, $\lim_{b_1 \to 0}v^{b_1}_t=:v_t^{b_1 \to 0}$, which is bounded over $t\in [0,T]$, and thus $0<\lim_{b_1 \to 0} SC^{MKV,b_1}<\infty.$
+	Therefore, $\lim_{b_1 \to 0} PoA^{b_1} > 1$. The proof can be repeated to show $\lim_{\bar{b}_1 \to 0} PoA^{\bar{b}_1}  > 1$.
 \end{proof}
 
 
