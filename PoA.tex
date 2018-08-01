@@ -673,7 +673,63 @@ It will also be useful to compute the derivative of $u_t$ with respect to time $
 \frac{d u_t}{dt} = \frac{\left(B (D^{u})^2 + 2 A^u D^{u} - C^{u} \right) \cdot \left(\delta_u^{+} - \delta_u^{-}\right)^2 e^{- (\delta_u^{+} - \delta_u^{-})(T-t) } }{\left[B D^{u}(1-e^{- (\delta_u^{+} - \delta_u^{-})(T-t)})   + \delta_u^{+}e^{- (\delta_u^{+} - \delta_u^{-})(T-t)}- \delta_u^{-}  \right]^2 }.
 \label{eq:riccati_ut_sol_deriv}
 \end{equation}
-Note that $u_t$ is increasing if $B (D^{u})^2 + 2 A^u D^{u} - C^{u}>0$, and likewise, decreasing if $B (D^{u})^2 + 2 A^u D^{u} - C^{u}<0$.\\
+Note that $u_t$ is increasing if $B (D^{u})^2 + 2 A^u D^{u} - C^{u}>0$, and likewise, decreasing if $B (D^{u})^2 + 2 A^u D^{u} - C^{u}<0$.
+
+
+\begin{theorem}
+	Assuming (\ref{eq:assumptions}), if the initial condition $\xi$ satisfies that $\mathbb{E}(\xi)  \neq 0$, then 
+	\begin{itemize}
+		\item when $\bar{b}_1 > 0$, we have $PoA = 1$ if and only if
+		\begin{equation}
+		D^u = D^w =:D \quad \text{and} \quad B D^2 + 2 A^{u} D - C^{u} = B D^2 + 2 A^{w} D - C^w  = 0,
+		\label{eq:PoA=1_condition_b1_bar>0}
+		\end{equation}
+		\item when $\bar{b}_1 = 0$, then $A^u = A^w$ and we have $PoA = 1$ if and only if 
+		\begin{equation}
+			D^u = D^w \quad \text{and} \quad C^u = C^w, 
+		\label{eq:PoA=1_condition_b1_bar=0}
+		\end{equation}
+	\end{itemize}
+	Namely, $PoA = 1$ if and only if the following two or three conditions hold true:
+	\begin{equation*}
+	\left\{
+	\begin{array}{rcl}
+	\displaystyle \lambda \cdot (q_T + \bar{q}_T(1-s_T) )  &=& q_T + \bar{q}_T (1- s_T)^2\\
+	\displaystyle \lambda \cdot (q+ \bar{q}(1-s)) &=& (q + \bar{q}(1-s)^2) + \bar{b}_1 \cdot (q_T + \bar{q}_T (1 - s_T)^2) 
+	\end{array}
+	\right.
+	\end{equation*}
+	where $\lambda = \frac{b_2}{b_2 + \bar{b}_2}\cdot \frac{ r + \bar{r}(1-\bar{s})^2 }{r + \bar{r}(1-\bar{s})}$, and in the case when $\bar{b}_1 > 0$, the third condition becomes
+	$$ \frac{(b_2+ \bar{b}_2)^2}{r + \bar{r}(1-\bar{s})^2} ( q_T + \bar{q}_T(1-s_T)^2 )^2 - 2 (b_1 + \bar{b}_1) ( q_T + \bar{q}_T(1-s_T)^2 )  + ( q + \bar{q}(1-s)^2 ) = 0. $$
+
+	\label{thm:PoA_equivalent_1}
+\end{theorem}
+
+\begin{proof}
+	Under assumption (\ref{eq:assumptions}), we know from equation (\ref{eq:riccati_wt}) and from the explicit formula (\ref{eq:riccati_ut_sol}) for solution to scalar Riccati equation that $w_0$ is strictly positive. Thus, with the assumption $\mathbb{E}(\xi) \neq 0$, we have $SC^{MKV} > 0$. Hence, $PoA =1$ if and only if $\Delta SC = 0$. Since $\bar{x}_t^{MFG} \neq 0$ for all $t \in [0,T]$, from proposition \ref{prop:diff_SC} and the continuity of $u_t$ and $w_t$, we derive that 
+	\begin{equation}
+		PoA = 1 \qquad iff \qquad u_t = w_t, \quad \forall  t \in [0,T].
+	\label{eq:PoA_equivalence_ut=w_t} 
+	\end{equation}
+	
+	From equation (\ref{eq:riccati_ut_sol_deriv}) and the Riccati equations (\ref{eq:riccati_ut}) and (\ref{eq:riccati_wt}), it is easy to check that if the conditions in (\ref{eq:PoA=1_condition_b1_bar>0}) and (\ref{eq:PoA=1_condition_b1_bar=0}) are satisfied, we must have $u_t = w_t$ for all $ t\in [0,T]$. Thus, $PoA = 1$.	
+	
+	Suppose now that $PoA =1$. Then by taking $t=T$ in equation (\ref{eq:PoA_equivalence_ut=w_t}), we obtain the first condition in both (\ref{eq:PoA=1_condition_b1_bar>0}) and (\ref{eq:PoA=1_condition_b1_bar=0}):
+	$$D^u = u_T = w_T = D^w.$$
+	Moreover, if we make the difference between the two Riccati equations (\ref{eq:riccati_ut}) and (\ref{eq:riccati_wt}), and by taking $u_t = w_t$ for all $t in [0,T]$ into account, we obtain:
+	\begin{equation}
+		2 (A^u - A^w) w_t = C^u - C^w, \quad \forall \  t \in [0,T]
+	\label{eq:wt=constant}
+	\end{equation}
+	Since $2(A^u - A^w) = \bar{b}_1$, so that in the case when $\bar{b}_1 =0$ we must have $C^u = C^w$. Otherwise, equation (\ref{eq:wt=constant}) implies that $u_t = w_t = (C^u - C^w) / \bar{b}_1 $, which are constants for all $t \in [0,T]$. Thus, the derivatives with respect to time $t$ for $u_t$ and $w_t$ should be zero. From equation (\ref{eq:riccati_ut_sol_deriv}), and the fact that $\delta_u^+ - \delta_u^- > 0$, we deduce: 
+	$$ B (D^{u})^2 + 2 A^u D^u - C^u = 0.$$
+	Similarly we also have $B (D^{w})^2 + 2 A^w D^w - C^w = 0$. 
+	
+	By replacing $(A^u,B, C^u, D^u)$ and $(A^w, B, C^w, D^w)$ with their explicit expressions, we obtain henceforth an equivalent condition for $PoA = 1$ in term of the coefficients of Linear Quadratic model.
+	
+\end{proof}
+
+
 
 In the following propositions, we utilize the following assumption.	
 \begin{assumption}\label{assumption}
