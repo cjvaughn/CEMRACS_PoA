@@ -801,6 +801,7 @@ In the following propositions, we utilize the following assumption.
 	Then, by the same technique in inequality (\ref{eq:ut_uniform_lower_bound_b2_infinity}), there exists $b_2^{*,\eta, lower} > 0$ and $m_\eta >0$ such that for all $b_2 \geq b_2^{*,\eta,lower}$:
 	\begin{equation*}
 	   b_2 \eta_t^{b_2} \geq m_\eta.
+	\label{eq:eta_t_uniform_lower_bound_b2_infinity}
 	\end{equation*}
 
 	From equation (\ref{eq:riccati_ut_sol_deriv}), we see that $t \mapsto u_t^{b_2}$ is increasing if $B^{b_2} (D^{u,b_2})^2 + 2 A^u D^{u,b_2} - C^{u,b_2} > 0$. Since 
@@ -887,6 +888,47 @@ In the following propositions, we utilize the following assumption.
 	\end{equation*}
 	and thus,
 	$ \lim_{b_2 \to \infty} PoA^{b_2} = 1.$
+	
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+% case 2: c_u \neq c_w
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+	\textbf{Case 2:} If
+	\begin{equation*}
+	\frac{q+\bar{q}(1-s)}{r+\bar{r}(1-\bar{s})} \neq \frac{q+\bar{q}(1-s)^2}{r+\bar{r}(1-\bar{s})^2},
+	\end{equation*}
+	then $c_u \neq c_w$. In this situation, we will show that the Price of Anarchy tends to a number strictly greater than $1$ as $b_2$ tends to infinity. To do so, we will show that in this asymptotic regime, $\Delta SC^{b_2}$ is lower bounded by a strictly positive constant and $SC^{MKV,b_2}$ is upper bounded by another constant, in which both of them are independent of $b_2$.\\
+	
+	We assume in the following that $b_2 \geq b_2^{*,basic} := \max \{b_2^{*,u,lower}, b_2^{*,\eta,lower}, b_2^{*,upper} \}$. We know directly that  $s \mapsto u_s^{b_2}$, $s \mapsto w_s^{b_2}$ and $s \mapsto \eta_s^{\eta}$ are increasing functions. Moreover, from equation (\ref{eq:ut_uniform_lower_bound_b2_infinity}) and (\ref{eq:eta_t_uniform_lower_bound_b2_infinity}), we have the uniform lower bounds $m_u$ and $m_\eta$ for $u_t^{b_2}$ and $\eta_t^{b_2}$.\\
+	
+	Step 1: We provide a lower bound for $\Delta SC^{b_2}$ with the similar techniques used for the term $I_1$, see inequality (\ref{eq:I1_ineq_b2_infinity}).   For every $0 \leq t <T$, we have $h_u(b_2, t) \xrightarrow[b_2 \to \infty]{} c_u$ and $h_w(b_2, t) \xrightarrow[b_2 \to \infty]{} c_w$. Let $\zeta_3 = \ln(2) \frac{r + \bar{r}(1-\bar{s})^2}{T (c_u + \vert c_u - c_w \vert / 4)} - \bar{b}_2$. Thus, there exists $b_2^{*,nominator} \geq \max \{ b_2^{*,basic}, \zeta_3 \}$ such that for all $b_2 \geq b_2^{*,nominator}$ and all $s \in [0, T/2]$ we have:
+	\begin{equation*}
+	\begin{array}{lclclclcl}
+		c_u - \left\vert c_u - c_w  \right\vert /4 &\leq& h_u(b_2, 0) &\leq& h_u(b_2,s) &\leq& h_u(b_2, T/2) &\leq& c_u + \left\vert c_u - c_w \right\vert /4, \\
+		c_w -  \left\vert c_u - c_w  \right\vert /4 &\leq& h_w(b_2, 0) &\leq& h_w(b_2,s) &\leq& h_w(b_2, T/2) &\leq& c_w + \left\vert c_u - c_w  \right\vert /4,
+	\end{array}
+	\end{equation*}
+	which implies that
+	$$ \left\vert h_u(b_2, s) - h_w(b_2,s)\right\vert \geq \frac{1}{2} \left\vert c_u - c_w \right\vert, \qquad \int_0^t h_u(b_2, s) ds \leq \left( c_u + \frac{1}{4} \left\vert c_u - c_w \right\vert \right) \cdot t.
+	$$
+	Thus, similar to inequality (\ref{eq:I1_ineq_b2_infinity}), for all $b_2 \geq b_2^{*,nominator}$ we deduce
+	\begin{IEEEeqnarray}{rCl}
+		(b_2 + \bar{b}_2) \Delta SC ^{b_2} &\geq & \frac{b_2 + \bar{b}_2}{2} B \int_0^{\frac{T}{2}} (u_t - w_t)^2 (\bar{x}^{MFG, b_2})^2 dt \nonumber \\
+		&\geq& \frac{\left\vert c_u - c_w \right\vert^2 (\mathbb{E}(\xi))^2}{8 (r+ \bar{r}(1-\bar{s})^2 )} \cdot (b_2 + \bar{b}_2) \int_0^{\frac{T}{2}} \exp \left( - \frac{2 (b_2 + \bar{b}_2)}{r +\bar{r}(1-\bar{s})^2} \cdot \left( c_u + \frac{1}{4} \left\vert c_u - c_w \right\vert \right) \cdot t \right) dt \nonumber \\
+		&\geq & \frac{\left\vert c_u - c_w \right\vert^2 (\mathbb{E}(\xi))^2}{32 (c_u +  \vert c_u - c_w \vert / 4)}	
+	\label{eq:nominator_ineq_b2_infinity}	
+	\end{IEEEeqnarray}
+	where the last inequality is justified by the choice of $\zeta_3$ so that
+	$  1 - e^{- \frac{T (c_u + \frac{1}{4} \vert c_u - c_w \vert )}{r+\bar{r}(1-\bar{s})^2}\cdot (b_2 + \bar{b}_2)}  \geq \frac{1}{2}$. \\
+	
+	
+	Step 2: We would like to provide an upper bound for $b_2\cdot SC^{MKV,b_2}$. From equation (\ref{eq:v_t_new_notation}), we have 
+	\begin{equation}
+	\begin{array}{rl}
+		& \displaystyle b_2 \cdot SC^{MKV,b_2}   \\
+		= & \displaystyle \underbrace{ \left[ \frac{q + \bar{q}}{2} \int_0^T b_2 v_t dt + \frac{q_T + \bar{q}_T}{2} b_2 v_T + \frac{b_2}{b_2+ \bar{b}_2} h_w(b_2, 0) (\mathbb{E}(\xi) )^2 \right] }_\text{\large{:= $J_1$}}  + \underbrace{ \frac{1}{2} \int_{0}^T  B^{\eta,b_2} (\eta_t^{b_2})^2 \cdot b_2 v_t dt }_\text{\large{:= $J_2$}}
+	\end{array}		
+	\end{equation}
+	
 \end{proof}
 
 %proposition b_2 \to 0
