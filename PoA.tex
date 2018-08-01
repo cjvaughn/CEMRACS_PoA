@@ -827,7 +827,7 @@ In the following propositions, we utilize the following assumption.
 	\frac{q+\bar{q}(1-s)}{r+\bar{r}(1-\bar{s})}=\frac{q+\bar{q}(1-s)^2}{r+\bar{r}(1-\bar{s})^2},
 	\end{equation*}
 	we have $c_{\delta_u^{b_2 \to \infty}}=c_{\delta_w^{b_2 \to \infty}}$ and therefore, $c_u = c_w =: c$. 
-	We would like to show in this case that $\lim_{b_2 \to \infty} \frac{\Delta SC^{b_2}}{SC^{MKV,b_2}} = 0$. Our approach is to split the interval $[0,T]$ into two parts: $[0,T/2]$ and $[T/2,T]$.	
+	We want to show that $\lim_{b_2 \to \infty} \frac{\Delta SC^{b_2}}{SC^{MKV,b_2}} = 0$. Our approach is to split the interval $[0,T]$ into two parts: $[0,T/2]$ and $[T/2,T]$.	
 	Since $v^{b_2}_t \geq 0$ for all $t\in [0,T]$, we have $SC^{MKV,b_2} \geq w_0^{b_2} (\mathbb{E}(\xi))^2$.	For the sake of simplicity, we denote $h_u(b_2,t) := (b_2 + \bar{b}_2) u_{t}^{b_2}$ and $h_w(b_2,t) := (b_2 + \bar{b}_2)w_t^{b_2}$. We have:
 	\begin{equation}
 	\begin{split}
@@ -896,15 +896,15 @@ In the following propositions, we utilize the following assumption.
 	%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 	% case 2: c_u \neq c_w
 	%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
-	\textbf{Case 2:} When
+	\textbf{Case 2:} When:
 	\begin{equation*}
 	\frac{q+\bar{q}(1-s)}{r+\bar{r}(1-\bar{s})} \neq \frac{q+\bar{q}(1-s)^2}{r+\bar{r}(1-\bar{s})^2},
 	\end{equation*}
-	we have $c_u \neq c_w$. In this situation, we will show that the Price of Anarchy tends to a number strictly greater than $1$ as $b_2$ tends to infinity. To do so, we will show that in this asymptotic regime, $(b_2 + \bar{b_2}) \Delta SC^{b_2}$ is lower bounded by a strictly positive constant $c_{nom}$, and meanwhile $b_2 \cdot SC^{MKV,b_2}$ is upper bounded by another constant $M_{den}$. Both of these constants are independent of $b_2$.\\
+	we have $c_u \neq c_w$. We want to show that $\lim_{b_2 \to \infty}PoA^{b_2}>1$. To do so, we will show that $(b_2 + \bar{b_2}) \Delta SC^{b_2}\geq c_{num}>0$ and $b_2 SC^{MKV,b_2} \leq M_{den}$ for large $b_2$, where $c_{num}$ and $M_{den}$ are two constants independent of $b_2$.
 	
 	We assume in the following that $b_2 \geq b_2^{*,basic} := \max \{b_2^{*,u,lower}, b_2^{*,\eta,lower}, b_2^{*,upper} \}$. As what have been discussed previously, we know that  $s \mapsto u_s^{b_2}$, $s \mapsto w_s^{b_2}$ and $s \mapsto \eta_s^{\eta}$ are increasing functions. Moreover, from equation (\ref{eq:ut_uniform_lower_bound_b2_infinity}) and (\ref{eq:eta_t_uniform_lower_bound_b2_infinity}), we have the uniform lower bounds $m_u$ and $m_\eta$ for $u_t^{b_2}$ and $\eta_t^{b_2}$. Also, for all $b_2 \geq b_2^{*,basic}$ and for all $t \in [0,T]$, we have $\eta_t^{b_2} \leq M$\\
 	
-	Step 1: we derive a lower bound for $\Delta SC^{b_2}$ by adapting the techniques used in inequality (\ref{eq:I1_ineq_b2_infinity}).  It has been shown that for every $0 \leq t <T$,  $h_u(b_2, t) \xrightarrow[b_2 \to \infty]{} c_u$ and $h_w(b_2, t) \xrightarrow[b_2 \to \infty]{} c_w$. Let $c_3 = \ln(2) \frac{r + \bar{r}(1-\bar{s})^2}{T (c_u + \vert c_u - c_w \vert / 4)} - \bar{b}_2$. Then, there exists $b_2^{*,nominator} \geq \max \{ b_2^{*,basic}, c_3 \}$ such that for all $b_2 \geq b_2^{*,nominator}$ and all $s \in [0, T/2]$ we have:
+	Step 1: we derive a lower bound for $\Delta SC^{b_2}$ by adapting the techniques used in inequality (\ref{eq:I1_ineq_b2_infinity}).  It has been shown that for every $0 \leq t <T$,  $h_u(b_2, t) \xrightarrow[b_2 \to \infty]{} c_u$ and $h_w(b_2, t) \xrightarrow[b_2 \to \infty]{} c_w$. Let $c_3 = \ln(2) \frac{r + \bar{r}(1-\bar{s})^2}{T (c_u + \vert c_u - c_w \vert / 4)} - \bar{b}_2$. Then, there exists $b_2^{*,numerator} \geq \max \{ b_2^{*,basic}, c_3 \}$ such that for all $b_2 \geq b_2^{*,numerator}$ and all $s \in [0, T/2]$ we have:
 	\begin{equation*}
 	\begin{array}{lclclclcl}
 		c_u - \left\vert c_u - c_w  \right\vert /4 &\leq& h_u(b_2, 0) &\leq& h_u(b_2,s) &\leq& h_u(b_2, T/2) &\leq& c_u + \left\vert c_u - c_w \right\vert /4, \\
@@ -914,15 +914,15 @@ In the following propositions, we utilize the following assumption.
 	which implies that for all $t \in [0,T/2]$
 	$$ \left\vert h_u(b_2, t) - h_w(b_2,t)\right\vert \geq \frac{1}{2} \left\vert c_u - c_w \right\vert, \qquad \int_0^t h_u(b_2, s) ds \leq \left( c_u + \frac{1}{4} \left\vert c_u - c_w \right\vert \right) \cdot t.
 	$$
-	Thus, similar to inequality (\ref{eq:I1_ineq_b2_infinity}), for all $b_2 \geq b_2^{*,nominator}$ we deduce
+	Thus, similar to inequality (\ref{eq:I1_ineq_b2_infinity}), for all $b_2 \geq b_2^{*,numerator}$ we deduce
 	\begin{IEEEeqnarray}{rCl}
 		(b_2 + \bar{b}_2) \Delta SC ^{b_2} &\geq & \frac{b_2 + \bar{b}_2}{2} B \int_0^{\frac{T}{2}} (u_t - w_t)^2 (\bar{x}^{MFG, b_2})^2 dt \nonumber \\
 		&\geq& \frac{\left\vert c_u - c_w \right\vert^2 (\mathbb{E}(\xi))^2}{8 (r+ \bar{r}(1-\bar{s})^2 )} \cdot (b_2 + \bar{b}_2) \int_0^{\frac{T}{2}} \exp \left( - \frac{2 (b_2 + \bar{b}_2)}{r +\bar{r}(1-\bar{s})^2} \cdot \left( c_u + \frac{1}{4} \left\vert c_u - c_w \right\vert \right) \cdot t \right) dt \nonumber \\
 		&\geq & \frac{\left\vert c_u - c_w \right\vert^2 (\mathbb{E}(\xi))^2}{16 (c_u +  \vert c_u - c_w \vert / 4)} \left( 1- e^{- \frac{T (c_u + \frac{1}{4} \vert c_u - c_w \vert )}{r+\bar{r}(1-\bar{s})^2}\cdot (b_2 + \bar{b}_2)} \right) \nonumber \\
-		&\geq & (2 c_{nom} ) \cdot \frac{1}{2} = c_{nom}
-	\label{eq:nominator_ineq_b2_infinity}	
+		&\geq & (2 c_{num} ) \cdot \frac{1}{2} = c_{num}
+	\label{eq:numerator_ineq_b2_infinity}	
 	\end{IEEEeqnarray}
-	where $c_{nom} =  \frac{\left\vert c_u - c_w \right\vert^2 (\mathbb{E}(\xi))^2}{32 (c_u +  \vert c_u - c_w \vert / 4)}$ and the last inequality is justified by the choice of $b_2 \geq c_3$. \\
+	where $c_{num} =  \frac{\left\vert c_u - c_w \right\vert^2 (\mathbb{E}(\xi))^2}{32 (c_u +  \vert c_u - c_w \vert / 4)}$ and the last inequality is justified by the choice of $b_2 \geq c_3$. \\
 	
 	
 	Step 2: We would like to provide an upper bound for $b_2\cdot SC^{MKV,b_2}$. From formula (\ref{eq:SC_MKV_2}), we have 
@@ -998,9 +998,9 @@ In the following propositions, we utilize the following assumption.
 	\end{equation}
 	
 		
-	Finally, together with inequalities (\ref{eq:nominator_ineq_b2_infinity}) and (\ref{eq:demumerator_ineq_b2_infinity}), let $b_2^{*,case 2} := \max \{ \bar{b}_2,  b_2^{*,nominator}, b_2^{*,denumerator} \}$ so that we have for all $b_2 \geq b_2^{*,case 2}$ the inequalities $ b_2 + \bar{b}_2 \leq 2 b_2$ and 
+	Finally, together with inequalities (\ref{eq:numerator_ineq_b2_infinity}) and (\ref{eq:demumerator_ineq_b2_infinity}), let $b_2^{*,case 2} := \max \{ \bar{b}_2,  b_2^{*,numerator}, b_2^{*,denumerator} \}$ so that we have for all $b_2 \geq b_2^{*,case 2}$ the inequalities $ b_2 + \bar{b}_2 \leq 2 b_2$ and 
 	\begin{equation}
-		\frac{\Delta SC^{b_2}}{SC^{MKV,b_2}} = \frac{(b_2 + \bar{b}_2) \Delta SC^{b_2} }{\left(\frac{b_2 + \bar{b}_2}{b_2} \right) \cdot (b_2 \cdot SC^{MKV,b_2} ) } \geq \frac{c_{nom}}{ 2 M_{den}} > 0.
+		\frac{\Delta SC^{b_2}}{SC^{MKV,b_2}} = \frac{(b_2 + \bar{b}_2) \Delta SC^{b_2} }{\left(\frac{b_2 + \bar{b}_2}{b_2} \right) \cdot (b_2 \cdot SC^{MKV,b_2} ) } \geq \frac{c_{num}}{ 2 M_{den}} > 0.
 	\end{equation}
 	Therefore, we can draw the conclusion that in case when $\frac{q+\bar{q}(1-s)}{r+\bar{r}(1-\bar{s})} \neq \frac{q+\bar{q}(1-s)^2}{r+\bar{r}(1-\bar{s})^2}$, we have 
 	$$ \lim_{b_2 \to \infty} PoA^{b_2} > 1.$$ 
