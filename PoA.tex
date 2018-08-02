@@ -620,20 +620,15 @@ PoA =1+ \frac{\Delta SC}{SC^{MKV}}= 1 +  \frac{ \displaystyle   \frac{(b_2 + \ba
     By equation (\ref{eq:x_bar_MFG_explicit}), $\mathbb{E}(\xi)=0$ implies $\bar{x}^{MFG}_t=0,\ \forall t \in [0,T]$. Therefore by Proposition \ref{prop:diff_SC}, $\Delta SC=0$. From equation (\ref{eq:v_t}), which we recall is equivalent to equation (\ref{eq:v_t_MKV}), $v_t>0$ which implies $h_{var}>0$. Therefore by equation (\ref{eq:SC_MKV_2}), $SC^{MKV}>0$. We conclude that $PoA=1$.
 \end{proof}
 
-
-We study in the following the variation of $PoA$ by letting one of the coefficients tend to zero or to infinity. It will be useful for us to note here the scalar Riccati equations associated with $u_t := \lambda \bar{\eta}_t^{MFG}$, $w_t := \bar{\eta}_t^{MKV}$ and $\eta_t$:
-    \begin{equation}
-		\dot{u}_t - 2A^u u_t - B u_t^2 + C^u =0, \qquad u_T = D^u,
-		\label{eq:riccati_ut}
-	\end{equation}	
-	\begin{equation}
-	    \dot{w}_t - 2A^w w_t - B w_t^2 + C^w =0, \qquad w_T = D^w,
-	\label{eq:riccati_wt}
-	\end{equation}
-	\begin{equation}
-	    \dot{\eta}_t - 2A^\eta \eta_t - B^\eta \eta_t^2 + C^\eta =0, \qquad \eta_T = D^\eta,
+It will be useful for us to note here the scalar Riccati equations associated with $u_t := \lambda \bar{\eta}_t^{MFG}$, $w_t := \bar{\eta}_t^{MKV}$ and $\eta_t$:
+    \begin{IEEEeqnarray}{lLLLClClCl}
+		\dot{u}_t &- 2A^u u_t &- B u_t^2 &+ C^u &= & 0, &\qquad& u_T &=& D^u,
+		\label{eq:riccati_ut} \\
+	    \dot{w}_t &- 2A^w w_t &- B w_t^2 &+ C^w &=&0, &\qquad &w_T &= & D^w,
+		\label{eq:riccati_wt}\\
+	    \dot{\eta}_t &- 2A^\eta \eta_t &- B^\eta \eta_t^2 &+ C^\eta &= & 0, &\qquad& \eta_T &= &D^\eta,
 	\label{eq:riccati_etat}
-	\end{equation}
+	\end{IEEEeqnarray}
 	with:
 	\begin{IEEEeqnarray*}{rClcrClcrCl}
 		A^u &=& - \left(b_1 + \frac{\bar{b}_1}{2}\right), & \qquad & 
@@ -655,24 +650,6 @@ If $B^u\neq 0$, $B^u D^u \geq 0$ and $B^uC^u >0$, we have (see equation (\ref{eq
 	\label{eq:riccati_ut_sol}
 \end{equation}
 with $\delta^\pm_u = -A^u \pm \sqrt{(A^u)^2 + B^u C^u}$. Under assumption (\ref{eq:assumptions}), the above conditions on $B^u$, $C^u$, and $D^u$ are satisfied, and we have $\delta^-_u<0<\delta^+_u$, $u_t > 0$ for all $t\in[0,T)$, and $u_T \geq 0$. We have analogous expressions for $w_t$ and $\eta_t$, in terms of $\delta^\pm_w$ and $\delta^\pm_{\eta}$, respectively. Note that $B^u=B^w=:B$.
-
-To make the following computations easier to follow, we repeat equations (\ref{eq:PoA_LQ}), (\ref{eq:x_bar_MFG_explicit}), and (\ref{eq:v_t}), which we recall is equivalent to  equation (\ref{eq:v_t_MKV}), using the above notations:
-\begin{equation}
-PoA =1+ \frac{\Delta SC}{SC^{MKV}}= 1 +  \frac{ \displaystyle B\int_0^T (u_t-w_t)^2 \cdot (\bar{x}_t^{MFG})^2 dt }{\displaystyle \int_0^T \left[q+\bar{q} + B^{\eta} \eta_t^2 \right] v_t dt + (q_T + \bar{q}_T) v_T + w_0 (\mathbb{E}(\xi))^2},
-\label{eq:PoA_LQ_new_notation}
-\end{equation}
-\begin{equation}
-\bar{x}^{MFG}_t=\mathbb{E}(\xi) e^{\int_0^t(b_1+\bar{b}_1-Bu_s)ds},
-\label{eq:x_bar_MFG_explicit_new_notation}
-\end{equation}
-\begin{equation}
-v_t=Var(\xi)e^{\int_0^t 2(b_1-B^{\eta} \eta_s)ds}+\sigma^2 \int_0^t e^{2 \int_s^t (b_1-B^{\eta}\eta_u) du}ds.
-\label{eq:v_t_new_notation}
-\end{equation}
-Also for convenience, recall the definition from equation (\ref{eq:lambda}):
-\begin{equation*}
-\lambda = \frac{b_2}{b_2 + \bar{b}_2}\cdot \frac{ r + \bar{r}(1-\bar{s})^2 }{r + \bar{r}(1-\bar{s})}.
-\end{equation*}
 
 It will also be useful to compute the derivative of $u_t$ with respect to time $t$ from the explicit form in equation (\ref{eq:riccati_ut_sol}):
 \begin{equation}
@@ -735,9 +712,22 @@ Note that $u_t$ is increasing if $B (D^{u})^2 + 2 A^u D^{u} - C^{u}>0$, and like
 	
 \end{proof}
 
+We study in the following the variation of $PoA$ by letting only one of the coefficients tend to zero or to infinity. In order to make the following computations easier to follow, we repeat equations (\ref{eq:PoA_LQ}), (\ref{eq:x_bar_MFG_explicit}), and (\ref{eq:v_t}), which we recall is equivalent to  equation (\ref{eq:v_t_MKV}), using the above notations:
+\begin{IEEEeqnarray}{l}
+	PoA = 1+ \frac{\Delta SC}{SC^{MKV}}= 1 +  \frac{ \displaystyle B\int_0^T (u_t-w_t)^2 \cdot (\bar{x}_t^{MFG})^2 dt }{\displaystyle \int_0^T \left[q+\bar{q} + B^{\eta} \eta_t^2 \right] v_t dt + (q_T + \bar{q}_T) v_T + w_0 (\mathbb{E}(\xi))^2},
+\label{eq:PoA_LQ_new_notation} \\[3pt]
+	\displaystyle \bar{x}^{MFG}_t =\mathbb{E}(\xi) e^{\int_0^t(b_1+\bar{b}_1-Bu_s)ds},
+\label{eq:x_bar_MFG_explicit_new_notation} \\[3pt]	
+	v_t = Var(\xi)e^{\int_0^t 2(b_1-B^{\eta} \eta_s)ds}+\sigma^2 \int_0^t e^{2 \int_s^t (b_1-B^{\eta}\eta_u) du}ds.
+\label{eq:v_t_new_notation}
+\end{IEEEeqnarray}
+Also for convenience, recall the definition from equation (\ref{eq:lambda}):
+$
+\displaystyle
+\lambda = \frac{b_2}{b_2 + \bar{b}_2}\cdot \frac{ r + \bar{r}(1-\bar{s})^2 }{r + \bar{r}(1-\bar{s})}.
+$
 
-
-In the following propositions, we utilize the following assumption.	
+\noindent In the following propositions, we utilize the following assumption to make their proofs simpler.	
 \begin{assumption}\label{assumption}
 	Assume (\ref{eq:assumptions}). In addition, assume: $b_1 > 0$, $D^{u} > 0$, $D^w > 0$, $D^{\eta} >0$ and the initial condition satisfies $\mathbb{E}(\xi) \neq 0$.
 \end{assumption}
