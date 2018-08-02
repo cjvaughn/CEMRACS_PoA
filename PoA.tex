@@ -281,7 +281,7 @@ provide a solution to the LQEMFG problem. Then from the appendix, we have:
 	\label{eq:eta_bar_MFG}
 	\end{equation}
 	with terminal condition $\bar{\eta}^{MFG}_T = q_T+\bar{q}_T(1-s_T)$, 
-	\item a first order equation for $\bar{x}_t^{MFG}$:
+	\item a linear first order ODE for $\bar{x}_t^{MFG}$:
 	\begin{equation}
 	\dot{\bar{x}}^{MFG}_t=\left[ b_1(t)+\bar{b}_1(t)+c^{MFG}(t)(b_2(t)+\bar{b}_2(t)) \cdot \bar{\eta}^{MFG}_t \right] \cdot \bar{x}^{MFG}_t
 	\label{eq:x_bar_MFG}
@@ -300,7 +300,7 @@ And thus, we obtain explicit solutions for $\bar{x}_t^{MFG}$ and $v_t^{MFG}$:
 	v^{MFG}_t &=& Var(\xi)e^{\int_0^t 2\left[b_1(s)+a^{MFG}(s)b_2(s) \cdot \eta^{MFG}_s\right]ds}+\sigma^2 \int_0^t e^{2 \int_s^t \left[b_1(u)+a^{MFG}(u)b_2(u)\eta^{MFG}_u\right] du}ds.
 	\label{eq:v_t}
 \end{IEEEeqnarray}
-Let $SC^{MFG}:=SC(\phi)$ in which $\phi=\phi(t,x)$ is the feedback function specified by this solution, namely from equation (\ref{eq:MFG_opt_alpha_Y_expY}) we have:
+Let $SC^{MFG}:=SC(\phi)$ in which $\phi=\phi(t,x)$ is the feedback function specified by this solution, namely, from equation (\ref{eq:MFG_opt_alpha_Y_expY}) we have:
 \begin{equation*}
     \phi(t,x)=a^{MFG}(t)\eta_t^{MFG}x+\left[a^{MFG}(t)(\bar{\eta}_t^{MFG}-\eta_t^{MFG})+b^{MFG}(t)\bar{\eta}_t^{MFG} \right]\bar{x}_t^{MFG}.
 \end{equation*}
@@ -330,7 +330,7 @@ To solve the linear quadratic optimal control problem of McKean-Vlasov type invo
 \end{split}
 \end{equation*}
 Since we require $\bar{\nu}_t$ to be equal to $\mathbb{E}(\alpha_t)$ throughout the optimization, it is not sufficient to minimize the Hamiltonian with respect to the $\alpha$ input alone in order to guarantee optimality. A sufficient condition for control problems of McKean-Vlasov type involving the law of the control is derived in \cite{carmona_acciaio}. Since we consider a Hamiltonian that depends on the means of $\bar{\mu}$ and $\bar{\nu}$ instead of the full distributions, the sufficient condition reduces to the following (see section 4 in \cite{carmona_acciaio}):
-$\hat{\alpha}(t,X_t,\bar{\mu},\bar{\nu},Y_t)$ should satisfy:
+$\hat{\alpha}_t=\hat{\alpha}(t,X_t,\bar{\mu},\bar{\nu},Y_t)$ should satisfy:
 \begin{equation*}
     \partial_{\alpha}H(t,X_t,\mathbb{E}(X_t),\hat{\alpha}_t,\mathbb{E}(\hat{\alpha}_t),Y_t)+\tilde{\mathbb{E}} \left[\partial_{\bar{\nu}}H(t,\tilde{X}_t,\mathbb{E}(X_t),\hat{\alpha}_t,\mathbb{E}(\hat{\alpha}_t),\tilde{Y}_t) \right]=0,
 \end{equation*}
@@ -344,61 +344,64 @@ where the adjoint equation is given by:
 \right.
 \end{equation*}
 where $(\boldsymbol{\tilde{X}},\boldsymbol{\tilde{Y}},\boldsymbol{\tilde{\alpha}})$ denotes an independent copy of $(\boldsymbol{X},\boldsymbol{Y},\boldsymbol{\alpha})$. In the present LQ case, the sufficient condition can be used to solve for:
-\begin{equation*}
+\begin{equation}
     \hat{\alpha}_t=a^{MKV}(t)Y_t+b^{MKV}(t)\mathbb{E}(Y_t),
-\end{equation*}
-and:
-\begin{equation*}
-    \mathbb{E}(\hat{\alpha}_t)=c^{MKV}(t)\mathbb{E}(Y_t),
-\end{equation*}
+    \label{eq:alpha_hat_MKV}
+\end{equation}
 with:
 \begin{equation*}
 \begin{split}
-    a^{MKV}(t)&=-\frac{b_2(t)}{r(t)+\bar{r}(t)} \\
-    b^{MKV}(t)&=-\frac{1}{r(t)+\bar{r}(t)}\left(\bar{b}_2(t)-\frac{\bar{r}(t)\bar{s}(t)(\bar{s}(t)-2)(b_2(t)+\bar{b}_2(t))}{r(t)+\bar{r}(t)(1-\bar{s}(t))^2} \right) \\
-    c^{MKV}(t)&=-\frac{b_2(t)+\bar{b}_2(t)}{r(t)+\bar{r}(t)(1-\bar{s}(t))^2}.
+    a^{MKV}(t)&=-\frac{b_2(t)}{r(t)+\bar{r}(t)}, \quad \text{and} \quad b^{MKV}(t)=-\frac{1}{r(t)+\bar{r}(t)}\left(\bar{b}_2(t)-\frac{\bar{r}(t)\bar{s}(t)(\bar{s}(t)-2)(b_2(t)+\bar{b}_2(t))}{r(t)+\bar{r}(t)(1-\bar{s}(t))^2} \right).
 \end{split}
 \end{equation*}
-Note that $c^{MKV}(t)=a^{MKV}(t)+b^{MKV}(t)$. So the solution of the optimal control problem of McKean-Vlasov type is given by the solution to the FBSDE system:
+Then $\mathbb{E}(\hat{\alpha}_t)=c^{MKV}(t)\mathbb{E}(Y_t)$ with:
+   $$ c^{MKV}(t)=a^{MKV}(t)+b^{MKV}(t)=-\frac{b_2(t)+\bar{b}_2(t)}{r(t)+\bar{r}(t)(1-\bar{s}(t))^2}.$$
+
+So the solution of the optimal control problem of McKean-Vlasov type is given by the solution to the FBSDE system:
 \begin{equation}
+\left\{
 \begin{split}
         dX_t=&\left[b_1(t)X_t+\bar{b}_1(t) \mathbb{E}X_t+a^{MKV}(t)b_2(t)Y_t+(b^{MKV}(t)b_2(t)+c^{MKV}(t)\bar{b}_2(t))\mathbb{E}Y_t\right]dt+\sigma dW_t \\
         dY_t=&-\left[(q(t)+\bar{q}(t))X_t+s(t)\bar{q}(t)(s(t)-2)\mathbb{E}X_t+b_1(t)Y_t+\bar{b}_1(t)\mathbb{E}Y_t\right]dt +Z_t dW_t,
 \end{split}
+\right.
 \label{eq:FBSDE_EMKV}
 \end{equation}
 with initial condition $X_0=\xi$, and terminal condition $Y_T=(q_T+\bar{q}_T)X_T+s_T\bar{q}_T(s_T-2)\mathbb{E}X_T$.
 
-As in the previous section, this is a linear FBSDE of McKean-Vlasov type, which can be solved explicitly under mild assumptions (or at least in the case of time-independent coefficients which we will consider later. See Appendix \ref{appendix_solving_fbsdes}). Let $\bar{\eta}_t^{MKV}$, $\eta_t^{MKV}$, $\bar{x}_t^{MKV}$, and $v^{MKV}_t$ so that $Y_t=\eta_t^{MKV}X_t+(\bar{\eta}_t^{MKV}-\eta_t^{MKV})\bar{x}_t^{MKV}$, $\mathbb{E}(Y_t)=\bar{\eta}_t^{MKV}\bar{x}_t^{MKV}$, $\mathbb{E}(X_t)=\bar{x}_t^{MKV}$, and $Var(X_t)=v^{MKV}_t$ provide a solution to the LQEMKV problem. Then from the appendix, we have:
-\begin{equation}
-\begin{split}
-\dot{\bar{\eta}}^{MKV}_t+c^{MKV}(t)(b_2(t)+\bar{b}_2(t)) (\bar{\eta}^{MKV}_t)^2+2(b_1(t)+\bar{b}_1(t)) \bar{\eta}^{MKV}_t +q(t)+\bar{q}(t)(1-s(t))^2&=0,\\
-\bar{\eta}^{MKV}_T-(q_T+\bar{q}_T(1-s_T)^2)&=0,
-\end{split}
-\label{eq:eta_bar_MKV}
-\end{equation}
-\begin{equation}
-\begin{split}
-\dot{\eta}^{MKV}_t+a^{MKV}(t)b_2(t)(\eta^{MKV}_t)^2+2b_1(t)\eta^{MKV}_t+q(t)+\bar{q}(t)&=0, \\
-\eta^{MKV}_T-(q_T+\bar{q}_T)&=0,
-\end{split}
-\end{equation}
-\begin{equation}
-\begin{split}
-\dot{\bar{x}}^{MKV}_t&=\left[b_1(t)+\bar{b}_1(t)+c^{MKV}(t)(b_2(t)+\bar{b}_2(t))\bar{\eta}^{MKV}_t\right]\bar{x}^{MKV}_t, \\
-\bar{x}^{MKV}_0&=\mathbb{E}(\xi).
-\end{split}
-\label{eq:x_bar_MKV}
-\end{equation}
-And thus,
-\begin{equation}
-\bar{x}^{MKV}_t=\mathbb{E}(\xi) e^{\int_0^t\left[b_1(u)+\bar{b}_1(u)+c^{MKV}(u)(b_2(u)+\bar{b}_2(u)\bar{\eta}^{MKV}_u)\right]du},
-\end{equation}
-\begin{equation}
-v^{MKV}_t=Var(\xi)e^{\int_0^t 2\left[b_1(s)+a^{MKV}(s)b_2(s)\eta^{MKV}_s\right]ds}+\sigma^2 \int_0^t e^{2 \int_s^t \left[b_1(u)+a^{MKV}(u)b_2(u)\eta^{MKV}_u\right] du}ds.
-\label{eq:v_t_MKV}
-\end{equation}
-Then $SC^{MKV}=SC(\phi)$ where $\phi$ is the feedback function specified by this solution, i.e.
+As in the previous section, this is a linear FBSDE of McKean-Vlasov type, which can be solved explicitly under mild assumptions (or at least in the case of time-independent coefficients which we will consider later. See Appendix \ref{appendix_solving_fbsdes}). Let $\bar{\eta}_t^{MKV}$, $\eta_t^{MKV}$, $\bar{x}_t^{MKV}$, and $v^{MKV}_t$ denote the solutions for this problem as described in the appendix so that:
+\begin{align*}
+Y_t =\eta_t^{MKV}X_t+(\bar{\eta}_t^{MKV}-\eta_t^{MKV})\bar{x}_t^{MKV}, \quad &\mathbb{E}(Y_t) =\bar{\eta}_t^{MKV}\bar{x}_t^{MKV},\\
+\mathbb{E}(X_t) =\bar{x}_t^{MKV}, \quad &Var(X_t)=v^{MKV},
+\end{align*}
+provide a solution to the LQEMKV problem. Then from the appendix, we have:
+\begin{itemize}
+	\item a scalar Riccati equation for $\bar{\eta}_t^{MKV}$:
+	\begin{equation}
+	\dot{\bar{\eta}}^{MKV}_t+ \left[ c^{MKV}(t)(b_2(t)+\bar{b}_2(t)) \right] \cdot (\bar{\eta}^{MKV}_t)^2+ 2\left(b_1(t)+\bar{b}_1(t) \right) \cdot \bar{\eta}^{MKV}_t +q(t)+\bar{q}(t)(1-s(t))^2 =0
+	\label{eq:eta_bar_MKV}
+	\end{equation}
+	with terminal condition $\bar{\eta}^{MKV}_T = q_T+\bar{q}_T(1-s_T)^2$, 
+	\item a linear first order ODE for $\bar{x}_t^{MKV}$:
+	\begin{equation}
+	\dot{\bar{x}}^{MKV}_t=\left[ b_1(t)+\bar{b}_1(t)+c^{MKV}(t)(b_2(t)+\bar{b}_2(t)) \cdot \bar{\eta}^{MKV}_t \right] \cdot \bar{x}^{MKV}_t
+	\label{eq:x_bar_MKV}
+	\end{equation}
+	with initial condition $\bar{x}^{MKV}_0=\mathbb{E}(\xi)$,
+	\item a scalar Riccati equation for $\eta_t^{MKV}$:
+	\begin{equation}
+	\dot{\eta}^{MKV}_t+a^{MKV}(t)b_2(t)\cdot (\eta^{MKV}_t)^2 + 2b_1(t) \cdot \eta^{MKV}_t+q(t)+\bar{q}(t)=0
+	\end{equation}
+	with terminal condition $\eta^{MKV}_T = q_T+\bar{q}_T$,
+\end{itemize}
+where the dot is the standard ODE notation for a derivative. 
+And thus, we obtain explicit solutions for $\bar{x}_t^{MKV}$ and $v_t^{MKV}$:
+\begin{IEEEeqnarray}{rCl}
+	\bar{x}^{MKV}_t &=& \mathbb{E}(\xi) e^{ \int_0^t\left( b_1(s)+\bar{b}_1(s)+ \left[ c^{MKV}(s)(b_2(s)+\bar{b}_2(s))\right] \cdot \bar{\eta}^{MKV}_s\right) ds} \label{eq:x_bar_MKV_explicit} \\ 
+	v^{MKV}_t &=& Var(\xi)e^{\int_0^t 2\left[b_1(s)+a^{MKV}(s)b_2(s) \cdot \eta^{MKV}_s\right]ds}+\sigma^2 \int_0^t e^{2 \int_s^t \left[b_1(u)+a^{MKV}(u)b_2(u)\eta^{MKV}_u\right] du}ds.
+	\label{eq:v_t_MKV}
+\end{IEEEeqnarray}
+Then $SC^{MKV}=SC(\phi)$ where $\phi$ is the feedback function specified by this solution, namely, from equation (\ref{eq:alpha_hat_MKV}), we have:
 \begin{equation*}
     \phi(t,x)=a^{MKV}(t)\eta_t^{MKV}x+\left[a^{MKV}(t)(\bar{\eta}_t^{MKV}-\eta_t^{MKV})+b^{MKV}(t)\bar{\eta}_t^{MKV} \right]\bar{x}_t^{MKV}.
 \end{equation*}
@@ -412,11 +415,11 @@ Then we can compute the social cost, denoted $SC^{MKV}$, as described in Section
 \end{equation*}
 where we have used the fact that:
 \begin{equation*}
-    \mathbb{E}(\phi(t,X_t))=c^{MKV}(t)\bar{\eta}_t^{MKV}\bar{x}_t^{MKV},
-\end{equation*}
-and:
-\begin{equation*}
-    Var(\phi(t,X_t))=(a^{MKV}(t)\eta_t^{MKV})^2v^{MKV}_t.
+\mathbb{E}(\phi(t,X_t))=c^{MKV}(t)\cdot \bar{\eta}_t^{MKV}\bar{x}_t^{MKV}
+\qquad 
+\text{and}
+\qquad
+Var(\phi(t,X_t))=\left(a^{MKV}(t)\eta_t^{MKV} \right)^2 \cdot v^{MKV}_t.
 \end{equation*}
 
 \subsection{\textbf{Theoretical Results}}
