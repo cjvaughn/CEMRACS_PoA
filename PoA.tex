@@ -953,7 +953,7 @@ $
 	\end{equation*}
 	Then $c_u \neq c_w$. We want to show that $\lim_{b_2 \to \infty}PoA^{b_2}>1$. To do so, we will show that $(b_2 + \bar{b_2}) \Delta SC^{b_2}\geq c_{num}>0$ and $b_2 SC^{MKV,b_2} \leq M_{den}<\infty$ for large $b_2$, where $c_{num}$ and $M_{den}$ are two constants independent of $b_2$. We assume in the following that $b_2 \geq b_2^{*,basic} := \max \{b_2^{*,u,lower}, b_2^{*,\eta,lower}, b_2^{*,upper} \}$, as defined prior to Case 1. Therefore, $s \mapsto u_s^{b_2}$, $s \mapsto w_s^{b_2}$ and $s \mapsto \eta_s^{\eta}$ are increasing functions. Moreover, from inequalities (\ref{eq:ut_uniform_lower_bound_b2_infinity})-(\ref{eq:ut_wt_upper_bound_b2_infty}), we have $b_2 u_t^{b_2} \geq m_u>0$, $b_2 \eta_t^{b_2} \geq m_\eta>0$, and $\eta_t^{b_2} \leq M<\infty$, for all $t\in[0,T]$.
 	
-	Step 1: We derive a lower bound for $(b_2+\bar{b}_2)\Delta SC^{b_2}$ by adapting the techniques used in inequality (\ref{eq:I1_ineq_b2_infinity}).  We have shown that for every $t \in[0,T]$,  $\lim_{b_2 \to \infty} h_u(b_2, t)= c_u$ and $\lim_{b_2 \to \infty} h_w(b_2, t)= c_w$. Let $c_3 = \ln(2) \frac{r + \bar{r}(1-\bar{s})^2}{T (c_u + \vert c_u - c_w \vert / 4)} - \bar{b}_2$. Then, there exists $b_2^{*,num} \geq \max \{ b_2^{*,basic}, c_3 \}$ such that for all $b_2 \geq b_2^{*,num}$ and all $s \in [0, T/2]$, we have:
+	Step 1: We derive a lower bound for $(b_2+\bar{b}_2)\Delta SC^{b_2}$ by adapting the techniques used in inequality (\ref{eq:I1_ineq_b2_infinity}).  We have shown that for every $t \in[0,T/2]$,  $\lim_{b_2 \to \infty} h_u(b_2, t)= c_u$ and $\lim_{b_2 \to \infty} h_w(b_2, t)= c_w$. Let $c_3 = \ln(2) \frac{r + \bar{r}(1-\bar{s})^2}{T (c_u + \vert c_u - c_w \vert / 4)} - \bar{b}_2$. Then, there exists $b_2^{*,num} \geq \max \{ b_2^{*,basic}, c_3 \}$ such that for all $b_2 \geq b_2^{*,num}$ and all $s \in [0, T/2]$, we have:
 	\begin{equation*}
 	\begin{array}{lclclclcl}
 		c_u - \left\vert c_u - c_w  \right\vert /4 &\leq& h_u(b_2, 0) &\leq& h_u(b_2,s) &\leq& h_u(b_2, T/2) &\leq& c_u + \left\vert c_u - c_w \right\vert /4, \\
@@ -996,7 +996,7 @@ $
 	\label{eq:l(t)_transformation_b2_infinity}
 	\end{equation}
 	
-	First, consider $J^{b_2}_1$. From equation (\ref{eq:v_t_new_notation}) and inequality (\ref{eq:l(t)_upper_bound_b2_infinity}), we have that for all $b_2 \geq b_2^{*,basic}$ and for all $t \in [0,T]$:
+	First, consider $J^{b_2}_1$. From equation (\ref{eq:v_t_new_notation}) and inequalities (\ref{eq:eta_t_uniform_lower_bound_b2_infinity}) and (\ref{eq:l(t)_upper_bound_b2_infinity}), we have that for all $b_2 \geq b_2^{*,basic}$ and for all $t \in [0,T]$:
 	\begin{IEEEeqnarray*}{rCl}
 		b_2 v_t &= & Var(\xi) e^{2b_1 t} \cdot b_2 e^{- 2 B^{\eta,b_2} \int_0^t \eta_s ds } + \sigma^2 \cdot b_2 \int_0^t e^{2b_1 (t-s)} \cdot e^{-2B^{\eta,b_2} \int_s^t \eta_u du} ds \nonumber \\	
 		&\leq& Var(\xi) e^{2b_1 T}\cdot b_2 e^{- \frac{2 b_2}{r + \bar{r}} m_\eta \cdot t} + \sigma^2 e^{2 b_1 T} b_2 \cdot l(t)  \nonumber \\
@@ -1015,7 +1015,7 @@ $
 	\end{IEEEeqnarray}	
 
 	
-	Next, consider the quantity $J^{b_2}_2$, which we can write as:
+	Next, consider the quantity $J^{b_2}_2$, which can be written as:
 	\begin{IEEEeqnarray*}{rCl}
 		J^{b_2}_2 &=& \frac{1}{2 (r + \bar{r}) }\int_0^T \left(b_2 \eta_t^{b_2} \right)^2 Var(\xi) e^{2b_1 t} \cdot b_2 \exp \left( - 2 B^{\eta,b_2} \int_0^t \eta_s ds \right) dt \nonumber \\
 		&& \hspace{10em}  + \frac{\sigma^2}{2} \cdot  b_2 \int_0^T B^{\eta,b_2} (\eta_t^{b_2})^2 \left( \int_0^t e^{2b_1(t-s) - 2B^{\eta,b_2} \int_s^t \eta_u^{b_2} du} ds \right)  dt .
@@ -1028,14 +1028,13 @@ $
 	
 	Since $\lim_{b_2 \to \infty} b_2 \eta_t^{b_2}= c_\eta$ for all $t \in [0, T/2]$, there exists $b_2^{*,J_2} \geq \max\{ b_2^{*,l}, b_2^{*,basic} \}$ such that for all $b_2 \geq b_2^{*,J_2}$:
 	$$ b_2 \eta_t  \leq c_\eta + \frac{1}{2} c_\eta, \quad \forall \  t \in [0,T/2],  \quad \text{and} \quad b_2^{3} e^{-\kappa_5 b_2 \frac{T}{2} } \leq \frac{1}{\kappa_5}.$$
-	Thus, together with inequalities (\ref{eq:ut_wt_upper_bound_b2_infty}), (\ref{eq:l(t)_transformation_b2_infinity}) and (\ref{eq:intgeral_b2_eta_t_bound_b2_infinity}), and for $\kappa_6 := \frac{Var(\xi) e^{2b_1 T} }{2 (r+\bar{r})}$, we deduce that:
+	Thus, together with inequalities (\ref{eq:eta_t_uniform_lower_bound_b2_infinity}), (\ref{eq:ut_wt_upper_bound_b2_infty}), (\ref{eq:l(t)_transformation_b2_infinity}), and (\ref{eq:intgeral_b2_eta_t_bound_b2_infinity}), and for $\kappa_6 := \frac{Var(\xi) e^{2b_1 T} }{2 (r+\bar{r})}$, we deduce that:
 	\begin{IEEEeqnarray}{rCl}
 		J^{b_2}_2 &\leq& \frac{Var(\xi) e^{2b_1 T} }{2 (r+\bar{r})} \left[ \int_0^{\frac{T}{2}} \left(b_2 \eta^{b_2}_t \right)^2 b_2 e^{- \kappa_5 b_2 t} dt  +  \int_{\frac{T}{2}}^{T} (\eta_t^{b_2})^2 b_2^3  e^{ - 2 B^{\eta, b_2} \int_0^{t} \eta_s^{b_2} ds } dt \right]  + \frac{\sigma^2  e^{2 b_1 T}}{2} \int_0^T b_2 \eta_t^{b_2} dt  \nonumber \\
 		&\leq& 	\kappa_6 \left[ \left(\frac{3 c_\eta}{2} \right)^2 \frac{1}{\kappa_5}(1- e^{-\kappa_5 b_2 \frac{T}{2}}) + M^2 \cdot b_2^3 e^{- \kappa_5 b_2 \frac{T}{2}} \cdot \frac{T}{2} \right] + \frac{\sigma^2  e^{2 b_1 T}}{2} M_{l} \nonumber \\
 		&\leq& \frac{\kappa_6}{\kappa_5} \left( \frac{9}{4} c_\eta^2 + \frac{M^2 T}{2} \right) + \frac{\sigma^2  e^{2 b_1 T}  M_{l}}{2} =: M_{J_2}.
 	\label{eq:J2_upper_bound_b2_infinity}
 	\end{IEEEeqnarray} 
-	
 	Now, from equation (\ref{eq:J1_plus_J2_b2_infinity}) and inequalities (\ref{eq:J1_upper_bound_b2_infinity}) and (\ref{eq:J2_upper_bound_b2_infinity}), we have for all $b_2 \geq b_2^{*,den} := \max \{ b_2^{*,J_1}, b_2^{*,J_2} \}$:
 	\begin{equation} 
 		b_2 SC^{MKV, b_2}  = J^{b_2}_1 + J^{b_2}_2 \leq M_{J_1} + M_{J_2} =: M_{den}.
@@ -1329,44 +1328,44 @@ The following lemma was used in Proposition \ref{prop:b2_to_infty}.
 \begin{proof}
 	\textbf{Case 1:} Consider $b_1 \to \infty$. Since $\lim_{b_1 \to \infty} A^{u,b_1} = \lim_{b_1 \to \infty} A^{w,b_1} = - \infty$ we have:
 	$$\lim_{b_1 \to \infty}B (D^{u})^2 + 2 A^{u,b_1} D^{u} - C^{u} = \lim_{b_1 \to \infty}B (D^{w})^2 + 2 A^{w,b_1} D^{w} - C^{w}=-\infty.$$
-	Denote $h_u(b_1,t): = B \frac{u_t^{b_1}}{b_1}$ and $h_w(b_1,t) := B \frac{w_t^{b_1}}{b_1}$. For all $t \in [0,T)$, we have the limits:
+	Denote $g_u(b_1,t): = B \frac{u_t^{b_1}}{b_1}$ and $g_w(b_1,t) := B \frac{w_t^{b_1}}{b_1}$. For all $t \in [0,T)$, we have the limits:
 	\begin{equation}
-		\lim_{b_1 \to \infty} h_u(b_1,t) =  \lim_{b_1 \to \infty} h_w(b_1,t) = 2.
+		\lim_{b_1 \to \infty} g_u(b_1,t) =  \lim_{b_1 \to \infty} g_w(b_1,t) = 2.
 	\label{eq:ut_wt_lim_b1_infty}
 	\end{equation}
 	From equation (\ref{eq:riccati_ut_sol_deriv}), and together with equation (\ref{eq:ut_wt_lim_b1_infty}), there exists $b_1^{*,upper} >0$ such that for all $b_1 \geq b_1^{*,upper}$, the functions $t \mapsto u_t^{b_1}$ and $t \mapsto w_t^{b_1}$ are decreasing and such that:
-	$$ \sup_{0 \leq t \leq T} \left\{ h_u(b_1, t), h_w(b_1,t)\right\} \leq \max \left\{ h_u(b_1, 0), h_w(b_1,0) \right\} \leq 3.$$
+	$$ \sup_{0 \leq t \leq T} \left\{ g_u(b_1, t), g_w(b_1,t)\right\} \leq \max \left\{ g_u(b_1, 0), g_w(b_1,0) \right\} \leq 3.$$
 	
 	Fix $\epsilon>0$. There exists $b^{*,I_1}_1\geq b_1^{*,upper}$ such that for all $b_1 \geq b_1^{*,I_1} $, and for all $t \in [0, 3T/4]$,
 	\begin{equation*}
 	\begin{split}
-	\vert h_u(b_1, t) - h_w(b_1,t) \vert  &=\max \{h_u(b_1, t)-h_w(b_1, t),h_w(b_1, t)-h_u(b_1, t) \}\\
-	&\leq \max \{h_u(b_1, 0)-h_w(b_1, 3T/4),h_w(b_1, 0)-h_u(b_1, 3T/4) \} \\
+	\vert g_u(b_1, t) - g_w(b_1,t) \vert  &=\max \{g_u(b_1, t)-g_w(b_1, t),g_w(b_1, t)-g_u(b_1, t) \}\\
+	&\leq \max \{g_u(b_1, 0)-g_w(b_1, 3T/4),g_w(b_1, 0)-g_u(b_1, 3T/4) \} \\
 	&\leq \epsilon,
 	\end{split}
 	\end{equation*}
 	and
-	$$h_w(b_1,0) \geq 2 - \frac{1}{3} = \frac{5}{3},\quad  h_u(b_1,t) \geq h_u(b_1, 3T/4) \geq \frac{5}{3}.$$
+	$$g_w(b_1,0) \geq 2 - \frac{1}{3} = \frac{5}{3},\quad  g_u(b_1,t) \geq g_u(b_1, 3T/4) \geq \frac{5}{3}.$$
 	We adapt the methodology in Proposition \ref{prop:b2_to_infty} and split the interval $[0,T]$ into two parts: $[0, 3T/4]$ and $[3T/4, T]$. For all $b_1 \geq b_1^{*,I_1}$, similar to inequality (\ref{eq:I_1_plus_I_2}), we have:
 	\begin{equation*}
-		\frac{\Delta SC^{b_1}}{SC^{MKV,b_1}} \leq \frac{I^{b_1}_1 + I^{b_1}_2 }{h_w(b_1,0)},
+		\frac{\Delta SC^{b_1}}{SC^{MKV,b_1}} \leq \frac{I^{b_1}_1 + I^{b_1}_2 }{g_w(b_1,0)},
 	\end{equation*}
 	where
 	\begin{IEEEeqnarray*}{rCl}
-	I^{b_1}_1 &=& b_1 \int_0^{\frac{3}{4}T} \left( h_u(b_1,t) - h_w(b_1,t) \right)^2 e^{2\bar{b}_1 t} \cdot \exp \left( 2b_1 t - 2 b_1 \int_0^t h_u(b_1,s) ds \right) dt \nonumber \\
+	I^{b_1}_1 &=& b_1 \int_0^{\frac{3}{4}T} \left( g_u(b_1,t) - g_w(b_1,t) \right)^2 e^{2\bar{b}_1 t} \cdot \exp \left( 2b_1 t - 2 b_1 \int_0^t g_u(b_1,s) ds \right) dt \nonumber \\
 	&\leq & \epsilon^2 e^{2\bar{b}_1 \cdot \frac{3}{4} T } \cdot b_1 \int_0^{\frac{3}{4}T} \exp \left( 2b_1 t - 2 b_1 \cdot \frac{5}{3} t \right) dt  \nonumber \\
 	&= & \epsilon^2 e^{\frac{3\bar{b}_1 T}{2} } \cdot \frac{3}{4}(1-e^{-b_1T})  \nonumber \\	
 	& \leq & \kappa_1 \epsilon^2 ,
 	\end{IEEEeqnarray*} 	
 	in which $\kappa_1 := \frac{3}{4} e^{\frac{3\bar{b}_1 T}{2} } $, and
 	\begin{IEEEeqnarray*}{rCl}
-		 I^{b_1}_2 &=& b_1 \int_{\frac{3}{4}T}^T \left( h_u(b_1,t) - h_w(b_1,t) \right)^2 e^{2\bar{b}_1 t} \cdot \exp \left( 2b_1 t - 2 b_1 \int_0^t h_u(b_1,s) ds \right) dt \nonumber \\
-		 &\leq & b_1 (3+3)^2 e^{2 \bar{b}_1 T} \cdot \int_{\frac{3}{4}T}^{T}  \exp \left( 2b_1 t - 2b_1 \int_0^{\frac{3}{4}T} h_u(b_1,s) ds \right) dt \nonumber \\
+		 I^{b_1}_2 &=& b_1 \int_{\frac{3}{4}T}^T \left( g_u(b_1,t) - g_w(b_1,t) \right)^2 e^{2\bar{b}_1 t} \cdot \exp \left( 2b_1 t - 2 b_1 \int_0^t g_u(b_1,s) ds \right) dt \nonumber \\
+		 &\leq & b_1 (3+3)^2 e^{2 \bar{b}_1 T} \cdot \int_{\frac{3}{4}T}^{T}  \exp \left( 2b_1 t - 2b_1 \int_0^{\frac{3}{4}T} g_u(b_1,s) ds \right) dt \nonumber \\
 		 &\leq & 36 e^{2 \bar{b}_1 T} b_1 \cdot \frac{T}{4} \exp\left(2b_1 \cdot T - 2 b_1 \cdot  \frac{3}{4} T \cdot \frac{5}{3} \right) \nonumber \\
 		 &=&  9 T e^{2 \bar{b}_1 T} b_1 e^{- \frac{1}{2} b_1 T} \xrightarrow[b_1 \to \infty]{}0.
 	\end{IEEEeqnarray*}
 	Therefore, there exists $b_1^{*} \geq b_1^{*,I_1}$, so that for $b_1 \geq b_1^*$, we have $I^{b_1}_2 \leq \epsilon$. Hence, for all $b_1 \geq b_1^{*}$,
-	$$ 	\frac{\Delta SC^{b_1}}{SC^{MKV,b_1}} \leq \frac{I^{b_1}_1 + I^{b_1}_2 }{h_w(b_1,0)} \leq \frac{3}{5} (\kappa_1 \epsilon^2 + \epsilon).$$
+	$$ 	\frac{\Delta SC^{b_1}}{SC^{MKV,b_1}} \leq \frac{I^{b_1}_1 + I^{b_1}_2 }{g_w(b_1,0)} \leq \frac{3}{5} (\kappa_1 \epsilon^2 + \epsilon).$$
 	Since the proof holds for arbitrary $\epsilon>0$, and $\kappa_1 = \frac{3}{4} e^{\frac{3\bar{b}_1 T}{2} }$ is independent of $b_1$ and $\epsilon$, we conclude that:
 	$$ \lim_{b_1 \to \infty} PoA^{b_1} = 1.$$ \\
 	
