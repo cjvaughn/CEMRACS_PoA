@@ -763,7 +763,7 @@ $
 	\begin{equation*}
 	u_t^{r \to \infty} = \left(D^{r \to \infty}_u - \frac{C^{r \to \infty}_u}{2A^u} \right) e^{-2A^u (T-t)} +  \frac{C^{r \to \infty}_u}{2A^u}.
 	\end{equation*}
-	It is easy to show directly from their explicit solutions that for every time $t\in [0,T]$, $$\lim_{r \to \infty}u^r_t=u^{r \to \infty}_t, \quad \text{and thus,} \quad \lim_{r \to \infty}B^ru^r_t=0.$$
+	It is easy to show directly from their explicit solutions (see equation (\ref{eq:riccati_ut_sol})) that for every time $t\in [0,T]$, $$\lim_{r \to \infty}u^r_t=u^{r \to \infty}_t, \quad \text{and thus,} \quad \lim_{r \to \infty}B^ru^r_t=0.$$
 	
 	Next, our goal is to bound the $u^r_t$ uniformly over $t \in [0,T]$ for large $r$.
 	Note that  $A^u < 0$, $B^r$, $C^{u,r}$, $\lambda^{r\to \infty}$, $C^{r \to \infty}_u$, $D^{u,r}$, $D^{r \to \infty}_u> 0$, and $\delta^{-,r}_u < 0 < \delta^{+,r}_u$. Let $\epsilon>0$. Then there exists $r^*>0$ such that $\max\{ B^{r}, C^{u,r}, D^{u,r} \} \leq \max\{C^{r \to \infty}_u,D^{r \to \infty}_u \}+\epsilon=: c_1$ for $r \geq r^*$. Thus, we can deduce that for $r \geq r^*$, and for every $t \in [0,T]$:
@@ -1064,39 +1064,30 @@ The following lemma was used in Proposition \ref{prop:b2_to_infty}.
 \end{lemma}
 
 \begin{proof}
-	As noted in the proof of Proposition \ref{prop:b2_to_infty}, for $t\in[0,T)$, we have:
-	$$\lim_{b_2 \to \infty}b_2\eta^{b_2}_t=(r + \bar{r}) c_{\delta_{\eta}^{b_2 \to \infty}}=\sqrt{(r+\bar{r})(q+\bar{q})} =: c_\eta.$$
-	And thus, there exists $b_2^{*,1}$ such that for $b_2 \geq b_2^{*,1}$, we have
+	Since $\lim_{b_2 \to \infty}b_2\eta^{b_2}_t= c_\eta,$ there exists $b_2^{*,1}$ such that for $b_2 \geq b_2^{*,1}$, we have
 	$b_2\eta^{b_2}_0 \leq c_\eta+\frac{1}{2}.$
 	Clearly there exists $b_2^{*,2}$ such that for $b_2 \geq b_2^{*,2}$:
 	$$b_2\eta^{b_2}_T=b_2D^\eta=b_2(q_T+\bar{q}_T)\geq c_\eta+2.$$
-	Since $\lim_{b_2 \to \infty} B^\eta (D^\eta)^2+2A^\eta D^\eta-C^\eta=\infty$, from equation (\ref{eq:riccati_ut_sol_deriv}) there exists $b_2^{*,3}$ such that for $b_2 \geq b_2^{*,3}$, the function $t \mapsto b_2 \eta^{b_2}_t$ is increasing. Since for $b_2 \geq \max \{b_2^{*,1},b_2^{*,2},b_2^{*,3} \}$, the function $t \mapsto b_2 \eta^{b_2}_t$ is increasing and continuous, by the intermediate value theorem, there exists a $t^*_{b_2}\in[0,T]$ such that:
-	$$b_2 \eta^{b_2}_{t^*_{b_2}} =c_\eta+1, \quad \text{and} \quad b_2 \eta^{b_2}_t \leq c_\eta+1,\ \forall t\leq t^*_{b_2}.$$
-	Thus for $b_2 \geq \max \{b_2^{*,1},b_2^{*,2},b_2^{*,3} \}$, we have:
-	\begin{equation*}
-	\begin{split}
-	1=b_2\eta^{b_2}_{t^*_{b_2}}-c_\eta&=\frac{ \frac{C^\eta}{b_2}+D^\eta\frac{\delta^{+,b_2}_\eta}{b_2}+\left(-\frac{C^\eta}{b_2}-D^\eta\frac{\delta^{-,b_2}_\eta}{b_2} \right)e^{-(\delta^{+,b_2}_\eta-\delta^{-,b_2}_\eta)(T-t^*_{b_2})} }{ \frac{D^\eta}{r+\bar{r}} -\frac{\delta^{-,b_2}_\eta}{b_2^2} +\left(\frac{\delta^{+,b_2}_\eta}{b_2^2} -\frac{D^\eta}{r+\bar{r}}\right) e^{-(\delta^{+,b_2}_\eta-\delta^{-,b_2}_\eta)(T-t^*_{b_2})}}-c_\eta,
-	\end{split}
-	\end{equation*}
+	Let $b_2^{*,3}$ such that for $b_2 \geq b_2^{*,3}$, the function $t \mapsto b_2 \eta^{b_2}_t$ is increasing. Since for $b_2 \geq \max \{b_2^{*,1},b_2^{*,2},b_2^{*,3} \}$, the function $t \mapsto b_2 \eta^{b_2}_t$ is increasing and continuous, by the intermediate value theorem, there exists a $t^*_{b_2}\in[0,T]$ such that
+	$b_2 \eta^{b_2}_{t^*_{b_2}} =c_\eta+1$, and $b_2 \eta^{b_2}_t \leq c_\eta+1$, for all $t\leq t^*_{b_2}.$
+	From an analogous equation to (\ref{eq:riccati_ut_sol}) for $\eta^{b_2}_{t^*_{b_2}}$, we have for $b_2 \geq \max \{b_2^{*,1},b_2^{*,2},b_2^{*,3} \}$:
 	$$
-	1=\frac{ \frac{C^\eta}{b_2}+D^\eta\frac{\delta^{+,b_2}_\eta}{b_2}-\frac{D^\eta}{r+\bar{r}}c_\eta +\frac{\delta^{-,b_2}_\eta}{b_2^2}c_\eta+\left(-\frac{C^\eta}{b_2}-D^\eta\frac{\delta^{-,b_2}_\eta}{b_2} -\frac{\delta^{+,b_2}_\eta}{b_2^2}c_\eta +\frac{D^\eta}{r+\bar{r}}c_\eta\right)e^{-(\delta^{+,b_2}_\eta-\delta^{-,b_2}_\eta)(T-t^*_{b_2})} }{ \frac{D^\eta}{r+\bar{r}} -\frac{\delta^{-,b_2}_\eta}{b_2^2} +\left(\frac{\delta^{+,b_2}_\eta}{b_2^2} -\frac{D^\eta}{r+\bar{r}}\right) e^{-(\delta^{+,b_2}_\eta-\delta^{-,b_2}_\eta)(T-t^*_{b_2})}},
+	1=b_2\eta^{b_2}_{t^*_{b_2}}-c_\eta\leq \frac{ \frac{C^\eta}{b_2}+D^\eta\frac{\delta^{+,b_2}_\eta}{b_2}-\frac{D^\eta}{r+\bar{r}}c_\eta +\frac{\delta^{-,b_2}_\eta}{b_2^2}c_\eta+\left(-D^\eta\frac{\delta^{-,b_2}_\eta}{b_2} +\frac{D^\eta}{r+\bar{r}}c_\eta\right)e^{-(\delta^{+,b_2}_\eta-\delta^{-,b_2}_\eta)(T-t^*_{b_2})} }{ \frac{D^\eta}{r+\bar{r}} -\frac{\delta^{-,b_2}_\eta}{b_2^2} -\frac{D^\eta}{r+\bar{r}} e^{-(\delta^{+,b_2}_\eta-\delta^{-,b_2}_\eta)(T-t^*_{b_2})}},
 	$$
+	After rearranging terms:
 	\begin{equation}
 	\begin{split}
-	\frac{D^\eta}{r+\bar{r}}-&\left[\frac{\delta^{-,b_2}_\eta}{b_2^2}+\frac{C^\eta}{b_2}+\frac{\delta^{-,b_2}_\eta c_\eta}{b_2^2}+D^\eta \left(\frac{\delta^{+,b_2}_\eta}{b_2}-c_{\delta^{b_2 \to \infty}_\eta} \right)\right] \\
-	&= \left(-\frac{C^\eta}{b_2}-D^\eta\frac{\delta^{-,b_2}_\eta}{b_2} -\frac{\delta^{+,b_2}_\eta}{b_2^2}c_\eta +\frac{D^\eta}{r+\bar{r}}c_\eta -\frac{\delta^{+,b_2}_\eta}{b_2^2} +\frac{D^\eta}{r+\bar{r}} \right) e^{-\left(\delta^{+,b_2}_\eta -\delta^{-,b_2}_\eta\right)(T-t^*_{b_2})} \\
-	&\leq  \left(-D^\eta\frac{\delta^{-,b_2}_\eta }{b_2}+\frac{D^\eta}{r+\bar{r}}(1+c_\eta) \right) e^{-\left(\delta^{+,b_2}_\eta -\delta^{-,b_2}_\eta\right)(T-t^*_{b_2})}.
+	\frac{D^\eta}{r+\bar{r}}-\left[\frac{\delta^{-,b_2}_\eta}{b_2^2}(1+c_\eta)+\frac{C^\eta}{b_2}+D^\eta \left(\frac{\delta^{+,b_2}_\eta}{b_2}-c_{\delta^{b_2 \to \infty}_\eta} \right)\right]\\
+	\leq  \left(-D^\eta\frac{\delta^{-,b_2}_\eta }{b_2}+\frac{D^\eta}{r+\bar{r}}(1+c_\eta) \right) e^{-\left(\delta^{+,b_2}_\eta -\delta^{-,b_2}_\eta\right)(T-t^*_{b_2})}.
 	\end{split}
 	\label{eq:lemma_1}
 	\end{equation}
-	It is easy to derive the following limits:
-	$$\lim_{b_2 \to \infty}\frac{\delta^{-,b_2}_\eta}{b_2^2}=\lim_{b_2 \to \infty}\frac{C^\eta}{b_2}=\lim_{b_2 \to \infty}\frac{\delta^{-,b_2}_\eta c_\eta}{b_2^2}=\lim_{b_2 \to \infty}\left(\frac{\delta^{+,b_2}_\eta}{b_2}-c_{\delta^{b_2 \to \infty}_\eta} \right) =0.$$
-	Therefore, there exists $b_2^{*,4}$ such that for $b_2 \geq b_2^{*,4}$, we have:
-	$$\left[\frac{\delta^{-,b_2}_\eta}{b_2^2}+\frac{C^\eta}{b_2}+\frac{\delta^{-,b_2}_\eta c_\eta}{b_2^2}+D^\eta \left(\frac{\delta^{+,b_2}_\eta}{b_2}-c_{\delta^{b_2 \to \infty}_\eta} \right)\right] \leq \frac{D^\eta}{2(r+\bar{r})},$$
+	Since we have
+	$\lim_{b_2 \to \infty}\frac{\delta^{-,b_2}_\eta}{b_2^2}=\lim_{b_2 \to \infty}\frac{C^\eta}{b_2}=\lim_{b_2 \to \infty}\left(\frac{\delta^{+,b_2}_\eta}{b_2}-c_{\delta^{b_2 \to \infty}_\eta} \right) =0,$ there exists $b_2^{*,4}$ such that for $b_2 \geq b_2^{*,4}$,
+	$\left[\frac{\delta^{-,b_2}_\eta}{b_2^2}(1+c_\eta)+\frac{C^\eta}{b_2}+D^\eta \left(\frac{\delta^{+,b_2}_\eta}{b_2}-c_{\delta^{b_2 \to \infty}_\eta} \right)\right] \leq \frac{D^\eta}{2(r+\bar{r})},$
 	and thus returning to inequality (\ref{eq:lemma_1}), for $b_2 \geq \max \{b_2^{*,1},b_2^{*,2},b_2^{*,3},b_2^{*,4} \}$:
-	$$\frac{D^\eta}{2(r+\bar{r})}\leq \left(-\frac{\delta^{-,b_2}_\eta D^\eta}{b_2}+\frac{D^\eta}{r+\bar{r}}(1+c_\eta) \right) e^{-\left(\delta^{+,b_2}_\eta -\delta^{-,b_2}_\eta\right)(T-t^*_{b_2})}, $$
-	$$e^{\left(\delta^{+,b_2}_\eta -\delta^{-,b_2}_\eta\right)(T-t^*_{b_2})}\leq -\frac{2\delta^{-,b_2}_\eta(r+\bar{r})}{b_2}+2(1+c_\eta) , $$
-	$$\left(\delta^{+,b_2}_\eta -\delta^{-,b_2}_\eta\right)(T-t^*_{b_2})\leq \ln \left( -\frac{2\delta^{-,b_2}_\eta(r+\bar{r})}{b_2}+2(1+c_\eta) \right) , $$
+	$$\frac{D^\eta}{2(r+\bar{r})}\leq \left(-D^\eta\frac{\delta^{-,b_2}_\eta }{b_2}+\frac{D^\eta}{r+\bar{r}}(1+c_\eta) \right) e^{-\left(\delta^{+,b_2}_\eta -\delta^{-,b_2}_\eta\right)(T-t^*_{b_2})}.$$
+	After rearranging terms:
 	\begin{equation}
 	b_2(T-t^*_{b_2})\leq \frac{1}{\frac{\left(\delta^{+,b_2}_\eta -\delta^{-,b_2}_\eta\right)}{b_2}} \ln \left( -\frac{2\delta^{-,b_2}_\eta(r+\bar{r})}{b_2}+2(1+c_\eta) \right).
 	\label{eq:lemma_2}
@@ -1105,12 +1096,11 @@ The following lemma was used in Proposition \ref{prop:b2_to_infty}.
 	$$\frac{c_{\delta_\eta^{b_2 \to \infty}}}{2} \leq \frac{-\delta^{-,b_2}_\eta}{b_2} \leq \frac{3c_{\delta_\eta^{b_2 \to \infty}}}{2}, \quad \text{and} \quad c_{\delta_\eta^{b_2 \to \infty}} \leq \frac{\delta^{+,b_2}_\eta-\delta^{-,b_2}_\eta}{b_2} \leq 3c_{\delta_\eta^{b_2 \to \infty}}.$$	
 	Returning to inequality (\ref{eq:lemma_2}), for $b_2 \geq b_2^{*,l}:=\max \{b_2^{*,1},b_2^{*,2},b_2^{*,3},b_2^{*,4},b_2^{*,5}\}$:
 	$$ b_2(T-t^*_{b_2})\leq \frac{1}{c_{\delta_\eta^{b_2 \to \infty}}} \ln \left(3 (r+\bar{r})c_{\delta_\eta^{b_2 \to \infty}}+2(1+c_\eta) \right)=\frac{1}{c_{\delta_\eta^{b_2 \to \infty}}} \ln \left(5c_\eta+2 \right).$$
-	Finally, for $b_2 \geq b_2^{*,l}$, we have:
+	Finally, for $b_2 \geq b_2^{*,l}$:
 	\begin{equation*}
 	\begin{split}
-	\int_0^T b_2 \eta^{b_2}_t dt&=\int_0^{t^*_{b_2}} b_2 \eta^{b_2}_t dt+\int_{t^*_{b_2}}^T b_2 \eta^{b_2}_t dt \\
-	&\leq t^*_{b_2}(c_\eta+1)+b_2 (T-t^*_{b_2})D^\eta\\
-	&\leq T(c_\eta+1)+\frac{D^\eta}{c_{\delta_\eta^{b_2 \to \infty}}} \ln \left( 5c_\eta+2 \right)=:M^l.	
+	\int_0^T b_2 \eta^{b_2}_t dt=\int_0^{t^*_{b_2}} b_2 \eta^{b_2}_t dt+\int_{t^*_{b_2}}^T b_2 \eta^{b_2}_t dt \leq t^*_{b_2}(c_\eta+1)+b_2 (T-t^*_{b_2})D^\eta \\
+	\leq T(c_\eta+1)+\frac{D^\eta}{c_{\delta_\eta^{b_2 \to \infty}}} \ln \left( 5c_\eta+2 \right)=:M^l.
 	\end{split}
 	\end{equation*}
 \end{proof}
