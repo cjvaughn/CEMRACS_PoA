@@ -634,7 +634,7 @@ It will be useful for us to note here the scalar Riccati equations associated wi
 	\label{eq:riccati_etat}
 	\end{IEEEeqnarray}
 	with:
-	\begin{IEEEeqnarray*}{rClcrClcrCl}
+	\begin{IEEEeqnarray}{rClcrClcrCl}
 		A^u &=& - \left(b_1 + \frac{\bar{b}_1}{2}\right), & \qquad & 
 		A^w &=& - (b_1 + \bar{b}_1), & \qquad & 
 		A^\eta &=& - b_1, \nonumber \\
@@ -647,7 +647,8 @@ It will be useful for us to note here the scalar Riccati equations associated wi
 		D^u &=& \lambda(q_T + \bar{q}_T(1-s_T)), & \qquad & 
 		D^w &=& q_T + \bar{q}_T(1-s_T)^2, & \qquad & 
 		D^\eta &=& q_T + \bar{q}_T .
-	\end{IEEEeqnarray*}
+		\label{eq:ABCD}
+	\end{IEEEeqnarray}
 If $B^u\neq 0$, $B^u D^u \geq 0$ and $B^uC^u >0$, we have (see equation (\ref{eq:riccati_ut_sol_app}) in Appendix A) the existence and uniqueness for $u_t$ which can be expressed by:
 \begin{equation}
 		u_t= \frac{C^u(1-e^{-(\delta_u^+ - \delta_u^-)(T-t)})+D^u(\delta^+_u -\delta^-_ue^{-(\delta_u^+ - \delta_u^-)(T-t)} )}{B^uD^u(1-e^{-(\delta_u^+ - \delta_u^-)(T-t)})+ \delta^+_ue^{-(\delta_u^+ - \delta_u^-)(T-t)} -\delta^-_u  },
@@ -664,19 +665,20 @@ Note that $u_t$ is increasing if $B (D^{u})^2 + 2 A^u D^{u} - C^{u}>0$, and like
 
 
 \begin{theorem}
-	Assuming (\ref{eq:assumptions}), if the initial condition $\xi$ satisfies that $\mathbb{E}(\xi)  \neq 0$, then 
+	Assume (\ref{eq:assumptions}) and the initial condition $\xi$ satisfies $\mathbb{E}(\xi)  \neq 0$. Let $A^u$, $A^w$, $B$, $C^u$, $C^w$, $D^u$, and $D^w$ as defined in equation (\ref{eq:ABCD}).
 	\begin{itemize}
-		\item when $\bar{b}_1 > 0$, we have $PoA = 1$ if and only if
+		\item When $\bar{b}_1 > 0$, we have $PoA = 1$ if and only if:
 		\begin{equation}
-		D^u = D^w =:D \quad \text{and} \quad B D^2 + 2 A^{u} D - C^{u} = B D^2 + 2 A^{w} D - C^w  = 0,
+		D^u = D^w =:D \quad \text{and} \quad B D^2 + 2 A^{u} D - C^{u} = B D^2 + 2 A^{w} D - C^w  = 0.
 		\label{eq:PoA=1_condition_b1_bar>0}
 		\end{equation}
-		\item when $\bar{b}_1 = 0$, then $A^u = A^w$ and we have $PoA = 1$ if and only if 
+		\item When $\bar{b}_1 = 0$, then $A^u = A^w$ and we have $PoA = 1$ if and only if:
 		\begin{equation}
-			D^u = D^w \quad \text{and} \quad C^u = C^w, 
+			D^u = D^w \quad \text{and} \quad C^u = C^w. 
 		\label{eq:PoA=1_condition_b1_bar=0}
 		\end{equation}
 	\end{itemize}
+	\begin{comment}
 	Namely, $PoA = 1$ if and only if the following two or three conditions hold true:
 	\begin{equation*}
 	\left\{
@@ -688,31 +690,31 @@ Note that $u_t$ is increasing if $B (D^{u})^2 + 2 A^u D^{u} - C^{u}>0$, and like
 	\end{equation*}
 	where $\lambda = \frac{b_2}{b_2 + \bar{b}_2}\cdot \frac{ r + \bar{r}(1-\bar{s})^2 }{r + \bar{r}(1-\bar{s})}$, and in the case when $\bar{b}_1 > 0$, there is an additional condition:
 	$$ \frac{(b_2+ \bar{b}_2)^2}{r + \bar{r}(1-\bar{s})^2} ( q_T + \bar{q}_T(1-s_T)^2 )^2 - 2 (b_1 + \bar{b}_1) ( q_T + \bar{q}_T(1-s_T)^2 )  - ( q + \bar{q}(1-s)^2 ) = 0. $$
-
+	\end{comment}
 	\label{thm:PoA_equivalent_1}
 \end{theorem}
 
 \begin{proof}
-	Under assumption (\ref{eq:assumptions}), we know from equation (\ref{eq:riccati_wt}) and from the explicit formula (\ref{eq:riccati_ut_sol}) for solution to scalar Riccati equation that $w_0$ is strictly positive. Thus, with the assumption $\mathbb{E}(\xi) \neq 0$, we have $SC^{MKV} > 0$. Hence, $PoA =1$ if and only if $\Delta SC = 0$. Since $\bar{x}_t^{MFG} \neq 0$ for all $t \in [0,T]$, from proposition \ref{prop:diff_SC} and the continuity of $u_t$ and $w_t$, we derive that 
+	From an analogous equation to (\ref{eq:riccati_ut_sol}) for $w_t$, we know that under assumption (\ref{eq:assumptions}), $w_0>0$. Thus, with the assumption $\mathbb{E}(\xi) \neq 0$, we have $0 < SC^{MKV} < \infty$. Hence, $PoA =1$ if and only if $\Delta SC = 0$. Since $\bar{x}_t^{MFG} \neq 0$ for all $t \in [0,T]$, from Proposition \ref{prop:diff_SC} and the continuity of $u_t$ and $w_t$, we deduce that:
 	\begin{equation}
 		PoA = 1 \qquad iff \qquad u_t = w_t, \quad \forall  t \in [0,T].
 	\label{eq:PoA_equivalence_ut=w_t} 
 	\end{equation}
 	
-	From equation (\ref{eq:riccati_ut_sol_deriv}) and the uniqueness of solutions to Riccati equations (\ref{eq:riccati_ut}) and (\ref{eq:riccati_wt}), it is easy to check that if the conditions in (\ref{eq:PoA=1_condition_b1_bar>0}) and (\ref{eq:PoA=1_condition_b1_bar=0}) are satisfied, we must have $u_t = w_t$ for all $ t\in [0,T]$. Thus, $PoA = 1$.	
+	From equation (\ref{eq:riccati_ut_sol_deriv}) and the uniqueness of solutions to Riccati equations (\ref{eq:riccati_ut}) and (\ref{eq:riccati_wt}), it is easy to check that if the conditions in (\ref{eq:PoA=1_condition_b1_bar>0}) and (\ref{eq:PoA=1_condition_b1_bar=0}) are satisfied, then $u_t=D^u=D^w = w_t$ for all $ t\in [0,T]$, and thus, $PoA = 1$.	
 	
-	Suppose now that $PoA =1$. Then by taking $t=T$ in equation (\ref{eq:PoA_equivalence_ut=w_t}), we obtain the first condition in both (\ref{eq:PoA=1_condition_b1_bar>0}) and (\ref{eq:PoA=1_condition_b1_bar=0}):
+	Suppose now that $PoA =1$. Then $u_t = w_t$ for all $t \in [0,T]$ and clearly:
 	$$D^u = u_T = w_T = D^w.$$
-	Moreover, if we make the difference between the two Riccati equations (\ref{eq:riccati_ut}) and (\ref{eq:riccati_wt}), and by taking $u_t = w_t$ for all $t \in [0,T]$ into account, we obtain:
+	Now, if we take the difference between the two Riccati equations (\ref{eq:riccati_ut}) and (\ref{eq:riccati_wt}), and by using $u_t = w_t$ for all $t \in [0,T]$, we obtain:
 	\begin{equation}
-		2 (A^u - A^w) w_t = C^u - C^w, \quad \forall \  t \in [0,T]
+		2 (A^u - A^w) w_t = C^u - C^w, \quad \forall \  t \in [0,T].
 	\label{eq:wt=constant}
 	\end{equation}
-	Since $2(A^u - A^w) = \bar{b}_1$, so that in the case when $\bar{b}_1 =0$ we must have $C^u = C^w$. Otherwise, equation (\ref{eq:wt=constant}) implies that $u_t = w_t = (C^u - C^w) / \bar{b}_1 $, which are constants for all $t \in [0,T]$. Thus, the derivatives with respect to time $t$ for $u_t$ and $w_t$ should be zero. From equation (\ref{eq:riccati_ut_sol_deriv}), and the fact that $\delta_u^+ - \delta_u^- > 0$, we deduce: 
+	Since $2(A^u - A^w) = \bar{b}_1$, in the case when $\bar{b}_1 =0$ we must have $C^u = C^w$. Otherwise, equation (\ref{eq:wt=constant}) implies that $u_t = w_t = (C^u - C^w) / \bar{b}_1 $, which are constants for all $t \in [0,T]$. Thus, the time derivatives of $u_t$ and $w_t$ should be zero. From equation (\ref{eq:riccati_ut_sol_deriv}), and the fact that $\delta_u^+ - \delta_u^- > 0$, we deduce: 
 	$$ B (D^{u})^2 + 2 A^u D^u - C^u = 0.$$
 	Similarly we also have $B (D^{w})^2 + 2 A^w D^w - C^w = 0$. 
 	
-	By replacing $(A^u,B, C^u, D^u)$ and $(A^w, B, C^w, D^w)$ with their explicit expressions, we obtain henceforth an equivalent condition for $PoA = 1$ in term of the coefficients of Linear Quadratic model.
+	%By replacing $(A^u,B, C^u, D^u)$ and $(A^w, B, C^w, D^w)$ with their explicit expressions, we obtain an equivalent condition for $PoA = 1$ in term of the coefficients of the linear quadratic model.
 	
 \end{proof}
 
