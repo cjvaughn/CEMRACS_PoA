@@ -230,12 +230,12 @@ and whenever the flows $\bmubar=(\bar{\mu}_t)_{0\leq t\leq T}$ and $\bnubar=(\ba
     \qquad
     Y_T=\partial_xg(X_T, \cL(X_T)).
 \end{equation*}
-According to the Pontryagin stochastic maximum principle, a sufficient condition for optimality is $\partial_{\alpha}H(t,X_t,\bar{\mu}_t,\hat{\alpha}_t,\bar{\nu}_t,y)=0$. By solving this equation, we introduce the function:
+According to the Pontryagin stochastic maximum principle, a sufficient condition for optimality is $\partial_{\alpha}H(t,X_t,\bar{\mu}_t,\hat{\alpha},\bar{\nu}_t,Y_t)=0$. Thus, we find the optimal control:
 \begin{equation}
-    \hat{\alpha}(t,x,\bar{\mu},\bar{\nu},y)=\frac{\bar{r}(t)\bar{s}(t)\bar{\nu}-b_2(t)y}{r(t)+\bar{r}(t)},
+    \hat{\alpha}_t=\hat{\alpha}(t,X_t,\bar{\mu},\bar{\nu},Y_t)=\frac{\bar{r}(t)\bar{s}(t)\bar{\nu}-b_2(t)Y_t}{r(t)+\bar{r}(t)},
 \label{eq:MFG_opt_alpha_Pontryagin}
 \end{equation}
-and pick an optimal control as $\hat{\alpha}_t=\hat{\alpha}(t,X_t,\bar{\mu},\bar{\nu},Y_t)$. When solving the fixed point step, we identify $\bar{\nu}_t=\mathbb{E}(\hat{\alpha}_t)$. By taking the expectation, we find:
+When solving the fixed point step, we identify $\bar{\nu}_t=\mathbb{E}(\hat{\alpha}_t)$. By taking the expectation, we find:
 \begin{equation*}
     \bar{\nu}_t = \mathbb{E}(\hat{\alpha}_t)=c^{MFG}(t)\mathbb{E}(Y_t),
 	\qquad 
