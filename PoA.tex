@@ -468,7 +468,7 @@ Assuming (\ref{eq:assumptions}), if furthermore,
 \begin{equation*}
 \begin{split}
     \left[s\bar{q}(s-1)+\bar{b}_1\bar{\eta}_t^{MKV}\right]\bar{x}_t^{MKV}&=0,\ \forall t \in [0,T] \\
-    \bar{\eta}_t^{MKV}\bar{x}_t^{MKV}\left[(b^{MFG}-b^{MKV})b_2+(c^{MFG}-c^{MKV})\bar{b}_2\right]&=0,\ \forall t \in [0,T] \\
+    (b^{MFG}-b^{MKV})(b_2+\bar{b}_2)\bar{\eta}_t^{MKV}\bar{x}_t^{MKV}&=0,\ \forall t \in [0,T] \\
     s_T\bar{q}_T(s_T-1)\bar{x}_T^{MKV}&=0,
 \end{split}
 \end{equation*}
@@ -477,13 +477,17 @@ then $PoA=1$.
 \end{proposition}
 
 \begin{proof}
-    Comparing the FBSDE systems (\ref{eq:FBSDE_EMFG}) and (\ref{eq:FBSDE_EMKV}), the result is clear.
+    Comparing the FBSDE systems (\ref{eq:FBSDE_EMFG}) and (\ref{eq:FBSDE_EMKV}), and using the fact that $c^{MFG}-c^{MKV}=b^{MFG}-b^{MKV}$, the result is clear.
 \end{proof}
 
 \begin{corollary}
-Assuming (\ref{eq:assumptions}), if furthermore, $\bar{b}_1=0$, $s\bar{q}(s-1)=0$, and $s_T\bar{q}_T(s_T-1)=0$ and at least one of the following holds: $b_2=\bar{b}_2=0$ or $\frac{b_2(r+\bar{r}(1-\bar{s})^2)}{(b_2+\bar{b}_2)(r+\bar{r}(1-\bar{s}))}=1$
+Assuming (\ref{eq:assumptions}), if furthermore, $s\bar{q}(s-1)=0$, $\bar{b}_1=0$, $\frac{b_2(r+\bar{r}(1-\bar{s})^2)}{(b_2+\bar{b}_2)(r+\bar{r}(1-\bar{s}))}=1$, and $s_T\bar{q}_T(s_T-1)=0$,
 then $PoA=1$.
 \label{corollary_1}
+\end{corollary}
+
+\begin{corollary}
+	Assuming (\ref{eq:assumptions}), if the initial condition $\xi$ is such that $\mathbb{E}(\xi)=0$, then from equation (\ref{eq:x_bar_MKV_explicit}), $x^{MKV}_t =0$ for all $t\in[0,T]$, and thus, $PoA=1$.
 \end{corollary}
 
 \begin{remark}
@@ -616,13 +620,6 @@ Note that we can write:
 PoA =1+ \frac{\Delta SC}{SC^{MKV}}.
 \label{eq:PoA_LQ}
 \end{equation}
-
-\begin{corollary}
-    Assuming (\ref{eq:assumptions}), if the initial condition $\xi$ is such that $\mathbb{E}(\xi)=0$, then $PoA=1$.
-\end{corollary}
-\begin{proof}
-    By equation (\ref{eq:x_bar_MFG_explicit}), $\mathbb{E}(\xi)=0$ implies $\bar{x}^{MFG}_t=0,\ \forall t \in [0,T]$. Therefore by Proposition \ref{prop:diff_SC}, $\Delta SC=0$. From equation (\ref{eq:v_t}), which we recall is equivalent to equation (\ref{eq:v_t_MKV}), $v_t>0$ which implies $h_{var}>0$. Therefore by equation (\ref{eq:SC_MKV_2}), $SC^{MKV}>0$. We conclude from equation (\ref{eq:PoA_LQ}) that $PoA=1$.
-\end{proof}
 
 It will be useful for us to note here the scalar Riccati equations associated with $u_t := \lambda \bar{\eta}_t^{MFG}$, $w_t := \bar{\eta}_t^{MKV}$ and $\eta_t$:
     \begin{IEEEeqnarray}{lLLLClClCl}
