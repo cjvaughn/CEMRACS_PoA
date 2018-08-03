@@ -301,25 +301,26 @@ And thus, we obtain explicit solutions for $\bar{x}_t^{MFG}$ and $v_t^{MFG}$:
 	v^{MFG}_t &=& Var(\xi)e^{\int_0^t 2\left[b_1(s)+a^{MFG}(s)b_2(s) \cdot \eta^{MFG}_s\right]ds}+\sigma^2 \int_0^t e^{2 \int_s^t \left[b_1(u)+a^{MFG}(u)b_2(u)\eta^{MFG}_u\right] du}ds.
 	\label{eq:v_t}
 \end{IEEEeqnarray}
-Let $SC^{MFG}:=SC(\phi)$ in which $\phi=\phi(t,x)$ is the feedback function specified by this solution, namely, from equation (\ref{eq:MFG_opt_alpha_Y_expY}) we have:
+Let $SC^{MFG}:=SC(\phi^{MFG})$ in which $\phi^{MFG}=\phi^{MFG}(t,x)$ is the feedback function specified by this solution, namely, from equation (\ref{eq:MFG_opt_alpha_Y_expY}) we have:
 \begin{equation*}
-    \phi(t,x)=a^{MFG}(t)\eta_t^{MFG}x+\left[a^{MFG}(t)(\bar{\eta}_t^{MFG}-\eta_t^{MFG})+b^{MFG}(t)\bar{\eta}_t^{MFG} \right]\bar{x}_t^{MFG}.
+    \phi^{MFG}(t,x)=a^{MFG}(t)\eta_t^{MFG}x+\left[a^{MFG}(t)(\bar{\eta}_t^{MFG}-\eta_t^{MFG})+b^{MFG}(t)\bar{\eta}_t^{MFG} \right]\bar{x}_t^{MFG}.
 \end{equation*}
 Then we can compute the social cost as described in Section \ref{sub:MFG_formulation}:
-\begin{equation*}
+\begin{equation}
 \begin{split}
     SC^{MFG}=&\frac{1}{2}\Big[(q_T+\bar{q}_T)v_T^{MFG}+(q_T+\bar{q}_T(1-s_T)^2)(\bar{x}_T^{MFG})^2\\
     &+\int_0^T \left[q(t)+\bar{q}(t)+(r(t)+\bar{r}(t))(a^{MFG}(t)\eta_t^{MFG})^2\right]v_t^{MFG}dt\\
     &+\int_0^T\left[q(t)+\bar{q}(t)(1-s(t))^2+(r(t)+\bar{r}(t)(1-\bar{s}(t))^2)(c^{MFG}(t)\bar{\eta}_t^{MFG})^2\right](\bar{x}_t^{MFG})^2dt\Big],
 \end{split}
-\end{equation*}
+\label{eq:SC_MFG_0}
+\end{equation}
 where we have used the fact that:
 \begin{equation*}
-    \mathbb{E}(\phi(t,X_t))=c^{MFG}(t)\cdot \bar{\eta}_t^{MFG}\bar{x}_t^{MFG}
+    \mathbb{E}(\phi^{MFG}(t,X_t))=c^{MFG}(t)\cdot \bar{\eta}_t^{MFG}\bar{x}_t^{MFG}
 	\qquad 
 	\text{and}
 	\qquad
-    Var(\phi(t,X_t))=\left(a^{MFG}(t)\eta_t^{MFG} \right)^2 \cdot v^{MFG}_t.
+    Var(\phi^{MFG}(t,X_t))=\left(a^{MFG}(t)\eta_t^{MFG} \right)^2 \cdot v^{MFG}_t.
 \end{equation*}
 
 \subsection{\textbf{Linear Quadratic Control of McKean-Vlasov Type Involving the Law of the Control}}\label{sec:EMKV}
@@ -401,25 +402,26 @@ And thus, we obtain explicit solutions for $\bar{x}_t^{MKV}$ and $v_t^{MKV}$:
 	v^{MKV}_t &=& Var(\xi)e^{\int_0^t 2\left[b_1(s)+a^{MKV}(s)b_2(s) \cdot \eta^{MKV}_s\right]ds}+\sigma^2 \int_0^t e^{2 \int_s^t \left[b_1(u)+a^{MKV}(u)b_2(u)\eta^{MKV}_u\right] du}ds.
 	\label{eq:v_t_MKV}
 \end{IEEEeqnarray}
-Then $SC^{MKV}=SC(\phi)$ where $\phi$ is the feedback function specified by this solution, namely, from equation (\ref{eq:alpha_hat_MKV}), we have:
+Then $SC^{MKV}=SC(\phi^{MKV})$ where $\phi^{MKV}$ is the feedback function specified by this solution, namely, from equation (\ref{eq:alpha_hat_MKV}), we have:
 \begin{equation*}
-    \phi(t,x)=a^{MKV}(t)\eta_t^{MKV}x+\left[a^{MKV}(t)(\bar{\eta}_t^{MKV}-\eta_t^{MKV})+b^{MKV}(t)\bar{\eta}_t^{MKV} \right]\bar{x}_t^{MKV}.
+    \phi^{MKV}(t,x)=a^{MKV}(t)\eta_t^{MKV}x+\left[a^{MKV}(t)(\bar{\eta}_t^{MKV}-\eta_t^{MKV})+b^{MKV}(t)\bar{\eta}_t^{MKV} \right]\bar{x}_t^{MKV}.
 \end{equation*}
 Then we can compute the social cost, denoted $SC^{MKV}$, as described in Section \ref{sub:MKV_formulation}:
-\begin{equation*}
+\begin{equation}
 \begin{split}
     SC^{MKV}=&\frac{1}{2}\Big[(q_T+\bar{q}_T)v_T^{MKV}+(q_T+\bar{q}_T(1-s_T)^2)(\bar{x}_T^{MKV})^2\\
     &+\int_0^T \left[q(t)+\bar{q}(t)+(r(t)+\bar{r}(t))(a^{MKV}(t)\eta_t^{MKV})^2\right]v_t^{MKV}dt \\
     &+\int_0^T\left[q(t)+\bar{q}(t)(1-s(t))^2+(r(t)+\bar{r}(t)(1-\bar{s}(t))^2)(c^{MKV}(t)\bar{\eta}_t^{MKV})^2\right](\bar{x}_t^{MKV})^2dt\Big],
 \end{split}
-\end{equation*}
+\label{eq:SC_MKV_0}
+\end{equation}
 where we have used the fact that:
 \begin{equation*}
-\mathbb{E}(\phi(t,X_t))=c^{MKV}(t)\cdot \bar{\eta}_t^{MKV}\bar{x}_t^{MKV}
+\mathbb{E}(\phi^{MKV}(t,X_t))=c^{MKV}(t)\cdot \bar{\eta}_t^{MKV}\bar{x}_t^{MKV}
 \qquad 
 \text{and}
 \qquad
-Var(\phi(t,X_t))=\left(a^{MKV}(t)\eta_t^{MKV} \right)^2 \cdot v^{MKV}_t.
+Var(\phi^{MKV}(t,X_t))=\left(a^{MKV}(t)\eta_t^{MKV} \right)^2 \cdot v^{MKV}_t.
 \end{equation*}
 
 \subsection{\textbf{Theoretical Results}}
@@ -447,7 +449,7 @@ Assume the following:
 \end{array}
 \label{eq:assumptions}
 \end{equation}
-Then there exists a unique solution to the LQEMFG problem, and there exists a unique solution to the LQEMKV problem. And therefore, $PoA=\frac{SC^{MFG}}{SC^{MKV}}$ where $SC^{MFG}:=SC(\phi)$ for $\phi$ given by the explicit solution constructed in Appendix \ref{appendix_solving_fbsdes}.
+Then there exists a unique solution to the LQEMFG problem, and there exists a unique solution to the LQEMKV problem. And therefore, $PoA=\frac{SC^{MFG}}{SC^{MKV}}$ where $SC^{MFG}$ and $SC^{MKV}$ are given by equations (\ref{eq:SC_MFG_0}) and (\ref{eq:SC_MKV_0}), respectively.
 \end{theorem}
 
 \begin{remark}
