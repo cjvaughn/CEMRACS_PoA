@@ -76,7 +76,7 @@ Zongjun Tan \thanks{Operations Research and Financial Engineering, Princeton Uni
 \maketitle
 
 \begin{abstract}
-    The price of anarchy, originally introduced to quantify the inefficiency of selfish behavior in routing games, is extended to mean field games. The price of anarchy is defined as the ratio of a worst case social cost computed for a mean field game equilibrium to the optimal social cost as computed by a central planner. We illustrate properties of such a price of anarchy on linear quadratic extended mean field games, for which explicit computations are possible. Various asymptotic behaviors of the price of anarchy are proved for limiting behaviors of the coefficients in the model and numerics are presented.
+    The price of anarchy, originally introduced to quantify the inefficiency of selfish behavior in routing games, is extended to mean field games. The price of anarchy is defined as the ratio of a worst case social cost computed for a mean field game equilibrium to the optimal social cost as computed by a central planner. We illustrate properties of such a price of anarchy on linear quadratic extended mean field games, for which explicit computations are possible. A sufficient and necessary condition to have no price of anarchy is presented. Various asymptotic behaviors of the price of anarchy are proved for limiting behaviors of the coefficients in the model and numerics are presented.
 \end{abstract}
 
 
@@ -141,7 +141,7 @@ where $\boldsymbol{X^{\phi}}$ satisfies equation (\ref{eq:X}). For the remainder
 \item $\phi$ is a feedback function providing a mean field game equilibrium. We detail more precisely what is meant by $\phi$ providing a mean field game equilibrium in Section \ref{sub:MFG_formulation}.
 \item $\phi$ is the feedback function minimizing the social cost $SC(\phi)$, without having to be a mean field game equilibrium, in which case we use the notation $SC^{MKV}$ for $SC(\phi)$. This is a control problem of McKean-Vlasov type, which is detailed more precisely in Section \ref{sub:MKV_formulation}.
 \end{itemize}
-The two problems are detailed more precisely in Sections \ref{sub:MFG_formulation} and \ref{sub:MKV_formulation}. In Section \ref{Price_Of_Anarchy}, we define the price of anarchy based on these two problem formulations. The class of linear quadratic models is explored in Section \ref{sec:PoA_LQ}, where we provide some theoretical results on the price of anarchy for this class of games, show numerical results, and detail a particular example of flocking. We conclude in Section \ref{sec:conclusion}.
+The two problems are detailed more precisely in Sections \ref{sub:MFG_formulation} and \ref{sub:MKV_formulation}. In Section \ref{Price_Of_Anarchy}, we define the price of anarchy based on these two problem formulations. The class of linear quadratic models is explored in Section \ref{sec:PoA_LQ}, where we provide some theoretical results on the price of anarchy for this class of games. This includes our main result, Theorem \ref{thm:PoA_equivalent_1}, which provides a sufficient and necessary condition to have no price of anarchy. In Section \ref{sec:PoA_LQ}, we also show numerical results, and detail a particular example of flocking. We conclude in Section \ref{sec:conclusion}.
 
 
 \subsection{\textbf{Nash Equilibrium: Mean Field Game Formulation}}
@@ -1560,7 +1560,7 @@ In our general linear quadratic formulation, this is equivalent to taking $\xi \
 \section{\textbf{Conclusion}} \label{sec:conclusion}
 We defined the price of anarchy ($PoA$) in the context of extended mean field games as the ratio of the worst case social cost when the players are in a mean field game equilibrium to the social cost as computed by a central planner. Since the central planner does not require that the players be in a mean field game equilibrium, the central planner will realize a social cost that is no worse than that of a mean field game equilibrium. Thus, $PoA \geq 1$.
 
-We computed the price of anarchy for linear quadratic extended mean field games, for which explicit computations are possible. We identify a large class of models for which $PoA=1$ (see Proposition \ref{eq:lq_prop} and Corollary \ref{corollary_1}), as well as some limiting cases where $PoA \rightarrow 1$ as certain parameters tend to zero or to infinity. The numerics support our theoretical results.
+We computed the price of anarchy for linear quadratic extended mean field games, for which explicit computations are possible. We identify a large class of models for which $PoA=1$ (see Proposition \ref{eq:lq_prop} and Corollaries \ref{corollary_1} and \ref{corollary_2}), as well as giving a sufficient and necessary condition to have $PoA=1$ (see Theorem \ref{thm:PoA_equivalent_1}). We also derive some limiting cases where $PoA \rightarrow 1$ as certain parameters tend to zero or to infinity. The numerics support our theoretical results.
 
 \section{\textbf{Acknowledgments}}
 The authors would like to thank the organizers of CEMRACS 2017 for putting together such a successful summer school.
