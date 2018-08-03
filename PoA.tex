@@ -141,7 +141,7 @@ where $\boldsymbol{X^{\phi}}$ satisfies equation (\ref{eq:X}). For the remainder
 \item $\phi$ is a feedback function providing a mean field game equilibrium. We detail more precisely what is meant by $\phi$ providing a mean field game equilibrium in Section \ref{sub:MFG_formulation}.
 \item $\phi$ is the feedback function minimizing the social cost $SC(\phi)$, without having to be a mean field game equilibrium, in which case we use the notation $SC^{MKV}$ for $SC(\phi)$. This is a control problem of McKean-Vlasov type, which is detailed more precisely in Section \ref{sub:MKV_formulation}.
 \end{itemize}
-The two problems are detailed more precisely in Sections \ref{sub:MFG_formulation} and \ref{sub:MKV_formulation}. In Section \ref{Price_Of_Anarchy}, we define the price of anarchy based on these two problem formulations. The class of linear quadratic models is explored in Section \ref{sec:PoA_LQ}, where we provide some theoretical results on the price of anarchy for this class of games. This includes our main result, Theorem \ref{thm:PoA_equivalent_1}, which provides a sufficient and necessary condition to have no price of anarchy. In Section \ref{sec:PoA_LQ}, we also show numerical results, and detail a particular example of flocking. We conclude in Section \ref{sec:conclusion}.
+The two problems are detailed more precisely in Sections \ref{sub:MFG_formulation} and \ref{sub:MKV_formulation}. In Section \ref{Price_Of_Anarchy}, we define the price of anarchy based on these two problem formulations. The class of linear quadratic models is explored in Section \ref{sec:PoA_LQ}, where we provide some theoretical results on the price of anarchy for this class of games. This includes our main result, Theorem \ref{thm:PoA_equivalent_1}, which provides a sufficient and necessary condition to have no price of anarchy. In Section \ref{sec:PoA_LQ}, we also prove some limiting cases and show numerical results. We conclude in Section \ref{sec:conclusion}.
 
 
 \subsection{\textbf{Nash Equilibrium: Mean Field Game Formulation}}
@@ -484,6 +484,10 @@ then $PoA=1$.
     Comparing the FBSDE systems (\ref{eq:FBSDE_EMFG}) and (\ref{eq:FBSDE_EMKV}), and using the fact that $b^{MFG}-b^{MKV}=c^{MFG}-c^{MKV}$, the result is clear.
 \end{proof}
 
+\begin{remark}
+	Recall from Remark \ref{remark_2} that in the standard mean field game, $\bar{b}_2=\bar{r}=0$, and thus, $\lambda=1$. Although Proposition \ref{eq:lq_prop} is a simple result, we will see shortly in Corollary \ref{corollary_3} that in the case when $\lambda=1$, the sufficient condition given by equations (\ref{eq:prop_1_1})-(\ref{eq:prop_1_3}) is also a necessary condition to have $PoA=1$.
+\end{remark}
+
 \begin{corollary}
 	Assuming (\ref{eq:assumptions}), if furthermore, $\bar{b}_1=0$, $s\bar{q}(s-1)=0$, $\frac{b_2(r+\bar{r}(1-\bar{s})^2)}{(b_2+\bar{b}_2)(r+\bar{r}(1-\bar{s}))}=1$, and $s_T\bar{q}_T(s_T-1)=0$,
 	then $PoA=1$.
@@ -720,9 +724,13 @@ Note that $u_t$ is increasing if $B (D^{u})^2 + 2 A^u D^{u} - C^{u}>0$, and like
 	
 \end{proof}
 
-\begin{remark}
-	Assume (\ref{eq:assumptions}) and $\lambda=1$. Then Theorem \ref{thm:PoA_equivalent_1} tells us that the sufficient condition (equations (\ref{eq:prop_1_1})-(\ref{eq:prop_1_3})) from Proposition \ref{eq:lq_prop} is also a necessary condition to have $PoA=1$. To see this, assume $PoA=1$. Since $\lambda=1$, we have $c^{MFG}=c^{MKV}$ and thus, condition (\ref{eq:prop_1_2}) holds. If $\mathbb{E}(\xi)=0$, clearly conditions (\ref{eq:prop_1_1})-(\ref{eq:prop_1_3}) hold, as noted in Corollary \ref{corollary_2}. If $\mathbb{E}(\xi) \neq 0$ and $\bar{b}_1=0$, from Theorem \ref{thm:PoA_equivalent_1}, we have $D^u=D^w$ and $C^u=C^w$ which together with $\lambda=1$ imply conditions (\ref{eq:prop_1_1}) and (\ref{eq:prop_1_3}), similarly as Corollary \ref{corollary_1}. Now, if $\mathbb{E}(\xi) \neq 0$ and $\bar{b}_1>0$, from Theorem \ref{thm:PoA_equivalent_1}, we have $D^u=D^w$ which implies condition (\ref{eq:prop_1_3}). Finally, the condition $B(D)^2+2A^uD-C^u=B(D)^2+2A^wD-C^w=0$ implies $\bar{\eta}^{MKV}_t=w_t=D=\frac{C^u-C^w}{2(A^u-A^2)}=\frac{s\bar{q}(1-s)}{\bar{b}_1}$ and thus, we have condition (\ref{eq:prop_1_1}). In particular, recall from Remark \ref{remark_2} that $\lambda=1$ for standard mean field games, where $\bar{b}_2=0$ and $\bar{r}=0$.
-\end{remark}
+\begin{corollary}
+	Assume (\ref{eq:assumptions}) and $\lambda=1$. Then the sufficient condition (equations (\ref{eq:prop_1_1})-(\ref{eq:prop_1_3})) from Proposition \ref{eq:lq_prop} is also a necessary condition to have $PoA=1$.
+\label{corollary_3}
+\end{corollary}
+\begin{proof}
+	Assume $PoA=1$. Since $\lambda=1$, we have $c^{MFG}=c^{MKV}$ and thus, condition (\ref{eq:prop_1_2}) holds. If $\mathbb{E}(\xi)=0$, clearly conditions (\ref{eq:prop_1_1})-(\ref{eq:prop_1_3}) hold, as noted in Corollary \ref{corollary_2}. If $\mathbb{E}(\xi) \neq 0$ and $\bar{b}_1=0$, from Theorem \ref{thm:PoA_equivalent_1}, we have $D^u=D^w$ and $C^u=C^w$ which together with $\lambda=1$ imply conditions (\ref{eq:prop_1_1}) and (\ref{eq:prop_1_3}), similarly as Corollary \ref{corollary_1}. Now, if $\mathbb{E}(\xi) \neq 0$ and $\bar{b}_1>0$, from Theorem \ref{thm:PoA_equivalent_1}, we have $D^u=D^w$ which implies condition (\ref{eq:prop_1_3}). Finally, the condition $B(D)^2+2A^uD-C^u=B(D)^2+2A^wD-C^w=0$ implies $\bar{\eta}^{MKV}_t=w_t=D=\frac{C^u-C^w}{2(A^u-A^2)}=\frac{s\bar{q}(1-s)}{\bar{b}_1}$ and thus, we have condition (\ref{eq:prop_1_1}).
+\end{proof}
 
 We study in the following the variation of $PoA$ by letting only one of the coefficients tend to zero or to infinity. In order to make the following computations easier to follow, we repeat equations (\ref{eq:prop_2}), (\ref{eq:SC_MKV_2}), (\ref{eq:x_bar_MFG_explicit}), and (\ref{eq:v_t}), which we recall is equivalent to  equation (\ref{eq:v_t_MKV}), using the above notations. Assuming (\ref{eq:assumptions}), we have:
 \begin{IEEEeqnarray}{l}
@@ -1543,6 +1551,7 @@ Unless otherwise stated, the parameters stay at these default values. For result
 
 The results show various limiting behaviors, such as some of the cases proved in the previous section. In Figure \ref{fig:b1_b1bar}, we note that Proposition \ref{prop:b1_b1bar} is confirmed. The condition $\frac{b_2}{b_2+\bar{b}_2}\cdot \frac{r + \bar{r}(1- \bar{s})^2}{r + \bar{r}(1-\bar{s})}\cdot (q_T+\bar{q}_T(1-s_T)) \neq q_T+\bar{q}_T(1-s_T)^2$ is satisfied for all three interaction cases and we see that $\lim_{b_1 \to 0}PoA >1$, $\lim_{\bar{b}_1 \to 0}PoA>1$, $\lim_{b_1 \to \infty}PoA = 1$, and $\lim_{\bar{b}_1 \to \infty}PoA = \infty$. Propositions \ref{prop:b2_to_infty}-\ref{prop:b2bar} are confirmed in Figure \ref{fig:b2_b2bar}. For Proposition \ref{prop:b2_to_0}, when there is only interaction through the states, then $\bar{b}_2=0$ and we see that $\lim_{b_2 \to 0}PoA= 1$. When there is full interaction or only interaction through the controls, then $\bar{b}_2>0$ and we see that $\lim_{b_2 \to 0}PoA>1$. For Proposition \ref{prop:b2_to_infty}, we see that $\lim_{b_2 \to \infty}PoA= 1$. Note that the condition $\frac{q + \bar{q}(1-s)}{r + \bar{r}(1-\bar{s})}= \frac{q + \bar{q}(1-s)^2}{r + \bar{r}(1-\bar{s})^2}$ is  not satisfied for the cases of interaction only through the states or interaction only through the controls, and is therefore a sufficient, but not necessary, assumption. For Proposition \ref{prop:b2bar}, Figure \ref{fig:b2_b2bar} confirms that $\lim_{\bar{b}_2 \to 0}PoA>1$ and $\lim_{\bar{b}_2 \to \infty}PoA= 1$. Note that the condition $\frac{r + \bar{r}(1- \bar{s})^2}{r + \bar{r}(1-\bar{s})} \neq \frac{q_T+\bar{q}_T(1-s_T)^2}{q_T+\bar{q}_T(1-s_T)}$ is not satisfied for the full interaction case, and is therefore a sufficient, but not necessary, assumption. This agrees with the conclusion of Remark \ref{remark_6}. Figure \ref{fig:r_rbar} confirms as in Proposition \ref{prop:r_bar_r} that $\lim_{r \to \infty}PoA= 1$ and $\lim_{\bar{r} \to \infty}PoA= 1$.
 
+\begin{comment}
 \subsection{\textbf{A Particular Example: Flocking}}
 Mean field game models of flocking have been proposed in the literature by Nourian et al \cite{nourian2010synthesis}\cite{nourian2011mean}. Here we consider a slightly different formulation as described in Section 3.6.1 of the book of Carmona and Delarue \cite{Carmona_book}. A representative bird in the flock controls their velocity, $X_t$, through the drift:
 \begin{equation*}
@@ -1556,6 +1565,7 @@ Suppose the initial condition is $X_0=1$ and the volatility is $\sigma=1$. They 
 \end{equation*}
 
 In our general linear quadratic formulation, this is equivalent to taking $\xi \equiv 1$, $b_1=0$, $\bar{b}_1=0$, $b_2=1$, $\bar{b}_2=0$, $q=0$, $\bar{q}=1$, $s=1$, $r=1$, $\bar{r}=0$, $\bar{s}=0$, $q_T=0$, $\bar{q}_T=0$, and $s_T=0$. Note that for these values of the parameters, the assumptions of Theorem \ref{th:exist_uniq} and Corollary \ref{corollary_1} are satisfied. Therefore, $PoA=1$. We also see that $D^u=0=D^w$ and $C^u=0=C^w$, and therefore, Theorem \ref{thm:PoA_equivalent_1} also implies $PoA=1$. In fact, if we took the state space to be $\mathbb{R}^d$ instead of $\mathbb{R}$, the result would still hold.
+\end{comment}
 
 
 \section{\textbf{Conclusion}} \label{sec:conclusion}
@@ -1645,11 +1655,13 @@ J.~M. Lasry and P.~L. Lions.
 \newblock Mean field games.
 \newblock {\em Japanese Journal of Mathematics}, 2(1):229--260, 2007.
 
+\begin{comment}
 \bibitem{nourian2011mean}
 M.~Nourian, P.~E. Caines, and R.~P. Malham{\'e}.
 \newblock Mean field analysis of controlled {C}ucker-{S}male type flocking:
 Linear analysis and perturbation equations.
 \newblock {\em IFAC Proceedings Volumes}, 44(1):4471--4476, 2011.
+
 
 \bibitem{nourian2010synthesis}
 M.~Nourian, P.~E. Caines, and R.~P. Malham{\'e}.
@@ -1657,6 +1669,7 @@ M.~Nourian, P.~E. Caines, and R.~P. Malham{\'e}.
   control theory: {N}ash equilibria.
 \newblock In {\em Communication, Control, and Computing (Allerton), 2010 48th
   Annual Allerton Conference on}, pages 814--819. IEEE, 2010.
+\end{comment}
 
 \bibitem{nourian2013nash}
 M.~Nourian, P.~E. Caines, R.~P. Malhame, and M.~Huang.
