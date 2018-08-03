@@ -1546,15 +1546,15 @@ Mean field game models of flocking have been proposed in the literature by Nouri
 \begin{equation*}
     b(t,x,\mu,\alpha,\nu)=\alpha.
 \end{equation*}
-They choose the control with two goals in mind: to minimize their kinetic energy put into their control, and to align their velocity with the average velocity of the group. Thus, they consider the cost functions given by:
+Suppose the initial condition is $X_0=1$. They choose their control with two goals in mind: to minimize their effort put into their control, and to align their velocity with the average velocity of the group. Thus, they consider the cost functions given by:
 \begin{equation*}
 \begin{split}
-    f(t,x,\mu,\alpha,\nu)&=\frac{1}{2}\left(\bar{q}|x-s\bar{\mu}|^2 +\alpha^2 \right), \\
+    f(t,x,\mu,\alpha,\nu)&=\frac{1}{2}\left(|x-\bar{\mu}|^2 +\alpha^2 \right), \\
     g(x,\mu)&=0.
 \end{split}
 \end{equation*}
 
-In our general linear quadratic formulation, this is equivalent to taking $b_1=0$, $\bar{b}_1=0$, $b_2=1$, $\bar{b}_2=0$, $q=0$, $s=1$, $r=1$, $\bar{r}=0$, and $\bar{s}=0$. Note that for these values of the parameters, the assumptions of Theorem \ref{th:exist_uniq} and Corollary \ref{corollary_1} are satisfied. Therefore, $PoA=1$. In fact, if we took the state space to be $\mathbb{R}^d$ instead of $\mathbb{R}$, the result would still hold.
+In our general linear quadratic formulation, this is equivalent to taking $\xi \equiv 1$, $b_1=0$, $\bar{b}_1=0$, $b_2=1$, $\bar{b}_2=0$, $q=0$, $\bar{q}=1$, $s=1$, $r=1$, $\bar{r}=0$, $\bar{s}=0$, $q_T=0$, $\bar{q}_T=0$, and $s_T=0$. Note that for these values of the parameters, the assumptions of Theorem \ref{th:exist_uniq} and Corollary \ref{corollary_1} are satisfied. Therefore, $PoA=1$. We also see that $D^u=0=D^w$ and $C^u=0=C^w$, and therefore, Theorem \ref{thm:PoA_equivalent_1} also implies $PoA=1$. In fact, if we took the state space to be $\mathbb{R}^d$ instead of $\mathbb{R}$, the result would still hold.
 
 
 \section{\textbf{Conclusion}} \label{sec:conclusion}
