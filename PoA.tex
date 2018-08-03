@@ -110,7 +110,7 @@ We restrict ourselves to Markovian control strategies $\balpha=(\alpha_t)_{0\le 
 \begin{equation*}
 J^{(N)}_\phi=\frac1N\sum_{i=1}^NJ^i(\balpha^1,\cdots,\balpha^N).
 \end{equation*}
-We shall compute this social cost in the limit $N\to\infty$ when all the players use the distributed control strategies given by the same feedback function $\phi$ identified by solving an optimization problem in the limit $N\to\infty$. We take the social cost to be the limit as $N\to\infty$ of $J^{(N)}_\phi$, namely
+We shall compute this social cost in the limit $N\to\infty$ when all the players use the distributed control strategies given by the same feedback function $\phi$ identified by solving an optimization problem in the limit $N\to\infty$. We take the social cost to be the limit as $N\to\infty$ of $J^{(N)}_\phi$, namely:
 \begin{equation*}
 \begin{split}
 \lim_{N\to\infty}J^{(N)}_\phi
@@ -123,7 +123,7 @@ We shall compute this social cost in the limit $N\to\infty$ when all the players
 \end{equation*}
 if we use the notation $<\varphi,\rho>$ for the integral $\int \varphi(z)\rho(dz)$ of the function $\varphi$ with respect to the measure $\rho$. Now if we assume that in the limit $N\to\infty$ the empirical distributions $\mu^N_{t}$ converge toward a measure $\mu_t$, and thus $\nu^N_{t}=\frac1N\sum_{i=1}^N\delta_{\phi(t,X^i_t)}$ also converges toward a measure $\nu_t$, then the social cost of the feedback function $\phi$ becomes:
 \begin{equation*}
-SC(\phi)=\int_0^T<f(t,\,\cdot\,,\mu_t,\phi(t,\,\cdot\,),\nu_t),\mu_t>\,dt \;+\; <g(\,\cdot\,,\mu_T),\mu_T>
+SC(\phi)=\int_0^T<f(t,\,\cdot\,,\mu_t,\phi(t,\,\cdot\,),\nu_t),\mu_t>\,dt \;+\; <g(\,\cdot\,,\mu_T),\mu_T>,
 \end{equation*}
 with the expectation, $\EE$, disappearing when the limiting flows $\bmu=(\mu_t)_{0\le t\le T}$ and $\bnu=(\nu_t)_{0\le t\le T}$ are deterministic.
 
@@ -230,9 +230,9 @@ and whenever the flows $\bmubar=(\bar{\mu}_t)_{0\leq t\leq T}$ and $\bnubar=(\ba
     \qquad
     Y_T=\partial_xg(X_T, \cL(X_T)).
 \end{equation*}
-According to the Pontryagin stochastic maximum principle, a sufficient condition for optimality is $\partial_{\alpha}H(t,X_t,\bar{\mu}_t,\hat{\alpha},\bar{\nu}_t,Y_t)=0$. Thus, we find the optimal control:
+According to the Pontryagin stochastic maximum principle, a sufficient condition for optimality is $\partial_{\alpha}H(t,X_t,\bar{\mu}_t,\hat{\alpha}_t,\bar{\nu}_t,Y_t)=0$. Thus, we find the optimal control:
 \begin{equation}
-    \hat{\alpha}_t=\hat{\alpha}(t,X_t,\bar{\mu},\bar{\nu},Y_t)=\frac{\bar{r}(t)\bar{s}(t)\bar{\nu}-b_2(t)Y_t}{r(t)+\bar{r}(t)},
+    \hat{\alpha}_t=\frac{\bar{r}(t)\bar{s}(t)\bar{\nu}-b_2(t)Y_t}{r(t)+\bar{r}(t)}.
 \label{eq:MFG_opt_alpha_Pontryagin}
 \end{equation}
 When solving the fixed point step, we identify $\bar{\nu}_t=\mathbb{E}(\hat{\alpha}_t)$. By taking the expectation, we find:
@@ -277,26 +277,26 @@ provide a solution to the LQEMFG problem. Then from the appendix, we have:
 \begin{itemize}
 	\item a scalar Riccati equation for $\bar{\eta}_t^{MFG}$:
 	\begin{equation}
-	\dot{\bar{\eta}}^{MFG}_t+ \left[ c^{MFG}(t)(b_2(t)+\bar{b}_2(t)) \right] \cdot (\bar{\eta}^{MFG}_t)^2+ \left(2b_1(t)+\bar{b}_1(t) \right) \cdot \bar{\eta}^{MFG}_t +q(t)+\bar{q}(t)(1-s(t)) =0
+	\dot{\bar{\eta}}^{MFG}_t+ \left[ c^{MFG}(t)(b_2(t)+\bar{b}_2(t)) \right] \cdot (\bar{\eta}^{MFG}_t)^2+ \left(2b_1(t)+\bar{b}_1(t) \right) \cdot \bar{\eta}^{MFG}_t +q(t)+\bar{q}(t)(1-s(t)) =0,
 	\label{eq:eta_bar_MFG}
 	\end{equation}
 	with terminal condition $\bar{\eta}^{MFG}_T = q_T+\bar{q}_T(1-s_T)$, 
 	\item a linear first order ODE for $\bar{x}_t^{MFG}$:
 	\begin{equation}
-	\dot{\bar{x}}^{MFG}_t=\left[ b_1(t)+\bar{b}_1(t)+c^{MFG}(t)(b_2(t)+\bar{b}_2(t)) \cdot \bar{\eta}^{MFG}_t \right] \cdot \bar{x}^{MFG}_t
+	\dot{\bar{x}}^{MFG}_t=\left[ b_1(t)+\bar{b}_1(t)+c^{MFG}(t)(b_2(t)+\bar{b}_2(t)) \cdot \bar{\eta}^{MFG}_t \right] \cdot \bar{x}^{MFG}_t,
 	\label{eq:x_bar_MFG}
 	\end{equation}
 	with initial condition $\bar{x}^{MFG}_0=\mathbb{E}(\xi)$,
 	\item a scalar Riccati equation for $\eta_t^{MFG}$:
 	\begin{equation}
-	\dot{\eta}^{MFG}_t+a^{MFG}(t)b_2(t)\cdot (\eta^{MFG}_t)^2 + 2b_1(t) \cdot \eta^{MFG}_t+q(t)+\bar{q}(t)=0
+	\dot{\eta}^{MFG}_t+a^{MFG}(t)b_2(t)\cdot (\eta^{MFG}_t)^2 + 2b_1(t) \cdot \eta^{MFG}_t+q(t)+\bar{q}(t)=0,
 	\end{equation}
 	with terminal condition $\eta^{MFG}_T = q_T+\bar{q}_T$,
 \end{itemize}
-where the dot is the standard ODE notation for a derivative. 
+and where the dot is the standard ODE notation for a derivative. 
 And thus, we obtain explicit solutions for $\bar{x}_t^{MFG}$ and $v_t^{MFG}$:
 \begin{IEEEeqnarray}{rCl}
-	\bar{x}^{MFG}_t &=& \mathbb{E}(\xi) e^{ \int_0^t\left( b_1(s)+\bar{b}_1(s)+ \left[ c^{MFG}(s)(b_2(s)+\bar{b}_2(s))\right] \cdot \bar{\eta}^{MFG}_s\right) ds} \label{eq:x_bar_MFG_explicit} \\ 
+	\bar{x}^{MFG}_t &=& \mathbb{E}(\xi) e^{ \int_0^t\left( b_1(s)+\bar{b}_1(s)+ \left[ c^{MFG}(s)(b_2(s)+\bar{b}_2(s))\right] \cdot \bar{\eta}^{MFG}_s\right) ds} \label{eq:x_bar_MFG_explicit}, \\ 
 	v^{MFG}_t &=& Var(\xi)e^{\int_0^t 2\left[b_1(s)+a^{MFG}(s)b_2(s) \cdot \eta^{MFG}_s\right]ds}+\sigma^2 \int_0^t e^{2 \int_s^t \left[b_1(u)+a^{MFG}(u)b_2(u)\eta^{MFG}_u\right] du}ds.
 	\label{eq:v_t}
 \end{IEEEeqnarray}
@@ -330,7 +330,6 @@ To solve the linear quadratic optimal control problem of McKean-Vlasov type invo
 \end{split}
 \end{equation*}
 Since we require $\bar{\nu}_t$ to be equal to $\mathbb{E}(\alpha_t)$ throughout the optimization, it is not sufficient to minimize the Hamiltonian with respect to the $\alpha$ input alone in order to guarantee optimality. A sufficient condition for control problems of McKean-Vlasov type involving the law of the control is derived in \cite{carmona_acciaio}. Since we consider a Hamiltonian that depends on the means of $\bar{\mu}$ and $\bar{\nu}$ instead of the full distributions, the sufficient condition reduces to the following (see section 4 in \cite{carmona_acciaio}):
-$\hat{\alpha}_t=\hat{\alpha}(t,X_t,\bar{\mu},\bar{\nu},Y_t)$ should satisfy:
 \begin{equation*}
     \partial_{\alpha}H(t,X_t,\mathbb{E}(X_t),\hat{\alpha}_t,\mathbb{E}(\hat{\alpha}_t),Y_t)+\tilde{\mathbb{E}} \left[\partial_{\bar{\nu}}H(t,\tilde{X}_t,\mathbb{E}(X_t),\hat{\alpha}_t,\mathbb{E}(\hat{\alpha}_t),\tilde{Y}_t) \right]=0,
 \end{equation*}
@@ -343,7 +342,7 @@ where the adjoint equation is given by:
 \end{array}
 \right.
 \end{equation*}
-where $(\boldsymbol{\tilde{X}},\boldsymbol{\tilde{Y}},\boldsymbol{\tilde{\alpha}})$ denotes an independent copy of $(\boldsymbol{X},\boldsymbol{Y},\boldsymbol{\alpha})$. In the present LQ case, the sufficient condition can be used to solve for:
+and where $(\boldsymbol{\tilde{X}},\boldsymbol{\tilde{Y}},\boldsymbol{\tilde{\alpha}})$ denotes an independent copy of $(\boldsymbol{X},\boldsymbol{Y},\boldsymbol{\alpha})$. In the present LQ case, the sufficient condition can be used to solve for:
 \begin{equation}
     \hat{\alpha}_t=a^{MKV}(t)Y_t+b^{MKV}(t)\mathbb{E}(Y_t),
     \label{eq:alpha_hat_MKV}
@@ -378,26 +377,26 @@ provide a solution to the LQEMKV problem. Then from the appendix, we have:
 \begin{itemize}
 	\item a scalar Riccati equation for $\bar{\eta}_t^{MKV}$:
 	\begin{equation}
-	\dot{\bar{\eta}}^{MKV}_t+ \left[ c^{MKV}(t)(b_2(t)+\bar{b}_2(t)) \right] \cdot (\bar{\eta}^{MKV}_t)^2+ 2\left(b_1(t)+\bar{b}_1(t) \right) \cdot \bar{\eta}^{MKV}_t +q(t)+\bar{q}(t)(1-s(t))^2 =0
+	\dot{\bar{\eta}}^{MKV}_t+ \left[ c^{MKV}(t)(b_2(t)+\bar{b}_2(t)) \right] \cdot (\bar{\eta}^{MKV}_t)^2+ 2\left(b_1(t)+\bar{b}_1(t) \right) \cdot \bar{\eta}^{MKV}_t +q(t)+\bar{q}(t)(1-s(t))^2 =0,
 	\label{eq:eta_bar_MKV}
 	\end{equation}
 	with terminal condition $\bar{\eta}^{MKV}_T = q_T+\bar{q}_T(1-s_T)^2$, 
 	\item a linear first order ODE for $\bar{x}_t^{MKV}$:
 	\begin{equation}
-	\dot{\bar{x}}^{MKV}_t=\left[ b_1(t)+\bar{b}_1(t)+c^{MKV}(t)(b_2(t)+\bar{b}_2(t)) \cdot \bar{\eta}^{MKV}_t \right] \cdot \bar{x}^{MKV}_t
+	\dot{\bar{x}}^{MKV}_t=\left[ b_1(t)+\bar{b}_1(t)+c^{MKV}(t)(b_2(t)+\bar{b}_2(t)) \cdot \bar{\eta}^{MKV}_t \right] \cdot \bar{x}^{MKV}_t,
 	\label{eq:x_bar_MKV}
 	\end{equation}
 	with initial condition $\bar{x}^{MKV}_0=\mathbb{E}(\xi)$,
 	\item a scalar Riccati equation for $\eta_t^{MKV}$:
 	\begin{equation}
-	\dot{\eta}^{MKV}_t+a^{MKV}(t)b_2(t)\cdot (\eta^{MKV}_t)^2 + 2b_1(t) \cdot \eta^{MKV}_t+q(t)+\bar{q}(t)=0
+	\dot{\eta}^{MKV}_t+a^{MKV}(t)b_2(t)\cdot (\eta^{MKV}_t)^2 + 2b_1(t) \cdot \eta^{MKV}_t+q(t)+\bar{q}(t)=0,
 	\end{equation}
 	with terminal condition $\eta^{MKV}_T = q_T+\bar{q}_T$,
 \end{itemize}
-where the dot is the standard ODE notation for a derivative. 
+and where the dot is the standard ODE notation for a derivative. 
 And thus, we obtain explicit solutions for $\bar{x}_t^{MKV}$ and $v_t^{MKV}$:
 \begin{IEEEeqnarray}{rCl}
-	\bar{x}^{MKV}_t &=& \mathbb{E}(\xi) e^{ \int_0^t\left( b_1(s)+\bar{b}_1(s)+ \left[ c^{MKV}(s)(b_2(s)+\bar{b}_2(s))\right] \cdot \bar{\eta}^{MKV}_s\right) ds} \label{eq:x_bar_MKV_explicit} \\ 
+	\bar{x}^{MKV}_t &=& \mathbb{E}(\xi) e^{ \int_0^t\left( b_1(s)+\bar{b}_1(s)+ \left[ c^{MKV}(s)(b_2(s)+\bar{b}_2(s))\right] \cdot \bar{\eta}^{MKV}_s\right) ds}, \label{eq:x_bar_MKV_explicit} \\ 
 	v^{MKV}_t &=& Var(\xi)e^{\int_0^t 2\left[b_1(s)+a^{MKV}(s)b_2(s) \cdot \eta^{MKV}_s\right]ds}+\sigma^2 \int_0^t e^{2 \int_s^t \left[b_1(u)+a^{MKV}(u)b_2(u)\eta^{MKV}_u\right] du}ds.
 	\label{eq:v_t_MKV}
 \end{IEEEeqnarray}
@@ -1542,15 +1541,14 @@ Unless otherwise stated, the parameters stay at these default values. For result
 The results show various limiting behaviors, such as some of the cases proved in the previous section. In Figure \ref{fig:b1_b1bar}, we note that Proposition \ref{prop:b1_b1bar} is confirmed. The condition $\frac{b_2}{b_2+\bar{b}_2}\cdot \frac{r + \bar{r}(1- \bar{s})^2}{r + \bar{r}(1-\bar{s})}\cdot (q_T+\bar{q}_T(1-s_T)) \neq q_T+\bar{q}_T(1-s_T)^2$ is satisfied for all three interaction cases and we see that $\lim_{b_1 \to 0}PoA >1$, $\lim_{\bar{b}_1 \to 0}PoA>1$, $\lim_{b_1 \to \infty}PoA = 1$, and $\lim_{\bar{b}_1 \to \infty}PoA = \infty$. Propositions \ref{prop:b2_to_infty}-\ref{prop:b2bar} are confirmed in Figure \ref{fig:b2_b2bar}. For Proposition \ref{prop:b2_to_0}, when there is only interaction through the states, then $\bar{b}_2=0$ and we see that $\lim_{b_2 \to 0}PoA= 1$. When there is full interaction or only interaction through the controls, then $\bar{b}_2>0$ and we see that $\lim_{b_2 \to 0}PoA>1$. For Proposition \ref{prop:b2_to_infty}, we see that $\lim_{b_2 \to \infty}PoA= 1$. Note that the condition $\frac{q + \bar{q}(1-s)}{r + \bar{r}(1-\bar{s})}= \frac{q + \bar{q}(1-s)^2}{r + \bar{r}(1-\bar{s})^2}$ is  not satisfied for the cases of interaction only through the states or interaction only through the controls, and is therefore a sufficient, but not necessary, assumption. For Proposition \ref{prop:b2bar}, Figure \ref{fig:b2_b2bar} confirms that $\lim_{\bar{b}_2 \to 0}PoA>1$ and $\lim_{\bar{b}_2 \to \infty}PoA= 1$. Note that the condition $\frac{r + \bar{r}(1- \bar{s})^2}{r + \bar{r}(1-\bar{s})} \neq \frac{q_T+\bar{q}_T(1-s_T)^2}{q_T+\bar{q}_T(1-s_T)}$ is not satisfied for the full interaction case, and is therefore a sufficient, but not necessary, assumption. This agrees with the conclusion of Remark \ref{remark_6}. Figure \ref{fig:r_rbar} confirms as in Proposition \ref{prop:r_bar_r} that $\lim_{r \to \infty}PoA= 1$ and $\lim_{\bar{r} \to \infty}PoA= 1$.
 
 \subsection{\textbf{A Particular Example: Flocking}}
-Mean field game models of flocking have been proposed in the literature by Nourian et al \cite{nourian2010synthesis}\cite{nourian2011mean}. Here we consider a slightly different formulation as described in Section 3.6.1 of the book \cite{Carmona_book}. A representative bird in the flock controls their velocity, $X_t$, through the drift:
+Mean field game models of flocking have been proposed in the literature by Nourian et al \cite{nourian2010synthesis}\cite{nourian2011mean}. Here we consider a slightly different formulation as described in Section 3.6.1 of the book of Carmona and Delarue \cite{Carmona_book}. A representative bird in the flock controls their velocity, $X_t$, through the drift:
 \begin{equation*}
     b(t,x,\mu,\alpha,\nu)=\alpha.
 \end{equation*}
-Suppose the initial condition is $X_0=1$. They choose their control with two goals in mind: to minimize their effort put into their control, and to align their velocity with the average velocity of the group. Thus, they consider the cost functions given by:
+Suppose the initial condition is $X_0=1$ and the volatility is $\sigma=1$. They choose their control with two goals in mind: to minimize their effort put into their control, and to align their velocity with the average velocity of the group. Thus, they consider the cost functions given by:
 \begin{equation*}
 \begin{split}
-    f(t,x,\mu,\alpha,\nu)&=\frac{1}{2}\left(|x-\bar{\mu}|^2 +\alpha^2 \right), \\
-    g(x,\mu)&=0.
+    f(t,x,\mu,\alpha,\nu)=\frac{1}{2}\left(|x-\bar{\mu}|^2 +\alpha^2 \right), \quad \text{and} \quad g(x,\mu)=0.
 \end{split}
 \end{equation*}
 
@@ -1814,10 +1812,7 @@ In the case where the coefficients are time-independent, the Riccati equations f
 Hence, returning to the linear FBSDE (\ref{eq:FBSDE_general}), for $\bar{\eta}_t$, we use:
 \begin{equation*}
 	\begin{array}{rl}
-		A=&-\frac{1}{2}(a^x+a^{\bar{x}}-b^y-b^{\bar{y}}) \\
-		B=&-(a^y+a^{\bar{y}}) \\
-		C=&-(b^x+b^{\bar{x}}) \\
-		D=&\ c^x+c^{\bar{x}}.
+		A=-\frac{1}{2}(a^x+a^{\bar{x}}-b^y-b^{\bar{y}}), \quad, B=-(a^y+a^{\bar{y}}), \quad C=-(b^x+b^{\bar{x}}),\quad D=\ c^x+c^{\bar{x}}.
 	\end{array}
 \end{equation*}
 The conditions (\ref{eq:Riccati_assumptions}) are satisfied if $-(a^y+a^{\bar{y}})>0$, $-(b^x+b^{\bar{x}})>0$, and $c^x+c^{\bar{x}} \geq 0$.
@@ -1825,10 +1820,7 @@ The conditions (\ref{eq:Riccati_assumptions}) are satisfied if $-(a^y+a^{\bar{y}
 For $\eta_t$, we use:
 \begin{equation*}
 	\begin{array}{rl}
-		A=&-\frac{1}{2}(a^x-b^y) \\
-		B=&-a^y \\
-		C=&-b^x \\
-		D=&\ c^x.
+		A=-\frac{1}{2}(a^x-b^y), \quad B=-a^y, \quad C=-b^x, \quad D=\ c^x.
 	\end{array}
 \end{equation*}
 The conditions (\ref{eq:Riccati_assumptions}) are satisfied if $-a^y>0$, $-b^x>0$, and $c^x \geq0$. Returning to the LGEMFG and LGEMKV problems, if we assume the coefficients are non-negative, we see that these conditions are exactly assumption (\ref{eq:assumptions}).
