@@ -948,10 +948,10 @@ $
 	Hence, there exists $b_2^{*,I_2} \geq \max \{ b_2^{*,upper}, b_2^{*,u,lower} \}$ such that for all $b_2 \geq b_2^{*,I_2}$:
 	\begin{IEEEeqnarray}{rCl}
 		I_2^{b_2} &\leq&  \frac{(b_2+ \bar{b}_2)^3}{r + \bar{r}(1- \bar{s})^2} \cdot 4M^2 e^{2(b_1 + \bar{b}_1) T} \int_{\frac{T}{2}}^{T} \exp\left( - \frac{T(b_2 + \bar{b}_2)}{r + \bar{r}(1-\bar{s})^2} \cdot m_u \right) dt \nonumber\\	
-		&=& \kappa_3 (b_2 + \bar{b}_2)^3 e^{- \kappa_4 (b_2 + \bar{b}_2)} \leq \epsilon,
+		&=& \kappa_1 (b_2 + \bar{b}_2)^3 e^{- \kappa_2 (b_2 + \bar{b}_2)} \leq \epsilon,
 	\label{eq:I2_b2_infty}
 	\end{IEEEeqnarray}
-	with $\kappa_3: = \frac{2 TM^2 e^{2(b_1 + \bar{b}_1) T} }{r + \bar{r}(1-\bar{s})^2} >0$ and $\kappa_4 :=  \frac{T  m_u}{r + \bar{r}(1-\bar{s})^2}>0$ are constants independent of $b_2$. 	
+	with $\kappa_1: = \frac{2 TM^2 e^{2(b_1 + \bar{b}_1) T} }{r + \bar{r}(1-\bar{s})^2} >0$ and $\kappa_2 :=  \frac{T  m_u}{r + \bar{r}(1-\bar{s})^2}>0$ are constants independent of $b_2$. 	
 	
 	Let $b_2^* := \max \{ b_2^{*,I_1}, b_2^{*,I_2}\}$. Then inequalities (\ref{eq:I_1_plus_I_2}), (\ref{eq:I1_ineq_b2_infinity}) and (\ref{eq:I2_b2_infty}) give for $b_2 \geq b_2^*$:
 	\begin{equation*}
@@ -997,9 +997,9 @@ $
 	b_2 SC^{MKV,b_2} 	=  \underbrace{ \left[ \frac{q + \bar{q}}{2} \int_0^T b_2 v_t dt + \frac{q_T + \bar{q}_T}{2} b_2 v_T + \frac{b_2}{2} w_0^{b_2} (\mathbb{E}(\xi) )^2 \right] }_\text{\large{$=:J^{b_2}_1$}}  + \underbrace{ \frac{1}{2} \int_{0}^T  B^{\eta,b_2} (\eta_t^{b_2})^2 \cdot b_2 v_t dt }_\text{\large{$=:J^{b_2}_2$}}.
 	\label{eq:J1_plus_J2_b2_infinity}
 	\end{equation}	
-	We derive the following two results which are useful for deriving upper bounds for $J^{b_2}_1$ and $J^{b_2}_2$. First, let $\kappa_5 := \frac{2 m_{\eta}}{r + \bar{r}}>0$ and $\displaystyle l(b_2,t): = \int_0^t e^{- 2 B^{\eta,b_2} \int_s^t \eta^{b_2}_u du} ds$. Since $b_2 \eta_t \geq m_\eta$ for all $t \in [0,T]$, we have:
+	We derive the following two results which are useful for deriving upper bounds for $J^{b_2}_1$ and $J^{b_2}_2$. First, let $\kappa_3 := \frac{2 m_{\eta}}{r + \bar{r}}>0$ and $\displaystyle l(b_2,t): = \int_0^t e^{- 2 B^{\eta,b_2} \int_s^t \eta^{b_2}_u du} ds$. Since $b_2 \eta_t \geq m_\eta$ for all $t \in [0,T]$, we have:
 	\begin{equation}
-		b_2 \cdot l(b_2,t) \leq b_2 \int_0^t \exp \left(- 2 \frac{b_2}{r + \bar{r}} m_\eta \cdot (t- s) \right) ds = \frac{1}{\kappa_5} (1 - e^{- \kappa_5 b_2 t}) \leq \frac{1}{\kappa_5}, \quad \forall \  t \in [0,T].
+		b_2 \cdot l(b_2,t) \leq b_2 \int_0^t \exp \left(- 2 \frac{b_2}{r + \bar{r}} m_\eta \cdot (t- s) \right) ds = \frac{1}{\kappa_3} (1 - e^{- \kappa_3 b_2 t}) \leq \frac{1}{\kappa_3}, \quad \forall \  t \in [0,T].
 	\label{eq:l(t)_upper_bound_b2_infinity}
 	\end{equation}
 	Next, using equation (\ref{eq:riccati_etat}), integration by parts, and since $-A^\eta,\eta^{b_2}_t,C^\eta,l(b_2,t)\geq 0$ we deduce:
@@ -1020,16 +1020,16 @@ $
 	\begin{IEEEeqnarray*}{rCl}
 		b_2 v_t &= & Var(\xi) e^{2b_1 t} \cdot b_2 e^{- 2 B^{\eta,b_2} \int_0^t \eta_s ds } + \sigma^2 \cdot b_2 \int_0^t e^{2b_1 (t-s)} \cdot e^{-2B^{\eta,b_2} \int_s^t \eta_u du} ds \nonumber \\	
 		&\leq& Var(\xi) e^{2b_1 T}\cdot b_2 e^{- \frac{2 b_2}{r + \bar{r}} m_\eta \cdot t} + \sigma^2 e^{2 b_1 T} b_2 \cdot l(t)  \nonumber \\
-		&\leq& e^{2b_1 T} \left( Var(\xi) b_2 e^{-\kappa_5 b_2 t} + \frac{\sigma^2}{\kappa_5} \right).
+		&\leq& e^{2b_1 T} \left( Var(\xi) b_2 e^{-\kappa_3 b_2 t} + \frac{\sigma^2}{\kappa_3} \right).
 	\end{IEEEeqnarray*}
 	Let $b^{*,J_1} \geq b^{*,basic}$ such that
 	for all $b_2 \geq b_2^{*,J_1}$:
-	$$ (b_2 + \bar{b}_2) w_0^{b_2} \leq c_w + \frac{1}{2} c_w, \quad \text{and} \quad b_2 e^{- \kappa_5 b_2 T} \leq \frac{1}{\kappa_5}.$$
+	$$ (b_2 + \bar{b}_2) w_0^{b_2} \leq c_w + \frac{1}{2} c_w, \quad \text{and} \quad b_2 e^{- \kappa_3 b_2 T} \leq \frac{1}{\kappa_3}.$$
 	Then for all $b_2 \geq b_2^{*,J_1}$:
 	\begin{IEEEeqnarray}{rCl}
-		J^{b_2}_1 &\leq& \frac{q+\bar{q}}{2}  \cdot e^{2b_1 T} \int_0^T \left( Var(\xi) b_2 e^{-\kappa_5 b_2 t} + \frac{\sigma^2}{\kappa_5} \right) dt  \nonumber \\
-		&& \quad + \frac{q_T+\bar{q}_T}{2} \cdot e^{2b_1 T} \left( Var(\xi) b_2 e^{-\kappa_5 T \cdot b_2 } + \frac{\sigma^2}{\kappa_5} \right) + \frac{b_2}{2(b_2 + \bar{b}_2)} (\mathbb{E}(\xi))^2 \cdot (b_2 + \bar{b}_2) w_0^{b_2}\nonumber \\
-		&\leq & \frac{(q+\bar{q}) e^{2b_1 T} }{2}\left[ \frac{Var(\xi)}{\kappa_5}  + \frac{\sigma^2 T}{\kappa_5} \right] + \frac{(q_T+\bar{q}_T) e^{2b_1 T}}{2} \left(  \frac{Var(\xi)}{\kappa_5} + \frac{\sigma^2}{\kappa_5} \right)  + \frac{3 c_w (\mathbb{E}(\xi))^2 }{2} \nonumber \\
+		J^{b_2}_1 &\leq& \frac{q+\bar{q}}{2}  \cdot e^{2b_1 T} \int_0^T \left( Var(\xi) b_2 e^{-\kappa_3 b_2 t} + \frac{\sigma^2}{\kappa_3} \right) dt  \nonumber \\
+		&& \quad + \frac{q_T+\bar{q}_T}{2} \cdot e^{2b_1 T} \left( Var(\xi) b_2 e^{-\kappa_3 T \cdot b_2 } + \frac{\sigma^2}{\kappa_3} \right) + \frac{b_2}{2(b_2 + \bar{b}_2)} (\mathbb{E}(\xi))^2 \cdot (b_2 + \bar{b}_2) w_0^{b_2}\nonumber \\
+		&\leq & \frac{(q+\bar{q}) e^{2b_1 T} }{2}\left[ \frac{Var(\xi)}{\kappa_3}  + \frac{\sigma^2 T}{\kappa_3} \right] + \frac{(q_T+\bar{q}_T) e^{2b_1 T}}{2} \left(  \frac{Var(\xi)}{\kappa_3} + \frac{\sigma^2}{\kappa_3} \right)  + \frac{3 c_w (\mathbb{E}(\xi))^2 }{2} \nonumber \\
 		& =:& M_{J_1}.
 	\label{eq:J1_upper_bound_b2_infinity}
 	\end{IEEEeqnarray}	
@@ -1046,12 +1046,12 @@ $
 	\label{eq:intgeral_b2_eta_t_bound_b2_infinity}
 	\end{equation}
 	Since $\lim_{b_2 \to \infty} b_2 \eta_t^{b_2}= c_\eta$ for all $t \in [0, T/2]$, there exists $b_2^{*,J_2} \geq \max\{ b_2^{*,l}, b_2^{*,basic} \}$ such that for all $b_2 \geq b_2^{*,J_2}$:
-	$$ b_2 \eta_t  \leq c_\eta + \frac{1}{2} c_\eta, \quad \forall \  t \in [0,T/2],  \quad \text{and} \quad b_2^{3} e^{-\kappa_5 b_2 \frac{T}{2} } \leq \frac{1}{\kappa_5}.$$
-	Thus, together with inequalities (\ref{eq:eta_t_uniform_lower_bound_b2_infinity}), (\ref{eq:ut_wt_upper_bound_b2_infty}), (\ref{eq:l(t)_transformation_b2_infinity}), and (\ref{eq:intgeral_b2_eta_t_bound_b2_infinity}), and for $\kappa_6 := \frac{Var(\xi) e^{2b_1 T} }{2 (r+\bar{r})}$, we deduce that:
+	$$ b_2 \eta_t  \leq c_\eta + \frac{1}{2} c_\eta, \quad \forall \  t \in [0,T/2],  \quad \text{and} \quad b_2^{3} e^{-\kappa_3 b_2 \frac{T}{2} } \leq \frac{1}{\kappa_3}.$$
+	Thus, together with inequalities (\ref{eq:eta_t_uniform_lower_bound_b2_infinity}), (\ref{eq:ut_wt_upper_bound_b2_infty}), (\ref{eq:l(t)_transformation_b2_infinity}), and (\ref{eq:intgeral_b2_eta_t_bound_b2_infinity}), and for $\kappa_4 := \frac{Var(\xi) e^{2b_1 T} }{2 (r+\bar{r})}$, we deduce that:
 	\begin{IEEEeqnarray}{rCl}
-		J^{b_2}_2 &\leq& \frac{Var(\xi) e^{2b_1 T} }{2 (r+\bar{r})} \left[ \int_0^{\frac{T}{2}} \left(b_2 \eta^{b_2}_t \right)^2 b_2 e^{- \kappa_5 b_2 t} dt  +  \int_{\frac{T}{2}}^{T} (\eta_t^{b_2})^2 b_2^3  e^{ - 2 B^{\eta, b_2} \int_0^{t} \eta_s^{b_2} ds } dt \right]  + \frac{\sigma^2  e^{2 b_1 T}}{2} \int_0^T b_2 \eta_t^{b_2} dt  \nonumber \\
-		&\leq& 	\kappa_6 \left[ \left(\frac{3 c_\eta}{2} \right)^2 \frac{1}{\kappa_5}(1- e^{-\kappa_5 b_2 \frac{T}{2}}) + M^2 \cdot b_2^3 e^{- \kappa_5 b_2 \frac{T}{2}} \cdot \frac{T}{2} \right] + \frac{\sigma^2  e^{2 b_1 T}}{2} M_{l} \nonumber \\
-		&\leq& \frac{\kappa_6}{\kappa_5} \left( \frac{9}{4} c_\eta^2 + \frac{M^2 T}{2} \right) + \frac{\sigma^2  e^{2 b_1 T}  M_{l}}{2} =: M_{J_2}.
+		J^{b_2}_2 &\leq& \frac{Var(\xi) e^{2b_1 T} }{2 (r+\bar{r})} \left[ \int_0^{\frac{T}{2}} \left(b_2 \eta^{b_2}_t \right)^2 b_2 e^{- \kappa_3 b_2 t} dt  +  \int_{\frac{T}{2}}^{T} (\eta_t^{b_2})^2 b_2^3  e^{ - 2 B^{\eta, b_2} \int_0^{t} \eta_s^{b_2} ds } dt \right]  + \frac{\sigma^2  e^{2 b_1 T}}{2} \int_0^T b_2 \eta_t^{b_2} dt  \nonumber \\
+		&\leq& 	\kappa_4 \left[ \left(\frac{3 c_\eta}{2} \right)^2 \frac{1}{\kappa_3}(1- e^{-\kappa_3 b_2 \frac{T}{2}}) + M^2 \cdot b_2^3 e^{- \kappa_3 b_2 \frac{T}{2}} \cdot \frac{T}{2} \right] + \frac{\sigma^2  e^{2 b_1 T}}{2} M_{l} \nonumber \\
+		&\leq& \frac{\kappa_4}{\kappa_3} \left( \frac{9}{4} c_\eta^2 + \frac{M^2 T}{2} \right) + \frac{\sigma^2  e^{2 b_1 T}  M_{l}}{2} =: M_{J_2}.
 	\label{eq:J2_upper_bound_b2_infinity}
 	\end{IEEEeqnarray} 
 	Now, from equation (\ref{eq:J1_plus_J2_b2_infinity}) and inequalities (\ref{eq:J1_upper_bound_b2_infinity}) and (\ref{eq:J2_upper_bound_b2_infinity}), we have for all $b_2 \geq b_2^{*,den} := \max \{ b_2^{*,J_1}, b_2^{*,J_2} \}$:
