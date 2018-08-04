@@ -704,10 +704,9 @@ Note that $u_t$ is increasing if $B (D^{u})^2 + 2 A^u D^{u} - C^{u}>0$, and like
 
 \begin{proof}
 	From an analogous equation to (\ref{eq:riccati_ut_sol}) for $w_t$, we know that under assumption (\ref{eq:assumptions}), $w_0>0$. Thus, with the assumption $\mathbb{E}(\xi) \neq 0$, we have $0 < SC^{MKV} < \infty$. Hence, $PoA =1$ if and only if $\Delta SC = 0$. Since $\bar{x}_t^{MFG} \neq 0$ for all $t \in [0,T]$, from Proposition \ref{prop:diff_SC} and the continuity of $u_t$ and $w_t$, we deduce that:
-	\begin{equation}
-		PoA = 1 \qquad iff \qquad u_t = w_t, \quad \forall  t \in [0,T].
-	\label{eq:PoA_equivalence_ut=w_t} 
-	\end{equation}
+	\begin{equation*}
+		PoA = 1 \qquad \text{if and only if} \qquad u_t = w_t, \quad \forall  t \in [0,T]. 
+	\end{equation*}
 	
 	From equation (\ref{eq:riccati_ut_sol_deriv}) and the uniqueness of solutions to Riccati equations (\ref{eq:riccati_ut}) and (\ref{eq:riccati_wt}), it is easy to check that if the conditions in (\ref{eq:PoA=1_condition_b1_bar>0}) and (\ref{eq:PoA=1_condition_b1_bar=0}) are satisfied, then $u_t=D^u=D^w = w_t$ for all $ t\in [0,T]$, and thus, $PoA = 1$.	
 	
@@ -804,7 +803,7 @@ $
 	\begin{equation*}
 	\lim_{r \to \infty} \int_0^T (u^r_t - w^r_t)^2 (\bar{x}_t^{MFG,r})^2 dt = \int_0^T (u^{r \to \infty}_t- w^{r \to \infty}_t)^2 (\bar{x}_t^{MFG,r\to \infty})^2 dt \  < \infty,
 	\end{equation*}
-	and thus,
+	and thus, from equation (\ref{eq:Delta_SC_LQ_new_notation}):
 	\begin{equation*}
 	\lim_{r \to \infty} \Delta SC^r = \lim_{r \to \infty} \frac{1}{2}\cdot B^r\int_0^T (u^r_t - w^r_t)^2 ( \bar{x}_t^{MFG,r})^2 dt = 0.
 	\end{equation*}
@@ -812,7 +811,7 @@ $
 	From equation (\ref{eq:v_t_new_notation}) and by the bounded convergence theorem, we have for every $t \in [0,T]$: 
 	$$	\lim_{r\to \infty} v^r_t = Var(\xi)e^{2b_1 t} + \sigma^2 \int_0^t e^{2 b_1 (t-s) } ds =: v^{r \to \infty}_t.
 	$$
-	The variance function $v_t^{r}$ is also uniformly bounded over $t \in [0,T]$. We also have $w^{r \to \infty }_0\geq0$ and $v^{r \to \infty}_t >0$ for $t>0$. Hence,
+	We also have $w^{r \to \infty }_0 >0$ and $v^{r \to \infty}_t >0$ for $t>0$. Hence, from equation (\ref{eq:SC_MKV_LQ_new_notation}):
 	\begin{equation*}
 		\lim_{r \to \infty} SC^{MKV,r} = \frac{1}{2} \left( \int_0^T (q+\bar{q}) v^{r \to \infty}_t dt + (q_T + \bar{q}_T) v^{r\to \infty}_T + w^{r \to \infty}_0 (\mathbb{E}(\xi))^2 \right)  >0.
 	\end{equation*}
@@ -900,7 +899,7 @@ $
 	\end{equation*}
 	Then $c_{\delta_u^{b_2 \to \infty}}=c_{\delta_w^{b_2 \to \infty}}$ and therefore, $c_u = c_w =: c$. 
 	We want to show that $\lim_{b_2 \to \infty} \frac{\Delta SC^{b_2}}{SC^{MKV,b_2}} = 0$. Our approach is to split the interval $[0,T]$ into two parts: $[0,T/2]$ and $[T/2,T]$.	
-	Since $v^{b_2}_t \geq 0$ for all $t\in [0,T]$, we have $SC^{MKV,b_2} \geq w_0^{b_2} (\mathbb{E}(\xi))^2$ and thus:
+	Since $v^{b_2}_t \geq 0$ for all $t\in [0,T]$, from equations (\ref{eq:Delta_SC_LQ_new_notation}) and (\ref{eq:SC_MKV_LQ_new_notation}), we have $SC^{MKV,b_2} \geq w_0^{b_2} (\mathbb{E}(\xi))^2$ and thus:
 	\begin{equation}
 	\begin{split}
 		\frac{\Delta SC^{b_2}}{SC^{MKV,b_2}} &\leq \frac{1}{w_0^{b_2} \mathbb{E}(\xi)^2 } \left( B^{b_2} \int_{0}^{\frac{T}{2}} (u_t^{b_2} - w_t^{b_2})^2 (\bar{x}_t^{MFG,b_2})^2 dt + B^{b_2} \int_{\frac{T}{2}}^{T} (u_t^{b_2} - w_t^{b_2})^2 (\bar{x}_t^{MFG,b_2})^2 dt \right) \\ 
@@ -962,7 +961,7 @@ $
 	\begin{equation*}
 		\lim_{b_2 \to \infty} \frac{\Delta SC^{b_2}}{SC^{MKV,b_2}} = 0, 
 	\end{equation*}
-	and thus,
+	and thus, from equation (\ref{eq:PoA_LQ}):
 	$$ \lim_{b_2 \to \infty} PoA^{b_2} = 1.$$\\
 	
 	%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
@@ -1066,7 +1065,7 @@ $
 	\begin{equation*}
 		\frac{b_2+\bar{b}_2}{b_2} \leq 2, \quad \text{and thus,} \quad \frac{\Delta SC^{b_2}}{SC^{MKV,b_2}} = \frac{(b_2 + \bar{b}_2) \Delta SC^{b_2} }{\left(\frac{b_2 + \bar{b}_2}{b_2} \right) (b_2 SC^{MKV,b_2} ) } \geq \frac{c_{num}}{ 2 M_{den}} > 0.
 	\end{equation*}
-	Therefore, we conclude: 
+	Therefore, from equation (\ref{eq:PoA_LQ}), we conclude: 
 	$$ \lim_{b_2 \to \infty} PoA^{b_2} > 1.$$ 
 \end{proof}
 
