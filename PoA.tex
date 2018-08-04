@@ -786,7 +786,7 @@ $
 	It is easy to show directly from their explicit solutions (see equation (\ref{eq:riccati_ut_sol})) that for every time $t\in [0,T]$, $$\lim_{r \to \infty}u^r_t=u^{r \to \infty}_t, \quad \text{and thus,} \quad \lim_{r \to \infty}B^ru^r_t=0.$$
 	
 	Next, our goal is to bound the $u^r_t$ uniformly over $t \in [0,T]$ for large $r$.
-	Note that  $A^u < 0$, $B^r$, $C^{u,r}$, $\lambda^{r\to \infty}$, $C^{r \to \infty}_u$, $D^{u,r}$, $D^{r \to \infty}_u> 0$, and $\delta^{-,r}_u < 0 < \delta^{+,r}_u$. Let $\epsilon>0$. Then there exists $r^*>0$ such that $\max\{ B^{r}, C^{u,r}, D^{u,r} \} \leq \max\{C^{r \to \infty}_u,D^{r \to \infty}_u \}+\epsilon=: \zeta$ for $r \geq r^*$. Thus, we can deduce that for $r \geq r^*$, and for every $t \in [0,T]$:
+	Note that  $A^u < 0$, $B^r$, $C^{u,r}$, $\lambda^{r\to \infty}$, $C^{r \to \infty}_u$, $D^{u,r}$, $D^{r \to \infty}_u> 0$, and $\delta^{-,r}_u < 0 < \delta^{+,r}_u$. Let $\epsilon>0$. Then there exists a $r^*>0$ such that $\max\{ B^{r}, C^{u,r}, D^{u,r} \} \leq \max\{C^{r \to \infty}_u,D^{r \to \infty}_u \}+\epsilon=: \zeta$ for $r \geq r^*$. Thus, we can deduce that for $r \geq r^*$, and for every $t \in [0,T]$:
 	\begin{equation*}
 	\left\vert u_t^{r} \right\vert \leq \frac{C^{u,r} + D^{u,r} (\delta^{+,r}_u - \delta^{-,r}_u)}{\delta^{+,r}_u e^{- (\delta^{+,r}_u - \delta^{-,r}_u)(T-t)}} 
 	\leq  \frac{ \zeta + 2 \zeta \sqrt{(A^u)^2 + \zeta^2}  }{-2A^u e^{-2T \sqrt{(A^u)^2 + \zeta^2} } }.
@@ -860,7 +860,7 @@ $
 	and
 	$$ \lim_{b_2 \to \infty}b_2 \eta_t^{b_2} = (r + \bar{r}) c_{\delta_{\eta}} =: c_\eta, \qquad \text{with} \quad c_{\delta_\eta} := \sqrt{ \frac{q + \bar{q}}{r +\bar{r}} }.$$
 	
-	Next, we derive a strictly positive uniform lower bound for $(b_2 + \bar{b}_2) u_t^{b_2}$ over $[0,T]$ and large $b_2$. Let $\zeta_1 :=\frac{1}{2} \min \left\{ c_{\delta_u}, D^{u,b_2 \to \infty} \right\}$. Then there exists $b_2^{*,u,lower}>0$ such that for all $b_2 \geq b_2^{*,u,lower}$:
+	Next, we derive a strictly positive uniform lower bound for $(b_2 + \bar{b}_2) u_t^{b_2}$ over $[0,T]$ and large $b_2$. Let $\zeta_1 :=\frac{1}{2} \min \left\{ c_{\delta_u}, D^{u,b_2 \to \infty} \right\}$. Then there exists a $b_2^{*,u,lower}>0$ such that for all $b_2 \geq b_2^{*,u,lower}$:
 	$$ 
 	\max \left\{  \left\vert \frac{\delta_u^{+,b_2}}{b_2 + \bar{b}_2}  - c_{\delta_u} \right\vert, \   \left\vert \frac{\delta_u^{-,b_2}}{b_2 + \bar{b}_2}  - \left(-c_{\delta_u}\right) \right\vert, \left\vert D^{u,b_2} - D^{u,b_2\to \infty} \right\vert,  \left\vert \frac{1}{b_2 + \bar{b}_2} \right\vert  \right\} \leq \zeta_1,
 	$$ 
@@ -870,20 +870,20 @@ $
 		&\geq& \frac{(D^{u,b_2 \to \infty} - \zeta_1 )(c_{\delta_u} - \zeta_1) }{ \zeta_1  (2 c_{\delta_u} + 2 \zeta_1) + (D^{u,b_2 \to \infty} + \zeta_1) / (r+ \bar{r}(1-\bar{s})^2) } =: m_u>0.
 	\label{eq:ut_uniform_lower_bound_b2_infinity}
 	\end{IEEEeqnarray}
-	Then, by the same technique in inequality (\ref{eq:ut_uniform_lower_bound_b2_infinity}), there exists $b_2^{*,\eta, lower} > 0$ and $m_\eta >0$ such that for all $b_2 \geq b_2^{*,\eta,lower}$ and all $t\in[0,T]$:
+	Then, by the same technique in inequality (\ref{eq:ut_uniform_lower_bound_b2_infinity}), there exists a $b_2^{*,\eta, lower} > 0$ and $m_\eta >0$ such that for all $b_2 \geq b_2^{*,\eta,lower}$ and all $t\in[0,T]$:
 	\begin{equation}
 	   b_2 \eta_t^{b_2} \geq m_\eta.
 	\label{eq:eta_t_uniform_lower_bound_b2_infinity}
 	\end{equation}
 
 	From equation (\ref{eq:riccati_ut_sol_deriv}), we see that $t \mapsto u_t^{b_2}$ is increasing if $B^{b_2} (D^{u,b_2})^2 + 2 A^u D^{u,b_2} - C^{u,b_2} > 0$. Since 
-	$\lim_{b_2 \to \infty} B^{b_2} (D^{u,b_2})^2 + 2 A^u D^{u,b_2} - C^{u,b_2} = \infty,$ there exists $b_2^{*,u,upper} >0$ such that for all $b_2 \geq b_2^{*,u,upper}$, we have $|D^{u,b_2} -D^{u,b_2 \to \infty} | \leq 1$ and $t \mapsto u_t^{b_2}$ is increasing.
+	$\lim_{b_2 \to \infty} B^{b_2} (D^{u,b_2})^2 + 2 A^u D^{u,b_2} - C^{u,b_2} = \infty,$ there exists a $b_2^{*,u,upper} >0$ such that for all $b_2 \geq b_2^{*,u,upper}$, we have $|D^{u,b_2} -D^{u,b_2 \to \infty} | \leq 1$ and $t \mapsto u_t^{b_2}$ is increasing.
 	Therefore,
 	\begin{equation*}
 	u_t^{b_2}\leq u_T^{b_2} = D^{u,b_2} \leq D^{u,b_2 \to \infty} + 1, \quad \forall \  t\in[0,T],\ b_2 \geq b_2^{*,u,upper}.
 	\label{eq:u_t_bound}
 	\end{equation*}
-	By the same argument for $w_t^{b_2}$ and $\eta_t^{b_2}$, there exists $b_2^{*,upper} \geq b_2^{*,u,upper}$ such that:
+	By the same argument for $w_t^{b_2}$ and $\eta_t^{b_2}$, there exists a $b_2^{*,upper} \geq b_2^{*,u,upper}$ such that:
 	\begin{equation}
 	\max \left\{ \left\vert u_t^{b_2} \right\vert , \left\vert w_t^{b_2} \right\vert, \left\vert \eta_t^{b_2} \right\vert \right\} \leq M, \quad \forall \  t\in[0,T],\ b_2 \geq b_2^{*,upper},
 	\label{eq:ut_wt_upper_bound_b2_infty}
@@ -920,7 +920,7 @@ $
 	
 	Fix $\epsilon>0$. In the following, we show that $I_1^{b_2} \leq \epsilon$ and $I_2^{b_2} \leq \epsilon$ for large $b_2$. First, consider $I_1^{b_2}$. Recall that for $t \in[0,T/2]$, we have $\lim_{b_2 \to \infty}h_u(b_2,t) = \lim_{b_2 \to \infty}h_w(b_2,t) = c$, and for all $b_2 \geq b_2^{*,upper}$, the functions $[0,T/2] \ni s \mapsto u_s^{b_2}$ and $[0,T/2] \ni s \mapsto w_s^{b_2}$ are increasing, and thus, $[0,T/2] \ni s \mapsto h_u(b_2,t)$ and $[0,T/2] \ni s \mapsto h_w(b_2,t)$ are increasing. (Note that $T/2<T$ is chosen arbitrarily, since the above limits do not hold at $T$.) Let
 	$ \zeta_2: = \min \left\{ \frac{c}{2},  \frac{1}{2} e^{-T(b_1+\bar{b}_2)} \sqrt{\epsilon c} \right\}.$
-	Then there exists $b_2^{*,I_1}  \geq b_2^{*,upper}$ such that for all $b_2 \geq b_2^{*,I_1}$ and all $s\in [0, T/2]$ we have:
+	Then there exists a $b_2^{*,I_1}  \geq b_2^{*,upper}$ such that for all $b_2 \geq b_2^{*,I_1}$ and all $s\in [0, T/2]$ we have:
 	\begin{equation*}
 	\begin{array}{lclclclcl}
 		c - \zeta_2 &\leq& h_u(b_2,0) &\leq& h_u(b_2,s) &\leq& h_u(b_2, T/2 ) &\leq& c + \zeta_2, \\
@@ -945,7 +945,7 @@ $
 		\qquad \text{and} \qquad
 		\int_0^{t} h_u(b_2,s) ds \geq \int_0^{\frac{T}{2}} h_u(b_2,s) ds \geq \frac{T}{2} m_u >0.
 	\end{equation*}
-	Hence, there exists $b_2^{*,I_2} \geq \max \{ b_2^{*,upper}, b_2^{*,u,lower} \}$ such that for all $b_2 \geq b_2^{*,I_2}$:
+	Hence, there exists a $b_2^{*,I_2} \geq \max \{ b_2^{*,upper}, b_2^{*,u,lower} \}$ such that for all $b_2 \geq b_2^{*,I_2}$:
 	\begin{IEEEeqnarray}{rCl}
 		I_2^{b_2} &\leq&  \frac{(b_2+ \bar{b}_2)^3}{r + \bar{r}(1- \bar{s})^2} \cdot 4M^2 e^{2(b_1 + \bar{b}_1) T} \int_{\frac{T}{2}}^{T} \exp\left( - \frac{T(b_2 + \bar{b}_2)}{r + \bar{r}(1-\bar{s})^2} \cdot m_u \right) dt \nonumber\\	
 		&=& \kappa_1 (b_2 + \bar{b}_2)^3 e^{- \kappa_2 (b_2 + \bar{b}_2)} \leq \epsilon,
@@ -973,7 +973,7 @@ $
 	\end{equation*}
 	Then $c_u \neq c_w$. We want to show that $\lim_{b_2 \to \infty}PoA^{b_2}>1$. To do so, we will show that $(b_2 + \bar{b_2}) \Delta SC^{b_2}\geq c_{num}>0$ and $b_2 SC^{MKV,b_2} \leq M_{den}<\infty$ for large $b_2$, where $c_{num}$ and $M_{den}$ are two constants independent of $b_2$. We assume in the following that $b_2 \geq b_2^{*,basic} := \max \{b_2^{*,u,lower}, b_2^{*,\eta,lower}, b_2^{*,upper} \}$, as defined prior to Case 1. Therefore, $s \mapsto u_s^{b_2}$, $s \mapsto w_s^{b_2}$ and $s \mapsto \eta_s^{\eta}$ are increasing functions. Moreover, from inequalities (\ref{eq:ut_uniform_lower_bound_b2_infinity})-(\ref{eq:ut_wt_upper_bound_b2_infty}), we have $h_u(b_2,t) \geq m_u>0$, $b_2 \eta_t^{b_2} \geq m_\eta>0$, and $\eta_t^{b_2} \leq M<\infty$, for all $t\in[0,T]$.
 	
-	Step 1: We derive a lower bound for $(b_2+\bar{b}_2)\Delta SC^{b_2}$ by adapting the techniques used in inequality (\ref{eq:I1_ineq_b2_infinity}).  We have shown that for every $t \in[0,T/2]$,  $\lim_{b_2 \to \infty} h_u(b_2, t)= c_u$ and $\lim_{b_2 \to \infty} h_w(b_2, t)= c_w$. Let $\zeta_3 = \ln(2) \frac{r + \bar{r}(1-\bar{s})^2}{T (c_u + \vert c_u - c_w \vert / 4)} - \bar{b}_2$. Then, there exists $b_2^{*,num} \geq \max \{ b_2^{*,basic}, \zeta_3 \}$ such that for all $b_2 \geq b_2^{*,num}$ and all $s \in [0, T/2]$:
+	Step 1: We derive a lower bound for $(b_2+\bar{b}_2)\Delta SC^{b_2}$ by adapting the techniques used in inequality (\ref{eq:I1_ineq_b2_infinity}).  We have shown that for every $t \in[0,T/2]$,  $\lim_{b_2 \to \infty} h_u(b_2, t)= c_u$ and $\lim_{b_2 \to \infty} h_w(b_2, t)= c_w$. Let $\zeta_3 = \ln(2) \frac{r + \bar{r}(1-\bar{s})^2}{T (c_u + \vert c_u - c_w \vert / 4)} - \bar{b}_2$. Then, there exists a $b_2^{*,num} \geq \max \{ b_2^{*,basic}, \zeta_3 \}$ such that for all $b_2 \geq b_2^{*,num}$ and all $s \in [0, T/2]$:
 	\begin{equation*}
 	\begin{array}{lclclclcl}
 		c_u - \left\vert c_u - c_w  \right\vert /4 &\leq& h_u(b_2, 0) &\leq& h_u(b_2,s) &\leq& h_u(b_2, T/2) &\leq& c_u + \left\vert c_u - c_w \right\vert /4, \\
@@ -1040,12 +1040,12 @@ $
 		J^{b_2}_2 &=& \frac{1}{2 (r + \bar{r}) }\int_0^T \left(b_2 \eta_t^{b_2} \right)^2 Var(\xi) e^{2b_1 t} \cdot b_2 \exp \left( - 2 B^{\eta,b_2} \int_0^t \eta_s ds \right) dt \nonumber \\
 		&& \hspace{10em}  + \frac{\sigma^2}{2} \cdot  b_2 \int_0^T B^{\eta,b_2} (\eta_t^{b_2})^2 \left( \int_0^t e^{2b_1(t-s) - 2B^{\eta,b_2} \int_s^t \eta_u^{b_2} du} ds \right)  dt .
 	\end{IEEEeqnarray*}
-	We will make use of Lemma \ref{lemma:int_b2_eta_t}, which appears below, and states that there exists $b_2^{*,l}>0$ and a constant $M_{l}$ independent of $b_2$ such that for all $b_2 \geq b_2^{*,l}$: 
+	We will make use of Lemma \ref{lemma:int_b2_eta_t}, which appears below, and states that there exists a $b_2^{*,l}>0$ and a constant $M_{l}$ independent of $b_2$ such that for all $b_2 \geq b_2^{*,l}$: 
 	\begin{equation}
 	\int_0^T b_2 \eta_t^{b_2} dt \leq M_{l}.
 	\label{eq:intgeral_b2_eta_t_bound_b2_infinity}
 	\end{equation}
-	Since $\lim_{b_2 \to \infty} b_2 \eta_t^{b_2}= c_\eta$ for all $t \in [0, T/2]$, there exists $b_2^{*,J_2} \geq \max\{ b_2^{*,l}, b_2^{*,basic} \}$ such that for all $b_2 \geq b_2^{*,J_2}$:
+	Since $\lim_{b_2 \to \infty} b_2 \eta_t^{b_2}= c_\eta$ for all $t \in [0, T/2]$, there exists a $b_2^{*,J_2} \geq \max\{ b_2^{*,l}, b_2^{*,basic} \}$ such that for all $b_2 \geq b_2^{*,J_2}$:
 	$$ b_2 \eta_t  \leq c_\eta + \frac{1}{2} c_\eta, \quad \forall \  t \in [0,T/2],  \quad \text{and} \quad b_2^{3} e^{-\kappa_3 b_2 \frac{T}{2} } \leq \frac{1}{\kappa_3}.$$
 	Thus, together with inequalities (\ref{eq:eta_t_uniform_lower_bound_b2_infinity}), (\ref{eq:ut_wt_upper_bound_b2_infty}), (\ref{eq:l(t)_transformation_b2_infinity}), and (\ref{eq:intgeral_b2_eta_t_bound_b2_infinity}), and for $\kappa_4 := \frac{Var(\xi) e^{2b_1 T} }{2 (r+\bar{r})}$, we deduce that:
 	\begin{IEEEeqnarray}{rCl}
@@ -1072,15 +1072,15 @@ $
 
 The following lemma was used in Proposition \ref{prop:b2_to_infty}.
 \begin{lemma}
-	Assume Assumption \ref{assumption}. There exists a $b_2^{*,l}>0$ and $M^l>0$, such that for all $b_2 \geq b_2^{*,l}$:
+	Assume Assumption \ref{assumption}. There exists a $b_2^{*,l}>0$ and a $M^l>0$, such that for all $b_2 \geq b_2^{*,l}$:
 	$$\int_0^T b_2 \eta^{b_2}_t dt \leq M^l.$$
 	\label{lemma:int_b2_eta_t}
 \end{lemma}
 
 \begin{proof}
-	Since $\lim_{b_2 \to \infty}b_2\eta^{b_2}_t= c_\eta,$ there exists $b_2^{*,1}$ such that for $b_2 \geq b_2^{*,1}$, we have
+	Since $\lim_{b_2 \to \infty}b_2\eta^{b_2}_t= c_\eta,$ there exists a $b_2^{*,1}>0$ such that for $b_2 \geq b_2^{*,1}$, we have
 	$b_2\eta^{b_2}_0 \leq c_\eta+\frac{1}{2}.$
-	Clearly there exists $b_2^{*,2}$ such that for $b_2 \geq b_2^{*,2}$:
+	Clearly there exists a $b_2^{*,2}>0$ such that for $b_2 \geq b_2^{*,2}$:
 	$$b_2\eta^{b_2}_T=b_2D^\eta=b_2(q_T+\bar{q}_T)\geq c_\eta+2.$$
 	Let $b_2^{*,3}$ such that for $b_2 \geq b_2^{*,3}$, the function $t \mapsto b_2 \eta^{b_2}_t$ is increasing. Since for $b_2 \geq \max \{b_2^{*,1},b_2^{*,2},b_2^{*,3} \}$, the function $t \mapsto b_2 \eta^{b_2}_t$ is increasing and continuous, by the intermediate value theorem, there exists a $t^*_{b_2}\in[0,T]$ such that
 	$b_2 \eta^{b_2}_{t^*_{b_2}} =c_\eta+1$, and $b_2 \eta^{b_2}_t \leq c_\eta+1$, for all $t\leq t^*_{b_2}.$
@@ -1097,7 +1097,7 @@ The following lemma was used in Proposition \ref{prop:b2_to_infty}.
 	\label{eq:lemma_1}
 	\end{equation}
 	Since we have
-	$\lim_{b_2 \to \infty}\frac{\delta^{-,b_2}_\eta}{b_2^2}=\lim_{b_2 \to \infty}\frac{C^\eta}{b_2}=\lim_{b_2 \to \infty}\left(\frac{\delta^{+,b_2}_\eta}{b_2}-c_{\delta_\eta} \right) =0,$ there exists $b_2^{*,4}$ such that for $b_2 \geq b_2^{*,4}$,
+	$\lim_{b_2 \to \infty}\frac{\delta^{-,b_2}_\eta}{b_2^2}=\lim_{b_2 \to \infty}\frac{C^\eta}{b_2}=\lim_{b_2 \to \infty}\left(\frac{\delta^{+,b_2}_\eta}{b_2}-c_{\delta_\eta} \right) =0,$ there exists a $b_2^{*,4}>0$ such that for $b_2 \geq b_2^{*,4}$,
 	$\left[\frac{\delta^{-,b_2}_\eta}{b_2^2}(1+c_\eta)+\frac{C^\eta}{b_2}+D^\eta \left(\frac{\delta^{+,b_2}_\eta}{b_2}-c_{\delta_\eta} \right)\right] \leq \frac{D^\eta}{2(r+\bar{r})},$
 	and thus returning to inequality (\ref{eq:lemma_1}), for $b_2 \geq \max \{b_2^{*,1},b_2^{*,2},b_2^{*,3},b_2^{*,4} \}$:
 	$$\frac{D^\eta}{2(r+\bar{r})}\leq \left(-D^\eta\frac{\delta^{-,b_2}_\eta }{b_2}+\frac{D^\eta}{r+\bar{r}}(1+c_\eta) \right) e^{-\left(\delta^{+,b_2}_\eta -\delta^{-,b_2}_\eta\right)(T-t^*_{b_2})}.$$
@@ -1106,7 +1106,7 @@ The following lemma was used in Proposition \ref{prop:b2_to_infty}.
 	b_2(T-t^*_{b_2})\leq \frac{1}{\frac{\left(\delta^{+,b_2}_\eta -\delta^{-,b_2}_\eta\right)}{b_2}} \ln \left( -\frac{2\delta^{-,b_2}_\eta(r+\bar{r})}{b_2}+2(1+c_\eta) \right).
 	\label{eq:lemma_2}
 	\end{equation}
-	Since $\lim_{b_2 \to \infty}\frac{\delta^{+,b_2}_\eta}{b_2}=c_{\delta_\eta}=-\lim_{b_2 \to \infty}\frac{\delta^{-,b_2}_\eta}{b_2}$, there exists $b_2^{*,5}$ such that for $b_2 \geq b_2^{*,5}$:
+	Since $\lim_{b_2 \to \infty}\frac{\delta^{+,b_2}_\eta}{b_2}=c_{\delta_\eta}=-\lim_{b_2 \to \infty}\frac{\delta^{-,b_2}_\eta}{b_2}$, there exists a $b_2^{*,5}>0$ such that for $b_2 \geq b_2^{*,5}$:
 	$$\frac{c_{\delta_\eta}}{2} \leq \frac{-\delta^{-,b_2}_\eta}{b_2} \leq \frac{3c_{\delta_\eta}}{2}, \quad \text{and} \quad c_{\delta_\eta} \leq \frac{\delta^{+,b_2}_\eta-\delta^{-,b_2}_\eta}{b_2} \leq 3c_{\delta_\eta}.$$	
 	Returning to inequality (\ref{eq:lemma_2}), for $b_2 \geq b_2^{*,l}:=\max \{b_2^{*,1},b_2^{*,2},b_2^{*,3},b_2^{*,4},b_2^{*,5}\}$:
 	$$ b_2(T-t^*_{b_2})\leq \frac{1}{c_{\delta_\eta}} \ln \left(3 (r+\bar{r})c_{\delta_\eta}+2(1+c_\eta) \right)=\frac{1}{c_{\delta_\eta}} \ln \left(5c_\eta+2 \right).$$
@@ -1151,7 +1151,7 @@ The following lemma was used in Proposition \ref{prop:b2_to_infty}.
 	$$\lim_{b_2 \to 0}\delta^{+,b_2}_u =-2A^u >0, \quad \text{and} \quad \lim_{b_2 \to 0}\delta^{-,b_2}_u = 0.$$
 	Thus, from equation (\ref{eq:riccati_ut_sol}) we deduce that for every fixed time $t \in [0,T]$, $\lim_{b_2 \to 0}u^{b_2}_t = 0.$
 	
-	Similar to Proposition \ref{prop:r_bar_r}, we can derive a uniform bound for $u_t^{b_2}$ over $[0,T]$ for small $b_2$. Indeed, for any fixed $\epsilon >0$ there exists $b_2^* >0$ such that for any $b_2 \leq b_2^*$:
+	Similar to Proposition \ref{prop:r_bar_r}, we can derive a uniform bound for $u_t^{b_2}$ over $[0,T]$ for small $b_2$. Indeed, for any fixed $\epsilon >0$ there exists a $b_2^* >0$ such that for any $b_2 \leq b_2^*$:
 	$$\max \left\{B^{b_2}, C^{u,b_2}, D^{u,b_2} \right\} \leq B^{b_2 \to \infty} + \epsilon =: \zeta, \quad \text{and thus,} \quad
 	\vert u_t^{b_2} \vert \leq \frac{\zeta + 2 \epsilon \sqrt{(A^u)^2 + \zeta^2} }{- 2 A^u e^{-2T \sqrt{(A^u)^2 + \zeta^2} } } ,\ \forall  \  t \in [0,T].$$
 	
@@ -1209,7 +1209,7 @@ The following lemma was used in Proposition \ref{prop:b2_to_infty}.
 	
 	Next, we provide a uniform upper bound for $u_t^{\bar{b}_2}$ over $[0,T]$ and large $\bar{b}_2$.
 	
-	\hspace{-7mm} Let $\zeta_1 := \frac{1}{2} \min \left\{ c_{\delta_u}, \  c_{\delta_w} \right\}$. Then there exists $\bar{b}_2^{*,u} >0 $ such that for all $\bar{b}_2 \geq \bar{b}_2^{*,u}$,
+	\hspace{-7mm} Let $\zeta_1 := \frac{1}{2} \min \left\{ c_{\delta_u}, \  c_{\delta_w} \right\}$. Then there exists a $\bar{b}_2^{*,u} >0 $ such that for all $\bar{b}_2 \geq \bar{b}_2^{*,u}$,
 	$$ \max\left\{ \left\vert \frac{\delta_u^{+,\bar{b}_2}}{\sqrt{b_2 + \bar{b}_2}} - c_{\delta_u} \right\vert , \ \left\vert \frac{\delta_u^{-,\bar{b}_2}}{\sqrt{b_2 + \bar{b}_2}} - (-c_{\delta_u})\right\vert,\    \left\vert \frac{C^{u,\bar{b}_2}}{\sqrt{b_2 + \bar{b}_2}} \right\vert, \   \left\vert D^{u,\bar{b}_2} \right\vert, \  \frac{1}{\sqrt{b_2 + \bar{b}_2}}  \right\} \leq \zeta_1. $$ 
 	Then with equation (\ref{eq:riccati_ut_sol}), for any $t \in [0,T]$ and $\bar{b}_2 \geq \bar{b}_2^{*,u}$,
 	\begin{equation}
@@ -1218,7 +1218,7 @@ The following lemma was used in Proposition \ref{prop:b2_to_infty}.
 	\leq  \frac{\zeta_1 + \zeta_1 (2 c_{\delta_u} + 2 \zeta_1)}{ c_{\delta_u} - \zeta_1}.
 	\label{eq:ut_uniform_upper_bound_b2_bar_infinity}
 	\end{equation}
-	By the same argument for $w_t^{b_2}$ and together with inequality (\ref{eq:ut_uniform_upper_bound_b2_bar_infinity}), there exists $\bar{b}_2^{*,upper} \geq \bar{b}_2^{*,u}$ and $M>0$ such that:
+	By the same argument for $w_t^{b_2}$ and together with inequality (\ref{eq:ut_uniform_upper_bound_b2_bar_infinity}), there exists a $\bar{b}_2^{*,upper} \geq \bar{b}_2^{*,u}$ and $M>0$ such that:
 	\begin{equation}
 	\max \left\{ \left\vert u_t^{\bar{b}_2}\right\vert, \left\vert w_t^{\bar{b}_2} \right\vert \right\} \leq M, \quad \forall t \in[0,T],\ \bar{b}_2 \geq \bar{b}_2^{*,upper} .
 	\label{eq:ut_wt_uniform_upper_bound_b2_bar_infty}
@@ -1236,7 +1236,7 @@ The following lemma was used in Proposition \ref{prop:b2_to_infty}.
 	Now, we adapt the method used in Proposition \ref{prop:b2_to_infty} to prove $\lim_{\bar{b}_2 \to \infty} \Delta SC^{\bar{b}_2} = 0$. Consider the two quantities:
 	$$ I^{\bar{b}_2}_1 := \frac{1}{2} B^{\bar{b}_2} \int_{0}^{\frac{T}{2}} (u^{\bar{b}_2}_s- w^{\bar{b}_2}_s)^2 (\bar{x}_s^{MFG, \bar{b}_2} )^2 ds \quad \text{ and } \quad I^{\bar{b}_2}_2: = \frac{1}{2} B^{\bar{b}_2} \int_{\frac{T}{2}}^T (u^{\bar{b}_2}_s- w^{\bar{b}_2}_s)^2 (\bar{x}_s^{MFG, \bar{b}_2} )^2 ds. $$
 	
-	Fix $\epsilon>0$. In the following, we will show that $\Delta SC^{\bar{b}_2} = I^{\bar{b}_2}_1 + I^{\bar{b}_2}_2 \leq 2\epsilon$ for large $\bar{b}_2$. First, consider $I^{\bar{b}_2}_1$. Let $\zeta_3 := c_u / 2$. Because $ \lim_{\bar{b}_2 \to \infty} B^{\bar{b}_2} (D^{u,\bar{b}_2})^2+ 2 A^{u} D^{u,\bar{b}_2} - C^{u,\bar{b}_2} >0$, from equation (\ref{eq:riccati_ut_sol_deriv}), there exists $\bar{b}_2^{*,inc} \geq \bar{b}_2^{*,upper}$ so that for all $\bar{b}_2 \geq \bar{b}_2^{*,inc}$, the functions $s \mapsto u_s^{\bar{b}_2}$ and $s \mapsto w_s^{\bar{b}_2}$ are increasing, and so that for all $s \in [0, T/2]$:
+	Fix $\epsilon>0$. In the following, we will show that $\Delta SC^{\bar{b}_2} = I^{\bar{b}_2}_1 + I^{\bar{b}_2}_2 \leq 2\epsilon$ for large $\bar{b}_2$. First, consider $I^{\bar{b}_2}_1$. Let $\zeta_3 := c_u / 2$. Because $ \lim_{\bar{b}_2 \to \infty} B^{\bar{b}_2} (D^{u,\bar{b}_2})^2+ 2 A^{u} D^{u,\bar{b}_2} - C^{u,\bar{b}_2} >0$, from equation (\ref{eq:riccati_ut_sol_deriv}), there exists a $\bar{b}_2^{*,inc} \geq \bar{b}_2^{*,upper}$ so that for all $\bar{b}_2 \geq \bar{b}_2^{*,inc}$, the functions $s \mapsto u_s^{\bar{b}_2}$ and $s \mapsto w_s^{\bar{b}_2}$ are increasing, and so that for all $s \in [0, T/2]$:
 	\begin{IEEEeqnarray*}{c}
 		c_u - \zeta_3 \leq (b_2 + \bar{b}_2)^{\frac{3}{2}} u_0^{\bar{b}_2} \leq  (b_2 + \bar{b}_2)^{\frac{3}{2}} u_s^{\bar{b}_2} \leq (b_2 + \bar{b}_2)^{\frac{3}{2}} u_{\frac{T}{2}}^{\bar{b}_2} \leq c_u + \zeta_3,\\
 		\left\vert (b_2 + \bar{b}_2) u_s^{\bar{b}_2} \right\vert \leq \left\vert (b_2 + \bar{b}_2) u_{\frac{T}{2}}^{\bar{b}_2} \right\vert \leq  \zeta_3, \quad \text{and} \quad 
@@ -1248,13 +1248,13 @@ The following lemma was used in Proposition \ref{prop:b2_to_infty}.
 		&\leq& \kappa_1  \frac{1}{\sqrt{b_2 + \bar{b}_2} } \left( 1 - e^{- \kappa_2 (b_2 + \bar{b}_2)^{\frac{1}{2}} }\right) \xrightarrow[\bar{b}_2 \to \infty]{} 0, \nonumber
 		\label{eq:I1_b2_bar_infinity}
 	\end{IEEEeqnarray} 
-	with $\kappa_1: = \frac{\mathbb{E}(\xi)^2 [\zeta_3^2 + (c_w + \zeta_3)^2 ] e^{2(b_1 + \bar{b}_1) \frac{T}{2}} }{2 (c_u - \zeta_3)}$ and $ \kappa_2 := \frac{(c_u - \zeta_3)T}{r+ \bar{r}(1-\bar{s})^2}$ are independent of $\bar{b}_2$. Therefore, there exists $\bar{b}_2^{*,I_1} \geq \bar{b}_2^{*,0}$ such that for $\bar{b}_2 \geq \bar{b}_2^{*,I_1}$, we have $I_1^{\bar{b}_1} \leq \epsilon$.
+	with $\kappa_1: = \frac{\mathbb{E}(\xi)^2 [\zeta_3^2 + (c_w + \zeta_3)^2 ] e^{2(b_1 + \bar{b}_1) \frac{T}{2}} }{2 (c_u - \zeta_3)}$ and $ \kappa_2 := \frac{(c_u - \zeta_3)T}{r+ \bar{r}(1-\bar{s})^2}$ are independent of $\bar{b}_2$. Therefore, there exists a $\bar{b}_2^{*,I_1} \geq \bar{b}_2^{*,0}$ such that for $\bar{b}_2 \geq \bar{b}_2^{*,I_1}$, we have $I_1^{\bar{b}_1} \leq \epsilon$.
 	
 	Now, we consider the quantity $I^{\bar{b}_2}_2$. Since $u_t^{\bar{b}_2}$ is positive over $[0,T]$ and from inequalities (\ref{eq:ut_wt_uniform_upper_bound_b2_bar_infty}) and (\ref{eq:ut_lower_bound_b2_bar_infty}), we know that for all $\bar{b}_2 \geq \bar{b}_2^{*,upper} \geq \bar{b}_2^{*,u}$ and $t \in [T/2,T]$,
 	\begin{equation*}
 	\left\vert u_t^{\bar{b}_2} - w_t^{\bar{b}_2} \right\vert \leq 2M,\qquad \text{and} \qquad \int_0^t (b_2 + \bar{b}_2)^{\frac{3}{2}} u_s^{\bar{b}_2} ds \geq \frac{T}{2}m_u.
 	\end{equation*}
-	Thus, similar to inequality (\ref{eq:I2_b2_infty}), there exists $\bar{b}_2^{*,I_2} \geq \bar{b}_2^{*,upper}$ such that for all $\bar{b}_2 \geq \bar{b}_2^{*,I_2}$:
+	Thus, similar to inequality (\ref{eq:I2_b2_infty}), there exists a $\bar{b}_2^{*,I_2} \geq \bar{b}_2^{*,upper}$ such that for all $\bar{b}_2 \geq \bar{b}_2^{*,I_2}$:
 	\begin{equation*}
 	I^{\bar{b}_2}_2  \leq  \kappa_3 (b_2 + \bar{b}_2)^2 e^{ - \kappa_4 \sqrt{b_2 + \bar{b}_2} } \leq \epsilon,
 	\end{equation*}
@@ -1357,10 +1357,10 @@ The following lemma was used in Proposition \ref{prop:b2_to_infty}.
 		\lim_{b_1 \to \infty} g_u(b_1,t) =  \lim_{b_1 \to \infty} g_w(b_1,t) = 2.
 	\label{eq:ut_wt_lim_b1_infty}
 	\end{equation}
-	From equation (\ref{eq:riccati_ut_sol_deriv}), and together with equation (\ref{eq:ut_wt_lim_b1_infty}), there exists $b_1^{*,upper} >0$ such that for all $b_1 \geq b_1^{*,upper}$, the functions $t \mapsto u_t^{b_1}$ and $t \mapsto w_t^{b_1}$ are decreasing and such that:
+	From equation (\ref{eq:riccati_ut_sol_deriv}), and together with equation (\ref{eq:ut_wt_lim_b1_infty}), there exists a $b_1^{*,upper} >0$ such that for all $b_1 \geq b_1^{*,upper}$, the functions $t \mapsto u_t^{b_1}$ and $t \mapsto w_t^{b_1}$ are decreasing and such that:
 	$$ \sup_{0 \leq t \leq T} \left\{ g_u(b_1, t), g_w(b_1,t)\right\} \leq \max \left\{ g_u(b_1, 0), g_w(b_1,0) \right\} \leq 3.$$
 	
-	Fix $\epsilon>0$. There exists $b^{*,I_1}_1\geq b_1^{*,upper}$ such that for all $b_1 \geq b_1^{*,I_1} $, and for all $t \in [0, 3T/4]$,
+	Fix $\epsilon>0$. There exists a $b^{*,I_1}_1\geq b_1^{*,upper}$ such that for all $b_1 \geq b_1^{*,I_1} $, and for all $t \in [0, 3T/4]$,
 	\begin{equation*}
 	\begin{split}
 	\vert g_u(b_1, t) - g_w(b_1,t) \vert  &=\max \{g_u(b_1, t)-g_w(b_1, t),g_w(b_1, t)-g_u(b_1, t) \}\\
@@ -1388,7 +1388,7 @@ The following lemma was used in Proposition \ref{prop:b2_to_infty}.
 		 &\leq & 36 e^{2 \bar{b}_1 T} b_1 \cdot \frac{T}{4} \exp\left(2b_1 \cdot T - 2 b_1 \cdot  \frac{3}{4} T \cdot \frac{5}{3} \right) \nonumber \\
 		 &=&  9 T e^{2 \bar{b}_1 T} b_1 e^{- \frac{1}{2} b_1 T} \xrightarrow[b_1 \to \infty]{}0.
 	\end{IEEEeqnarray*}
-	Therefore, there exists $b_1^{*} \geq b_1^{*,I_1}$, so that for $b_1 \geq b_1^*$, we have $I^{b_1}_2 \leq \epsilon$. Hence, for all $b_1 \geq b_1^{*}$,
+	Therefore, there exists a $b_1^{*} \geq b_1^{*,I_1}$, so that for $b_1 \geq b_1^*$, we have $I^{b_1}_2 \leq \epsilon$. Hence, for all $b_1 \geq b_1^{*}$,
 	$$ 	\frac{\Delta SC^{b_1}}{SC^{MKV,b_1}} \leq \frac{I^{b_1}_1 + I^{b_1}_2 }{g_w(b_1,0)} \leq \frac{3}{5} (\kappa_1 \epsilon^2 + \epsilon).$$
 	Since the proof holds for arbitrary $\epsilon>0$, and $\kappa_1 = \frac{3}{4} e^{\frac{3\bar{b}_1 T}{2} }$ is independent of $b_1$ and $\epsilon$, we conclude that:
 	$$ \lim_{b_1 \to \infty} PoA^{b_1} = 1.$$ \\
@@ -1447,7 +1447,7 @@ The following lemma was used in Proposition \ref{prop:b2_to_infty}.
 	&\xrightarrow[\bar{b}_1 \to \infty]{} -2b_1 .
 	\end{split}
 	\end{equation*}
-	Since $\lim_{\bar{b}_1 \to \infty}(\bar{b}_1-B u_0^{\bar{b}_1}) = -2b_1 < 0$, there exists $\bar{b}_1^{*}\geq\bar{b}_1^{*,lower}$, such that for $\bar{b}_1 \geq \bar{b}_1^{*}$, $(\bar{b}_1-B u_0^{\bar{b}_1}) \geq -3b_1$. Returning to inequality (\ref{eq:prop_7_case_4_numerator}), and using inequality (\ref{eq:lower_bound_u_w}) we have for $\bar{b}_1 \geq \bar{b}^*_1$:
+	Since $\lim_{\bar{b}_1 \to \infty}(\bar{b}_1-B u_0^{\bar{b}_1}) = -2b_1 < 0$, there exists a $\bar{b}_1^{*}\geq\bar{b}_1^{*,lower}$, such that for $\bar{b}_1 \geq \bar{b}_1^{*}$, $(\bar{b}_1-B u_0^{\bar{b}_1}) \geq -3b_1$. Returning to inequality (\ref{eq:prop_7_case_4_numerator}), and using inequality (\ref{eq:lower_bound_u_w}) we have for $\bar{b}_1 \geq \bar{b}^*_1$:
 	\begin{equation*}
 	\frac{1}{\bar{b}_1^2}\Delta SC^{\bar{b}_1}
 	\geq \frac{B}{2}\mathbb{E}(\xi)^2 \cdot \frac{1}{4B^2} \cdot \int_{0}^{\frac{T}{2}} e^{2b_1 t + 2(\bar{b}_1 - B u_0^{\bar{b}_1}) t } dt \geq \frac{\mathbb{E}(\xi)^2}{8 B} \int_0^{\frac{T}{2}} e^{-4b_1 t} dt  > 0.
@@ -1464,7 +1464,7 @@ The following lemma was used in Proposition \ref{prop:b2_to_infty}.
 	\end{equation*}
 	We conclude $\lim_{\bar{b}_1 \to \infty} PoA^{\bar{b}_1}=\infty.$\\
 
-	\textbf{Cases 3 and 4:} First, we consider $b_1 \to 0$. We have $A^{u,b_1} \to A^{b_1\to 0}_u$, $\delta^{+,b_1}_u \to \delta^{+,b_1\to 0}_u>0$, and $\delta^{-,b_1}_u \to \delta^{-,b_1\to 0}_u<0$, and similarly for $A^{w,b_1}$, $A^{\eta,b_1}$, $\delta^{\pm,b_1}_w$, and $\delta^{\pm,b_1}_\eta$. Clearly we have for all $t\in[0,T]$, $\lim_{b_1 \to 0}u^{b_1}_t=:u^{b_1\to 0}_t$, $\lim_{b_1 \to 0}w^{b_1}_t=:w^{b_1 \to 0}_t$, and $\lim_{b_1 \to 0}\eta^{b_1}_t=:\eta^{b_1 \to 0}_t$. Next, we show that the three sequences are uniformly bounded. Let $0<\epsilon<-\delta^{-,b_1\to 0}_u$. There exists a $b_1^*$ such that $\max \left \{\left| \delta^{+,b_1}_u-\delta^{+,b_1\to0}_u \right|,\left| \delta^{-,b_1}_u-\delta^{-,b_1\to0}_u \right| \right\}<\epsilon$ for all $b_1 \leq b_1^*$. Then for all $b_1 \leq b_1^*$ and $t\in[0,T]$:
+	\textbf{Cases 3 and 4:} First, we consider $b_1 \to 0$. We have $A^{u,b_1} \to A^{b_1\to 0}_u$, $\delta^{+,b_1}_u \to \delta^{+,b_1\to 0}_u>0$, and $\delta^{-,b_1}_u \to \delta^{-,b_1\to 0}_u<0$, and similarly for $A^{w,b_1}$, $A^{\eta,b_1}$, $\delta^{\pm,b_1}_w$, and $\delta^{\pm,b_1}_\eta$. Clearly we have for all $t\in[0,T]$, $\lim_{b_1 \to 0}u^{b_1}_t=:u^{b_1\to 0}_t$, $\lim_{b_1 \to 0}w^{b_1}_t=:w^{b_1 \to 0}_t$, and $\lim_{b_1 \to 0}\eta^{b_1}_t=:\eta^{b_1 \to 0}_t$. Next, we show that the three sequences are uniformly bounded. Let $0<\epsilon<-\delta^{-,b_1\to 0}_u$. There exists a $b_1^*>0$ such that $\max \left \{\left| \delta^{+,b_1}_u-\delta^{+,b_1\to0}_u \right|,\left| \delta^{-,b_1}_u-\delta^{-,b_1\to0}_u \right| \right\}<\epsilon$ for all $b_1 \leq b_1^*$. Then for all $b_1 \leq b_1^*$ and $t\in[0,T]$:
 	\begin{equation*}
 	\left|u^{b_1}_t\right| \leq \frac{C^u+D^u\left(\delta^{+,b_1}_u-\delta^{-,b_1}_u\right) }{-\delta^{-,b_1}_u} \\
 	\leq \frac{C^u+D^u\left(\delta^{+,b_1\to 0}_u-\delta^{-,b_1 \to 0}_u+2\epsilon\right) }{-\delta^{-,b_1\to 0}_u-\epsilon},
