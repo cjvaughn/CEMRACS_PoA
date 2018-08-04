@@ -843,7 +843,7 @@ $
 	\end{equation*}
 	and $A^{u}, (A^{w}, C^w, D^w), (A^{\eta}, C^{\eta}, D^{\eta})$ are independent of  $b_2$. Moreover, we notice that:
 	\begin{equation*}
-		\frac{\delta_u^{\pm,b_2}}{b_2 + \bar{b}_2} = -\frac{A^u}{b_2 + \bar{b}_2} \pm \sqrt{\frac{(A^u)^2}{(b_2+\bar{b}_2)^2}+\frac{C^{u,b_2}}{r + \bar{r}(1-\bar{s})^2} } \xrightarrow[b_2 \to \infty]{} \displaystyle \pm \sqrt{\frac{q + \bar{q}(1-s)}{r + \bar{r}(1-\bar{s})} } =: \pm c_{\delta_u^{b_2 \to \infty}},
+		\frac{\delta_u^{\pm,b_2}}{b_2 + \bar{b}_2} = -\frac{A^u}{b_2 + \bar{b}_2} \pm \sqrt{\frac{(A^u)^2}{(b_2+\bar{b}_2)^2}+\frac{C^{u,b_2}}{r + \bar{r}(1-\bar{s})^2} } \xrightarrow[b_2 \to \infty]{} \displaystyle \pm \sqrt{\frac{q + \bar{q}(1-s)}{r + \bar{r}(1-\bar{s})} } =: \pm c_{\delta_u},
 	\end{equation*}
 	and thus, $\lim_{b_2 \to \infty}\delta^{+,b_2}_u - \delta^{-,b_2}_u = +\infty$.
 	For the sake of simplicity, denote $h_u(b_2,t) := (b_2 + \bar{b}_2) u_{t}^{b_2}$ and $h_w(b_2,t) := (b_2 + \bar{b}_2)w_t^{b_2}$. From equation (\ref{eq:riccati_ut_sol}), for each $t \in[0,T)$, we deduce:
@@ -852,22 +852,22 @@ $
 		h_u(b_2,t) &= \frac{ \displaystyle  \left(\frac{C^{u,b_2}}{b_2 + \bar{b}_2} + D^{u,b_2} \cdot \frac{\delta^{+,b_2}_u}{b_2 + \bar{b}_2}\right) - \left(\frac{C^{u,b_2}}{b_2 + \bar{b}_2} + D^{u,b_2} \cdot \frac{\delta^{-,b_2}_u}{b_2 + \bar{b}_2}\right)e^{- (\delta^{+,b_2}_u - \delta^{-,b_2}_u)(T-t)} }
 		{\displaystyle \left(\frac{- \delta^{-,b_2}_u}{(b_2 + \bar{b}_2)^2} + \frac{D^{u,b_2}}{r + \bar{r}(1-\bar{s})^2} \right) + \left(\frac{\delta^{+,b_2}_u}{(b_2 + \bar{b}_2)^2} - \frac{D^{u,b_2} }{r + \bar{r}(1-\bar{s})^2} \right)e^{- (\delta^{+,b_2}_u - \delta^{-,b_2}_u)(T-t)}  } \nonumber \\
 		\\
-		&\xrightarrow[b_2 \to \infty]{} \quad (r + \bar{r}(1-\bar{s})^2) c_{\delta_u^{b_2 \to \infty}}  =: c_u.
+		&\xrightarrow[b_2 \to \infty]{} \quad (r + \bar{r}(1-\bar{s})^2) c_{\delta_u}  =: c_u.
 	\end{split}
 	\end{equation*}
 	Similarly, for all $t \in [0,T)$:
-	$$\lim_{b_2 \to \infty} h_w(b_2,t)=  (r + \bar{r}(1-\bar{s})^2) c_{\delta_w^{b_2 \to \infty}} =: c_w,\qquad \text{with } \quad c_{\delta_w^{b_2 \to \infty}} := \sqrt{ \frac{q + \bar{q}(1-s)^2}{r + \bar{r}(1-\bar{s})^2} },$$
+	$$\lim_{b_2 \to \infty} h_w(b_2,t)=  (r + \bar{r}(1-\bar{s})^2) c_{\delta_w} =: c_w,\qquad \text{with } \quad c_{\delta_w} := \sqrt{ \frac{q + \bar{q}(1-s)^2}{r + \bar{r}(1-\bar{s})^2} },$$
 	and
-	$$ \lim_{b_2 \to \infty}b_2 \eta_t^{b_2} = (r + \bar{r}) c_{\delta_{\eta}^{b_2 \to \infty}} =: c_\eta, \qquad \text{with } \quad c_{\delta_\eta^{b_2 \to \infty}} := \sqrt{ \frac{q + \bar{q}}{r +\bar{r}} }.$$
+	$$ \lim_{b_2 \to \infty}b_2 \eta_t^{b_2} = (r + \bar{r}) c_{\delta_{\eta}} =: c_\eta, \qquad \text{with} \quad c_{\delta_\eta} := \sqrt{ \frac{q + \bar{q}}{r +\bar{r}} }.$$
 	
-	Next, we derive a strictly positive uniform lower bound for $(b_2 + \bar{b}_2) u_t^{b_2}$ over $[0,T]$ and large $b_2$. Let $\zeta_1 :=\frac{1}{2} \min \left\{ c_{\delta_u^{b_2 \to \infty}}, D^{u,b_2 \to \infty} \right\}$. Then there exists $b_2^{*,u,lower}>0$ such that for all $b_2 \geq b_2^{*,u,lower}$:
+	Next, we derive a strictly positive uniform lower bound for $(b_2 + \bar{b}_2) u_t^{b_2}$ over $[0,T]$ and large $b_2$. Let $\zeta_1 :=\frac{1}{2} \min \left\{ c_{\delta_u}, D^{u,b_2 \to \infty} \right\}$. Then there exists $b_2^{*,u,lower}>0$ such that for all $b_2 \geq b_2^{*,u,lower}$:
 	$$ 
-	\max \left\{  \left\vert \frac{\delta_u^{+,b_2}}{b_2 + \bar{b}_2}  - c_{\delta_u^{b_2 \to \infty}} \right\vert, \   \left\vert \frac{\delta_u^{-,b_2}}{b_2 + \bar{b}_2}  - \left(-c_{\delta_u^{b_2 \to \infty}}\right) \right\vert, \left\vert D^{u,b_2} - D^{u,b_2\to \infty} \right\vert,  \left\vert \frac{1}{b_2 + \bar{b}_2} \right\vert  \right\} \leq \zeta_1,
+	\max \left\{  \left\vert \frac{\delta_u^{+,b_2}}{b_2 + \bar{b}_2}  - c_{\delta_u} \right\vert, \   \left\vert \frac{\delta_u^{-,b_2}}{b_2 + \bar{b}_2}  - \left(-c_{\delta_u}\right) \right\vert, \left\vert D^{u,b_2} - D^{u,b_2\to \infty} \right\vert,  \left\vert \frac{1}{b_2 + \bar{b}_2} \right\vert  \right\} \leq \zeta_1,
 	$$ 
 	and thus for all $t \in [0,T]$:
 	\begin{IEEEeqnarray}{rCl}
 		h_u(b_2,t) &\geq&  (b_2 + \bar{b}_2) \frac{D^{u,b_2} \delta_u^{+, b_2} }{ (\delta_u^{+,b_2} - \delta_u^{-,b_2}) + B^{b_2}D^{u,b_2} } \nonumber \\
-		&\geq& \frac{(D^{u,b_2 \to \infty} - \zeta_1 )(c_{\delta_u^{b_2 \to \infty}} - \zeta_1) }{ \zeta_1  (2 c_{\delta_u^{b_2 \to \infty}} + 2 \zeta_1) + (D^{u,b_2 \to \infty} + \zeta_1) / (r+ \bar{r}(1-\bar{s})^2) } =: m_u>0.
+		&\geq& \frac{(D^{u,b_2 \to \infty} - \zeta_1 )(c_{\delta_u} - \zeta_1) }{ \zeta_1  (2 c_{\delta_u} + 2 \zeta_1) + (D^{u,b_2 \to \infty} + \zeta_1) / (r+ \bar{r}(1-\bar{s})^2) } =: m_u>0.
 	\label{eq:ut_uniform_lower_bound_b2_infinity}
 	\end{IEEEeqnarray}
 	Then, by the same technique in inequality (\ref{eq:ut_uniform_lower_bound_b2_infinity}), there exists $b_2^{*,\eta, lower} > 0$ and $m_\eta >0$ such that for all $b_2 \geq b_2^{*,\eta,lower}$ and all $t\in[0,T]$:
@@ -897,7 +897,7 @@ $
 	\begin{equation*}
 	\frac{q+\bar{q}(1-s)}{r+\bar{r}(1-\bar{s})}=\frac{q+\bar{q}(1-s)^2}{r+\bar{r}(1-\bar{s})^2}.
 	\end{equation*}
-	Then $c_{\delta_u^{b_2 \to \infty}}=c_{\delta_w^{b_2 \to \infty}}$ and therefore, $c_u = c_w =: c$. 
+	Then $c_{\delta_u}=c_{\delta_w}$ and therefore, $c_u = c_w =: c$. 
 	We want to show that $\lim_{b_2 \to \infty} \frac{\Delta SC^{b_2}}{SC^{MKV,b_2}} = 0$. Our approach is to split the interval $[0,T]$ into two parts: $[0,T/2]$ and $[T/2,T]$.	
 	Since $v^{b_2}_t \geq 0$ for all $t\in [0,T]$, from equations (\ref{eq:Delta_SC_LQ_new_notation}) and (\ref{eq:SC_MKV_LQ_new_notation}), we have $SC^{MKV,b_2} \geq w_0^{b_2} (\mathbb{E}(\xi))^2$ and thus:
 	\begin{equation}
@@ -1091,14 +1091,14 @@ The following lemma was used in Proposition \ref{prop:b2_to_infty}.
 	After rearranging terms:
 	\begin{equation}
 	\begin{split}
-	\frac{D^\eta}{r+\bar{r}}-\left[\frac{\delta^{-,b_2}_\eta}{b_2^2}(1+c_\eta)+\frac{C^\eta}{b_2}+D^\eta \left(\frac{\delta^{+,b_2}_\eta}{b_2}-c_{\delta^{b_2 \to \infty}_\eta} \right)\right]\\
+	\frac{D^\eta}{r+\bar{r}}-\left[\frac{\delta^{-,b_2}_\eta}{b_2^2}(1+c_\eta)+\frac{C^\eta}{b_2}+D^\eta \left(\frac{\delta^{+,b_2}_\eta}{b_2}-c_{\delta_\eta} \right)\right]\\
 	\leq  \left(-D^\eta\frac{\delta^{-,b_2}_\eta }{b_2}+\frac{D^\eta}{r+\bar{r}}(1+c_\eta) \right) e^{-\left(\delta^{+,b_2}_\eta -\delta^{-,b_2}_\eta\right)(T-t^*_{b_2})}.
 	\end{split}
 	\label{eq:lemma_1}
 	\end{equation}
 	Since we have
-	$\lim_{b_2 \to \infty}\frac{\delta^{-,b_2}_\eta}{b_2^2}=\lim_{b_2 \to \infty}\frac{C^\eta}{b_2}=\lim_{b_2 \to \infty}\left(\frac{\delta^{+,b_2}_\eta}{b_2}-c_{\delta^{b_2 \to \infty}_\eta} \right) =0,$ there exists $b_2^{*,4}$ such that for $b_2 \geq b_2^{*,4}$,
-	$\left[\frac{\delta^{-,b_2}_\eta}{b_2^2}(1+c_\eta)+\frac{C^\eta}{b_2}+D^\eta \left(\frac{\delta^{+,b_2}_\eta}{b_2}-c_{\delta^{b_2 \to \infty}_\eta} \right)\right] \leq \frac{D^\eta}{2(r+\bar{r})},$
+	$\lim_{b_2 \to \infty}\frac{\delta^{-,b_2}_\eta}{b_2^2}=\lim_{b_2 \to \infty}\frac{C^\eta}{b_2}=\lim_{b_2 \to \infty}\left(\frac{\delta^{+,b_2}_\eta}{b_2}-c_{\delta_\eta} \right) =0,$ there exists $b_2^{*,4}$ such that for $b_2 \geq b_2^{*,4}$,
+	$\left[\frac{\delta^{-,b_2}_\eta}{b_2^2}(1+c_\eta)+\frac{C^\eta}{b_2}+D^\eta \left(\frac{\delta^{+,b_2}_\eta}{b_2}-c_{\delta_\eta} \right)\right] \leq \frac{D^\eta}{2(r+\bar{r})},$
 	and thus returning to inequality (\ref{eq:lemma_1}), for $b_2 \geq \max \{b_2^{*,1},b_2^{*,2},b_2^{*,3},b_2^{*,4} \}$:
 	$$\frac{D^\eta}{2(r+\bar{r})}\leq \left(-D^\eta\frac{\delta^{-,b_2}_\eta }{b_2}+\frac{D^\eta}{r+\bar{r}}(1+c_\eta) \right) e^{-\left(\delta^{+,b_2}_\eta -\delta^{-,b_2}_\eta\right)(T-t^*_{b_2})}.$$
 	After rearranging terms:
@@ -1106,15 +1106,15 @@ The following lemma was used in Proposition \ref{prop:b2_to_infty}.
 	b_2(T-t^*_{b_2})\leq \frac{1}{\frac{\left(\delta^{+,b_2}_\eta -\delta^{-,b_2}_\eta\right)}{b_2}} \ln \left( -\frac{2\delta^{-,b_2}_\eta(r+\bar{r})}{b_2}+2(1+c_\eta) \right).
 	\label{eq:lemma_2}
 	\end{equation}
-	Since $\lim_{b_2 \to \infty}\frac{\delta^{+,b_2}_\eta}{b_2}=c_{\delta_\eta^{b_2 \to \infty}}=-\lim_{b_2 \to \infty}\frac{\delta^{-,b_2}_\eta}{b_2}$, there exists $b_2^{*,5}$ such that for $b_2 \geq b_2^{*,5}$:
-	$$\frac{c_{\delta_\eta^{b_2 \to \infty}}}{2} \leq \frac{-\delta^{-,b_2}_\eta}{b_2} \leq \frac{3c_{\delta_\eta^{b_2 \to \infty}}}{2}, \quad \text{and} \quad c_{\delta_\eta^{b_2 \to \infty}} \leq \frac{\delta^{+,b_2}_\eta-\delta^{-,b_2}_\eta}{b_2} \leq 3c_{\delta_\eta^{b_2 \to \infty}}.$$	
+	Since $\lim_{b_2 \to \infty}\frac{\delta^{+,b_2}_\eta}{b_2}=c_{\delta_\eta}=-\lim_{b_2 \to \infty}\frac{\delta^{-,b_2}_\eta}{b_2}$, there exists $b_2^{*,5}$ such that for $b_2 \geq b_2^{*,5}$:
+	$$\frac{c_{\delta_\eta}}{2} \leq \frac{-\delta^{-,b_2}_\eta}{b_2} \leq \frac{3c_{\delta_\eta}}{2}, \quad \text{and} \quad c_{\delta_\eta} \leq \frac{\delta^{+,b_2}_\eta-\delta^{-,b_2}_\eta}{b_2} \leq 3c_{\delta_\eta}.$$	
 	Returning to inequality (\ref{eq:lemma_2}), for $b_2 \geq b_2^{*,l}:=\max \{b_2^{*,1},b_2^{*,2},b_2^{*,3},b_2^{*,4},b_2^{*,5}\}$:
-	$$ b_2(T-t^*_{b_2})\leq \frac{1}{c_{\delta_\eta^{b_2 \to \infty}}} \ln \left(3 (r+\bar{r})c_{\delta_\eta^{b_2 \to \infty}}+2(1+c_\eta) \right)=\frac{1}{c_{\delta_\eta^{b_2 \to \infty}}} \ln \left(5c_\eta+2 \right).$$
+	$$ b_2(T-t^*_{b_2})\leq \frac{1}{c_{\delta_\eta}} \ln \left(3 (r+\bar{r})c_{\delta_\eta}+2(1+c_\eta) \right)=\frac{1}{c_{\delta_\eta}} \ln \left(5c_\eta+2 \right).$$
 	Finally, for $b_2 \geq b_2^{*,l}$:
 	\begin{equation*}
 	\begin{split}
 	\int_0^T b_2 \eta^{b_2}_t dt=\int_0^{t^*_{b_2}} b_2 \eta^{b_2}_t dt+\int_{t^*_{b_2}}^T b_2 \eta^{b_2}_t dt \leq t^*_{b_2}(c_\eta+1)+b_2 (T-t^*_{b_2})D^\eta \\
-	\leq T(c_\eta+1)+\frac{D^\eta}{c_{\delta_\eta^{b_2 \to \infty}}} \ln \left( 5c_\eta+2 \right)=:M^l.
+	\leq T(c_\eta+1)+\frac{D^\eta}{c_{\delta_\eta}} \ln \left( 5c_\eta+2 \right)=:M^l.
 	\end{split}
 	\end{equation*}
 \end{proof}
@@ -1196,26 +1196,26 @@ The following lemma was used in Proposition \ref{prop:b2_to_infty}.
 	\end{equation*}
 	and $A^{u}, (A^w,C^w,D^w), (A^\eta, B^\eta, C^\eta, D^\eta)$ are independent of $\bar{b}_2$.
 	Following the same technique used in Proposition \ref{prop:b2_to_infty}, we can show that:
-	$$ \lim_{\bar{b}_2 \to \infty} \frac{\delta^{\pm,\bar{b}_2}_u}{\sqrt{b_2 + \bar{b}_2}} =\pm \sqrt{ \frac{b_2 (q + \bar{q}(1-s))}{r + \bar{r}(1-\bar{s})} } =: \pm c_{\delta^{\bar{b}_2 \to \infty}_u},
+	$$ \lim_{\bar{b}_2 \to \infty} \frac{\delta^{\pm,\bar{b}_2}_u}{\sqrt{b_2 + \bar{b}_2}} =\pm \sqrt{ \frac{b_2 (q + \bar{q}(1-s))}{r + \bar{r}(1-\bar{s})} } =: \pm c_{\delta_u},
 	\
-	\lim_{\bar{b}_2 \to \infty} \frac{\delta^{\pm, \bar{b}_2}_w}{b_2 + \bar{b}_2} = \pm \sqrt{\frac{q+\bar{q}(1-s)^2}{r+ \bar{r}(1-\bar{s})^2}} =: \pm c_{\delta_w^{\bar{b}_2 \to \infty}},$$
+	\lim_{\bar{b}_2 \to \infty} \frac{\delta^{\pm, \bar{b}_2}_w}{b_2 + \bar{b}_2} = \pm \sqrt{\frac{q+\bar{q}(1-s)^2}{r+ \bar{r}(1-\bar{s})^2}} =: \pm c_{\delta_w},$$
 	and, for all $t \in [0,T)$:
 	\begin{equation*}
 	\begin{array}{l}
-	\lim_{\bar{b}_2 \to \infty}(b_2 + \bar{b}_2)^{\frac{3}{2}} u^{\bar{b}_2}_t = (r + \bar{r}(1-\bar{s})^2) c_{\delta^{\bar{b}_2 \to \infty}_u} =: c_u, \\
-	\lim_{\bar{b}_2 \to \infty}(b_2 + \bar{b}_2) w_t^{\bar{b}_2} = (r + \bar{r}(1-\bar{s}^2) ) c_{\delta_w^{\bar{b}_2\to \infty}} =: c_w.
+	\lim_{\bar{b}_2 \to \infty}(b_2 + \bar{b}_2)^{\frac{3}{2}} u^{\bar{b}_2}_t = (r + \bar{r}(1-\bar{s})^2) c_{\delta_u} =: c_u, \\
+	\lim_{\bar{b}_2 \to \infty}(b_2 + \bar{b}_2) w_t^{\bar{b}_2} = (r + \bar{r}(1-\bar{s}^2) ) c_{\delta_w} =: c_w.
 	\end{array}
 	\end{equation*}
 	
 	Next, we provide a uniform upper bound for $u_t^{\bar{b}_2}$ over $[0,T]$ and large $\bar{b}_2$.
 	
-	\hspace{-7mm} Let $\zeta_1 := \frac{1}{2} \min \left\{ c_{\delta_u^{\bar{b}_2 \to \infty}}, \  c_{\delta_w^{\bar{b}_2 \to \infty} } \right\}$. Then there exists $\bar{b}_2^{*,u} >0 $ such that for all $\bar{b}_2 \geq \bar{b}_2^{*,u}$,
-	$$ \max\left\{ \left\vert \frac{\delta_u^{+,\bar{b}_2}}{\sqrt{b_2 + \bar{b}_2}} - c_{\delta^{\bar{b}_2 \to \infty}_u} \right\vert , \ \left\vert \frac{\delta_u^{-,\bar{b}_2}}{\sqrt{b_2 + \bar{b}_2}} - (-c_{\delta^{\bar{b}_2 \to \infty}_u})\right\vert,\    \left\vert \frac{C^{u,\bar{b}_2}}{\sqrt{b_2 + \bar{b}_2}} \right\vert, \   \left\vert D^{u,\bar{b}_2} \right\vert, \  \frac{1}{\sqrt{b_2 + \bar{b}_2}}  \right\} \leq \zeta_1. $$ 
+	\hspace{-7mm} Let $\zeta_1 := \frac{1}{2} \min \left\{ c_{\delta_u}, \  c_{\delta_w} \right\}$. Then there exists $\bar{b}_2^{*,u} >0 $ such that for all $\bar{b}_2 \geq \bar{b}_2^{*,u}$,
+	$$ \max\left\{ \left\vert \frac{\delta_u^{+,\bar{b}_2}}{\sqrt{b_2 + \bar{b}_2}} - c_{\delta_u} \right\vert , \ \left\vert \frac{\delta_u^{-,\bar{b}_2}}{\sqrt{b_2 + \bar{b}_2}} - (-c_{\delta_u})\right\vert,\    \left\vert \frac{C^{u,\bar{b}_2}}{\sqrt{b_2 + \bar{b}_2}} \right\vert, \   \left\vert D^{u,\bar{b}_2} \right\vert, \  \frac{1}{\sqrt{b_2 + \bar{b}_2}}  \right\} \leq \zeta_1. $$ 
 	Then with equation (\ref{eq:riccati_ut_sol}), for any $t \in [0,T]$ and $\bar{b}_2 \geq \bar{b}_2^{*,u}$,
 	\begin{equation}
 	\left\vert u_t^{\bar{b}_2} \right\vert 
 	\leq \frac{C^{u,\bar{b}_2}+ D^{u,\bar{b}_2} \left(\delta_u^{+,\bar{b}_2} - \delta_u^{-,\bar{b}_2} \right)}{- \delta_u^{-,\bar{b}_2}} \\
-	\leq  \frac{\zeta_1 + \zeta_1 (2 c_{\delta_u^{\bar{b}_2 \to \infty}} + 2 \zeta_1)}{ c_{\delta_u^{\bar{b}_2 \to \infty}} - \zeta_1}.
+	\leq  \frac{\zeta_1 + \zeta_1 (2 c_{\delta_u} + 2 \zeta_1)}{ c_{\delta_u} - \zeta_1}.
 	\label{eq:ut_uniform_upper_bound_b2_bar_infinity}
 	\end{equation}
 	By the same argument for $w_t^{b_2}$ and together with inequality (\ref{eq:ut_uniform_upper_bound_b2_bar_infinity}), there exists $\bar{b}_2^{*,upper} \geq \bar{b}_2^{*,u}$ and $M>0$ such that:
@@ -1229,20 +1229,20 @@ The following lemma was used in Proposition \ref{prop:b2_to_infty}.
 	\hspace{-7mm}Denote $\zeta_2: = \frac{b_2 (r + \bar{r}(1-\bar{s})^2) (q_T + \bar{q}_T(1-s_T))}{r + \bar{r}(1-s)}$. Then for all $t \in [0,T]$ and $\bar{b}_2 \geq \bar{b}_2^{*,u}$ we have:
 	\begin{equation}
 	\left\vert (b_2 + \bar{b}_2)^{\frac{3}{2}} u_t^{\bar{b}_2} \right\vert \geq    \frac{ (b_2 + \bar{b}_2)^{\frac{3}{2}} D^{u,\bar{b}_2} \delta_u^{+,\bar{b}_2}}{(\delta_u^{+,\bar{b}_2} - \delta_u^{-,\bar{b}_2}) + B^{\bar{b}_2} D^{u,\bar{b}_2} } 
-	\geq  \frac{\zeta_2 \left(c_{\delta_u^{\bar{b}_2 \to \infty}} - \zeta_1\right)}{ \zeta_1 \left(2 c_{\delta_u^{\bar{b}_2 \to \infty}} + 2 \zeta_1\right) + \zeta_2 / (r+ \bar{r}(1-\bar{s})^2) } =: m_u.
+	\geq  \frac{\zeta_2 \left(c_{\delta_u} - \zeta_1\right)}{ \zeta_1 \left(2 c_{\delta_u} + 2 \zeta_1\right) + \zeta_2 / (r+ \bar{r}(1-\bar{s})^2) } =: m_u.
 	\label{eq:ut_lower_bound_b2_bar_infty}
 	\end{equation}
 	
 	Now, we adapt the method used in Proposition \ref{prop:b2_to_infty} to prove $\lim_{\bar{b}_2 \to \infty} \Delta SC^{\bar{b}_2} = 0$. Consider the two quantities:
 	$$ I^{\bar{b}_2}_1 := \frac{1}{2} B^{\bar{b}_2} \int_{0}^{\frac{T}{2}} (u^{\bar{b}_2}_s- w^{\bar{b}_2}_s)^2 (\bar{x}_s^{MFG, \bar{b}_2} )^2 ds \quad \text{ and } \quad I^{\bar{b}_2}_2: = \frac{1}{2} B^{\bar{b}_2} \int_{\frac{T}{2}}^T (u^{\bar{b}_2}_s- w^{\bar{b}_2}_s)^2 (\bar{x}_s^{MFG, \bar{b}_2} )^2 ds. $$
 	
-	Fix $\epsilon>0$. In the following, we will show that $\Delta SC^{\bar{b}_2} = I^{\bar{b}_2}_1 + I^{\bar{b}_2}_2 \leq 2\epsilon$ for large $\bar{b}_2$. First, consider $I^{\bar{b}_2}_1$. Let $\zeta_3 := c_u / 2$. Because $ \lim_{\bar{b}_2 \to \infty} B^{\bar{b}_2} (D^{u,\bar{b}_2})^2+ 2 A^{u} D^{u,\bar{b}_2} - C^{u,\bar{b}_2} >0$, from equation (\ref{eq:riccati_ut_sol_deriv}), there exists $\bar{b}_2^{*,0} \geq \bar{b}_2^{*,upper}$ so that for all $\bar{b}_2 \geq \bar{b}_2^{*,0}$, the functions $s \mapsto u_s^{\bar{b}_2}$ and $s \mapsto w_s^{\bar{b}_2}$ are increasing, and so that for all $s \in [0, T/2]$:
+	Fix $\epsilon>0$. In the following, we will show that $\Delta SC^{\bar{b}_2} = I^{\bar{b}_2}_1 + I^{\bar{b}_2}_2 \leq 2\epsilon$ for large $\bar{b}_2$. First, consider $I^{\bar{b}_2}_1$. Let $\zeta_3 := c_u / 2$. Because $ \lim_{\bar{b}_2 \to \infty} B^{\bar{b}_2} (D^{u,\bar{b}_2})^2+ 2 A^{u} D^{u,\bar{b}_2} - C^{u,\bar{b}_2} >0$, from equation (\ref{eq:riccati_ut_sol_deriv}), there exists $\bar{b}_2^{*,inc} \geq \bar{b}_2^{*,upper}$ so that for all $\bar{b}_2 \geq \bar{b}_2^{*,inc}$, the functions $s \mapsto u_s^{\bar{b}_2}$ and $s \mapsto w_s^{\bar{b}_2}$ are increasing, and so that for all $s \in [0, T/2]$:
 	\begin{IEEEeqnarray*}{c}
 		c_u - \zeta_3 \leq (b_2 + \bar{b}_2)^{\frac{3}{2}} u_0^{\bar{b}_2} \leq  (b_2 + \bar{b}_2)^{\frac{3}{2}} u_s^{\bar{b}_2} \leq (b_2 + \bar{b}_2)^{\frac{3}{2}} u_{\frac{T}{2}}^{\bar{b}_2} \leq c_u + \zeta_3,\\
 		\left\vert (b_2 + \bar{b}_2) u_s^{\bar{b}_2} \right\vert \leq \left\vert (b_2 + \bar{b}_2) u_{\frac{T}{2}}^{\bar{b}_2} \right\vert \leq  \zeta_3, \quad \text{and} \quad 
 		\left\vert (b_2 + \bar{b}_2) w_s^{\bar{b}_2} \right\vert \leq \left\vert (b_2 + \bar{b}_2) w_{\frac{T}{2}}^{\bar{b}_2} \right\vert \leq c_w + \zeta_3.
 	\end{IEEEeqnarray*}
-	Thus, for any $\bar{b}_2 \geq \bar{b}_2^{*,0}$ we have:
+	Thus, for any $\bar{b}_2 \geq \bar{b}_2^{*,inc}$ we have:
 	\begin{IEEEeqnarray}{rCl}
 		I^{\bar{b}_2}_1 &=& \frac{\mathbb{E}(\xi)^2}{2 (r + \bar{r}(1-\bar{s})^2) } \int_0^{\frac{T}{2}} \left( (b_2 + \bar{b}_2) u_t^{\bar{b}_2} - (b_2 + \bar{b}_2) w_t^{\bar{b}_2} \right)^2 e^{2(b_1 + \bar{b}_1) t} \cdot e^{ -\frac{2 (b_2 + \bar{b}_2)^{1/2}}{r + \bar{r}(1-\bar{s})^2}  \int_0^t (b_2 + \bar{b}_2)^{3/2} u_s^{\bar{b}_2} ds} dt \nonumber \\
 		&\leq& \kappa_1  \frac{1}{\sqrt{b_2 + \bar{b}_2} } \left( 1 - e^{- \kappa_2 (b_2 + \bar{b}_2)^{\frac{1}{2}} }\right) \xrightarrow[\bar{b}_2 \to \infty]{} 0, \nonumber
