@@ -1086,7 +1086,7 @@ The following lemma was used in Proposition \ref{prop:b2_to_infty}.
 	$b_2 \eta^{b_2}_{t^*_{b_2}} =c_\eta+1$, and $b_2 \eta^{b_2}_t \leq c_\eta+1$, for all $t\leq t^*_{b_2}.$
 	From an analogous equation to (\ref{eq:riccati_ut_sol}) for $\eta^{b_2}_{t^*_{b_2}}$, we have for $b_2 \geq \max \{b_2^{*,1},b_2^{*,2},b_2^{*,3} \}$:
 	$$
-	1=b_2\eta^{b_2}_{t^*_{b_2}}-c_\eta\leq \frac{ \frac{C^\eta}{b_2}+D^\eta\frac{\delta^{+,b_2}_\eta}{b_2}-\frac{D^\eta}{r+\bar{r}}c_\eta +\frac{\delta^{-,b_2}_\eta}{b_2^2}c_\eta+\left(-D^\eta\frac{\delta^{-,b_2}_\eta}{b_2} +\frac{D^\eta}{r+\bar{r}}c_\eta\right)e^{-(\delta^{+,b_2}_\eta-\delta^{-,b_2}_\eta)(T-t^*_{b_2})} }{ \frac{D^\eta}{r+\bar{r}} -\frac{\delta^{-,b_2}_\eta}{b_2^2} -\frac{D^\eta}{r+\bar{r}} e^{-(\delta^{+,b_2}_\eta-\delta^{-,b_2}_\eta)(T-t^*_{b_2})}},
+	1=b_2\eta^{b_2}_{t^*_{b_2}}-c_\eta\leq \frac{ \frac{C^\eta}{b_2}+D^\eta\frac{\delta^{+,b_2}_\eta}{b_2}-\frac{D^\eta}{r+\bar{r}}c_\eta +\frac{\delta^{-,b_2}_\eta}{b_2^2}c_\eta+\left(-D^\eta\frac{\delta^{-,b_2}_\eta}{b_2} +\frac{D^\eta}{r+\bar{r}}c_\eta\right)e^{-(\delta^{+,b_2}_\eta-\delta^{-,b_2}_\eta)(T-t^*_{b_2})} }{ \frac{D^\eta}{r+\bar{r}} -\frac{\delta^{-,b_2}_\eta}{b_2^2} -\frac{D^\eta}{r+\bar{r}} e^{-(\delta^{+,b_2}_\eta-\delta^{-,b_2}_\eta)(T-t^*_{b_2})}}.
 	$$
 	After rearranging terms:
 	\begin{equation}
@@ -1303,18 +1303,19 @@ The following lemma was used in Proposition \ref{prop:b2_to_infty}.
    	
    	By the assumption $\frac{r + \bar{r}(1- \bar{s})^2}{r + \bar{r}(1-\bar{s})} \neq \frac{q_T+\bar{q}_T(1-s_T)^2}{q_T+\bar{q}_T(1-s_T)}$, we have $D^{u,\bar{b}_2 \to 0} \neq D^{w}$, and thus by continuity, $u^{\bar{b}_2 \to 0}_t\neq w^{\bar{b}_2 \to 0}_t$ on a set of positive Lebesgue measure. 
    	 Thus, from Proposition \ref{prop:diff_SC} and by the bounded convergence theorem, we deduce:
-	\begin{equation*}
-	\lim_{\bar{b}_2 \to 0} \Delta SC^{\bar{b}_2} = \frac{1}{2} B^{\bar{b}_2 \to 0} \int_0^T \left( (u_t^{\bar{b}_2 \to 0} - w_t^{\bar{b}_2 \to 0}\right)^2 \left (\bar{x}_t^{MFG,\bar{b}_2 \to 0} \right)^2 dt \  > 0. 
-	\end{equation*}	
+	\begin{equation}
+	\lim_{\bar{b}_2 \to 0} \Delta SC^{\bar{b}_2} = \frac{1}{2} B^{\bar{b}_2 \to 0} \int_0^T \left( (u_t^{\bar{b}_2 \to 0} - w_t^{\bar{b}_2 \to 0}\right)^2 \left (\bar{x}_t^{MFG,\bar{b}_2 \to 0} \right)^2 dt \  > 0.
+	\label{eq:prop_6_bounded_conv}
+	\end{equation}	
 	
-	Meanwhile, $\eta_t$ does not depend on $\bar{b}_2$, and therefore the variance $v_t$ also does not depend on $\bar{b}_2$. Clearly $0<v_t<\infty$ for $t>0$ and $0 \leq w^{\bar{b}_2 \to 0}_0 < \infty$, and thus,
+	Meanwhile, $\eta_t$ does not depend on $\bar{b}_2$, and therefore, the variance $v_t$ also does not depend on $\bar{b}_2$. Clearly $0<v_t<\infty$ for $t>0$ and $0 \leq w^{\bar{b}_2 \to 0}_0 < \infty$, and thus,
 	$ 0<\lim_{\bar{b}_2 \to 0}SC^{MKV,\bar{b}_2} <\infty.$
 	Hence, we deduce:
 	$$ \lim_{\bar{b}_2 \to 0} PoA^{\bar{b}_2} > 1. $$
 \end{proof}
 
 \begin{remark}
-	Consider Assumption \ref{assumption} and the case when $\bar{b}_2$ tends to zero. We have $0< SC^{MKV, \bar{b}_2 \to 0} < \infty$, and therefore, $\lim_{\bar{b}_2 \to 0} PoA^{\bar{b}_2 } =1$ if and only if $\lim_{\bar{b}_2 \to 0} \Delta SC^{\bar{b}_2} = 0$. Therefore, we have an analogous result as Theorem \ref{thm:PoA_equivalent_1} but for the limiting coefficients $A^u$, $A^w$, $B^{\bar{b}_2 \to 0}$, $C^{u,\bar{b}_2 \to 0}$, $C^w$, $D^{u,\bar{b}_2 \to 0}$, and $D^w$. Therefore the assumption in Proposition 4 Case 2, $\frac{r + \bar{r}(1- \bar{s})^2}{r + \bar{r}(1-\bar{s})} \neq \frac{q_T+\bar{q}_T(1-s_T)^2}{q_T+\bar{q}_T(1-s_T)}$, which is equivalent to $D^{u,\bar{b}_2 \to 0} \neq D^w$, is sufficient, but not necessary, in order to have $\lim_{b_2 \to 0}PoA^{b_2}>1$. 
+	Consider Assumption \ref{assumption} and the case when $\bar{b}_2$ tends to zero. We have $0< SC^{MKV, \bar{b}_2 \to 0} < \infty$, and therefore, $\lim_{\bar{b}_2 \to 0} PoA^{\bar{b}_2 } =1$ if and only if $\lim_{\bar{b}_2 \to 0} \Delta SC^{\bar{b}_2} = 0$. Since we can pass the limit as in equation (\ref{eq:prop_6_bounded_conv}), we have an analogous result as Theorem \ref{thm:PoA_equivalent_1} but for the limiting coefficients $A^u$, $A^w$, $B^{\bar{b}_2 \to 0}$, $C^{u,\bar{b}_2 \to 0}$, $C^w$, $D^{u,\bar{b}_2 \to 0}$, and $D^w$. Therefore, the assumption in Proposition 4 Case 2, $\frac{r + \bar{r}(1- \bar{s})^2}{r + \bar{r}(1-\bar{s})} \neq \frac{q_T+\bar{q}_T(1-s_T)^2}{q_T+\bar{q}_T(1-s_T)}$, which is equivalent to $D^{u,\bar{b}_2 \to 0} \neq D^w$, is sufficient, but not necessary, in order to have $\lim_{b_2 \to 0}PoA^{b_2}>1$. 
 	
 	\begin{comment}
 	Hence, from equation (\ref{eq:x_bar_neq_0}) and Proposition \ref{prop:diff_SC}, if $\lim_{\bar{b}_2 \to 0} PoA^{\bar{b}_2 } =1$, then for all $t \in [0,T]$:
@@ -1422,7 +1423,7 @@ The following lemma was used in Proposition \ref{prop:b2_to_infty}.
 	\label{eq:lower_bound_u_w}
 	\end{equation}
 	
-	Note that $\eta_t$, and therefore $v_t$, are independent of $\bar{b}_1$. Thus,
+	Note that $\eta_t$, and therefore, $v_t$, are independent of $\bar{b}_1$. Thus,
 	\begin{equation*}
 	\frac{1}{\bar{b}_1^2}SC^{MKV,\bar{b}_1}=\frac{1}{2\bar{b}_1^2}\left[\int_0^T \left[q+\bar{q} + B^{\eta} \eta_t^2 \right] v_t dt + (q_T + \bar{q}_T) v_T\right] + \frac{w^{\bar{b}_1}_0}{2\bar{b}_1^2} (\mathbb{E}(\xi))^2 \xrightarrow[\bar{b}_1 \to \infty]{}0.	
 	\end{equation*}
