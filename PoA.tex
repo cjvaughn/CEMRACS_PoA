@@ -440,6 +440,13 @@ Also, it will be convenient to denote:
 \lambda := \frac{c^{MFG}}{c^{MKV}} = \frac{b_2}{b_2 + \bar{b}_2}\cdot \frac{ r + \bar{r}(1-\bar{s})^2 }{r + \bar{r}(1-\bar{s})},  \qquad u_t := \lambda \bar{\eta}_t^{MFG}, \qquad w_t := \bar{\eta}_t^{MKV}.
 \label{eq:lambda}
 \end{equation}
+and to make the following observations:
+\begin{equation}
+a^{MFG}=a^{MKV}=:a, \qquad
+\eta_t^{MFG} = \eta_t^{MKV}=:\eta_t, \qquad
+v_t^{MFG}=v_t^{MKV}=:v_t.
+\label{eq:observations}
+\end{equation}
 
 
 \begin{theorem} \label{th:exist_uniq}
@@ -475,11 +482,11 @@ then $PoA=1$.
 \end{proposition}
 
 \begin{proof}
-    Comparing the FBSDE systems (\ref{eq:FBSDE_EMFG}) and (\ref{eq:FBSDE_EMKV}), and using the fact that $b^{MFG}-b^{MKV}=c^{MFG}-c^{MKV}$, the result is clear.
+    Comparing the FBSDE systems (\ref{eq:FBSDE_EMFG}) and (\ref{eq:FBSDE_EMKV}), and using the fact that $a^{MFG}=a^{MKV}$ and $b^{MFG}-b^{MKV}=c^{MFG}-c^{MKV}$, the result is clear.
 \end{proof}
 
 \begin{remark}
-	Recall from Remark \ref{remark_2} that in the standard mean field game, $\bar{b}_2=\bar{r}=0$, and thus, $\lambda=1$. Although Proposition \ref{prop: lq_subtract_FBSDEs} is a simple result, we will see shortly in Corollary \ref{corollary_3} that in the case when $\lambda=1$, the sufficient condition given by equations (\ref{eq:prop_1_1})-(\ref{eq:prop_1_3}) is also a necessary condition to have $PoA=1$. We can see that in the standard mean field game setting, Proposition \ref{prop: lq_subtract_FBSDEs} is similar to Theorem 3.4 in \cite{pierre_poa} which characterizes the global efficiency of MFG equilibria in case of separated Hamiltonian. See also Remark 6.1 in \cite{nourian2013nash} for a flocking model.
+	Recall from Remark \ref{remark_2} that in the standard mean field game, $\bar{b}_2=\bar{r}=0$, and thus, $\lambda=1$. Although Proposition \ref{prop: lq_subtract_FBSDEs} is a simple result, we will see shortly in Corollary \ref{corollary_3} that in the case when $\lambda=1$, the sufficient condition given by equations (\ref{eq:prop_1_1})-(\ref{eq:prop_1_3}) is also a necessary condition to have $PoA=1$. We can see that in the standard mean field game setting, Proposition \ref{prop: lq_subtract_FBSDEs} is similar to Theorem 3.4 in \cite{pierre_poa} which characterizes the global efficiency of MFG equilibria in the case of a separated Hamiltonian. See also Remark 6.1 in \cite{nourian2013nash}, where it is noted that the mean field game and control of McKean-Vlasov type problems are the same for a particular model of flocking.
 \end{remark}
 
 
@@ -499,13 +506,7 @@ then $PoA=1$.
 	\label{corollary_2}
 \end{corollary}
 
-To compute the price of anarchy, it is useful to make the following observations:
-\begin{equation*}
-a^{MFG}=a^{MKV}=:a, \qquad
-\eta_t^{MFG} = \eta_t^{MKV}=:\eta_t, \qquad
-v_t^{MFG}=v_t^{MKV}=:v_t,
-\end{equation*}
-we can rewrite:
+Using the observations in equation (\ref{eq:observations}), we can rewrite:
 \begin{IEEEeqnarray}{rCl}
     SC^{MFG} &=& \frac{1}{2}(q_T+\bar{q}_T)v_T+\frac{1}{2}\left(q_T+\bar{q}_T(1-s_T)^2\right)(\bar{x}_T^{MFG})^2+\frac{1}{2}\int_0^T \left[q+\bar{q}+(r+\bar{r})(a\eta_t)^2\right] v_t dt \nonumber \\
     && +\frac{1}{2}\int_0^T\left[q+\bar{q}(1-s)^2+(r+\bar{r}(1-\bar{s})^2)(c^{MFG}\bar{\eta}_t^{MFG})^2\right](\bar{x}_t^{MFG})^2dt,
@@ -519,7 +520,7 @@ In the following, we intend to simplify the explicit solutions (\ref{eq:SC_MFG_1
 &\int_0^T (\bar{\eta}^{MFG}_t)^2 (\bar{x}^{MFG}_t)^2 dt\\
 &= - \frac{1}{c^{MFG}(b_2 + \bar{b}_2)} \left[ \int_0^T \dot{\bar{\eta}}^{MFG}_t (\bar{x}^{MFG}_t)^2 dt +  \int_0^T \left[(2b_1 + \bar{b}_1) \bar{\eta}^{MFG}_t +(q+\bar{q}(1-s))\right] (\bar{x}^{MFG}_t)^2 dt \right],
 \end{align*}
-then we use the integration by parts for the first term in the bracket:
+then using integration by parts for the first term in the bracket:
 \begin{align*}
  =  -\frac{ 1}{c^{MFG}(b_2 + \bar{b}_2)} \Bigg[  & \bar{\eta}^{MFG}_T(\bar{x}^{MFG}_T)^2 -\bar{\eta}^{MFG}_0(\bar{x}^{MFG}_0)^2 -2\int_0^T\bar{\eta}^{MFG}_t\bar{x}^{MFG}_t \cdot \dot{\bar{x}}^{MFG}_t dt \\
 & + \int_0^T \left[(2b_1 + \bar{b}_1) \bar{\eta}^{MFG}_t +(q+\bar{q}(1-s))\right] (\bar{x}^{MFG}_t)^2 dt \Bigg],
@@ -529,7 +530,7 @@ and together with equation (\ref{eq:x_bar_MFG}) yields:
 = 2 \int_0^T (\bar{\eta}^{MFG}_t)^2 (\bar{x}^{MFG}_t)^2dt  - \frac{1}{c^{MFG}(b_2 + \bar{b}_2)} \Bigg[ & \bar{\eta}^{MFG}_T (\bar{x}^{MFG}_T)^2 - \bar{\eta}^{MFG}_0 (\mathbb{E}(\xi))^2 \\
 &+ \int_0^T  \left[-\bar{b}_1 \bar{\eta}^{MFG}_t +(q+\bar{q}(1-s))\right] (\bar{x}^{MFG}_t)^2 dt \Bigg].
 \end{align*}
-Finally, we solve:
+Finally, we arrive at:
 \begin{align*}
 \int_0^T (\bar{\eta}^{MFG}_t)^2 (\bar{x}^{MFG}_t)^2 dt= \frac{ \bar{\eta}^{MFG}_T (\bar{x}^{MFG}_T)^2 - \bar{\eta}^{MFG}_0 (\mathbb{E}(\xi))^2 + \int_0^T  \left[-\bar{b}_1 \bar{\eta}^{MFG}_t+(q+\bar{q}(1-s))\right] (\bar{x}^{MFG}_t)^2 dt}{c^{MFG}(b_2 + \bar{b}_2)}.
 \end{align*}
