@@ -12,6 +12,7 @@
 \usepackage{epstopdf}
 \usepackage{comment}
 \usepackage[retainorgcmds]{IEEEtrantools}
+%\usepackage[fleqn]{amsmath}
 
 \newtheorem{remark}{Remark}
 \newtheorem{theorem}{Theorem}
@@ -306,14 +307,12 @@ Let $SC^{MFG}:=SC(\phi^{MFG})$ in which $\phi^{MFG}=\phi^{MFG}(t,x)$ is the feed
     \phi^{MFG}(t,x)=a^{MFG}(t)\eta_t^{MFG}x+\left[a^{MFG}(t)(\bar{\eta}_t^{MFG}-\eta_t^{MFG})+b^{MFG}(t)\bar{\eta}_t^{MFG} \right]\bar{x}_t^{MFG}.
 \end{equation*}
 Then we can compute the social cost as described in Section \ref{sub:MFG_formulation}:
-\begin{equation}
-\begin{split}
-    SC^{MFG}=&\frac{1}{2}\Big[(q_T+\bar{q}_T)v_T^{MFG}+(q_T+\bar{q}_T(1-s_T)^2)(\bar{x}_T^{MFG})^2\\
-    &+\int_0^T \left[q(t)+\bar{q}(t)+(r(t)+\bar{r}(t))(a^{MFG}(t)\eta_t^{MFG})^2\right]v_t^{MFG}dt\\
-    &+\int_0^T\left[q(t)+\bar{q}(t)(1-s(t))^2+(r(t)+\bar{r}(t)(1-\bar{s}(t))^2)(c^{MFG}(t)\bar{\eta}_t^{MFG})^2\right](\bar{x}_t^{MFG})^2dt\Big],
-\end{split}
-\label{eq:SC_MFG_0}
-\end{equation}
+\begin{IEEEeqnarray}{rCl}
+    SC^{MFG}&=&\frac{1}{2}\Big[(q_T+\bar{q}_T)v_T^{MFG}+(q_T+\bar{q}_T(1-s_T)^2)(\bar{x}_T^{MFG})^2 \nonumber \\
+    && \quad +\int_0^T \left[q(t)+\bar{q}(t)+(r(t)+\bar{r}(t))(a^{MFG}(t)\eta_t^{MFG})^2\right]v_t^{MFG}dt
+    \label{eq:SC_MFG_0} \\
+    && \quad +\int_0^T\left[q(t)+\bar{q}(t)(1-s(t))^2+(r(t)+\bar{r}(t)(1-\bar{s}(t))^2)(c^{MFG}(t)\bar{\eta}_t^{MFG})^2\right](\bar{x}_t^{MFG})^2dt\Big], \nonumber
+\end{IEEEeqnarray}
 where we have used the fact that:
 \begin{equation*}
     \mathbb{E}(\phi^{MFG}(t,X_t))=c^{MFG}(t)\cdot \bar{\eta}_t^{MFG}\bar{x}_t^{MFG}
@@ -322,6 +321,8 @@ where we have used the fact that:
 	\qquad
     Var(\phi^{MFG}(t,X_t))=\left(a^{MFG}(t)\eta_t^{MFG} \right)^2 \cdot v^{MFG}_t.
 \end{equation*}
+
+
 
 \subsection{\textbf{Linear Quadratic Control of McKean-Vlasov Type Involving the Law of the Control}}\label{sec:EMKV}
 To solve the linear quadratic optimal control problem of McKean-Vlasov type involving the law of the control (LQEMKV), we begin with the reduced Hamiltonian, which is the same as in the LQEMFG problem:
@@ -339,7 +340,7 @@ where the adjoint equation is given by:
 \begin{equation*}
 \left\{
 \begin{array}{lcl}
-    dY_t&=&-\left[\partial_x H(t,X_t,\bar{\mu}_t,\alpha_t,\bar{\nu}_t,Y_t)+\tilde{\mathbb{E}} \left[\partial_{\bar{\mu}}H(t,\tilde{X}_t,\bar{\mu}_t,\tilde{\alpha}_t,\bar{\nu}_t,\tilde{Y}_t) \right] \right]dt+Z_tdW_t \\[8pt]
+    dY_t&=&-\left[\partial_x H(t,X_t,\bar{\mu}_t,\alpha_t,\bar{\nu}_t,Y_t)+\tilde{\mathbb{E}} \left[\partial_{\bar{\mu}}H(t,\tilde{X}_t,\bar{\mu}_t,\tilde{\alpha}_t,\bar{\nu}_t,\tilde{Y}_t) \right] \right]dt+Z_tdW_t \\[5pt]
     Y_T&=&\partial_xg(X_T, \cL(X_T))+\tilde{\mathbb{E}} \left[\partial_{\bar{\mu}}g(\tilde{X}_T,\cL(X_T))(X_T) \right],
 \end{array}
 \right.
@@ -362,7 +363,7 @@ So the solution of the optimal control problem of McKean-Vlasov type is given by
 \begin{equation}
 \left\{
 \begin{split}
-        dX_t=&\left[b_1(t)X_t+\bar{b}_1(t) \mathbb{E}X_t+a^{MKV}(t)b_2(t)Y_t+(b^{MKV}(t)b_2(t)+c^{MKV}(t)\bar{b}_2(t))\mathbb{E}Y_t\right]dt+\sigma dW_t \\
+        dX_t=&\left[b_1(t)X_t+\bar{b}_1(t) \mathbb{E}X_t+a^{MKV}(t)b_2(t)Y_t+(b^{MKV}(t)b_2(t)+c^{MKV}(t)\bar{b}_2(t))\mathbb{E}Y_t\right]dt+\sigma dW_t \\[5pt]
         dY_t=&-\left[(q(t)+\bar{q}(t))X_t+s(t)\bar{q}(t)(s(t)-2)\mathbb{E}X_t+b_1(t)Y_t+\bar{b}_1(t)\mathbb{E}Y_t\right]dt +Z_t dW_t,
 \end{split}
 \right.
@@ -407,14 +408,11 @@ Then $SC^{MKV}=SC(\phi^{MKV})$ where $\phi^{MKV}$ is the feedback function speci
     \phi^{MKV}(t,x)=a^{MKV}(t)\eta_t^{MKV}x+\left[a^{MKV}(t)(\bar{\eta}_t^{MKV}-\eta_t^{MKV})+b^{MKV}(t)\bar{\eta}_t^{MKV} \right]\bar{x}_t^{MKV}.
 \end{equation*}
 Then we can compute the social cost, denoted $SC^{MKV}$, as described in Section \ref{sub:MKV_formulation}:
-\begin{equation}
-\begin{split}
-    SC^{MKV}=&\frac{1}{2}\Big[(q_T+\bar{q}_T)v_T^{MKV}+(q_T+\bar{q}_T(1-s_T)^2)(\bar{x}_T^{MKV})^2\\
-    &+\int_0^T \left[q(t)+\bar{q}(t)+(r(t)+\bar{r}(t))(a^{MKV}(t)\eta_t^{MKV})^2\right]v_t^{MKV}dt \\
-    &+\int_0^T\left[q(t)+\bar{q}(t)(1-s(t))^2+(r(t)+\bar{r}(t)(1-\bar{s}(t))^2)(c^{MKV}(t)\bar{\eta}_t^{MKV})^2\right](\bar{x}_t^{MKV})^2dt\Big],
-\end{split}
-\label{eq:SC_MKV_0}
-\end{equation}
+\begin{IEEEeqnarray}{rCl}
+    SC^{MKV}&=&\frac{1}{2}\Big[(q_T+\bar{q}_T)v_T^{MKV}+(q_T+\bar{q}_T(1-s_T)^2)(\bar{x}_T^{MKV})^2 \nonumber \\
+    && \quad +\int_0^T \left[q(t)+\bar{q}(t)+(r(t)+\bar{r}(t))(a^{MKV}(t)\eta_t^{MKV})^2\right]v_t^{MKV}dt \label{eq:SC_MKV_0} \\
+    && \quad +\int_0^T\left[q(t)+\bar{q}(t)(1-s(t))^2+(r(t)+\bar{r}(t)(1-\bar{s}(t))^2)(c^{MKV}(t)\bar{\eta}_t^{MKV})^2\right](\bar{x}_t^{MKV})^2dt\Big], \nonumber
+\end{IEEEeqnarray}
 where we have used the fact that:
 \begin{equation*}
 \mathbb{E}(\phi^{MKV}(t,X_t))=c^{MKV}(t)\cdot \bar{\eta}_t^{MKV}\bar{x}_t^{MKV}
@@ -433,10 +431,16 @@ $$    (q_T,\bar{q}_T,s_T)\in(\mathbb{R}^+)^{3},$$
 and therefore,
 \begin{equation*}
 \begin{split}
-    (a^{MFG}(t),b^{MFG}(t),c^{MFG}(t))&=(a^{MFG},b^{MFG},c^{MFG}) \\
-    (a^{MKV}(t) b^{MKV}(t),c^{MKV}(t))&=(a^{MKV},b^{MKV},c^{MKV}).
+    \left(a^{MFG}(t), b^{MFG}(t), c^{MFG}(t) \right)&=\left(a^{MFG}, b^{MFG}, c^{MFG} \right) \\
+    \left(a^{MKV}(t), b^{MKV}(t), c^{MKV}(t) \right)&=\left(a^{MKV}, b^{MKV}, c^{MKV}\right).
 \end{split}
 \end{equation*}
+Also, it will be convenient to denote:
+\begin{equation}
+\lambda := \frac{c^{MFG}}{c^{MKV}} = \frac{b_2}{b_2 + \bar{b}_2}\cdot \frac{ r + \bar{r}(1-\bar{s})^2 }{r + \bar{r}(1-\bar{s})},  \qquad u_t := \lambda \bar{\eta}_t^{MFG}, \qquad w_t := \bar{\eta}_t^{MKV}.
+\label{eq:lambda}
+\end{equation}
+
 
 \begin{theorem} \label{th:exist_uniq}
 Assume the following:
@@ -456,34 +460,18 @@ Then there exists a unique solution to the LQEMFG problem, and there exists a un
     Note that existence in Theorem \ref{th:exist_uniq} follows from the explicit construction in Appendix \ref{appendix_solving_fbsdes}, because the above conditions provide existence to the solutions of the Riccati equations. Uniqueness comes from the connection between LQEMFG or LQEMKV and deterministic LQ optimal control. (See Section 3.5.1 in \cite{Carmona_book}).
 \end{remark}
 
-To compute the price of anarchy, it is useful to make the following observations:
-\begin{equation*}
-\begin{split}
-    a^{MFG}&=a^{MKV}=:a, \\
-    \eta_t^{MFG}&=\eta_t^{MKV}=:\eta_t, \\
-    v_t^{MFG}&=v_t^{MKV}=:v_t.
-\end{split}
-\end{equation*}
-
-Also, it will be convenient to denote:
-\begin{equation}
-\lambda := \frac{c^{MFG}}{c^{MKV}} = \frac{b_2}{b_2 + \bar{b}_2}\cdot \frac{ r + \bar{r}(1-\bar{s})^2 }{r + \bar{r}(1-\bar{s})}.
-\label{eq:lambda}
-\end{equation}
-
 \begin{proposition}
 Assuming (\ref{eq:assumptions}), if furthermore,
-\begin{equation}
-    \left[\bar{b}_1\bar{\eta}_t^{MKV}+s\bar{q}(s-1)\right]\bar{x}_t^{MKV}=0,\ \forall t \in [0,T] \label{eq:prop_1_1}
-\end{equation}
-\begin{equation}
-    (c^{MFG}-c^{MKV})(b_2+\bar{b}_2)\bar{\eta}_t^{MKV}\bar{x}_t^{MKV}=0,\ \forall t \in [0,T]\label{eq:prop_1_2}
-\end{equation}
-\begin{equation}
-    s_T\bar{q}_T(s_T-1)\bar{x}_T^{MKV}=0, \label{eq:prop_1_3}
-\end{equation}
+\begin{IEEEeqnarray}{rCl}
+    \left[\bar{b}_1\bar{\eta}_t^{MKV}+s\bar{q}(s-1)\right] \cdot \bar{x}_t^{MKV} &=& 0,\quad \forall \  t \in [0,T] 
+    \label{eq:prop_1_1} \\ [3pt]
+    \left(c^{MFG}-c^{MKV} \right) \cdot \bar{\eta}_t^{MKV}\bar{x}_t^{MKV}&=& 0,\quad \forall \  t \in [0,T] 
+    \label{eq:prop_1_2} \\ [3pt]
+    s_T\bar{q}_T(s_T-1) \cdot \bar{x}_T^{MKV}&=& 0, 
+    \label{eq:prop_1_3}
+\end{IEEEeqnarray}
 then $PoA=1$.
-\label{eq:lq_prop}
+\label{prop: lq_subtract_FBSDEs}
 \end{proposition}
 
 \begin{proof}
@@ -491,11 +479,17 @@ then $PoA=1$.
 \end{proof}
 
 \begin{remark}
-	Recall from Remark \ref{remark_2} that in the standard mean field game, $\bar{b}_2=\bar{r}=0$, and thus, $\lambda=1$. Although Proposition \ref{eq:lq_prop} is a simple result, we will see shortly in Corollary \ref{corollary_3} that in the case when $\lambda=1$, the sufficient condition given by equations (\ref{eq:prop_1_1})-(\ref{eq:prop_1_3}) is also a necessary condition to have $PoA=1$.
+	Recall from Remark \ref{remark_2} that in the standard mean field game, $\bar{b}_2=\bar{r}=0$, and thus, $\lambda=1$. Although Proposition \ref{prop: lq_subtract_FBSDEs} is a simple result, we will see shortly in Corollary \ref{corollary_3} that in the case when $\lambda=1$, the sufficient condition given by equations (\ref{eq:prop_1_1})-(\ref{eq:prop_1_3}) is also a necessary condition to have $PoA=1$. We can see that in the standard mean field game setting, Proposition \ref{prop: lq_subtract_FBSDEs} is similar to Theorem 3.4 in \cite{pierre_poa} which characterizes the global efficiency of MFG equilibria in case of separated Hamiltonian. See also Remark 6.1 in \cite{nourian2013nash} for a flocking model.
 \end{remark}
 
+
+%\begin{remark}
+%	The only result similar to Proposition \ref{prop: lq_subtract_FBSDEs} that we are aware of is Remark 6.1 in \cite{nourian2013nash}.
+%\end{remark}
+
+
 \begin{corollary}
-	Assuming (\ref{eq:assumptions}), if furthermore, $\bar{b}_1=0$, $s\bar{q}(s-1)=0$, $\lambda=1$, and $s_T\bar{q}_T(s_T-1)=0$,
+	Assuming (\ref{eq:assumptions}), if furthermore, $\bar{b}_1=0$, $s\bar{q}(s-1)=0$, $s_T\bar{q}_T(s_T-1)=0$, and $c^{MFG} = c^{MKV}$,
 	then $PoA=1$.
 	\label{corollary_1}
 \end{corollary}
@@ -505,87 +499,72 @@ then $PoA=1$.
 	\label{corollary_2}
 \end{corollary}
 
-\begin{remark}
-The only result similar to Proposition \ref{eq:lq_prop} that we are aware of is Remark 6.1 in \cite{nourian2013nash}.
-\end{remark}
-
-Using the above observations, we can rewrite:
-\begin{equation}
-\begin{split}
-    SC^{MFG}=&\frac{1}{2}(q_T+\bar{q}_T)v_T+\frac{1}{2}\left(q_T+\bar{q}_T(1-s_T)^2\right)(\bar{x}_T^{MFG})^2+\frac{1}{2}\int_0^T \left[q+\bar{q}+(r+\bar{r})(a\eta_t)^2\right]v_tdt\\
-    &+\frac{1}{2}\int_0^T\left[q+\bar{q}(1-s)^2+(r+\bar{r}(1-\bar{s})^2)(c^{MFG}\bar{\eta}_t^{MFG})^2\right](\bar{x}_t^{MFG})^2dt,
-\end{split}
-\label{eq:SC_MFG_1}
-\end{equation}
-and:
-\begin{equation}
-\begin{split}
-    SC^{MKV}=&\frac{1}{2}(q_T+\bar{q}_T)v_T+\frac{1}{2}\left(q_T+\bar{q}_T(1-s_T)^2\right)(\bar{x}_T^{MKV})^2+ \frac{1}{2}\int_0^T \left[q+\bar{q}+(r+\bar{r})(a\eta_t)^2\right]v_tdt \\
-    &+\frac{1}{2}\int_0^T\left[q+\bar{q}(1-s)^2+(r+\bar{r}(1-\bar{s})^2)(c^{MKV}\bar{\eta}_t^{MKV})^2\right)](\bar{x}_t^{MKV})^2dt.
-\end{split}
-\label{eq:SC_MKV_1}
-\end{equation}
-
+To compute the price of anarchy, it is useful to make the following observations:
+\begin{equation*}
+a^{MFG}=a^{MKV}=:a, \qquad
+\eta_t^{MFG} = \eta_t^{MKV}=:\eta_t, \qquad
+v_t^{MFG}=v_t^{MKV}=:v_t,
+\end{equation*}
+we can rewrite:
+\begin{IEEEeqnarray}{rCl}
+    SC^{MFG} &=& \frac{1}{2}(q_T+\bar{q}_T)v_T+\frac{1}{2}\left(q_T+\bar{q}_T(1-s_T)^2\right)(\bar{x}_T^{MFG})^2+\frac{1}{2}\int_0^T \left[q+\bar{q}+(r+\bar{r})(a\eta_t)^2\right] v_t dt \nonumber \\
+    && +\frac{1}{2}\int_0^T\left[q+\bar{q}(1-s)^2+(r+\bar{r}(1-\bar{s})^2)(c^{MFG}\bar{\eta}_t^{MFG})^2\right](\bar{x}_t^{MFG})^2dt,
+    \label{eq:SC_MFG_1} \\ [8pt]
+    SC^{MKV}&=&\frac{1}{2}(q_T+\bar{q}_T)v_T+\frac{1}{2}\left(q_T+\bar{q}_T(1-s_T)^2\right)(\bar{x}_T^{MKV})^2+ \frac{1}{2}\int_0^T \left[q+\bar{q}+(r+\bar{r})(a\eta_t)^2\right]v_t dt \nonumber \\
+    &&+\frac{1}{2}\int_0^T\left[q+\bar{q}(1-s)^2+(r+\bar{r}(1-\bar{s})^2)(c^{MKV}\bar{\eta}_t^{MKV})^2\right)](\bar{x}_t^{MKV})^2dt.
+	\label{eq:SC_MKV_1}
+\end{IEEEeqnarray}
 In the following, we intend to simplify the explicit solutions (\ref{eq:SC_MFG_1}) and (\ref{eq:SC_MKV_1}) for the social costs in the LQEMFG and LQEMKV problems. First, consider the quantity $\int_0^T (\bar{\eta}^{MFG}_t)^2 (\bar{x}^{MFG}_t)^2 dt$. Using equation (\ref{eq:eta_bar_MFG}), we have:
-\begin{equation*}
-\begin{split}
+\begin{align*}
 &\int_0^T (\bar{\eta}^{MFG}_t)^2 (\bar{x}^{MFG}_t)^2 dt\\
-&= - \frac{1}{c^{MFG}(b_2 + \bar{b}_2)} \left[ \int_0^T \dot{\bar{\eta}}^{MFG}_t (\bar{x}^{MFG}_t)^2 dt +  \int_0^T \left[(2b_1 + \bar{b}_1) \bar{\eta}^{MFG}_t +(q+\bar{q}(1-s))\right] (\bar{x}^{MFG}_t)^2 dt \right].\\
-\end{split}
-\end{equation*}
-Then we use integration by parts:
-\begin{equation*}
-\begin{split}
-= & - \frac{1}{c^{MFG}(b_2 + \bar{b}_2)} \Bigg[ \bar{\eta}^{MFG}_T(\bar{x}^{MFG}_T)^2-\bar{\eta}^{MFG}_0(\bar{x}^{MFG}_0)^2-2\int_0^T\bar{\eta}^{MFG}_t\bar{x}^{MFG}_t\dot{\bar{x}}^{MFG}_t dt \\
-& + \int_0^T \left[(2b_1 + \bar{b}_1) \bar{\eta}^{MFG}_t +(q+\bar{q}(1-s))\right] (\bar{x}^{MFG}_t)^2 dt \Bigg]. \\
-\end{split}
-\end{equation*}
-Then by using equation (\ref{eq:x_bar_MFG}), we have:
-\begin{equation*}
-\begin{split}
-= & 2 \int_0^T (\bar{\eta}^{MFG}_t)^2 (\bar{x}^{MFG}_t)^2dt  - \frac{1}{c^{MFG}(b_2 + \bar{b}_2)} \Bigg[ \bar{\eta}^{MFG}_T (\bar{x}^{MFG}_T)^2 - \bar{\eta}^{MFG}_0 (\mathbb{E}(\xi))^2 \\
+&= - \frac{1}{c^{MFG}(b_2 + \bar{b}_2)} \left[ \int_0^T \dot{\bar{\eta}}^{MFG}_t (\bar{x}^{MFG}_t)^2 dt +  \int_0^T \left[(2b_1 + \bar{b}_1) \bar{\eta}^{MFG}_t +(q+\bar{q}(1-s))\right] (\bar{x}^{MFG}_t)^2 dt \right],
+\end{align*}
+then we use the integration by parts for the first term in the bracket:
+\begin{align*}
+ =  -\frac{ 1}{c^{MFG}(b_2 + \bar{b}_2)} \Bigg[  & \bar{\eta}^{MFG}_T(\bar{x}^{MFG}_T)^2 -\bar{\eta}^{MFG}_0(\bar{x}^{MFG}_0)^2 -2\int_0^T\bar{\eta}^{MFG}_t\bar{x}^{MFG}_t \cdot \dot{\bar{x}}^{MFG}_t dt \\
+& + \int_0^T \left[(2b_1 + \bar{b}_1) \bar{\eta}^{MFG}_t +(q+\bar{q}(1-s))\right] (\bar{x}^{MFG}_t)^2 dt \Bigg],
+\end{align*}
+and together with equation (\ref{eq:x_bar_MFG}) yields:
+\begin{align*}
+= 2 \int_0^T (\bar{\eta}^{MFG}_t)^2 (\bar{x}^{MFG}_t)^2dt  - \frac{1}{c^{MFG}(b_2 + \bar{b}_2)} \Bigg[ & \bar{\eta}^{MFG}_T (\bar{x}^{MFG}_T)^2 - \bar{\eta}^{MFG}_0 (\mathbb{E}(\xi))^2 \\
 &+ \int_0^T  \left[-\bar{b}_1 \bar{\eta}^{MFG}_t +(q+\bar{q}(1-s))\right] (\bar{x}^{MFG}_t)^2 dt \Bigg].
-\end{split}
-\end{equation*}
+\end{align*}
 Finally, we solve:
-\begin{equation*}
-\begin{split}
-\int_0^T (\bar{\eta}^{MFG}_t)^2 (\bar{x}^{MFG}_t)^2 dt= \frac{1}{c^{MFG}(b_2 + \bar{b}_2)} &\Bigg[ \bar{\eta}^{MFG}_T (\bar{x}^{MFG}_T)^2 - \bar{\eta}^{MFG}_0 (\mathbb{E}(\xi))^2 \\
-&+ \int_0^T  \left[-\bar{b}_1 \bar{\eta}^{MFG}_t+(q+\bar{q}(1-s))\right] (\bar{x}^{MFG}_t)^2 dt \Bigg].
-\end{split}
-\end{equation*}
+\begin{align*}
+\int_0^T (\bar{\eta}^{MFG}_t)^2 (\bar{x}^{MFG}_t)^2 dt= \frac{ \bar{\eta}^{MFG}_T (\bar{x}^{MFG}_T)^2 - \bar{\eta}^{MFG}_0 (\mathbb{E}(\xi))^2 + \int_0^T  \left[-\bar{b}_1 \bar{\eta}^{MFG}_t+(q+\bar{q}(1-s))\right] (\bar{x}^{MFG}_t)^2 dt}{c^{MFG}(b_2 + \bar{b}_2)}.
+\end{align*}
 If we denote:
 \begin{equation*}
 h_{var}: = \frac{1}{2}\int_0^T \left[q+\bar{q}+(r+\bar{r})(a\eta_t)^2\right]v_tdt + \frac{1}{2}(q_T+\bar{q}_T)v_T,
 \end{equation*}
-and use the terminal condition for $\bar{\eta}^{MFG}_T$ (see equation (\ref{eq:eta_bar_MFG})), then equation (\ref{eq:SC_MFG_1}) can be rewritten as:
-\begin{equation}
-\begin{split}
-SC^{MFG} = & h_{var} +  \frac{1}{2} \int_0^T \left[ \bar{b}_1 \lambda \bar{\eta}_t^{MFG} + (q+ \bar{q}(1-s)^2) - \lambda (q + \bar{q}(1-s)) \right] (\bar{x}_t^{MFG})^2 dt, \\
-& + \frac{1}{2} \lambda \left[ \bar{\eta}^{MFG}_0 (\mathbb{E}(\xi))^2 - (q_T+\bar{q}_T(1-s_T)) (\bar{x}_T^{MFG})^2 \right] + \frac{1}{2} (q_T+\bar{q}_T(1-s_T)^2)(\bar{x}_T^{MFG})^2.
-\end{split}
-\label{eq:SC_MFG_2}
-\end{equation}
-Repeating the calculation for $\int_0^T (\bar{\eta}^{MFG}_t)^2 (\bar{x}^{MFG}_t)^2 dt$ (using equations (\ref{eq:eta_bar_MKV}) and (\ref{eq:x_bar_MKV})), we arrive at:
-\begin{equation*}
-\begin{split}
-\int_0^T (\bar{\eta}^{MKV}_t)^2 (\bar{x}^{MKV}_t)^2 dt=\frac{1}{c^{MKV}(b_2 + \bar{b}_2)} &\Bigg[ \bar{\eta}^{MKV}_T (\bar{x}^{MKV}_T)^2 - \bar{\eta}^{MKV}_0 (\mathbb{E}(\xi))^2 \\
-&+ \int_0^T (q+\bar{q}(1-s)^2) (\bar{x}^{MKV}_t)^2 dt \Bigg].
-\end{split}
-\end{equation*}
-Using the terminal condition for $\bar{\eta}^{MKV}_T$ (see equation (\ref{eq:eta_bar_MKV})), equation (\ref{eq:SC_MKV_1}) can be rewritten as:
+and use the terminal condition for $\bar{\eta}^{MFG}_T$, 
+%(see equation (\ref{eq:eta_bar_MFG})), 
+then equation (\ref{eq:SC_MFG_1}) can be rewritten as:
+\begin{IEEEeqnarray}{rCl}
+SC^{MFG} & = & h_{var} +  \frac{1}{2} \int_0^T \left[ \bar{b}_1 \lambda \bar{\eta}_t^{MFG} + (q+ \bar{q}(1-s)^2) - \lambda (q + \bar{q}(1-s)) \right] (\bar{x}_t^{MFG})^2 dt, \label{eq:SC_MFG_2} \\
+& + & \frac{1}{2} \lambda \left[ \bar{\eta}^{MFG}_0 (\mathbb{E}(\xi))^2 - (q_T+\bar{q}_T(1-s_T)) (\bar{x}_T^{MFG})^2 \right] + \frac{1}{2} (q_T+\bar{q}_T(1-s_T)^2)(\bar{x}_T^{MFG})^2. \nonumber
+\end{IEEEeqnarray}
+%Repeating the same calculation for $\int_0^T (\bar{\eta}^{MKV}_t)^2 (\bar{x}^{MKV}_t)^2 dt$, 
+%(using equations (\ref{eq:eta_bar_MKV}) and (\ref{eq:x_bar_MKV})), 
+%we arrive at:
+%\begin{equation*}
+%\int_0^T (\bar{\eta}^{MKV}_t)^2 (\bar{x}^{MKV}_t)^2 dt=\frac{\bar{\eta}^{MKV}_T (\bar{x}^{MKV}_T)^2 - \bar{\eta}^{MKV}_0 (\mathbb{E}(\xi))^2
+%	+ \int_0^T (q+\bar{q}(1-s)^2) (\bar{x}^{MKV}_t)^2 dt}{c^{MKV}(b_2 + \bar{b}_2)} 
+%\end{equation*}
+%Using the terminal condition for $\bar{\eta}^{MKV}_T$,
+% (see equation (\ref{eq:eta_bar_MKV})), 
+Similarly, equation (\ref{eq:SC_MKV_1}) can be rewritten as:
 \begin{equation}
 SC^{MKV} = h_{var} + \frac{1}{2} \bar{\eta}^{MKV}_0 (\mathbb{E}(\xi))^2.
 \label{eq:SC_MKV_2}
 \end{equation}
 
+
 Let's denote the (weighted) difference between the solutions of the Riccati equations associated with $\bar{\eta}_t^{MFG}$ and $\bar{\eta}_t^{MKV}$ by:
 \begin{equation}
-	\Delta \bar{\eta}_t := \lambda \bar{\eta}_t^{MFG} - \bar{\eta}_t^{MKV} .
+	\Delta \bar{\eta}_t := \lambda \bar{\eta}_t^{MFG} - \bar{\eta}_t^{MKV} = u_t - w_t.
 \label{eq:delta_eta}
 \end{equation} 
-
-
 
 \begin{proposition}
 	Under assumption (\ref{eq:assumptions}), the difference in the social costs in the LQEMFG and LQEMKV problems can be represented by:
@@ -602,9 +581,9 @@ Let's denote the (weighted) difference between the solutions of the Riccati equa
 		\qquad \Delta{\bar{\eta}}_T = \lambda \bar{\eta}_T^{MFG} - \bar{\eta}_T^{MKV},
 	\end{equation*}
 	with coefficients:
-	\begin{equation*}
+	\begin{equation*} 
 		\begin{array}{rcl}
-			\gamma_t &=& \displaystyle -2 b_1 - 2\bar{b}_1 + \frac{(b_2 + \bar{b}_2)^2}{r + \bar{r}(1-\bar{s})^2} \left(\lambda \bar{\eta}_t^{MFG} + \bar{\eta}_t^{MKV} \right),\\
+			\gamma_t &=& \displaystyle -2 b_1 - 2\bar{b}_1 + \frac{(b_2 + \bar{b}_2)^2}{r + \bar{r}(1-\bar{s})^2} \left(\lambda \bar{\eta}_t^{MFG} + \bar{\eta}_t^{MKV} \right),\\ [8pt]
 			\beta_t &=& \bar{b}_1 \lambda \bar{\eta}_t^{MFG} + (q + \bar{q}(1-s)^2) - \lambda (q + \bar{q}(1-s)).
 		\end{array}
 	\end{equation*} 
@@ -632,7 +611,7 @@ PoA =1+ \frac{\Delta SC}{SC^{MKV}}.
 \label{eq:PoA_LQ}
 \end{equation}
 
-It will be useful for us to note here the scalar Riccati equations associated with $u_t := \lambda \bar{\eta}_t^{MFG}$, $w_t := \bar{\eta}_t^{MKV}$ and $\eta_t$:
+It will be useful for us to note here the scalar Riccati equations associated with $u_t = \lambda \bar{\eta}_t^{MFG}$, $w_t = \bar{\eta}_t^{MKV}$ and $\eta_t$:
     \begin{IEEEeqnarray}{lLLLClClCl}
 		\dot{u}_t &- 2A^u u_t &- B u_t^2 &+ C^u &= & 0, &\qquad& u_T &=& D^u,
 		\label{eq:riccati_ut} \\
@@ -726,7 +705,7 @@ Note that $u_t$ is increasing if $B (D^{u})^2 + 2 A^u D^{u} - C^{u}>0$, and like
 \end{proof}
 
 \begin{corollary}
-	Assume (\ref{eq:assumptions}) and $\lambda=1$. Then the sufficient condition (equations (\ref{eq:prop_1_1})-(\ref{eq:prop_1_3})) from Proposition \ref{eq:lq_prop} is also a necessary condition to have $PoA=1$.
+	Assume (\ref{eq:assumptions}) and $\lambda=1$. Then the sufficient condition (equations (\ref{eq:prop_1_1})-(\ref{eq:prop_1_3})) from Proposition \ref{prop: lq_subtract_FBSDEs} is also a necessary condition to have $PoA=1$.
 \label{corollary_3}
 \end{corollary}
 \begin{proof}
@@ -1572,7 +1551,7 @@ In our general linear quadratic formulation, this is equivalent to taking $\xi \
 \section{\textbf{Conclusion}} \label{sec:conclusion}
 We defined the price of anarchy ($PoA$) in the context of extended mean field games as the ratio of the worst case social cost when the players are in a mean field game equilibrium to the social cost as computed by a central planner. Since the central planner does not require that the players be in a mean field game equilibrium, the central planner will realize a social cost that is no worse than that of a mean field game equilibrium. Thus, $PoA \geq 1$.
 
-We computed the price of anarchy for linear quadratic extended mean field games, for which explicit computations are possible. We identify a large class of models for which $PoA=1$ (see Proposition \ref{eq:lq_prop} and Corollaries \ref{corollary_1} and \ref{corollary_2}), as well as giving a sufficient and necessary condition to have $PoA=1$ (see Theorem \ref{thm:PoA_equivalent_1} and Corollary \ref{corollary_3}). We also derive some limiting cases where $PoA \rightarrow 1$ as certain parameters tend to zero or to infinity. The numerics support our theoretical results.
+We computed the price of anarchy for linear quadratic extended mean field games, for which explicit computations are possible. We identify a large class of models for which $PoA=1$ (see Proposition \ref{prop: lq_subtract_FBSDEs} and Corollaries \ref{corollary_1} and \ref{corollary_2}), as well as giving a sufficient and necessary condition to have $PoA=1$ (see Theorem \ref{thm:PoA_equivalent_1} and Corollary \ref{corollary_3}). We also derive some limiting cases where $PoA \rightarrow 1$ as certain parameters tend to zero or to infinity. The numerics support our theoretical results.
 
 \section{\textbf{Acknowledgments}}
 The authors would like to thank the organizers of CEMRACS 2017 for putting together such a successful summer school.
