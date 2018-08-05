@@ -1472,65 +1472,65 @@ The solutions to the problems we have considered are given by the formulas deriv
 \end{split}
 \end{equation*}
 
-Unless otherwise stated, the parameters stay at these default values. For results involving only interaction through the states, we set $\bar{b}_2=0$ and $\bar{r}=0$. For results involving only interaction through the controls, we set $\bar{b}_1=0$, $\bar{q}=0$, and $\bar{q}_T=0$. Figures \ref{fig:b1_b1bar}-\ref{fig:r_rbar} show the price of anarchy as we vary one parameter at a time for each of three interaction cases: full interaction (i.e. through the states and the controls), interaction only through the states, and interaction only through the controls.
+Unless otherwise stated, the parameters stay at these default values. For results involving only interaction through the states, we set $\bar{b}_2=0$ and $\bar{r}=0$. For results involving only interaction through the controls, we set $\bar{b}_1=0$, $\bar{q}=0$, and $\bar{q}_T=0$. Figures \ref{fig:r_rbar}-\ref{fig:b1bar} show the price of anarchy as we vary one parameter at a time for each of three interaction cases: full interaction (i.e. through the states and the controls), interaction only through the states, and interaction only through the controls. The results show various limiting behaviors, such as some of the cases proved in the previous section.
 
 \begin{figure}[!htb]
-    \centering
-    \begin{subfigure}{.45\textwidth}
-        \includegraphics[scale=0.5]{PoA_half_more_steps_b1_2.eps}
-    \end{subfigure}
-    \begin{subfigure}{.45\textwidth}
-        \includegraphics[scale=0.5]{PoA_half_more_steps_b1bar.eps}
-    \end{subfigure}
-    \caption{PoA as we vary $b_1$ (left) and $\bar{b}_1$ (right).}
-    \label{fig:b1_b1bar}
+	\centering
+	\begin{subfigure}{.45\textwidth}
+		\includegraphics[scale=0.5]{PoA_half_more_steps_r.eps}
+	\end{subfigure}
+	\begin{subfigure}{.45\textwidth}
+		\includegraphics[scale=0.5]{PoA_half_more_steps_rbar.eps}
+	\end{subfigure}
+	\caption{$PoA$ as we vary $r$ (left) and $\bar{r}$ (right).}
+	\label{fig:r_rbar}
 \end{figure}
 \begin{figure}[!htb]
     \centering
     \begin{subfigure}{.45\textwidth}
-        \includegraphics[scale=0.5]{PoA_half_more_steps_b2.eps}
+        \includegraphics[scale=0.5]{PoA_final_b2_0.eps}
     \end{subfigure}
     \begin{subfigure}{.45\textwidth}
-        \includegraphics[scale=0.5]{PoA_half_even_more_steps_b2bar_2.eps}
+        \includegraphics[scale=0.5]{PoA_final_b2_large.eps}
     \end{subfigure}
-    \caption{PoA as we vary $b_2$ (left) and $\bar{b}_2$ (right).}
-    \label{fig:b2_b2bar}
+    \caption{$PoA$ as we vary $b_2$.}
+    \label{fig:b2}
 \end{figure}
 \begin{figure}[!htb]
-    \centering
-    \begin{subfigure}{.45\textwidth}
-        \includegraphics[scale=0.5]{PoA_half_more_steps_q.eps}
-    \end{subfigure}
-    \begin{subfigure}{.45\textwidth}
-        \includegraphics[scale=0.5]{PoA_half_more_steps_qbar.eps}
-    \end{subfigure}
-    \caption{PoA as we vary $q$ (left) and $q_T$ (right).}
-    \label{fig:q_q_T}
+	\centering
+	\begin{subfigure}{.45\textwidth}
+		\includegraphics[scale=0.5]{PoA_final_b2bar_0.eps}
+	\end{subfigure}
+	\begin{subfigure}{.45\textwidth}
+		\includegraphics[scale=0.5]{PoA_half_even_more_steps_b2bar_2.eps}
+	\end{subfigure}
+	\caption{$PoA$ as we vary $\bar{b}_2$.}
+	\label{fig:b2bar}
 \end{figure}
 \begin{figure}[!htb]
-    \centering
-    \begin{subfigure}{.45\textwidth}
-        \includegraphics[scale=0.5]{PoA_half_more_steps_q_T.eps}
-    \end{subfigure}
-    \begin{subfigure}{.45\textwidth}
-        \includegraphics[scale=0.5]{PoA_half_more_steps_qbar_T.eps}
-    \end{subfigure}
-    \caption{PoA as we vary $\bar{q}$ (left) and $\bar{q}_T$ (right).}
-    \label{fig:qbar_qbar_T}
+	\centering
+	\begin{subfigure}{.45\textwidth}
+		\includegraphics[scale=0.5]{PoA_final_b1_0.eps}
+	\end{subfigure}
+	\begin{subfigure}{.45\textwidth}
+		\includegraphics[scale=0.5]{PoA_half_more_steps_b1_2.eps}
+	\end{subfigure}
+	\caption{$PoA$ as we vary $b_1$.}
+	\label{fig:b1}
 \end{figure}
 \begin{figure}[!htb]
-    \centering
-    \begin{subfigure}{.45\textwidth}
-        \includegraphics[scale=0.5]{PoA_half_more_steps_r.eps}
-    \end{subfigure}
-    \begin{subfigure}{.45\textwidth}
-        \includegraphics[scale=0.5]{PoA_half_more_steps_rbar.eps}
-    \end{subfigure}
-    \caption{PoA as we vary $r$ (left) and $\bar{r}$ (right).}
-    \label{fig:r_rbar}
+	\centering
+	\begin{subfigure}{.45\textwidth}
+		\includegraphics[scale=0.5]{PoA_final_b1bar_0.eps}
+	\end{subfigure}
+	\begin{subfigure}{.45\textwidth}
+		\includegraphics[scale=0.5]{PoA_half_more_steps_b1bar.eps} %ToDo (code is running)
+	\end{subfigure}
+	\caption{$PoA$ as we vary $\bar{b}_1$.}
+	\label{fig:b1bar}
 \end{figure}
 
-The results show various limiting behaviors, such as some of the cases proved in the previous section. In Figure \ref{fig:b1_b1bar}, we note that Proposition \ref{prop:b1_b1bar} is confirmed. The condition $\frac{b_2}{b_2+\bar{b}_2}\cdot \frac{r + \bar{r}(1- \bar{s})^2}{r + \bar{r}(1-\bar{s})}\cdot (q_T+\bar{q}_T(1-s_T)) \neq q_T+\bar{q}_T(1-s_T)^2$ is satisfied for all three interaction cases and we see that $\lim_{b_1 \to 0}PoA >1$, $\lim_{\bar{b}_1 \to 0}PoA>1$, $\lim_{b_1 \to \infty}PoA = 1$, and $\lim_{\bar{b}_1 \to \infty}PoA = \infty$. Propositions \ref{prop:b2_to_infty}-\ref{prop:b2bar} are confirmed in Figure \ref{fig:b2_b2bar}. For Proposition \ref{prop:b2_to_0}, when there is only interaction through the states, then $\bar{b}_2=0$ and we see that $\lim_{b_2 \to 0}PoA= 1$. When there is full interaction or only interaction through the controls, then $\bar{b}_2>0$ and we see that $\lim_{b_2 \to 0}PoA>1$. For Proposition \ref{prop:b2_to_infty}, we see that $\lim_{b_2 \to \infty}PoA= 1$. Note that the condition $\frac{q + \bar{q}(1-s)}{r + \bar{r}(1-\bar{s})}= \frac{q + \bar{q}(1-s)^2}{r + \bar{r}(1-\bar{s})^2}$ is  not satisfied for the cases of interaction only through the states or interaction only through the controls, and is therefore a sufficient, but not necessary, assumption. For Proposition \ref{prop:b2bar}, Figure \ref{fig:b2_b2bar} confirms that $\lim_{\bar{b}_2 \to 0}PoA>1$ and $\lim_{\bar{b}_2 \to \infty}PoA= 1$. Note that the condition $\frac{r + \bar{r}(1- \bar{s})^2}{r + \bar{r}(1-\bar{s})} \neq \frac{q_T+\bar{q}_T(1-s_T)^2}{q_T+\bar{q}_T(1-s_T)}$ is not satisfied for the full interaction case, and is therefore a sufficient, but not necessary, assumption. This agrees with the conclusion of Remark \ref{remark_6}. Figure \ref{fig:r_rbar} confirms as in Proposition \ref{prop:r_bar_r} that $\lim_{r \to \infty}PoA= 1$ and $\lim_{\bar{r} \to \infty}PoA= 1$.
+Figure \ref{fig:r_rbar} confirms as in Proposition \ref{prop:r_bar_r} that $\lim_{r \to \infty}PoA= 1$ and $\lim_{\bar{r} \to \infty}PoA= 1$. Propositions \ref{prop:b2_to_infty} and \ref{prop:b2_to_0} are confirmed in Figure \ref{fig:b2}. In the case of full interaction, we have $\frac{q + \bar{q}(1-s)}{r + \bar{r}(1-\bar{s})}= \frac{q + \bar{q}(1-s)^2}{r + \bar{r}(1-\bar{s})^2}$ and we see that $\lim_{b_2 \to \infty}PoA= 1$. In the cases of interaction only through the states or interaction only through the controls, this condition is not satisfied, and we see that $\lim_{b_2 \to \infty}PoA> 1$. For Proposition \ref{prop:b2_to_0}, when there is only interaction through the states, then $\bar{b}_2=0$ and we see that $\lim_{b_2 \to 0}PoA= 1$. When there is full interaction or only interaction through the controls, then $\bar{b}_2>0$ and we see that $\lim_{b_2 \to 0}PoA>1$. For Proposition \ref{prop:b2bar}, Figure \ref{fig:b2bar} confirms that $\lim_{\bar{b}_2 \to 0}PoA>1$ and $\lim_{\bar{b}_2 \to \infty}PoA= 1$. Note that the condition $\frac{r + \bar{r}(1- \bar{s})^2}{r + \bar{r}(1-\bar{s})} \neq \frac{q_T+\bar{q}_T(1-s_T)^2}{q_T+\bar{q}_T(1-s_T)}$ is not satisfied for the full interaction case, and is therefore a sufficient, but not necessary, assumption. This agrees with the conclusion of Remark \ref{remark_6}. In Figures \ref{fig:b1} and \ref{fig:b1bar}, we note that Proposition \ref{prop:b1_b1bar} is confirmed. The condition $\frac{b_2}{b_2+\bar{b}_2}\cdot \frac{r + \bar{r}(1- \bar{s})^2}{r + \bar{r}(1-\bar{s})}\cdot (q_T+\bar{q}_T(1-s_T)) \neq q_T+\bar{q}_T(1-s_T)^2$ is satisfied for all three interaction cases and we see that $\lim_{b_1 \to 0}PoA >1$, $\lim_{\bar{b}_1 \to 0}PoA>1$, $\lim_{b_1 \to \infty}PoA = 1$, and $\lim_{\bar{b}_1 \to \infty}PoA = \infty$.
 
 \begin{comment}
 \subsection{\textbf{A Particular Example: Flocking}}
