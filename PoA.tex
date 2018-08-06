@@ -180,7 +180,7 @@ The goal of this subsection is to articulate how to compute the cost associated 
    &=\arg \inf_{\phi}\left[\int_0^T<f(t,\,\cdot\,,\cL(X^{\phi}_t),\phi(t,\,\cdot\,),\cL(\phi(t,X^{\phi}_t))),\cL(X^{\phi}_t)>\,dt \;+\; <g(\,\cdot\,,\cL(X^{\phi}_T)),\cL(X^{\phi}_T)>\right].
 \end{split}
 \end{equation*}
-Thus, the cost of the solution to the optimal control problem of McKean-Vlasov is given by
+Thus, the cost of the solution to the optimal control problem of McKean-Vlasov is given by:
 \begin{equation*}
     SC^{MKV}=SC(\hat{\phi}).
 \end{equation*}
@@ -719,22 +719,22 @@ $
 	\begin{equation*}
 	\begin{array}{l}
 		B^r \longrightarrow 0,\quad \ B^{\eta,r} \longrightarrow 0,\\
-		C^{u,r} \longrightarrow C_u^{r\to \infty} := \lambda^{r \to \infty}(q + \bar{q}(1-s)),\quad \ D^{u,r} \to D_u^{r \to \infty} := \lambda^{r \to \infty}(q_T+ \bar{q}_T(1-s_T)).
+		C^{u,r} \longrightarrow C^{u,r\to \infty} := \lambda^{r \to \infty}(q + \bar{q}(1-s)),\quad \ D^{u,r} \to D^{u,r \to \infty} := \lambda^{r \to \infty}(q_T+ \bar{q}_T(1-s_T)).
 	\end{array}
 	\end{equation*}
 
 	Let $u^{r \to \infty}:[0,T] \to \mathbb{R}$ be the solution to the linear first-order differential equation:
 	\begin{equation*}
-		\left({u}^{r \to \infty}_t\right)' - 2A^u u_t^{r \to \infty} + C^{r \to \infty}_u = 0, \qquad u_T^{r \to \infty} = D^{r \to \infty}_u.
+		\left({u}^{r \to \infty}_t\right)' - 2A^u u_t^{r \to \infty} + C^{u,r \to \infty} = 0, \qquad u_T^{r \to \infty} = D^{u,r \to \infty}.
 	\end{equation*}
 	Then we have:
 	\begin{equation*}
-	u_t^{r \to \infty} = \left(D^{r \to \infty}_u - \frac{C^{r \to \infty}_u}{2A^u} \right) e^{-2A^u (T-t)} +  \frac{C^{r \to \infty}_u}{2A^u}.
+	u_t^{r \to \infty} = \left(D^{u,r \to \infty} - \frac{C^{u,r \to \infty}}{2A^u} \right) e^{-2A^u (T-t)} +  \frac{C^{u,r \to \infty}}{2A^u}.
 	\end{equation*}
 	It is easy to show directly from their explicit solutions (see equation (\ref{eq:riccati_ut_sol})) that for every time $t\in [0,T]$, $$\lim_{r \to \infty}u^r_t=u^{r \to \infty}_t, \quad \text{and thus,} \quad \lim_{r \to \infty}B^ru^r_t=0.$$
 	
 	Next, our goal is to bound the $u^r_t$ uniformly over $t \in [0,T]$ for large $r$.
-	Note that  $A^u < 0$, $B^r$, $C^{u,r}$, $\lambda^{r\to \infty}$, $C^{r \to \infty}_u$, $D^{u,r}$, $D^{r \to \infty}_u> 0$, and $\delta^{-,r}_u < 0 < \delta^{+,r}_u$. Let $\epsilon>0$. Then there exists a $r^*>0$ such that $\max\{ B^{r}, C^{u,r}, D^{u,r} \} \leq \max\{C^{r \to \infty}_u,D^{r \to \infty}_u \}+\epsilon=: \zeta$ for $r \geq r^*$. Thus, we can deduce that for $r \geq r^*$, and for every $t \in [0,T]$:
+	Note that  $A^u < 0$, $B^r$, $C^{u,r}$, $\lambda^{r\to \infty}$, $C^{u,r \to \infty}$, $D^{u,r}$, $D^{u,r \to \infty}> 0$, and $\delta^{-,r}_u < 0 < \delta^{+,r}_u$. Let $\epsilon>0$. Then there exists a $r^*>0$ such that $\max\{ B^{r}, C^{u,r}, D^{u,r} \} \leq \max\{C^{u,r \to \infty},D^{u,r \to \infty} \}+\epsilon=: \zeta$ for $r \geq r^*$. Thus, we can deduce that for $r \geq r^*$, and for every $t \in [0,T]$:
 	\begin{equation*}
 	\left\vert u_t^{r} \right\vert \leq \frac{C^{u,r} + D^{u,r} (\delta^{+,r}_u - \delta^{-,r}_u)}{\delta^{+,r}_u e^{- (\delta^{+,r}_u - \delta^{-,r}_u)(T-t)}} 
 	\leq  \frac{ \zeta + 2 \zeta \sqrt{(A^u)^2 + \zeta^2}  }{-2A^u e^{-2T \sqrt{(A^u)^2 + \zeta^2} } }.
@@ -1216,17 +1216,17 @@ The following lemma was used in Proposition \ref{prop:b2_to_infty}.
 	\begin{array}{l}
 		 \lambda^{\bar{b}_2} \to \lambda^{\bar{b}_2 \to 0} := \frac{r + \bar{r}(1- \bar{s})^2}{r + \bar{r}(1-\bar{s})}, \qquad 
 		 B^{\bar{b}_2} \to \frac{b_2^2}{r + \bar{r}(1-\bar{s})^2}=:B^{\bar{b}_2 \to 0} > 0,\\
-		 C^{u,\bar{b}_2} \to \lambda^{\bar{b}_2 \to 0}(q+\bar{q}(1-s))=:C^{\bar{b}_2 \to 0}_u >0,\qquad 
-		 D^{u,\bar{b}_2} \to \lambda^{\bar{b}_2 \to 0}(q_T+\bar{q}_T(1-s_T))=:D^{\bar{b}_2 \to 0}_u > 0,
+		 C^{u,\bar{b}_2} \to \lambda^{\bar{b}_2 \to 0}(q+\bar{q}(1-s))=:C^{u,\bar{b}_2 \to 0} >0,\qquad 
+		 D^{u,\bar{b}_2} \to \lambda^{\bar{b}_2 \to 0}(q_T+\bar{q}_T(1-s_T))=:D^{u,\bar{b}_2 \to 0} > 0,
 	\end{array}
 	\end{equation*}
 	and $A^u, (A^w, C^w, D^w), (A^\eta, B^\eta, C^\eta, D^\eta)$ are independent of $\bar{b}_2$.	
 	Let $u^{\bar{b}_2 \to 0}:[0,T]\to \mathbb{R}$ be the solution to the limiting Riccati equation:
 	\begin{equation}
-	\left({u}^{{\bar{b}_2 \to 0}}_t\right)' - 2A^u u_t^{\bar{b}_2 \to 0} -B^{\bar{b}_2 \to 0} (u_t^{\bar{b}_2 \to 0})^2+ C^{\bar{b}_2 \to 0}_u = 0, \qquad u_T^{\bar{b}_2 \to 0} = D^{\bar{b}_2 \to 0}_u,
+	\left({u}^{{\bar{b}_2 \to 0}}_t\right)' - 2A^u u_t^{\bar{b}_2 \to 0} -B^{\bar{b}_2 \to 0} (u_t^{\bar{b}_2 \to 0})^2+ C^{u,\bar{b}_2 \to 0} = 0, \qquad u_T^{\bar{b}_2 \to 0} = D^{u,\bar{b}_2 \to 0},
 	\label{eq:riccati_limiting_u}
 	\end{equation}
-	which we recall has an explicit solution. It is easy to show directly from the explicit solutions that for every time $t\in [0,T]$, $\lim_{\bar{b}_2 \to 0}u^{\bar{b}_2}_t=u^{\bar{b}_2 \to 0}_t$. Next, our goal is to bound $u^{\bar{b}_2}_t$ uniformly over $t \in [0,T]$ for small $\bar{b}_2$, following the methodology of the proof of Proposition \ref{prop:r_bar_r}. For any $\epsilon>0$, there exists a $\bar{b}^*_2>0$ such that $\max\{ B^{\bar{b}_2},C^{u,\bar{b}_2},D^{u,\bar{b}_2} \}<\max \{B^{\bar{b}_2 \to 0},C^{\bar{b}_2 \to 0}_u,D^{\bar{b}_2 \to 0}_u \}+\epsilon=:\zeta_4$ for all $\bar{b}_2 \leq \bar{b}^*_2$. Thus, for all $\bar{b}_2\leq \bar{b}^*_2$ and for every $t \in [0,T]$:
+	which we recall has an explicit solution. It is easy to show directly from the explicit solutions that for every time $t\in [0,T]$, $\lim_{\bar{b}_2 \to 0}u^{\bar{b}_2}_t=u^{\bar{b}_2 \to 0}_t$. Next, our goal is to bound $u^{\bar{b}_2}_t$ uniformly over $t \in [0,T]$ for small $\bar{b}_2$, following the methodology of the proof of Proposition \ref{prop:r_bar_r}. For any $\epsilon>0$, there exists a $\bar{b}^*_2>0$ such that $\max\{ B^{\bar{b}_2},C^{u,\bar{b}_2},D^{u,\bar{b}_2} \}<\max \{B^{\bar{b}_2 \to 0},C^{u,\bar{b}_2 \to 0},D^{u,\bar{b}_2 \to 0} \}+\epsilon=:\zeta_4$ for all $\bar{b}_2 \leq \bar{b}^*_2$. Thus, for all $\bar{b}_2\leq \bar{b}^*_2$ and for every $t \in [0,T]$:
 	\begin{equation*}
 		\left \vert u_t^{\bar{b}_2} \right\vert \leq \frac{\zeta_4 + 2 \zeta_4 \sqrt{(A^u)^2 + \zeta_4^2}}{-2A^u e^{-2T \sqrt{(A^u)^2 + \zeta_4^2}}}.
 	\end{equation*}
@@ -1387,7 +1387,7 @@ The following lemma was used in Proposition \ref{prop:b2_to_infty}.
 	\end{equation*}
 	We conclude $\lim_{\bar{b}_1 \to \infty} PoA^{\bar{b}_1}=\infty.$\\
 
-	\textbf{Cases 3 and 4:} First, we consider $b_1 \to 0$. We have $A^{u,b_1} \to A^{b_1\to 0}_u$, $\delta^{+,b_1}_u \to \delta^{+,b_1\to 0}_u>0$, and $\delta^{-,b_1}_u \to \delta^{-,b_1\to 0}_u<0$, and similarly for $A^{w,b_1}$, $A^{\eta,b_1}$, $\delta^{\pm,b_1}_w$, and $\delta^{\pm,b_1}_\eta$. Clearly we have for all $t\in[0,T]$, $\lim_{b_1 \to 0}u^{b_1}_t=:u^{b_1\to 0}_t$, $\lim_{b_1 \to 0}w^{b_1}_t=:w^{b_1 \to 0}_t$, and $\lim_{b_1 \to 0}\eta^{b_1}_t=:\eta^{b_1 \to 0}_t$. Next, we show that the three sequences are uniformly bounded. Let $0<\epsilon<-\delta^{-,b_1\to 0}_u$. There exists a $b_1^*>0$ such that $\max \left \{\left| \delta^{+,b_1}_u-\delta^{+,b_1\to0}_u \right|,\left| \delta^{-,b_1}_u-\delta^{-,b_1\to0}_u \right| \right\}<\epsilon$ for all $b_1 \leq b_1^*$. Then for all $b_1 \leq b_1^*$ and $t\in[0,T]$:
+	\textbf{Cases 3 and 4:} First, we consider $b_1 \to 0$. We have $A^{u,b_1} \to A^{u,b_1\to 0}$, $\delta^{+,b_1}_u \to \delta^{+,b_1\to 0}_u>0$, and $\delta^{-,b_1}_u \to \delta^{-,b_1\to 0}_u<0$, and similarly for $A^{w,b_1}$, $A^{\eta,b_1}$, $\delta^{\pm,b_1}_w$, and $\delta^{\pm,b_1}_\eta$. Clearly we have for all $t\in[0,T]$, $\lim_{b_1 \to 0}u^{b_1}_t=:u^{b_1\to 0}_t$, $\lim_{b_1 \to 0}w^{b_1}_t=:w^{b_1 \to 0}_t$, and $\lim_{b_1 \to 0}\eta^{b_1}_t=:\eta^{b_1 \to 0}_t$. Next, we show that the three sequences are uniformly bounded. Let $0<\epsilon<-\delta^{-,b_1\to 0}_u$. There exists a $b_1^*>0$ such that $\max \left \{\left| \delta^{+,b_1}_u-\delta^{+,b_1\to0}_u \right|,\left| \delta^{-,b_1}_u-\delta^{-,b_1\to0}_u \right| \right\}<\epsilon$ for all $b_1 \leq b_1^*$. Then for all $b_1 \leq b_1^*$ and $t\in[0,T]$:
 	\begin{equation*}
 	\left|u^{b_1}_t\right| \leq \frac{C^u+D^u\left(\delta^{+,b_1}_u-\delta^{-,b_1}_u\right) }{-\delta^{-,b_1}_u} \\
 	\leq \frac{C^u+D^u\left(\delta^{+,b_1\to 0}_u-\delta^{-,b_1 \to 0}_u+2\epsilon\right) }{-\delta^{-,b_1\to 0}_u-\epsilon},
@@ -1497,6 +1497,12 @@ M.~Balandat and C.~J. Tomlin.
 \newblock On efficiency in mean field differential games.
 \newblock In {\em American Control Conference (ACC), 2013}, pages 2527--2532.
   IEEE, 2013.
+  
+\bibitem{basar}
+T. Başar and Q. Zhu.
+\newblock Prices of anarchy, information, and cooperation in differential games.
+\newblock In {\em Dynamic Games and Applications, 1(1):50-73, 2011}.
+
 
 \bibitem{bensoussan2013mean}
 A.~Bensoussan, J.~Frehse, and P.~Yam.

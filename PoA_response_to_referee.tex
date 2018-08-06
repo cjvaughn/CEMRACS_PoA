@@ -13,7 +13,7 @@ We would like to thank the reviewer for their remarks. We have addressed each of
 
 \hspace{-7mm} \textbf{Main Points:}
 \begin{enumerate}
-	\item This was a good suggestion. We have added equations (5)-(9) on page 7, and equations (13)-(17) on page 9, and we refer to these equations often. In the same vein we have added equations (41)-(44) on page 15, which are used frequently in Propositions 3-7.
+	\item This was a good suggestion. We have added equations (5)-(9) on page 7, and equations (13)-(17) on page 9, and we refer to these equations often. In the same vein, we have added equations (41)-(44) and repeated equation (19) on page 15. These equations restate previous equations in the new notation introduced on page 13, and are a handy reference for Propositions 3-7.
 	\item There was a typo in the previous version that may have caused confusion, where we mistakenly wrote $\partial_{\mu}$ instead of $\partial_{\bar{\mu}}$. Since the Hamiltonian depends on the scalars $\bar{\mu}$ and $\bar{\nu}$, instead of the full measures, the derivative in the measure argument greatly simplifies. On page 8 lines 10-12, we refer to section 4 in [5], where they write what this condition should be in the linear quadratic case. On page 8 lines 13 and 15, the derivative is a standard derivative and does not need explaining further. 
 	\item We have made many modifications in the computation of
 	 $$\int_0^T (\bar{\eta}^{MFG}_t)^2 (\bar{x}^{MFG}_t)^2dt$$
@@ -21,7 +21,7 @@ We would like to thank the reviewer for their remarks. We have addressed each of
 	  
 	  We now only use the notation introduced thus far, instead of mixing in the notation from the appendix, which could cause confusion. We also take the suggestion from the reviewer of explicitly writing the end result of the computation, which is given by page 12 line 2. Also, we now give an explanation for each step of the calculation. Finally, we separated the equations in the former equation (7). They are now equations (27) and (28) in the final version, and they should be easy to follow now that the above computation is more clear. And yes, there should not have been a $t$ in $h_{var}$. Pages 11-12 should be much easier to follow in their present form.
 	  
-	\item Yes, it is correct that there is a square in the definitions of $C^w$ and $D^w$ that doesn't appear in the definitions of $C^u$ and $C^w$. This was overlooked by the authors.
+	\item Yes, it is correct that there is a square in the definitions of $C^w$ and $D^w$ that doesn't appear in the definitions of $C^u$ and $D^u$. This was overlooked by the authors.
 	
 	We replace Corollary 3 by another result, Theorem 2, which provides a necessary and sufficient condition to have $PoA = 1$. We also propose a corollary afterwards (see Corollary 3 in the new version) and point out its connection to Proposition 1. This new Corollary 3 indicates that for the standard mean field game setting, the sufficient conditions in Proposition 1 are also necessary to have $PoA=1$.
 		
@@ -30,8 +30,8 @@ We would like to thank the reviewer for their remarks. We have addressed each of
 	
 	\item Yes, the use of big $\mathcal{O}$ created a lot of ambiguities and imprecisions in Proposition 4. Hence, we decide to rewrite the whole proof using a $\delta-\epsilon$ approach. The main ideas used in the new proof of Proposition 4 remain exactly the same as in its previous version. However, the techniques involved are more subtle. In short, we provide some explicit upper-bounds and lower-bounds for $(b_2 + \bar{b}_2) \Delta SC^{b_2}$ and $b_2 \cdot SC^{MKV,b_2}$ in order to justify the limit of $PoA$ when $b_2 \to \infty$.
 	
-	More precisely, in the case when $\frac{q + \bar{q}(1-s)}{r + \bar{r}(1-\bar{s}) } = \frac{q + \bar{q}(1-s)^2}{r + \bar{r}(1-\bar{s})^2}$, or equivalently $c_u = c_w$, we show that for any given $\epsilon > 0$, there exists $b_2^*>0$ such that for all $b_2 \geq b_2^{*}$, we have the inequalities $(b_2 + \bar{b}_2) \Delta SC^{b_2} \leq 2\epsilon$ and 
-	$(b_2 + \bar{b}_2) SC^{MKV,b_2} \geq constant > 0$ (see equations (48)-(50).) Thus we conclude that $PoA \to 1$ when $b_2 \to \infty$.
+	More precisely, in the case when $\frac{q + \bar{q}(1-s)}{r + \bar{r}(1-\bar{s}) } = \frac{q + \bar{q}(1-s)^2}{r + \bar{r}(1-\bar{s})^2}$, or equivalently, $c_u = c_w=:c$, we show that for any given $\epsilon > 0$, there exists $b_2^*>0$ such that for all $b_2 \geq b_2^{*}$, we have the inequalities $(b_2 + \bar{b}_2) \Delta SC^{b_2} \leq 2\epsilon$ and 
+	$(b_2 + \bar{b}_2) SC^{MKV,b_2} \geq \frac{c}{2} > 0$ (see equations (48)-(50).) Thus we conclude that $PoA \to 1$ when $b_2 \to \infty$.
 		
 	In the case when $c_u \neq c_w$, we show that there exists $b_2^{*,case2}>0$ such that we can bound from below $(b_2 + \bar{b_2}) \Delta SC^{b_2}$ by a constant $c_{num}>0$ independent of $b_2$ (see equation (51)). Meanwhile, we can also bound from above the term $b_2 \cdot SC^{MKV,b_2}$ (see equation (52)-(58) and Lemma 1) by: 
 	$$ b_2 \cdot SC^{MKV,b_2} = J_1 + J_2 \leq M_{J_1} + M_{J_2}.$$
@@ -57,11 +57,27 @@ We would like to thank the reviewer for their remarks. We have addressed each of
 	\item Yes, this was a typo. These values were indeed after taking the limit. The limits in a slightly different presentation now appear in the proof of Proposition 5 Case 2, page 24 line -8.
 \end{enumerate}
 
-\hspace{-7mm} In addition to the suggested revisions, we have also made the following minor modifications:
+\hspace{-7mm} In addition to the suggested revisions, and the changes noted above, we have also made the following modifications:
 \begin{enumerate}
-	\item 
+	\item Added the following sentence to the abstract to highlight our main result in the new Theorem 2: `A sufficient and necessary condition to have no price of anarchy is presented.'
+	\item Add page 10 line 4, to make it clear that the coefficients for the terminal cost, $q_T$, $\bar{q}_T$, and $s_T$ are also assumed to be non-negative.
+	\item Added equation (19) and moved up the observations in equation (20), which were previously below Remark 3.
+	\item We made minor edits to the statement of Proposition 1: since $b^{MFG}-b^{MKV}=c^{MFG}-c^{MKV}$, we can rewrite $(b^{MFG}-b^{MKV})b_2+(c^{MFG}-c^{MKV})\bar{b}_2=(c^{MFG}-c^{MKV})(b_2+\bar{b}_2)$. Since we assume $b_2+\bar{b}_2>0$, we remove this factor from equation (23). We also added more to the proof of Proposition 1 to make it more clear.
+	\item We moved Remark 4 above Corollary 1. We also elaborated in Remark 4 about the connection to the recent paper of Cardaliaguet and Rainer [5], and we remark that we will see later (in Corollary 3 on pages 14-15) that the sufficient condition in Proposition 1 is also a necessary condition in the standard mean field game setting.
+	\item We added an extra equality in the last line of page 12 to make the computations easier to follow.
+	\item At the bottom of page 13, we added comments on the signs of $\delta^{\pm}_u$ and the non-negativity of $u_t$.
+	\item At the top of page 14, we added the time derivative of $u_t$ and comment that $u_t$ is increasing if $B(D^u)^2+2A^uD^u-C^u>0$ and likewise, decreasing if $B(D^u)^2+2A^uD^u-C^u<0$.
+	\item We added Assumption 1, as to simplify the statements of Propositions 3-7.
+	\item Propositions 3-7 have had several changes to make the arguments rigorous. Note that the previous Proposition 4 has now been split into the current Proposition 4, Lemma 1, and Proposition 5. We made some remarks above on the modifications of Propositions 3 and 4. Propositions 5-7 follow similar modifications to make the arguments more rigorous.
+	\item We modified the assumption in the statement of Proposition 6 in the case $\bar{b}_2 \to 0$. Previously, we assumed $\bar{b}_1>0$ so that $A^u \neq A^w$ and we claimed that $u_t^{\bar{b}_2 \to 0}\neq w_t^{\bar{b}_2 \to 0}$ on a set of positive Lebesgue measure. We realized that because of continuity, this claim would be obvious if instead, we assumed $D^{u,\bar{b}_2 \to 0}=u_T^{\bar{b}_2 \to 0}\neq w_T^{\bar{b}_2 \to 0}=D^w$, hence the assumption $\frac{r + \bar{r}(1- \bar{s})^2}{r + \bar{r}(1-\bar{s})} \neq \frac{q_T+\bar{q}_T(1-s_T)^2}{q_T+\bar{q}_T(1-s_T)}$.
+	\item We have added Remark 6, where we point out that our new assumption in Proposition 6 was sufficient, but not necessary, to have $\lim_{\bar{b}_2 \to 0}PoA>1$. This follows from making a similar argument as Theorem 2 but in the limiting regime $\bar{b}_2 \to \infty$.
+	\item In Proposition 7, which was previously labeled Proposition 6, we changed the assumption from $\lambda \neq 1$ to $\lambda (q_T+\bar{q}_T(1-s_T))\neq(q_T+\bar{q}_T(1-s_T)^2)$, since what we wanted to assume is $D^u \neq D^w$.
+	\item In the numerical results, section 2.4, we removed the four plots that we did not discuss ($PoA$ as a function of $q$, $\bar{q}$, $q_T$ and $\bar{q}_T$). To make the limits more clear, we put two plots for each parameter: one focused on the limit towards 0 and the other focused on the limit towards infinity. We also reordered the figures to be in the same order as Propositions 3-7. We also added some discussion about which of our assumptions were satisfied. Note that all of the cases presented in Propositions 3-7 are confirmed by the numerical results.
+	\item We removed section 2.5 on the particular example of flocking. We realized that the assumption (17) is not satisfied for this example because $q+\bar{q}(1-s)=0$. Also, we felt that the example did not add much to the paper, as it is just one trivial example where the FBSDEs for the LQEMFG and LQEMKV problems are identical.
+	\item We updated the last half of the conclusion to reflect the new results.
+	
 \end{enumerate}
 
-Finally, we would like to acknowledge that the length of our paper has increased from 26 pages at submission to 38 pages for the final version. The issues in our proofs raised by the reviewer required us to write many more details, and in some cases, new approaches altogether. We feel that the increase in length was necessary to address all of the issues pointed out by the reviewer.
+Finally, we would like to acknowledge that the length of our paper has increased from 26 pages at submission to 38 pages for the final version. The issues in our proofs raised by the reviewer required us to write many more details. We feel that the increase in length was necessary to make the results rigorous.
 
 \end{document}
