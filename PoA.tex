@@ -12,7 +12,6 @@
 \usepackage{epstopdf}
 \usepackage{comment}
 \usepackage[retainorgcmds]{IEEEtrantools}
-%\usepackage[fleqn]{amsmath}
 
 \newtheorem{remark}{Remark}
 \newtheorem{theorem}{Theorem}
@@ -490,11 +489,6 @@ then $PoA=1$.
 \end{remark}
 
 
-%\begin{remark}
-%	The only result similar to Proposition \ref{prop: lq_subtract_FBSDEs} that we are aware of is Remark 6.1 in \cite{nourian2013nash}.
-%\end{remark}
-
-
 \begin{corollary}
 	Assuming (\ref{eq:assumptions}), if furthermore, $\bar{b}_1=0$, $s\bar{q}(s-1)=0$, $s_T\bar{q}_T(s_T-1)=0$, and $c^{MFG} = c^{MKV}$,
 	then $PoA=1$.
@@ -538,22 +532,12 @@ If we denote:
 \begin{equation*}
 h_{var}: = \frac{1}{2}\int_0^T \left[q+\bar{q}+(r+\bar{r})(a\eta_t)^2\right]v_tdt + \frac{1}{2}(q_T+\bar{q}_T)v_T,
 \end{equation*}
-and use the terminal condition for $\bar{\eta}^{MFG}_T$, 
-%(see equation (\ref{eq:eta_bar_MFG})), 
+and use the terminal condition for $\bar{\eta}^{MFG}_T$,  
 then equation (\ref{eq:SC_MFG_1}) can be rewritten as:
 \begin{IEEEeqnarray}{rCl}
 SC^{MFG} & = & h_{var} +  \frac{1}{2} \int_0^T \left[ \bar{b}_1 \lambda \bar{\eta}_t^{MFG} + (q+ \bar{q}(1-s)^2) - \lambda (q + \bar{q}(1-s)) \right] (\bar{x}_t^{MFG})^2 dt, \label{eq:SC_MFG_2} \\
 & + & \frac{1}{2} \lambda \left[ \bar{\eta}^{MFG}_0 (\mathbb{E}(\xi))^2 - (q_T+\bar{q}_T(1-s_T)) (\bar{x}_T^{MFG})^2 \right] + \frac{1}{2} (q_T+\bar{q}_T(1-s_T)^2)(\bar{x}_T^{MFG})^2. \nonumber
 \end{IEEEeqnarray}
-%Repeating the same calculation for $\int_0^T (\bar{\eta}^{MKV}_t)^2 (\bar{x}^{MKV}_t)^2 dt$, 
-%(using equations (\ref{eq:eta_bar_MKV}) and (\ref{eq:x_bar_MKV})), 
-%we arrive at:
-%\begin{equation*}
-%\int_0^T (\bar{\eta}^{MKV}_t)^2 (\bar{x}^{MKV}_t)^2 dt=\frac{\bar{\eta}^{MKV}_T (\bar{x}^{MKV}_T)^2 - \bar{\eta}^{MKV}_0 (\mathbb{E}(\xi))^2
-%	+ \int_0^T (q+\bar{q}(1-s)^2) (\bar{x}^{MKV}_t)^2 dt}{c^{MKV}(b_2 + \bar{b}_2)} 
-%\end{equation*}
-%Using the terminal condition for $\bar{\eta}^{MKV}_T$,
-% (see equation (\ref{eq:eta_bar_MKV})), 
 Similarly, equation (\ref{eq:SC_MKV_1}) can be rewritten as:
 \begin{equation}
 SC^{MKV} = h_{var} + \frac{1}{2} \bar{\eta}^{MKV}_0 (\mathbb{E}(\xi))^2.
@@ -666,19 +650,6 @@ Note that $u_t$ is increasing if $B (D^{u})^2 + 2 A^u D^{u} - C^{u}>0$, and like
 		\label{eq:PoA=1_condition_b1_bar=0}
 		\end{equation}
 	\end{itemize}
-	\begin{comment}
-	Namely, $PoA = 1$ if and only if the following two or three conditions hold true:
-	\begin{equation*}
-	\left\{
-	\begin{array}{rcl}
-	\displaystyle \lambda \cdot (q_T + \bar{q}_T(1-s_T) )  &=& q_T + \bar{q}_T (1- s_T)^2\\
-	\displaystyle \lambda \cdot (q+ \bar{q}(1-s)) &=& (q + \bar{q}(1-s)^2) + \bar{b}_1 \cdot (q_T + \bar{q}_T (1 - s_T)^2) 
-	\end{array}
-	\right.
-	\end{equation*}
-	where $\lambda = \frac{b_2}{b_2 + \bar{b}_2}\cdot \frac{ r + \bar{r}(1-\bar{s})^2 }{r + \bar{r}(1-\bar{s})}$, and in the case when $\bar{b}_1 > 0$, there is an additional condition:
-	$$ \frac{(b_2+ \bar{b}_2)^2}{r + \bar{r}(1-\bar{s})^2} ( q_T + \bar{q}_T(1-s_T)^2 )^2 - 2 (b_1 + \bar{b}_1) ( q_T + \bar{q}_T(1-s_T)^2 )  - ( q + \bar{q}(1-s)^2 ) = 0. $$
-	\end{comment}
 	\label{thm:PoA_equivalent_1}
 \end{theorem}
 
@@ -700,8 +671,6 @@ Note that $u_t$ is increasing if $B (D^{u})^2 + 2 A^u D^{u} - C^{u}>0$, and like
 	Since $2(A^u - A^w) = \bar{b}_1$, in the case when $\bar{b}_1 =0$ we must have $C^u = C^w$. Otherwise, equation (\ref{eq:wt=constant}) implies that $u_t = w_t = (C^u - C^w) / \bar{b}_1 $, are constant for all $t \in [0,T]$. Thus, the time derivatives of $u_t$ and $w_t$ should be zero. From equation (\ref{eq:riccati_ut_sol_deriv}), and the fact that $\delta_u^+ - \delta_u^- > 0$, we deduce: 
 	$$ B (D^{u})^2 + 2 A^u D^u - C^u = 0.$$
 	Similarly we also have $B (D^{w})^2 + 2 A^w D^w - C^w = 0$. 
-	
-	%By replacing $(A^u,B, C^u, D^u)$ and $(A^w, B, C^w, D^w)$ with their explicit expressions, we obtain an equivalent condition for $PoA = 1$ in term of the coefficients of the linear quadratic model.
 	
 \end{proof}
 
@@ -731,7 +700,6 @@ $
 	Assume (\ref{eq:assumptions}). In addition, assume: $b_1 > 0$, $D^{u} > 0$, $D^w > 0$, $D^{\eta} >0$ and the initial condition satisfies $\mathbb{E}(\xi) \neq 0$.
 \end{assumption}
 
-% proposition r to infty
 \begin{proposition}
 	Assuming Assumption \ref{assumption}, then:
 	\begin{equation*}
@@ -801,7 +769,6 @@ $
 	By replacing $\lambda^{r \to \infty}$ with $\lambda^{\bar{r} \to \infty}: = \frac{b_2}{b_2 + \bar{b}_2} (1 - \bar{s})$, the proof can be repeated, and we obtain $\displaystyle \lim_{\bar{r} \to \infty} PoA^{\bar{r}} = 1$.
 \end{proof}
 
-% proposition b_2 to \infty
 \begin{proposition}
 	Assume Assumption \ref{assumption}. If:
 	\begin{equation*}
@@ -869,10 +836,7 @@ $
 	\label{eq:ut_wt_upper_bound_b2_infty}
 	\end{equation}
 	and such that the functions $t \mapsto u_t^{b_2}$, $t \mapsto w_t^{b_2}$ and $t \mapsto \eta_t^{b_2}$ are increasing on $[0,T]$. \\
-
-	%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
-	% Case 1: c_u = c_w
-	%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%		
+	
 	\textbf{Case 1:} Assume:
 	\begin{equation*}
 	\frac{q+\bar{q}(1-s)}{r+\bar{r}(1-\bar{s})}=\frac{q+\bar{q}(1-s)^2}{r+\bar{r}(1-\bar{s})^2}.
@@ -944,9 +908,6 @@ $
 	and thus, from equation (\ref{eq:PoA_LQ}):
 	$$ \lim_{b_2 \to \infty} PoA^{b_2} = 1.$$\\
 	
-	%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
-	% case 2: c_u \neq c_w
-	%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 	\textbf{Case 2:} Assume:
 	\begin{equation*}
 	\frac{q+\bar{q}(1-s)}{r+\bar{r}(1-\bar{s})} \neq \frac{q+\bar{q}(1-s)^2}{r+\bar{r}(1-\bar{s})^2}.
@@ -1100,7 +1061,6 @@ The following lemma was used in Proposition \ref{prop:b2_to_infty}.
 \end{proof}
 
 
-%proposition b_2 \to 0
 \begin{proposition}
 	Assume Assumption \ref{assumption}. If $\bar{b}_2= 0$, then:
 	\begin{equation*}
@@ -1155,8 +1115,6 @@ The following lemma was used in Proposition \ref{prop:b2_to_infty}.
 	and thus, $ 0 < \lim_{b_2 \to 0} SC^{MKV,b_2} < \infty.$ We conclude $\lim_{b_2 \to 0} PoA^{b_2} > 1.$
 \end{proof}
 
-
-% proposition b2 bar infinity
 \begin{proposition}
 	Assuming Assumption \ref{assumption}, then:
 	$$ \qquad\lim_{\bar{b}_2 \to \infty} PoA = 1.$$
@@ -1296,25 +1254,10 @@ The following lemma was used in Proposition \ref{prop:b2_to_infty}.
 
 \begin{remark}
 	Consider Assumption \ref{assumption} and the case when $\bar{b}_2$ tends to zero. We have $0< SC^{MKV, \bar{b}_2 \to 0} < \infty$, and therefore, $\lim_{\bar{b}_2 \to 0} PoA^{\bar{b}_2 } =1$ if and only if $\lim_{\bar{b}_2 \to 0} \Delta SC^{\bar{b}_2} = 0$. Since we can pass the limit as in equation (\ref{eq:prop_6_bounded_conv}), we have an analogous result as Theorem \ref{thm:PoA_equivalent_1} but for the limiting coefficients $A^u$, $A^w$, $B^{\bar{b}_2 \to 0}$, $C^{u,\bar{b}_2 \to 0}$, $C^w$, $D^{u,\bar{b}_2 \to 0}$, and $D^w$. Therefore, the assumption in Proposition 4 Case 2, $\frac{r + \bar{r}(1- \bar{s})^2}{r + \bar{r}(1-\bar{s})} \neq \frac{q_T+\bar{q}_T(1-s_T)^2}{q_T+\bar{q}_T(1-s_T)}$, which is equivalent to $D^{u,\bar{b}_2 \to 0} \neq D^w$, is sufficient, but not necessary, in order to have $\lim_{b_2 \to 0}PoA^{b_2}>1$. 
-	
-	\begin{comment}
-	Hence, from equation (\ref{eq:x_bar_neq_0}) and equation (\ref{eq:Delta_SC_LQ_new_notation}), if $\lim_{\bar{b}_2 \to 0} PoA^{\bar{b}_2 } =1$, then for all $t \in [0,T]$:
-	$$u_t^{\bar{b}_2 \to 0} = w_t^{\bar{b}_2 \to 0}.$$
-	From equation (\ref{eq:riccati_limiting_u}) and an analogous Riccati equation for $w_t^{\bar{b}_2 \to 0}$, the above equality is equivalent to:
-	$$D^{u,\bar{b}_2 \to 0} = D^w=:D \quad \text{and} \quad B^{\bar{b}_2 \to 0} D^2 + 2 A^{u}D - C^{u,\bar{b}_2 \to 0} = B^{\bar{b}_2 \to 0} D^2 + 2 A^{w} D - C^w  = 0.$$
-	In other words, the following three equations together imply $\lim_{\bar{b}_2 \to 0} PoA^{\bar{b}_2 } =1$:
-	$$	\frac{r + \bar{r}(1- \bar{s})^2}{r + \bar{r}(1-\bar{s})} = \frac{q_T+\bar{q}_T(1-s_T)^2}{q_T+\bar{q}_T(1-s_T)},
-	\qquad
-	 \bar{b}_1 \frac{q_T + \bar{q}_T(1-s_T)^2}{q + \bar{q}(1-s)^2} =  \frac{r + \bar{r}(1- \bar{s})^2}{r + \bar{r}(1-\bar{s})}\cdot \frac{q + \bar{q}(1-s)}{q + \bar{q}(1-s)^2}-1,
-	$$
-	and
-	$$ \frac{b_2^2}{r + \bar{r}(1-\bar{s})^2} \left(q_T + \bar{q}_T(1- s_T)^2 \right)^2 - 2 (b_1 + \bar{b}_1) \left(q_T + \bar{q}_T(1- s_T)^2 \right) - \left(q + \bar{q}(1- s)^2 \right) = 0.$$\\
-	\end{comment}
 \label{remark_6}
 \end{remark}
 
 
-% proposition b1 and b1 bar
 \begin{proposition}\label{prop:b1_b1bar}
 	Assuming Assumption \ref{assumption}, then:
 	\begin{equation*}
@@ -1463,7 +1406,7 @@ The following lemma was used in Proposition \ref{prop:b2_to_infty}.
 
 
 \subsection{\textbf{Numerical Results}}
-The solutions to the problems we have considered are given by the formulas derived in Appendix \ref{appendix_solving_fbsdes}, which are explicit up to evaluating integrals. Using the simple rectangle rule to estimate integrals, we numerically compute the price of anarchy when the coefficients are time-independent, non-negative, and satisfy Assumption \ref{assumption}. In particular, when we allow for full interaction (i.e. through the states and the controls), we choose the following default values:
+The price of anarchy for the class of linear quadratic extended mean field games that we consider is given by the ratio of the two quantities given by equations (\ref{eq:SC_MFG_1}) and (\ref{eq:SC_MKV_1}), which are explicit, up to evaluating integrals. Using the simple rectangle rule to estimate integrals, we numerically compute the price of anarchy when the coefficients are time-independent, non-negative, and satisfy Assumption \ref{assumption}. In particular, when we allow for full interaction (i.e. through the states and the controls), we choose the following default values:
 
 \begin{equation*}
 \begin{split}
@@ -1513,7 +1456,7 @@ Unless otherwise stated, the parameters stay at these default values. For result
 		\includegraphics[scale=0.5]{PoA_final_b1_0.eps}
 	\end{subfigure}
 	\begin{subfigure}{.45\textwidth}
-		\includegraphics[scale=0.5]{PoA_half_more_steps_b1_2.eps}
+		\includegraphics[scale=0.5]{PoA_final_b1_large.eps}
 	\end{subfigure}
 	\caption{$PoA$ as we vary $b_1$.}
 	\label{fig:b1}
@@ -1524,30 +1467,13 @@ Unless otherwise stated, the parameters stay at these default values. For result
 		\includegraphics[scale=0.5]{PoA_final_b1bar_0.eps}
 	\end{subfigure}
 	\begin{subfigure}{.45\textwidth}
-		\includegraphics[scale=0.5]{PoA_half_more_steps_b1bar.eps} %ToDo (code is running)
+		\includegraphics[scale=0.5]{PoA_final_b1bar_large.eps}
 	\end{subfigure}
 	\caption{$PoA$ as we vary $\bar{b}_1$.}
 	\label{fig:b1bar}
 \end{figure}
 
-Figure \ref{fig:r_rbar} confirms as in Proposition \ref{prop:r_bar_r} that $\lim_{r \to \infty}PoA= 1$ and $\lim_{\bar{r} \to \infty}PoA= 1$. Propositions \ref{prop:b2_to_infty} and \ref{prop:b2_to_0} are confirmed in Figure \ref{fig:b2}. In the case of full interaction, we have $\frac{q + \bar{q}(1-s)}{r + \bar{r}(1-\bar{s})}= \frac{q + \bar{q}(1-s)^2}{r + \bar{r}(1-\bar{s})^2}$ and we see that $\lim_{b_2 \to \infty}PoA= 1$. In the cases of interaction only through the states or interaction only through the controls, $\frac{q + \bar{q}(1-s)}{r + \bar{r}(1-\bar{s})}\neq \frac{q + \bar{q}(1-s)^2}{r + \bar{r}(1-\bar{s})^2}$, and we see that $\lim_{b_2 \to \infty}PoA> 1$. For Proposition \ref{prop:b2_to_0}, when there is only interaction through the states, then $\bar{b}_2=0$ and we see that $\lim_{b_2 \to 0}PoA= 1$. When there is full interaction or only interaction through the controls, then $\bar{b}_2>0$ and we see that $\lim_{b_2 \to 0}PoA>1$. For Proposition \ref{prop:b2bar}, Figure \ref{fig:b2bar} confirms that $\lim_{\bar{b}_2 \to 0}PoA>1$ and $\lim_{\bar{b}_2 \to \infty}PoA= 1$. Note that the condition $\frac{r + \bar{r}(1- \bar{s})^2}{r + \bar{r}(1-\bar{s})} \neq \frac{q_T+\bar{q}_T(1-s_T)^2}{q_T+\bar{q}_T(1-s_T)}$ is not satisfied for the full interaction case, and is therefore a sufficient, but not necessary, assumption. This agrees with the conclusion of Remark \ref{remark_6}. In Figures \ref{fig:b1} and \ref{fig:b1bar}, we note that Proposition \ref{prop:b1_b1bar} is confirmed. The condition $\frac{b_2}{b_2+\bar{b}_2}\cdot \frac{r + \bar{r}(1- \bar{s})^2}{r + \bar{r}(1-\bar{s})}\cdot (q_T+\bar{q}_T(1-s_T)) \neq q_T+\bar{q}_T(1-s_T)^2$ is satisfied for all three interaction cases and we see that $\lim_{b_1 \to 0}PoA >1$, $\lim_{\bar{b}_1 \to 0}PoA>1$, $\lim_{b_1 \to \infty}PoA = 1$, and $\lim_{\bar{b}_1 \to \infty}PoA = \infty$.
-
-\begin{comment}
-\subsection{\textbf{A Particular Example: Flocking}}
-Mean field game models of flocking have been proposed in the literature by Nourian et al \cite{nourian2010synthesis}\cite{nourian2011mean}. Here we consider a slightly different formulation as described in Section 3.6.1 of the book of Carmona and Delarue \cite{Carmona_book}. A representative bird in the flock controls their velocity, $X_t$, through the drift:
-\begin{equation*}
-    b(t,x,\mu,\alpha,\nu)=\alpha.
-\end{equation*}
-Suppose the initial condition is $X_0=1$ and the volatility is $\sigma=1$. They choose their control with two goals in mind: to minimize their effort put into their control, and to align their velocity with the average velocity of the group. Thus, they consider the cost functions given by:
-\begin{equation*}
-\begin{split}
-    f(t,x,\mu,\alpha,\nu)=\frac{1}{2}\left(|x-\bar{\mu}|^2 +\alpha^2 \right), \quad \text{and} \quad g(x,\mu)=0.
-\end{split}
-\end{equation*}
-
-In our general linear quadratic formulation, this is equivalent to taking $\xi \equiv 1$, $b_1=0$, $\bar{b}_1=0$, $b_2=1$, $\bar{b}_2=0$, $q=0$, $\bar{q}=1$, $s=1$, $r=1$, $\bar{r}=0$, $\bar{s}=0$, $q_T=0$, $\bar{q}_T=0$, and $s_T=0$. Note that for these values of the parameters, the assumptions of Theorem \ref{th:exist_uniq} and Corollary \ref{corollary_1} are satisfied. Therefore, $PoA=1$. We also see that $D^u=0=D^w$ and $C^u=0=C^w$, and therefore, Theorem \ref{thm:PoA_equivalent_1} also implies $PoA=1$. In fact, if we took the state space to be $\mathbb{R}^d$ instead of $\mathbb{R}$, the result would still hold.
-\end{comment}
-
+Figure \ref{fig:r_rbar} confirms as in Proposition \ref{prop:r_bar_r} that $\lim_{r \to \infty}PoA= 1$ and $\lim_{\bar{r} \to \infty}PoA= 1$. Propositions \ref{prop:b2_to_infty} and \ref{prop:b2_to_0} are confirmed in Figure \ref{fig:b2}. In the case of full interaction, we have $\frac{q + \bar{q}(1-s)}{r + \bar{r}(1-\bar{s})}= \frac{q + \bar{q}(1-s)^2}{r + \bar{r}(1-\bar{s})^2}$ and we see that $\lim_{b_2 \to \infty}PoA= 1$. In the cases of interaction only through the states or interaction only through the controls, then $\frac{q + \bar{q}(1-s)}{r + \bar{r}(1-\bar{s})}\neq \frac{q + \bar{q}(1-s)^2}{r + \bar{r}(1-\bar{s})^2}$, and we see that $\lim_{b_2 \to \infty}PoA> 1$, confirming Proposition \ref{prop:b2_to_infty}. For Proposition \ref{prop:b2_to_0}, when there is only interaction through the states, then $\bar{b}_2=0$ and we see that $\lim_{b_2 \to 0}PoA= 1$. When there is full interaction or only interaction through the controls, then $\bar{b}_2>0$ and we see that $\lim_{b_2 \to 0}PoA>1$. For Proposition \ref{prop:b2bar}, Figure \ref{fig:b2bar} confirms that $\lim_{\bar{b}_2 \to 0}PoA>1$ and $\lim_{\bar{b}_2 \to \infty}PoA= 1$. Note that the condition $\frac{r + \bar{r}(1- \bar{s})^2}{r + \bar{r}(1-\bar{s})} \neq \frac{q_T+\bar{q}_T(1-s_T)^2}{q_T+\bar{q}_T(1-s_T)}$ is not satisfied for the full interaction case, and is therefore a sufficient, but not necessary, assumption. This agrees with the conclusion of Remark \ref{remark_6}. In Figures \ref{fig:b1} and \ref{fig:b1bar}, we note that Proposition \ref{prop:b1_b1bar} is confirmed. The condition $\frac{b_2}{b_2+\bar{b}_2}\cdot \frac{r + \bar{r}(1- \bar{s})^2}{r + \bar{r}(1-\bar{s})}\cdot (q_T+\bar{q}_T(1-s_T)) \neq q_T+\bar{q}_T(1-s_T)^2$ is satisfied for all three interaction cases and we see that $\lim_{b_1 \to 0}PoA >1$, $\lim_{\bar{b}_1 \to 0}PoA>1$, $\lim_{b_1 \to \infty}PoA = 1$, and $\lim_{\bar{b}_1 \to \infty}PoA = \infty$. Thus, the numerical computations confirm the results presented in Propositions \ref{prop:r_bar_r}-\ref{prop:b1_b1bar}.
 
 \section{\textbf{Conclusion}} \label{sec:conclusion}
 We defined the price of anarchy ($PoA$) in the context of extended mean field games as the ratio of the worst case social cost when the players are in a mean field game equilibrium to the social cost as computed by a central planner. Since the central planner does not require that the players be in a mean field game equilibrium, the central planner will realize a social cost that is no worse than that of a mean field game equilibrium. Thus, $PoA \geq 1$.
@@ -1635,22 +1561,6 @@ E.~Koutsoupias and C.~Papadimitriou.
 J.~M. Lasry and P.~L. Lions.
 \newblock Mean field games.
 \newblock {\em Japanese Journal of Mathematics}, 2(1):229--260, 2007.
-
-\begin{comment}
-\bibitem{nourian2011mean}
-M.~Nourian, P.~E. Caines, and R.~P. Malham{\'e}.
-\newblock Mean field analysis of controlled {C}ucker-{S}male type flocking:
-Linear analysis and perturbation equations.
-\newblock {\em IFAC Proceedings Volumes}, 44(1):4471--4476, 2011.
-
-
-\bibitem{nourian2010synthesis}
-M.~Nourian, P.~E. Caines, and R.~P. Malham{\'e}.
-\newblock Synthesis of {C}ucker-{S}male type flocking via mean field stochastic
-  control theory: {N}ash equilibria.
-\newblock In {\em Communication, Control, and Computing (Allerton), 2010 48th
-  Annual Allerton Conference on}, pages 814--819. IEEE, 2010.
-\end{comment}
 
 \bibitem{nourian2013nash}
 M.~Nourian, P.~E. Caines, R.~P. Malhame, and M.~Huang.
