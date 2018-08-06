@@ -138,10 +138,10 @@ SC(\phi)=\int_0^T<f(t,\,\cdot\,,\cL(X^{\phi}_t),\phi(t,\,\cdot\,),\cL(\phi(t,X^{
 \end{equation*}
 where $\boldsymbol{X^{\phi}}$ satisfies equation (\ref{eq:X}). For the remainder of the paper, we work in the $N=\infty$ regime. As mentioned earlier, $\phi$ should be identified by solving an optimal control problem. We consider two distinct problems:
 \begin{itemize}\itemsep=-2pt
-\item $\phi$ is a feedback function providing a mean field game equilibrium. We detail more precisely what is meant by $\phi$ providing a mean field game equilibrium in Section \ref{sub:MFG_formulation}.
-\item $\phi$ is the feedback function minimizing the social cost $SC(\phi)$, without having to be a mean field game equilibrium, in which case we use the notation $SC^{MKV}$ for $SC(\phi)$. This is a control problem of McKean-Vlasov type, which is detailed more precisely in Section \ref{sub:MKV_formulation}.
+\item $\phi$ is a feedback function providing a mean field game equilibrium. We detail more precisely what is meant by $\phi$ providing a mean field game equilibrium in section \ref{sub:MFG_formulation}.
+\item $\phi$ is the feedback function minimizing the social cost $SC(\phi)$, without having to be a mean field game equilibrium, in which case we use the notation $SC^{MKV}$ for $SC(\phi)$. This is a control problem of McKean-Vlasov type, which is detailed more precisely in section \ref{sub:MKV_formulation}.
 \end{itemize}
-The two problems are detailed more precisely in Sections \ref{sub:MFG_formulation} and \ref{sub:MKV_formulation}. In Section \ref{Price_Of_Anarchy}, we define the price of anarchy based on these two problem formulations. The class of linear quadratic models is explored in Section \ref{sec:PoA_LQ}, where we provide some theoretical results on the price of anarchy for this class of games. This includes our main result, Theorem \ref{thm:PoA_equivalent_1}, which provides a sufficient and necessary condition to have no price of anarchy. In Section \ref{sec:PoA_LQ}, we also prove some limiting cases and show numerical results. We conclude in Section \ref{sec:conclusion}.
+The two problems are detailed more precisely in sections \ref{sub:MFG_formulation} and \ref{sub:MKV_formulation}. In section \ref{Price_Of_Anarchy}, we define the price of anarchy based on these two problem formulations. The class of linear quadratic models is explored in section \ref{sec:PoA_LQ}, where we provide some theoretical results on the price of anarchy for this class of games. This includes our main result, Theorem \ref{thm:PoA_equivalent_1}, which provides a sufficient and necessary condition to have no price of anarchy. In section \ref{sec:PoA_LQ}, we also prove some limiting cases and show numerical results. We conclude in section \ref{sec:conclusion}.
 
 
 \subsection{\textbf{Nash Equilibrium: Mean Field Game Formulation}}
@@ -201,7 +201,7 @@ In other words, there is a `price of anarchy' associated with allowing players t
 \section{\textbf{Price of Anarchy for Linear Quadratic Extended Mean Field Games}}\label{sec:PoA_LQ}
 The class of linear quadratic extended mean field games is a class of problems for which explicit solutions can be computed analytically, and thus, we can compute the price of anarchy explicitly. To the best of our knowledge, the case of linear quadratic extended mean field games has not been explored in the literature, as well as computing the price of anarchy for this class of games.
 
-To begin, we need to describe in more detail the two problems that will be used to compute the price of anarchy: the linear quadratic extended mean field game, and the linear quadratic control problem of McKean-Vlasov type with dependence on the law of the control. To specify the problems, we only need to specify the drift and cost functions, $b$, $f$, and $g$ introduced in Section \ref{se:introduction}. For the linear quadratic models, we take the drift to be linear:
+To begin, we need to describe in more detail the two problems that will be used to compute the price of anarchy: the linear quadratic extended mean field game, and the linear quadratic control problem of McKean-Vlasov type with dependence on the law of the control. To specify the problems, we only need to specify the drift and cost functions, $b$, $f$, and $g$ introduced in section \ref{se:introduction}. For the linear quadratic models, we take the drift to be linear:
 \begin{equation*}
     b(t,x,\mu,\alpha,\nu)=b_1(t)x+\bar{b}_1(t) \bar{\mu}+b_2(t) \alpha+\bar{b}_2(t) \bar{\nu},
 \end{equation*}
@@ -305,7 +305,7 @@ Let $SC^{MFG}:=SC(\phi^{MFG})$ in which $\phi^{MFG}=\phi^{MFG}(t,x)$ is the feed
 \begin{equation*}
     \phi^{MFG}(t,x)=a^{MFG}(t)\eta_t^{MFG}x+\left[a^{MFG}(t)(\bar{\eta}_t^{MFG}-\eta_t^{MFG})+b^{MFG}(t)\bar{\eta}_t^{MFG} \right]\bar{x}_t^{MFG}.
 \end{equation*}
-Then we can compute the social cost as described in Section \ref{sub:MFG_formulation}:
+Then we can compute the social cost as described in section \ref{sub:MFG_formulation}:
 \begin{IEEEeqnarray}{rCl}
     SC^{MFG}&=&\frac{1}{2}\Big[(q_T+\bar{q}_T)v_T^{MFG}+(q_T+\bar{q}_T(1-s_T)^2)(\bar{x}_T^{MFG})^2 \nonumber \\
     && \quad +\int_0^T \left[q(t)+\bar{q}(t)+(r(t)+\bar{r}(t))(a^{MFG}(t)\eta_t^{MFG})^2\right]v_t^{MFG}dt
@@ -406,7 +406,7 @@ Then $SC^{MKV}=SC(\phi^{MKV})$ where $\phi^{MKV}$ is the feedback function speci
 \begin{equation*}
     \phi^{MKV}(t,x)=a^{MKV}(t)\eta_t^{MKV}x+\left[a^{MKV}(t)(\bar{\eta}_t^{MKV}-\eta_t^{MKV})+b^{MKV}(t)\bar{\eta}_t^{MKV} \right]\bar{x}_t^{MKV}.
 \end{equation*}
-Then we can compute the social cost, denoted $SC^{MKV}$, as described in Section \ref{sub:MKV_formulation}:
+Then we can compute the social cost, denoted $SC^{MKV}$, as described in section \ref{sub:MKV_formulation}:
 \begin{IEEEeqnarray}{rCl}
     SC^{MKV}&=&\frac{1}{2}\Big[(q_T+\bar{q}_T)v_T^{MKV}+(q_T+\bar{q}_T(1-s_T)^2)(\bar{x}_T^{MKV})^2 \nonumber \\
     && \quad +\int_0^T \left[q(t)+\bar{q}(t)+(r(t)+\bar{r}(t))(a^{MKV}(t)\eta_t^{MKV})^2\right]v_t^{MKV}dt \label{eq:SC_MKV_0} \\
@@ -463,7 +463,7 @@ Then there exists a unique solution to the LQEMFG problem, and there exists a un
 \end{theorem}
 
 \begin{remark}
-    Note that existence in Theorem \ref{th:exist_uniq} follows from the explicit construction in Appendix \ref{appendix_solving_fbsdes}, because the above conditions provide existence to the solutions of the Riccati equations. Uniqueness comes from the connection between LQEMFG or LQEMKV and deterministic LQ optimal control. (See Section 3.5.1 in \cite{Carmona_book}).
+    Note that existence in Theorem \ref{th:exist_uniq} follows from the explicit construction in Appendix \ref{appendix_solving_fbsdes}, because the above conditions provide existence to the solutions of the Riccati equations. Uniqueness comes from the connection between LQEMFG or LQEMKV and deterministic LQ optimal control. (See section 3.5.1 in \cite{Carmona_book}).
 \end{remark}
 
 \begin{proposition}
@@ -485,7 +485,7 @@ then $PoA=1$.
 \end{proof}
 
 \begin{remark}
-	Recall from Remark \ref{remark_2} that in the standard mean field game, $\bar{b}_2=\bar{r}=0$, and thus, $\lambda=1$. Although Proposition \ref{prop: lq_subtract_FBSDEs} is a simple result, we will see shortly in Corollary \ref{corollary_3} that in the case when $\lambda=1$, the sufficient condition given by equations (\ref{eq:prop_1_1})-(\ref{eq:prop_1_3}) is also a necessary condition to have $PoA=1$. We can see that in the standard mean field game setting, Proposition \ref{prop: lq_subtract_FBSDEs} is similar to Theorem 3.4 in \cite{pierre_poa} which characterizes the global efficiency of MFG equilibria in the case of a separated Hamiltonian. See also Remark 6.1 in \cite{nourian2013nash}, where it is noted that the mean field game and control of McKean-Vlasov type problems are the same for a particular model of flocking.
+	Recall from Remark \ref{remark_2} that in the standard mean field game, $\bar{b}_2=\bar{r}=0$, and thus, $\lambda=1$. Although Proposition \ref{prop: lq_subtract_FBSDEs} is a simple result, we will see shortly in Corollary \ref{corollary_3} that in the case when $\lambda=1$, the sufficient condition given by equations (\ref{eq:prop_1_1})-(\ref{eq:prop_1_3}) is also a necessary condition to have $PoA=1$. We can see that in the standard mean field game setting, Proposition \ref{prop: lq_subtract_FBSDEs} is similar to Theorem 3.4 in \cite{pierre_poa} which characterizes the global efficiency of mean field game equilibria in the case of a separated Hamiltonian. See also Remark 6.1 in \cite{nourian2013nash}, where it is noted that the mean field game and control of McKean-Vlasov type problems are the same for a particular model of flocking.
 \end{remark}
 
 
@@ -587,7 +587,7 @@ Let's denote the (weighted) difference between the solutions of the Riccati equa
 \end{proof}
 
 \begin{remark}
-	We can see directly from Proposition \ref{prop:diff_SC} that the social cost in the LQEMFG problem is larger than (or possibly equal to) the social cost in the LQEMKV problem. This result is consistent with the definition of the price of anarchy in Section \ref{Price_Of_Anarchy}.
+	We can see directly from Proposition \ref{prop:diff_SC} that the social cost in the LQEMFG problem is larger than (or possibly equal to) the social cost in the LQEMKV problem. This result is consistent with the definition of the price of anarchy in section \ref{Price_Of_Anarchy}.
 \end{remark}
 
 Note that we can write:
@@ -1600,7 +1600,7 @@ Consider a linear FBSDE system of McKean-Vlasov type:
 \end{split}
 \label{eq:FBSDE_general}
 \end{equation}
-For the LQEMFG model considered in Section \ref{sec:EMFG}, the FBSDE system in equation (\ref{eq:FBSDE_EMFG}) is of the form of equation (\ref{eq:FBSDE_general}) if we set:
+For the LQEMFG model considered in section \ref{sec:EMFG}, the FBSDE system in equation (\ref{eq:FBSDE_EMFG}) is of the form of equation (\ref{eq:FBSDE_general}) if we set:
 \begin{equation*}
 \begin{split}
     &a^x_t=b_1(t),\ a^{\bar{x}}_t=\bar{b}_1(t),\ a^y_t=a^{MFG}(t)b_2(t),\ a^{\bar{y}}_t=b^{MFG}(t)b_2(t)+c^{MFG}(t)\bar{b}_2(t) \\
@@ -1608,7 +1608,7 @@ For the LQEMFG model considered in Section \ref{sec:EMFG}, the FBSDE system in e
     &c^x_t=q_T+\bar{q}_T,\ c^{\bar{x}}_t=-\bar{q}_Ts_T.
 \end{split}
 \end{equation*}
-For the LQEMKV model considered in Section \ref{sec:EMKV}, the FBSDE system in equation (\ref{eq:FBSDE_EMKV}) is of the form of equation (\ref{eq:FBSDE_general}) if we set:
+For the LQEMKV model considered in section \ref{sec:EMKV}, the FBSDE system in equation (\ref{eq:FBSDE_EMKV}) is of the form of equation (\ref{eq:FBSDE_general}) if we set:
 \begin{equation*}
 \begin{split}
     &a^x_t=b_1(t),\ a^{\bar{x}}_t=\bar{b}_1(t),\ a^y_t=a^{MKV}(t)b_2(t),\ a^{\bar{y}}_t=b^{MKV}(t)b_2(t)+c^{MKV}(t)\bar{b}_2(t) \\

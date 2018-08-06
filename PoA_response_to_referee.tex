@@ -1,7 +1,7 @@
-\documentclass[]{article}
+\documentclass[11pt]{article}
+\usepackage{fullpage}
 \usepackage{amssymb}
 
-%opening
 \title{Response to Referee}
 \author{}
 
@@ -13,32 +13,31 @@ We would like to thank the reviewer for their remarks. We have addressed each of
 
 \hspace{-7mm} \textbf{Main Points:}
 \begin{enumerate}
-	\item This was a good suggestion. We have added equations (3)-(7) on page 7, and equations (9)-(13) on page 8, and we refer to these equations often. In the same vein we have added equations (26)-(29) on pages 13-14, which are used frequently in Propositions 3-7.
-	\item Since the Hamiltonian depends on the scalars $\bar{\mu}$ and $\bar{\nu}$, instead of the full measures, the derivative in the measure argument greatly simplifies. On page 8 line 6, we refer to section 4 in [5], where they write what this condition should be in the linear quadratic case. On page 8 lines 7 and 8, the derivative is a standard derivative and does not need explaining further. There was a typo in the previous version that may have caused confusion, where we mistakenly wrote $\partial_{\mu}$ instead of $\partial_{\bar{\mu}}$.
-	
+	\item This was a good suggestion. We have added equations (5)-(9) on page 7, and equations (13)-(17) on page 9, and we refer to these equations often. In the same vein we have added equations (41)-(44) on page 15, which are used frequently in Propositions 3-7.
+	\item There was a typo in the previous version that may have caused confusion, where we mistakenly wrote $\partial_{\mu}$ instead of $\partial_{\bar{\mu}}$. Since the Hamiltonian depends on the scalars $\bar{\mu}$ and $\bar{\nu}$, instead of the full measures, the derivative in the measure argument greatly simplifies. On page 8 lines 10-12, we refer to section 4 in [5], where they write what this condition should be in the linear quadratic case. On page 8 lines 13 and 15, the derivative is a standard derivative and does not need explaining further. 
 	\item We have made many modifications in the computation of
 	 $$\int_0^T (\bar{\eta}^{MFG}_t)^2 (\bar{x}^{MFG}_t)^2dt$$
-	  on pages 10-11 to make it much more readable. Whereas we previously dropped the superscripts $MFG$ and $MKV$ to address both simultaneously, we now show the computation fully for the $MFG$ case. Then after the computation, we state on page 11 line -5: `Repeating the calculation for $\int_0^T (\bar{\eta}^{MKV}_t)^2 (\bar{x}^{MKV}_t)^2dt$... we arrive at...' and we provide the result for the $MKV$ case. We now only use the notation introduced thus far, instead of mixing in the notation from the appendix, which could cause confusion. We also take the suggestion from the reviewer of explicitly writing the end result of our computation. Also, we now give an explanation for each step of the calculation. Finally, we separated the equations in the former equation (7) and give more explanation for how they are derived. They are now equations (18) and (19) in the final version. And yes, there should not have been a $t$ in $h_{var}$. We believe pages 10-11 should be much easier to follow in their present form.
+	  on pages 11-12 to make it much more readable. Whereas we previously dropped the superscripts $MFG$ and $MKV$ to address both problems simultaneously, we now show the computation fully for the $MFG$ case. Since the computation can be done in the exact same way for the $MKV$ case, we omit it.
 	  
-	\item Yes, it is correct that there is a square in the definitions of $C^w$ and $D^w$ that doesn't appear in the definitions of $C^u$ and $C^w$. This was overlooked by the authors. %If we were to rewrite Corollary 3 with the correct condition to have $(A^u,B^u,C^u,D^u)=(A^w,B^w,C^w,D^w)$, it would not be substantially different from Corollary 1 and thus, we dropped Corollary 3.
+	  We now only use the notation introduced thus far, instead of mixing in the notation from the appendix, which could cause confusion. We also take the suggestion from the reviewer of explicitly writing the end result of the computation, which is given by page 12 line 2. Also, we now give an explanation for each step of the calculation. Finally, we separated the equations in the former equation (7). They are now equations (27) and (28) in the final version, and they should be easy to follow now that the above computation is more clear. And yes, there should not have been a $t$ in $h_{var}$. Pages 11-12 should be much easier to follow in their present form.
+	  
+	\item Yes, it is correct that there is a square in the definitions of $C^w$ and $D^w$ that doesn't appear in the definitions of $C^u$ and $C^w$. This was overlooked by the authors.
 	
-	We replace Corollary 3 by another result Theorem 2 in which we provide an equivalent condition for $PoA = 1$. We also propose a corollary afterwards (see Corollary 3 in the new version) and point out its connection to Proposition 1. This new Corollary 3 actually indicates that for the standard mean field games, there is no price of anarchy if and only if the FBSDE systems (4) and (12) are identical to one another.
+	We replace Corollary 3 by another result, Theorem 2, which provides a necessary and sufficient condition to have $PoA = 1$. We also propose a corollary afterwards (see Corollary 3 in the new version) and point out its connection to Proposition 1. This new Corollary 3 indicates that for the standard mean field game setting, the sufficient conditions in Proposition 1 are also necessary to have $PoA=1$.
 		
 	
-	\item We specify that the convergence in Proposition 3 is of pointwise convergence for every $t \in [0,T]$ when $r \to \infty$. In order to apply the bounded convergence theorem, we provide an explicit uniform upper-bound for $\vert u_t^{r} \vert $. This uniform upper-bound is independent of $t$ and $r$ when $r$ is large enough, and it is obtained by maximizing the numerator and minimizing the denominator of equation (35). Indeed, from equation (36), we notice that the solution to Riccati equation is monotone over $[0,T]$. By consequence, the idea is to bound $\vert u_0^r \vert$ and $\vert u_T^r \vert$ from above independent of $r$. The uniform upper-bound in Proposition 3 is written in a more concise manner.
+	\item In Proposition 3, we specify that the limits as $r \to \infty$ are pointwise for every $t \in [0,T]$. In order to apply the bounded convergence theorem, we provide an explicit uniform upper-bound for $\vert u_t^{r} \vert $ for all $t\in[0,T]$ and $r\geq r^*$. This uniform upper-bound is obtained by upper-bounding the numerator and lower-bounding the denominator of equation (36). Similar techniques are used throughout Propositions 3-7 to provide uniform bounds for any time that we use the bounded convergence theorem.
 	
-	\item Yes, in this specific example, there should be an additional constant term, depending on $t$, in the power of exponential when we tried to determine the equivalence of $\bar{x}_t^{MFG}$ when $b_2 \to \infty$.
-	
-	In this asymptotic regime, we observe that both $\Delta SC^{b2}$ and $SC^{MKV,b2}$ tend towards $0$. By consequence, in order to compute the limit of $PoA$, we need to compare the rate of convergence in terms of $b_2$ for these two quantities. We notice that the use of big $\mathcal{O}$ creates a lot of ambiguities and imprecisions in Proposition 4, especially when we need to keep trace of the quantity $c_u -c_w$ inside some big $\mathcal{O}$s along the proof. Hence, we decide to rewrite the whole proof in the scope of $\delta-\epsilon$ approach. The idea used in the new proof of Proposition 4 remains exactly the same as in its previous version, however, the techniques involved are more subtle. In short, we provide some explicit upper-bounds and lower-bounds for $(b_2 + \bar{b}_2) \Delta SC^{b_2}$ and $b_2 \cdot SC^{MKV,b_2}$ in order to justify the limit of $PoA$ when $b_2 \to \infty$.
+	\item Yes, the use of big $\mathcal{O}$ created a lot of ambiguities and imprecisions in Proposition 4. Hence, we decide to rewrite the whole proof using a $\delta-\epsilon$ approach. The main ideas used in the new proof of Proposition 4 remain exactly the same as in its previous version. However, the techniques involved are more subtle. In short, we provide some explicit upper-bounds and lower-bounds for $(b_2 + \bar{b}_2) \Delta SC^{b_2}$ and $b_2 \cdot SC^{MKV,b_2}$ in order to justify the limit of $PoA$ when $b_2 \to \infty$.
 	
 	More precisely, in the case when $\frac{q + \bar{q}(1-s)}{r + \bar{r}(1-\bar{s}) } = \frac{q + \bar{q}(1-s)^2}{r + \bar{r}(1-\bar{s})^2}$, or equivalently $c_u = c_w$, we show that for any given $\epsilon > 0$, there exists $b_2^*>0$ such that for all $b_2 \geq b_2^{*}$, we have the inequalities $(b_2 + \bar{b}_2) \Delta SC^{b_2} \leq 2\epsilon$ and 
-	$(b_2 + \bar{b}_2) SC^{MKV,b_2} \geq constant > 0$ (see equations (47)-(49).) Thus we conclude that $PoA \to 1$ when $b_2 \to \infty$.
+	$(b_2 + \bar{b}_2) SC^{MKV,b_2} \geq constant > 0$ (see equations (48)-(50).) Thus we conclude that $PoA \to 1$ when $b_2 \to \infty$.
 		
-	In the case when $c_u \neq c_w$, we show that there exists $b_2^{*,case2}>0$ such that we can bound from below $(b_2 + \bar{b_2}) \Delta SC^{b_2}$ by a constant $c_{num}>0$ independent of $b_2$ (see equation (50)). Meanwhile, we can also bound from above the term $b_2 \cdot SC^{MKV,b_2}$ (see equation (51)-(57) and Lemma 1) by: 
+	In the case when $c_u \neq c_w$, we show that there exists $b_2^{*,case2}>0$ such that we can bound from below $(b_2 + \bar{b_2}) \Delta SC^{b_2}$ by a constant $c_{num}>0$ independent of $b_2$ (see equation (51)). Meanwhile, we can also bound from above the term $b_2 \cdot SC^{MKV,b_2}$ (see equation (52)-(58) and Lemma 1) by: 
 	$$ b_2 \cdot SC^{MKV,b_2} = J_1 + J_2 \leq M_{J_1} + M_{J_2}.$$
-	Hence, the Price of Anarchy can be bounded from below by a constant strictly greater than $1$ and independent of $b_2$ in the asymptotic regime $b_2 \to \infty$.	
+	Hence, the price of anarchy can be bounded from below by a constant strictly greater than $1$ and independent of $b_2$ in the asymptotic regime $b_2 \to \infty$.	
 	 
-	\item We added a sentence at the beginning of section 2.4 on page 27 stating that we use a simple rectangular integration rule to numerically compute integrals.
+	\item We added two sentences at the beginning of section 2.4 on page 32 stating that we compute equations (25) and (26) using a simple rectangular integration rule to numerically compute integrals.
 \end{enumerate}
 
 \hspace{-7mm} \textbf{Minor Points:}
@@ -47,15 +46,15 @@ We would like to thank the reviewer for their remarks. We have addressed each of
 	\item We changed `its' to `their' to have consistent pronoun usage.
 	\item We added `game'.
 	\item We have used the pronoun `their' throughout the text, so we will continue to use it here.
-	\item The missing parenthesis have been added.
-	\item We agree. Now page 6 line 10 reads `According to the Pontryagin stochastic maximum principle, a sufficient condition for optimality is...'
-	\item Yes, this was a typo. On page 6 line 13, we have replaced $x$ by $X_t$. At this point, the fixed point is not addressed, and the control is the best response when the mean field is fixed. So we should not yet replace $\bar{\mu}$ and $\bar{\nu}$.
-	\item On page 6 line -6, we have added: `Note $c^{MFG}(t)=a^{MFG}(t)+b^{MFG}(t)$.' We also added `Note $c^{MKV}(t)=a^{MKV}(t)+b^{MKV}(t)$.' on page 8 line -12.
+	\item The missing parenthesis has been added.
+	\item We agree. Now page 6 line 15 reads `According to the Pontryagin stochastic maximum principle, a sufficient condition for optimality is...'
+	\item Yes, this was a typo. Since equation (2) is before addressing the fixed point and not yet in the feedback form $\hat{\alpha}_t=\phi(t,X_t)$, we only write $\hat{\alpha}_t=\frac{\bar{r}(t)\bar{s}(t)\bar{\nu}-b_2(t)Y_t}{r(t)+\bar{r}(t)}$ to avoid confusion.
+	\item On page 6 line -4, we have added: `Note that $c^{MFG}(t)=a^{MFG}(t)+b^{MFG}(t)$.' We also added `$c^{MKV}(t)=a^{MKV}(t)+b^{MKV}(t)$' on page 8 line -8.
 	\item The extra parenthesis has been removed.
-	\item We have added equation (6) and refer to it in the proof of Corollary 2, page 13 line 2. And yes, it should have been $\bar{x}_t^{MFG}$.
+	\item We moved Corollary 2 (which was previously a consequence of Proposition 2) to after Corollary 1 (since it is also a consequence of Proposition 1, if we refer to $\bar{x}_t^{MKV}$ instead of $\bar{x}_t^{MFG}$). We have added equation (16) and refer to it in the proof of Corollary 2 on page 11, and we include the superscript of $\bar{x}_t^{MKV}$ which was previously missing.
 	\item We changed `tends' to `tend'.
-	\item In the proof of Proposition 3, page 15 line -6, we replaced the limit of $v^r_t$ with our new notation $v^{r \to \infty}_t$.
-	\item Yes, this was a typo. These values were indeed after taking the limit. The limits in a slightly different presentation now appear in the proof of Proposition 5 Case 2, page 19 line 12.
+	\item In the proof of Proposition 3, page 16 line -6, we replaced the limit of $v^r_t$ with our new notation $v^{r \to \infty}_t$.
+	\item Yes, this was a typo. These values were indeed after taking the limit. The limits in a slightly different presentation now appear in the proof of Proposition 5 Case 2, page 24 line -8.
 \end{enumerate}
 
 \hspace{-7mm} In addition to the suggested revisions, we have also made the following minor modifications:
@@ -63,6 +62,6 @@ We would like to thank the reviewer for their remarks. We have addressed each of
 	\item 
 \end{enumerate}
 
-Finally, we would like to acknowledge that the length of our paper has increased from 26 pages at submission to 33 pages for the final version. The issues in our proofs raised by the reviewer required us to write many more details, and in some cases, new approaches altogether. We feel that the increase in length was necessary to address all of the issues pointed out by the reviewer. (ToDo: Is this comment necessary?)
+Finally, we would like to acknowledge that the length of our paper has increased from 26 pages at submission to 38 pages for the final version. The issues in our proofs raised by the reviewer required us to write many more details, and in some cases, new approaches altogether. We feel that the increase in length was necessary to address all of the issues pointed out by the reviewer.
 
 \end{document}
