@@ -236,7 +236,9 @@ and whenever the flows $\bmubar=(\bar{\mu}_t)_{0\leq t\leq T}$ and $\bnubar=(\ba
     \qquad
     Y_T=\partial_xg(X_T, \cL(X_T)).
 \end{equation*}
-According to the Pontryagin stochastic maximum principle, a sufficient condition for optimality is $\partial_{\alpha}H(t,X_t,\bar{\mu}_t,\hat{\alpha}_t,\bar{\nu}_t,Y_t)=0$. Thus, we find the optimal control:
+According to the Pontryagin stochastic maximum principle, a sufficient condition for optimality is:
+$$\partial_{\alpha}H(t,X_t,\bar{\mu}_t,\hat{\alpha}_t,\bar{\nu}_t,Y_t)=0.$$
+Thus, we find the optimal control:
 \begin{equation}
     \hat{\alpha}_t=\frac{\bar{r}(t)\bar{s}(t)\bar{\nu}-b_2(t)Y_t}{r(t)+\bar{r}(t)}.
 \label{eq:MFG_opt_alpha_Pontryagin}
@@ -525,8 +527,7 @@ then using integration by parts for the first term in the bracket:
 \end{align*}
 and together with equation (\ref{eq:x_bar_MFG}) yields:
 \begin{align*}
-\Lambda= 2 \Lambda  - \frac{1}{c^{MFG}(b_2 + \bar{b}_2)} \Bigg[ & \bar{\eta}^{MFG}_T (\bar{x}^{MFG}_T)^2 - \bar{\eta}^{MFG}_0 (\mathbb{E}(\xi))^2 \\
-&+ \int_0^T  \left[-\bar{b}_1 \bar{\eta}^{MFG}_t +(q+\bar{q}(1-s))\right] (\bar{x}^{MFG}_t)^2 dt \Bigg].
+\Lambda= 2 \Lambda  - \frac{1}{c^{MFG}(b_2 + \bar{b}_2)} \Bigg[ \bar{\eta}^{MFG}_T (\bar{x}^{MFG}_T)^2 - \bar{\eta}^{MFG}_0 (\mathbb{E}(\xi))^2 + \int_0^T  \left[-\bar{b}_1 \bar{\eta}^{MFG}_t +(q+\bar{q}(1-s))\right] (\bar{x}^{MFG}_t)^2 dt \Bigg].
 \end{align*}
 Finally, we arrive at:
 \begin{align*}
