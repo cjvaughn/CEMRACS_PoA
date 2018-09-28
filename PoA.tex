@@ -97,7 +97,7 @@ We also assume that if and when interactions between these states and controls a
 \begin{equation*}
     dX^i_t=b(t,X^i_t,\mu^N_t,\alpha^i_t,\nu^N_t)dt+\sigma dW_t.
 \end{equation*}
-We work over the interval $[0,T]$ limited by a finite time horizon $T \in \mathbb{R}^+$. We assume the drift function $b:[0,T] \times \mathbb{R} \times \cP(\mathbb{R}) \times \mathbb{A} \times \cP(\mathbb{A}) \ni (t,x,\mu,\alpha,\nu)  \rightarrow \mathbb{R}$ is Lipschitz in each of it's inputs. For the sake of simplicity, we assume that the volatility, $\sigma$, is a positive constant.
+We work over the interval $[0,T]$ limited by a finite time horizon $T \in \mathbb{R}^+$. We assume the drift function $b:[0,T] \times \mathbb{R} \times \cP(\mathbb{R}) \times \mathbb{A} \times \cP(\mathbb{A}) \ni (t,x,\mu,\alpha,\nu)  \rightarrow \mathbb{R}$ is Lipschitz in each of its inputs. For the sake of simplicity, we assume that the volatility, $\sigma$, is a positive constant.
 
 \subsubsection*{\textbf{Cost Functionals}}
 We assume that we are given two functions $f:[0,T] \times \mathbb{R} \times \cP(\mathbb{R}) \times \mathbb{A} \times \cP(\mathbb{A}) \ni (t,x,\mu,\alpha, \nu) \rightarrow \mathbb{R}$ and $g:\mathbb{R}\times \cP(\mathbb{R}) \ni (x,\mu) \rightarrow \mathbb{R}$ which we call running and terminal cost functions, respectively. We assume $f$ and $g$ are Lipschitz in each of their arguments. The goal of player $i$ is to minimize their expected cost as given by:
@@ -121,7 +121,8 @@ We shall compute this social cost in the limit $N\to\infty$ when all the players
 \bigg],
 \end{split}
 \end{equation*}
-if we use the notation $<\varphi,\rho>$ for the integral $\int \varphi(z)\rho(dz)$ of the function $\varphi$ with respect to the measure $\rho$. Now if we assume that in the limit $N\to\infty$ the empirical distributions $\mu^N_{t}$ converge toward a measure $\mu_t$, and thus $\nu^N_{t}=\frac1N\sum_{i=1}^N\delta_{\phi(t,X^i_t)}$ also converges toward a measure $\nu_t$, then the social cost of the feedback function $\phi$ becomes:
+if we use the notation $<\varphi,\rho>$ for the integral $\int \varphi(z)\rho(dz)$ of the function $\varphi$ with respect to the measure $\rho$. Now if we assume that in the limit $N\to\infty$ the empirical distributions $\mu^N_{t}$ converge toward a measure $\mu_t$, and thus $\nu^N_{t}=\frac1N\sum_{i=1}^N\delta_{\phi(t,X^i_t)}$ also converges toward a measure $\nu_t$, where
+$\nu_t=\mu_t \circ \phi(t,\cdot)^{-1}$, then the social cost of the feedback function $\phi$ becomes:
 \begin{equation*}
 SC(\phi)=\int_0^T<f(t,\,\cdot\,,\mu_t,\phi(t,\,\cdot\,),\nu_t),\mu_t>\,dt \;+\; <g(\,\cdot\,,\mu_T),\mu_T>,
 \end{equation*}
@@ -509,24 +510,23 @@ Using the observations in equation (\ref{eq:observations}), we can rewrite:
     &&+\frac{1}{2}\int_0^T\left[q+\bar{q}(1-s)^2+(r+\bar{r}(1-\bar{s})^2)(c^{MKV}\bar{\eta}_t^{MKV})^2\right)](\bar{x}_t^{MKV})^2dt.
 	\label{eq:SC_MKV_1}
 \end{IEEEeqnarray}
-In the following, we intend to simplify the explicit solutions (\ref{eq:SC_MFG_1}) and (\ref{eq:SC_MKV_1}) for the social costs in the LQEMFG and LQEMKV problems. First, consider the quantity $\int_0^T (\bar{\eta}^{MFG}_t)^2 (\bar{x}^{MFG}_t)^2 dt$. Using equation (\ref{eq:eta_bar_MFG}), we have:
+In the following, we intend to simplify the explicit solutions (\ref{eq:SC_MFG_1}) and (\ref{eq:SC_MKV_1}) for the social costs in the LQEMFG and LQEMKV problems. First, consider the quantity $\Lambda :=\int_0^T (\bar{\eta}^{MFG}_t)^2 (\bar{x}^{MFG}_t)^2 dt$. Using equation (\ref{eq:eta_bar_MFG}), we have:
 \begin{align*}
-&\int_0^T (\bar{\eta}^{MFG}_t)^2 (\bar{x}^{MFG}_t)^2 dt\\
-&= - \frac{1}{c^{MFG}(b_2 + \bar{b}_2)} \left[ \int_0^T \dot{\bar{\eta}}^{MFG}_t (\bar{x}^{MFG}_t)^2 dt +  \int_0^T \left[(2b_1 + \bar{b}_1) \bar{\eta}^{MFG}_t +(q+\bar{q}(1-s))\right] (\bar{x}^{MFG}_t)^2 dt \right],
+&\Lambda= - \frac{1}{c^{MFG}(b_2 + \bar{b}_2)} \left[ \int_0^T \dot{\bar{\eta}}^{MFG}_t (\bar{x}^{MFG}_t)^2 dt +  \int_0^T \left[(2b_1 + \bar{b}_1) \bar{\eta}^{MFG}_t +(q+\bar{q}(1-s))\right] (\bar{x}^{MFG}_t)^2 dt \right],
 \end{align*}
 then using integration by parts for the first term in the bracket:
 \begin{align*}
- =  -\frac{ 1}{c^{MFG}(b_2 + \bar{b}_2)} \Bigg[  & \bar{\eta}^{MFG}_T(\bar{x}^{MFG}_T)^2 -\bar{\eta}^{MFG}_0(\bar{x}^{MFG}_0)^2 -2\int_0^T\bar{\eta}^{MFG}_t\bar{x}^{MFG}_t \cdot \dot{\bar{x}}^{MFG}_t dt \\
+ \Lambda=  -\frac{ 1}{c^{MFG}(b_2 + \bar{b}_2)} \Bigg[  & \bar{\eta}^{MFG}_T(\bar{x}^{MFG}_T)^2 -\bar{\eta}^{MFG}_0(\bar{x}^{MFG}_0)^2 -2\int_0^T\bar{\eta}^{MFG}_t\bar{x}^{MFG}_t \cdot \dot{\bar{x}}^{MFG}_t dt \\
 & + \int_0^T \left[(2b_1 + \bar{b}_1) \bar{\eta}^{MFG}_t +(q+\bar{q}(1-s))\right] (\bar{x}^{MFG}_t)^2 dt \Bigg],
 \end{align*}
 and together with equation (\ref{eq:x_bar_MFG}) yields:
 \begin{align*}
-= 2 \int_0^T (\bar{\eta}^{MFG}_t)^2 (\bar{x}^{MFG}_t)^2dt  - \frac{1}{c^{MFG}(b_2 + \bar{b}_2)} \Bigg[ & \bar{\eta}^{MFG}_T (\bar{x}^{MFG}_T)^2 - \bar{\eta}^{MFG}_0 (\mathbb{E}(\xi))^2 \\
+\Lambda= 2 \Lambda  - \frac{1}{c^{MFG}(b_2 + \bar{b}_2)} \Bigg[ & \bar{\eta}^{MFG}_T (\bar{x}^{MFG}_T)^2 - \bar{\eta}^{MFG}_0 (\mathbb{E}(\xi))^2 \\
 &+ \int_0^T  \left[-\bar{b}_1 \bar{\eta}^{MFG}_t +(q+\bar{q}(1-s))\right] (\bar{x}^{MFG}_t)^2 dt \Bigg].
 \end{align*}
 Finally, we arrive at:
 \begin{align*}
-\int_0^T (\bar{\eta}^{MFG}_t)^2 (\bar{x}^{MFG}_t)^2 dt= \frac{ \bar{\eta}^{MFG}_T (\bar{x}^{MFG}_T)^2 - \bar{\eta}^{MFG}_0 (\mathbb{E}(\xi))^2 + \int_0^T  \left[-\bar{b}_1 \bar{\eta}^{MFG}_t+(q+\bar{q}(1-s))\right] (\bar{x}^{MFG}_t)^2 dt}{c^{MFG}(b_2 + \bar{b}_2)}.
+\Lambda= \frac{ \bar{\eta}^{MFG}_T (\bar{x}^{MFG}_T)^2 - \bar{\eta}^{MFG}_0 (\mathbb{E}(\xi))^2 + \int_0^T  \left[-\bar{b}_1 \bar{\eta}^{MFG}_t+(q+\bar{q}(1-s))\right] (\bar{x}^{MFG}_t)^2 dt}{c^{MFG}(b_2 + \bar{b}_2)}.
 \end{align*}
 If we denote:
 \begin{equation*}
@@ -598,9 +598,9 @@ PoA =1+ \frac{\Delta SC}{SC^{MKV}}.
 
 It will be useful for us to note here the scalar Riccati equations associated with $u_t = \lambda \bar{\eta}_t^{MFG}$, $w_t = \bar{\eta}_t^{MKV}$ and $\eta_t$:
     \begin{IEEEeqnarray}{lLLLClClCl}
-		\dot{u}_t &- 2A^u u_t &- B u_t^2 &+ C^u &= & 0, &\qquad& u_T &=& D^u,
+		\dot{u}_t &- 2A^u u_t &- B^u u_t^2 &+ C^u &= & 0, &\qquad& u_T &=& D^u,
 		\label{eq:riccati_ut} \\
-	    \dot{w}_t &- 2A^w w_t &- B w_t^2 &+ C^w &=&0, &\qquad &w_T &= & D^w,
+	    \dot{w}_t &- 2A^w w_t &- B^w w_t^2 &+ C^w &=&0, &\qquad &w_T &= & D^w,
 		\label{eq:riccati_wt}\\
 	    \dot{\eta}_t &- 2A^\eta \eta_t &- B^\eta \eta_t^2 &+ C^\eta &= & 0, &\qquad& \eta_T &= &D^\eta,
 	\label{eq:riccati_etat}
